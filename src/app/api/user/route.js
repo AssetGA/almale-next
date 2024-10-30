@@ -8,7 +8,7 @@ export async function GET(request) {
   try {
     const list = await User.find();
     const newList = list.map((elem) => {
-      return { _id: elem._id, email: elem.email };
+      return { _id: elem._id };
     });
     return NextResponse.json(newList, { status: 200 });
   } catch (e) {
