@@ -1,0 +1,10 @@
+{
+  "/api/user/route": "app/api/user/route.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/_not-found/page": "app/_not-found/page.js",
+  "/api/user/getApi/route": "app/api/user/getApi/route.js",
+  "/api/product/route": "app/api/product/route.js",
+  "/api/auth/verify/route": "app/api/auth/verify/route.js",
+  "/[lang]/page": "app/[lang]/page.js",
+  "/[lang]/basket/page": "app/[lang]/basket/page.js"
+}
