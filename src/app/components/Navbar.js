@@ -46,8 +46,8 @@ const Navbar = ({ lang, t }) => {
                   src={"/img/logo1.png"}
                   width={100}
                   height={30}
-                  alt="Logo"
-                  className="px-5 sm:px-0 w-[180px] h-[20px]"
+                  alt="Logo Almale"
+                  className="px-5 sm:px-0 w-[200px] h-[20px]"
                 />
               </a>
             </button>

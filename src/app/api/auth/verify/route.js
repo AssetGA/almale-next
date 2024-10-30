@@ -15,7 +15,6 @@ export async function POST(request) {
     const number = randomNumber.getNumber();
     const userChecks = await UserChecks.findOne({ email: email });
     if (userFind !== null) {
-      console.log("userCheck", userChecks);
       if (userChecks === null) {
         await UserChecks.create({
           name: name,
@@ -34,7 +33,6 @@ export async function POST(request) {
       sendVerificationMail(userFind, number).catch(console.error);
       return NextResponse.json({ content: null }, { status: 200 });
     } else {
-      console.log("userCheck", userChecks);
       if (userChecks !== null) {
         const updateUser = await UserChecks.findByIdAndUpdate(
           userChecks._id,
@@ -71,11 +69,8 @@ export async function PATCH(request) {
   try {
     const { code, mobile, name, email, street, city, postalCode } =
       await request.json();
-    console.log("email", email, mobile);
     const userFind = await User.findOne({ email: email });
-    console.log("find", userFind);
     if (userFind === null) {
-      console.log("in");
       const user = {
         name: name,
         email: email,
@@ -86,7 +81,6 @@ export async function PATCH(request) {
       };
       const checkUser = await UserChecks.findOne({ email: email });
       const a = code === checkUser.num;
-      console.log("a", a, "/", user, "/", checkUser);
       if (a) {
         try {
           await checkUser.deleteOne();

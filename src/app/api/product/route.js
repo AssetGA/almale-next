@@ -34,13 +34,3 @@ export async function GET(request) {
     );
   }
 }
-
-export async function POST(request) {
-  await connectToDataBase();
-
-  const data = await request.json();
-  const newProduct = new Product(data);
-
-  await newProduct.save();
-  return NextResponse.json(newProduct);
-}

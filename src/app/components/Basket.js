@@ -16,8 +16,10 @@ import {
   Verify,
 } from "../store/users";
 import { deliveries } from "../utils/api";
+import { useRouter } from "next/navigation";
 
 const Basket = ({ lang, t }) => {
+  const router = useRouter();
   const store = useAppStore();
   const initialized = useRef(false);
   if (!initialized.current) {
@@ -28,9 +30,7 @@ const Basket = ({ lang, t }) => {
   const dispatch = useAppDispatch();
   const { entity } = useAppSelector((state) => state.product);
   const { error, auth, api, userId } = useAppSelector((state) => state.users);
-
-  console.log("api", api, "auth", auth, "userId", userId);
-
+  // const { send, errorOrder } = useAppSelector((state) => state.orderRedux);
   const product = entity.length === 0 ? null : entity[0];
 
   const [address, setAddress] = useState({
@@ -164,8 +164,9 @@ const Basket = ({ lang, t }) => {
       })
     );
 
-    window.location.assign(`${api}`);
+    window.open(`${api}`);
     dispatch(UnauthorizeUser());
+    router.push(`/${lang}/#production`);
   };
 
   const handleBack = () => {
