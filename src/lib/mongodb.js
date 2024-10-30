@@ -8,7 +8,8 @@ export const connectToDataBase = async () => {
     return;
   }
   try {
-    await mongoose.connect(process.env.MONGODB_URL, {
+    // MOGODB.URL заменил на MONGODB_URI подключение vercel mongo
+    await mongoose.connect(process.env.MONGODB_URI, {
       dbName: "test",
     });
     isConnected = true;
