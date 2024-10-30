@@ -11,12 +11,10 @@ const httpAuth = axios.create({
 const authService = {
   verify: async (payload) => {
     const { data } = await httpAuth.post(`verify`, payload);
-    console.log("dataauth", data);
     return data;
   },
   verifyGet: async (payload) => {
     const { data } = await httpAuth.patch("verify", payload);
-    console.log("dataver", data);
     return data;
   },
 };

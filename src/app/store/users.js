@@ -136,7 +136,6 @@ export const clearUsersError = () => async (dispatch) => {
 
 export const signUp = (payload) => async (dispatch) => {
   dispatch(authRequested());
-  console.log("payload", payload);
   try {
     const data = await authService.verify(payload);
     if (data.content === null) {
@@ -168,9 +167,7 @@ export const Verify = (payload) => async (dispatch) => {
 export const getApiUrl = (payload) => async (dispatch) => {
   dispatch(usersRequested());
   try {
-    console.log("11111");
     const { content } = await userService.getApi(payload);
-    console.log("apidata", content);
     dispatch(userGetApi(data.content));
   } catch (error) {
     dispatch(verifyRequestFailed(error.message));

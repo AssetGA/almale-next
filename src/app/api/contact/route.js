@@ -19,7 +19,7 @@ export async function GET(request) {
 
     // Получаем query-параметры
     const { searchParams } = new URL(request.url);
-    console.log("search", searchParams);
+
     const name = searchParams.get("name");
     const phone = searchParams.get("phone");
     const email = searchParams.get("email");
@@ -29,7 +29,6 @@ export async function GET(request) {
     const getInfo = await sendMessage(
       `Имя заказчика: ${name}, почта: ${email}, номер телефона: https://wa.me/8${phone}, сообщение: ${message}`
     );
-    console.log("get.", getInfo);
     return NextResponse.json({ message: getInfo }, { status: 200, headers });
   } catch (e) {
     return NextResponse.json(
