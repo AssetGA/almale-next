@@ -11,6 +11,7 @@ const ProductCard = ({ product, lang, t }) => {
         width={300}
         height={300}
         className="w-full object-cover hover:opacity-90"
+        priority
       />
 
       <div className="p-4">
