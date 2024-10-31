@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import ProductCard from "./ProductCard";
 import Tooltip from "./Tooltip";
 import { usePathname } from "next/navigation";
@@ -13,6 +13,7 @@ import { listProductId } from "../utils/listSrc";
 const ProductAbout = ({ lang, t }) => {
   const products = useAppSelector((state) => state.product.entity);
   const loading = useAppSelector((state) => state.product.isLoading);
+  const [selectImage, setSelectImage] = useState({ src: "" });
   const params = usePathname();
   // Проверяем, если продукты загружены
   if (loading) {
@@ -35,6 +36,14 @@ const ProductAbout = ({ lang, t }) => {
     return elem.id === product._id;
   });
 
+  const handleSelect = (srcSel) => {
+    if (selectImage !== "") {
+      setSelectImage(srcSel);
+    } else {
+      setSelectImage(srcSel);
+    }
+  };
+
   return (
     <div className="flex flex-col px-5">
       <div className="flex flex-col md:flex-row bg-white rounded-lg p-4 max-w-4xl mx-auto my-20">
@@ -50,10 +59,15 @@ const ProductAbout = ({ lang, t }) => {
           <p className="mb-6 sm:hidden">{product?.description}</p>
           {/* Основное изображение товара */}
           <div className="w*full">
-            <div className="mb-4 hover:shadow-lg">
+            <div
+              className="mb-4 hover:shadow-lg"
+              onMouseEnter={() => handleSelect({ src: "" })}
+            >
               <Image
                 className="w-full object-cover rounded-lg"
-                src={product?.imageUrl}
+                src={
+                  selectImage.src === "" ? product?.imageUrl : selectImage.src
+                }
                 width={320}
                 height={300}
                 alt={product?.name}
@@ -64,9 +78,13 @@ const ProductAbout = ({ lang, t }) => {
             <div className="grid grid-cols-4 gap-2 sm:gap-3">
               {listSrc !== undefined &&
                 listSrc.arr.map((elem) => (
-                  <div key={elem._id} className="aspect-w-1 aspect-h-1">
+                  <div
+                    key={elem._id}
+                    className="aspect-w-1 aspect-h-1"
+                    onMouseEnter={() => handleSelect({ src: elem.src })}
+                  >
                     <Image
-                      className="object-cover rounded-lg cursor-pointer border border-gray-200 hover:border-gray"
+                      className=" rounded-lg cursor-pointer border border-gray-200 hover:border-gray"
                       src={elem.src}
                       width={200}
                       height={200}
@@ -100,6 +118,7 @@ const ProductAbout = ({ lang, t }) => {
                     width={100}
                     height={100}
                     alt={elem.name}
+                    priority
                   />
                 </Tooltip>
               ))}
@@ -120,7 +139,7 @@ const ProductAbout = ({ lang, t }) => {
           </div>
         </div>
       </div>
-      <div className="grid lg:grid-cols-3 grid-cols-2 gap-10 max-w-4xl mx-auto">
+      <div className="grid lg:grid-cols-3 grid-cols-2 gap-10 max-w-4xl mx-auto mb-20">
         {filterProducts.map((product) => (
           <div key={product._id}>
             <ProductCard product={product} lang={lang} t={t} />

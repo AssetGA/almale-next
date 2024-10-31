@@ -1,19 +1,19 @@
 export const listSrc = [
   {
     _id: "1",
-    src: "/img/utensils-set.png",
+    src: "/img/set/1.png",
   },
   {
     _id: "2",
-    src: "/img/utensils-set.png",
+    src: "/img/set/2.png",
   },
   {
     _id: "3",
-    src: "/img/utensils-set.png",
+    src: "/img/set/3.png",
   },
   {
     _id: "4",
-    src: "/img/utensils-set.png",
+    src: "/img/set/4.png",
   },
 ];
 
@@ -23,19 +23,19 @@ export const listProductId = [
     arr: [
       {
         _id: "1",
-        src: "/img/utensils-set.png",
+        src: "/img/pan6/1.png",
       },
       {
         _id: "2",
-        src: "/img/utensils-set.png",
+        src: "/img/pan6/2.png",
       },
       {
         _id: "3",
-        src: "/img/utensils-set.png",
+        src: "/img/pan6/3.png",
       },
       {
         _id: "4",
-        src: "/img/utensils-set.png",
+        src: "/img/pan6/4.png",
       },
     ],
   },
@@ -44,19 +44,19 @@ export const listProductId = [
     arr: [
       {
         _id: "1",
-        src: "/img/utensils-set.png",
+        src: "/img/pan35/1.png",
       },
       {
         _id: "2",
-        src: "/img/utensils-set.png",
+        src: "/img/pan35/2.png",
       },
       {
         _id: "3",
-        src: "/img/utensils-set.png",
+        src: "/img/pan35/3.png",
       },
       {
         _id: "4",
-        src: "/img/utensils-set.png",
+        src: "/img/pan35/4.png",
       },
     ],
   },
@@ -65,19 +65,19 @@ export const listProductId = [
     arr: [
       {
         _id: "1",
-        src: "/img/utensils-set.png",
+        src: "/img/fryingpan/1.png",
       },
       {
         _id: "2",
-        src: "/img/utensils-set.png",
+        src: "/img/fryingpan/2.png",
       },
       {
         _id: "3",
-        src: "/img/utensils-set.png",
+        src: "/img/fryingpan/3.png",
       },
       {
         _id: "4",
-        src: "/img/utensils-set.png",
+        src: "/img/fryingpan/4.png",
       },
     ],
   },
@@ -86,19 +86,19 @@ export const listProductId = [
     arr: [
       {
         _id: "1",
-        src: "/img/utensils-set.png",
+        src: "/img/sousepan/1.png",
       },
       {
         _id: "2",
-        src: "/img/utensils-set.png",
+        src: "/img/sousepan/2.png",
       },
       {
         _id: "3",
-        src: "/img/utensils-set.png",
+        src: "/img/sousepan/3.png",
       },
       {
         _id: "4",
-        src: "/img/utensils-set.png",
+        src: "/img/sousepan/4.png",
       },
     ],
   },

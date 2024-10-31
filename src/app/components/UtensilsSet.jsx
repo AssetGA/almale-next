@@ -5,10 +5,12 @@ import Link from "next/link";
 import ProductCard from "./ProductCard";
 import { useAppSelector } from "../store/hooks";
 import { listSrc } from "../utils/listSrc";
+import { useState } from "react";
 
 const UtensilsSet = ({ lang, t }) => {
   const products = useAppSelector((state) => state.product.entity);
   const isLoading = useAppSelector((state) => state.product.dataLoaded);
+  const [selectImage, setSelectImage] = useState({ src: "" });
   // Проверяем, если продукты загружены
   if (!isLoading) {
     return <p>{t.utensil.one}</p>;
@@ -21,6 +23,13 @@ const UtensilsSet = ({ lang, t }) => {
   const newProducts = products.filter((elem) => {
     return elem.name !== products[0].name && elem;
   });
+  const handleSelect = (srcSel) => {
+    if (selectImage !== "") {
+      setSelectImage(srcSel);
+    } else {
+      setSelectImage(srcSel);
+    }
+  };
 
   return (
     <>
@@ -39,10 +48,17 @@ const UtensilsSet = ({ lang, t }) => {
               <p className="mb-6 sm:hidden px-5">{products[0]?.description}</p>
               {/* Основное изображение товара */}
               <div className="w-full">
-                <div className="mb-4 hover:shadow-lg">
+                <div
+                  className="mb-4 hover:shadow-lg"
+                  onMouseEnter={() => handleSelect({ src: "" })}
+                >
                   <Image
                     className="w-full h-auto object-cover rounded-lg"
-                    src={products[0]?.imageUrl}
+                    src={
+                      selectImage.src === ""
+                        ? products[0]?.imageUrl
+                        : selectImage.src
+                    }
                     width={320}
                     height={300}
                     alt={products[0]?.name}
@@ -52,15 +68,20 @@ const UtensilsSet = ({ lang, t }) => {
                 {/* Миниатюры изображений */}
                 <div className="grid grid-cols-4 gap-2 sm:gap-3">
                   {listSrc.map((elem) => (
-                    <div key={elem._id} className="aspect-w-1 aspect-h-1">
-                      <Image
-                        className="object-cover rounded-lg cursor-pointer border"
-                        src={elem.src}
-                        width={300}
-                        height={300}
-                        alt="alma le"
-                        priority
-                      />
+                    <div key={elem._id} className="w-26 w-26">
+                      <button
+                        className="w-ful h-full"
+                        onMouseEnter={() => handleSelect({ src: elem.src })}
+                      >
+                        <Image
+                          className={`object-contain rounded-lg cursor-pointer border hover:shadow-lg hover:`}
+                          src={elem.src}
+                          width={300}
+                          height={300}
+                          alt="alma le"
+                          priority
+                        />
+                      </button>
                     </div>
                   ))}
                 </div>
@@ -98,7 +119,7 @@ const UtensilsSet = ({ lang, t }) => {
               </div>
             </div>
           </div>
-          <div className="grid lg:grid-cols-3 grid-cols-2 gap-5 md:gap-10 max-w-4xl mx-auto p-5">
+          <div className="grid lg:grid-cols-3 grid-cols-2 gap-5 md:gap-10 max-w-4xl mx-auto p-5 mb-20">
             {newProducts.map((product) => (
               <div key={product.name}>
                 <ProductCard product={product} lang={lang} t={t} />

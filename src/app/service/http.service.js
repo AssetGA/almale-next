@@ -5,6 +5,7 @@ import configFile from "../../../config.json";
 axios.defaults.headers.common["Content-Type"] = "application/json";
 
 const http = axios.create({
+  // при использовании production apiEndpoint2 для dev apiEndpoint3
   baseURL: configFile.apiEndpoint2,
 });
 
