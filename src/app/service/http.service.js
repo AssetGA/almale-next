@@ -4,9 +4,11 @@ import configFile from "../../../config.json";
 
 axios.defaults.headers.common["Content-Type"] = "application/json";
 
+const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+
 const http = axios.create({
   // при использовании production apiEndpoint2 для dev apiEndpoint3
-  baseURL: configFile.apiEndpoint2,
+  baseURL: apiUrl,
 });
 
 function transformData(data) {

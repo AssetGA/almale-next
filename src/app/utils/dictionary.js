@@ -1,48 +1,14 @@
-export const listSrc = [
+export const listProductIdLang = [
   {
     id: "671f8ad851c70fa561f432e2",
-    arr: [
-      {
-        _id: "1",
-        src: "/img/set/1.png",
-      },
-      {
-        _id: "2",
-        src: "/img/set/2.png",
-      },
-      {
-        _id: "3",
-        src: "/img/set/3.png",
-      },
-      {
-        _id: "4",
-        src: "/img/set/4.png",
-      },
-    ],
+    title: "Alma Le - Набор профессиональной медной посуды премиум класса",
+    description:
+      "Премиум набор медной посуды Alma Le: равномерный нагрев, бактериальные свойства и уникальный вкус. С внутренним слоем из нержавеющей стали и внешним покрытием из меди и алюминия, идеально для готовки на любой кухне.",
+    keywords:
+      "AlmaLe, медная посуда, кастрюли, сковороды, сотейники, нержавеющая сталь, медь, алюминий, кухня",
   },
-];
-
-export const listProductId = [
   {
     id: "671f8ad851c70fa561f432e3",
-    arr: [
-      {
-        _id: "1",
-        src: "/img/pan6/1.png",
-      },
-      {
-        _id: "2",
-        src: "/img/pan6/2.png",
-      },
-      {
-        _id: "3",
-        src: "/img/pan6/3.png",
-      },
-      {
-        _id: "4",
-        src: "/img/pan6/4.png",
-      },
-    ],
     title: "Кастрюля медная 3,5 л - Alma Le",
     description:
       "Кастрюля Alma Le объемом 3,5 литра с внутренним покрытием из нержавеющей стали и внешним покрытием из алюминия и меди. Идеальна для ежедневного использования.",
@@ -51,24 +17,6 @@ export const listProductId = [
   },
   {
     id: "671f8ad851c70fa561f432e5",
-    arr: [
-      {
-        _id: "1",
-        src: "/img/pan35/1.png",
-      },
-      {
-        _id: "2",
-        src: "/img/pan35/2.png",
-      },
-      {
-        _id: "3",
-        src: "/img/pan35/3.png",
-      },
-      {
-        _id: "4",
-        src: "/img/pan35/4.png",
-      },
-    ],
     title: "Кастрюля медная 6 л - Alma Le",
     description:
       "Кастрюля Alma объемом 6 литров с внутренним покрытием из нержавеющей стали и внешним покрытием из алюминия и меди. Идеальна для больших порций.",
@@ -77,24 +25,6 @@ export const listProductId = [
   },
   {
     id: "671f8ad851c70fa561f432e6",
-    arr: [
-      {
-        _id: "1",
-        src: "/img/fryingpan/1.png",
-      },
-      {
-        _id: "2",
-        src: "/img/fryingpan/2.png",
-      },
-      {
-        _id: "3",
-        src: "/img/fryingpan/3.png",
-      },
-      {
-        _id: "4",
-        src: "/img/fryingpan/4.png",
-      },
-    ],
     title: "Сковорода медная - Alma Le",
     description:
       "Сковородка Alma с внутренним покрытием из нержавеющей стали и внешним покрытием из алюминия и меди. Идеальный помощник для жарки.",
@@ -103,24 +33,6 @@ export const listProductId = [
   },
   {
     id: "671f8ad851c70fa561f432e4",
-    arr: [
-      {
-        _id: "1",
-        src: "/img/sousepan/1.png",
-      },
-      {
-        _id: "2",
-        src: "/img/sousepan/2.png",
-      },
-      {
-        _id: "3",
-        src: "/img/sousepan/3.png",
-      },
-      {
-        _id: "4",
-        src: "/img/sousepan/4.png",
-      },
-    ],
     title: "Сотейник медный - Alma Le",
     description:
       "Сотейник AlmaLe с внутренним покрытием из нержавеющей стали и внешним покрытием из алюминия и меди. Универсальный инструмент для приготовления блюд.",

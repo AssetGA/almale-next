@@ -20,6 +20,8 @@ export async function GET(request) {
           name: translation?.name,
           description: translation?.description,
           diameter: translation?.diameter,
+          size: translation?.size,
+          about: translation?.about,
         };
         return localizedProduct;
       })

@@ -67,7 +67,7 @@ const UtensilsSet = ({ lang, t }) => {
                 </div>
                 {/* Миниатюры изображений */}
                 <div className="grid grid-cols-4 gap-2 sm:gap-3">
-                  {listSrc.map((elem) => (
+                  {listSrc[0].arr.map((elem) => (
                     <div key={elem._id} className="w-26 w-26">
                       <button
                         className="w-ful h-full"
@@ -119,12 +119,23 @@ const UtensilsSet = ({ lang, t }) => {
               </div>
             </div>
           </div>
-          <div className="grid lg:grid-cols-3 grid-cols-2 gap-5 md:gap-10 max-w-4xl mx-auto p-5 mb-20">
-            {newProducts.map((product) => (
-              <div key={product.name}>
-                <ProductCard product={product} lang={lang} t={t} />
-              </div>
-            ))}
+          <div className="flex flex-col mx-auto">
+            <div className="flex flex-col items-start mb-20 px-5">
+              <p
+                className="text-bold py-2"
+                style={{ fontFamily: "Montserrat-Bold" }}
+              >
+                {t.utensil.p}
+              </p>
+              <p className="max-w-[800px]">{t.utensil.description}</p>
+            </div>
+            <div className="grid lg:grid-cols-3 grid-cols-2 gap-5 md:gap-10 max-w-4xl p-5 mb-20">
+              {newProducts.map((product) => (
+                <div key={product.name}>
+                  <ProductCard product={product} lang={lang} t={t} />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       )}

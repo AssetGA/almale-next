@@ -2,10 +2,12 @@ import UtensilsSet from "../../components/UtensilsSet";
 import { getDictionary } from "../dictionaries";
 
 export const metadata = {
-  title: "Игра GO - о нас",
-  description: "Игра GO - общая информация",
-  keywords: "Игра, маркетинг, реклама, движение, стратегическая, командная",
-  robots: "index, follow",
+  title: "Alma Le - Набор профессиональной посуды премиум класса",
+  description:
+    "Откройте для себя набор посуды Alma Le. Кастрюли и сковородки с внутренним покрытием из нержавеющей стали и внешним из алюминия и меди.",
+  keywords:
+    "AlmaLe, посуда, набор посуды, кастрюли, сковородки, сотейники, нержавеющая сталь, алюминий, медь, кухня",
+  // robots: "index, follow",
 };
 
 export default async function Page({ params: { lang } }) {

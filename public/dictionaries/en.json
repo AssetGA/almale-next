@@ -86,11 +86,23 @@
     "errorMobileCount": "Numbers only"
   },
   "utensil": {
+    "p": "Description",
+    "description": "Each element of our cookware set combines high-quality materials, stylish design and versatility to make your cooking as convenient and enjoyable as possible.",
     "buttonBuy": "Buy",
     "one": "Loading...",
     "two": "Products found"
   },
   "productAbout": {
+    "p": "Description",
+    "size": "Size",
+    "case": "Case",
+    "caseType": [
+      { "id": "1", "material": "stainless steel" },
+      { "id": "2", "material": "aluminum" },
+      { "id": "3", "material": "copper" }
+    ],
+    "innersurface": "Inner surface",
+    "surface": "Mirror finish",
     "buttonBack": "Back",
     "buttonBuy": "Buy set"
   },

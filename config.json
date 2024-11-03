@@ -4,8 +4,8 @@
       "@/*": ["./*"]
     }
   },
-  "apiEndpoint": "https://almale-server-bot-assets-projects.vercel.app/api",
-  "apiEndpoint2": "https://www.alma-le.com/api",
-  "apiEndpoint3": "http://localhost:3000/api",
+  "apiEndpoint": "https://almale-server-bot-assets-projects.vercel.app/api/ru",
+  "apiEndpoint2": "https://www.alma-le.com/api/ru",
+  "apiEndpoint3": "http://localhost:3000/api/ru",
   "isFireBase": false
 }
