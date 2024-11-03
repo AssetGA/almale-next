@@ -17,18 +17,17 @@ export async function generateStaticParams() {
   return params;
 }
 
-export async function generateMetadata({ params: { lang, id } }) {
-  const t = await getDictionary(lang);
-  console.log("t", t);
+export async function generateMetadata({ params }) {
   const product = listProductId.find((elem) => {
-    return elem.id === id;
+    return elem.id === params.id;
   });
-
-  return {
-    title: product.title,
-    description: product.description,
-    keywords: product.keywords,
-  };
+  return (
+    product && {
+      title: product.title,
+      description: product.description,
+      keywords: product.keywords,
+    }
+  );
 }
 
 export default async function Page({ params: { lang } }) {
