@@ -1,4 +1,5 @@
 import ProductAbout from "../../../components/ProductAbout";
+import { listProductId } from "../../../utils/listSrc";
 import { getDictionary } from "../../dictionaries";
 
 export async function generateStaticParams() {
@@ -14,6 +15,20 @@ export async function generateStaticParams() {
   });
 
   return params;
+}
+
+export async function generateMetadata({ params: { lang, id } }) {
+  const t = await getDictionary(lang);
+  console.log("t", t);
+  const product = listProductId.find((elem) => {
+    return elem.id === id;
+  });
+
+  return {
+    title: product.title,
+    description: product.description,
+    keywords: product.keywords,
+  };
 }
 
 export default async function Page({ params: { lang } }) {

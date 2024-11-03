@@ -126,12 +126,12 @@ const ProductAbout = ({ lang, t }) => {
             {/* Цена товара */}
             <div className="flex flex-row justify-between">
               <Link href={`/${lang}/product`} className="right-0">
-                <div className="bg-green hover:bg-green-light text-white py-2 px-4 rounded-md hover:bg-blue-600">
+                <div className="bg-green hover:bg-green-light active:bg-green-light text-white py-2 px-4 rounded-md hover:bg-blue-600 transition transform duration-150">
                   {t.productAbout.buttonBack}
                 </div>
               </Link>
               <Link href={`/${lang}/basket`} className="right-0">
-                <div className="bg-green hover:bg-green-light text-white py-2 px-4 rounded-md hover:bg-blue-600">
+                <div className="bg-green hover:bg-green-light active:bg-green-light text-white py-2 px-4 rounded-md hover:bg-blue-600 transition transform duration-150">
                   {t.productAbout.buttonBuy}
                 </div>
               </Link>
@@ -139,12 +139,42 @@ const ProductAbout = ({ lang, t }) => {
           </div>
         </div>
       </div>
-      <div className="grid lg:grid-cols-3 grid-cols-2 gap-10 max-w-4xl mx-auto mb-20">
-        {filterProducts.map((product) => (
-          <div key={product._id}>
-            <ProductCard product={product} lang={lang} t={t} />
+      <div className="flex flex-col mx-auto">
+        <div className="flex flex-col items-start mb-20 px-5">
+          <p className="text-lg py-2" style={{ fontFamily: "Montserrat-Bold" }}>
+            {t.productAbout.p}
+          </p>
+
+          <div className="max-w-[800px] text-sm">
+            <p className="text-bold" style={{ fontFamily: "Montserrat-Bold" }}>
+              {t.productAbout.size}
+            </p>
+            <p className="px-5">{product.size}</p>
+            <div className="my-3">
+              <p style={{ fontFamily: "Montserrat-Bold" }}>
+                {t.productAbout.case}
+              </p>
+              <ul className="px-5">
+                {t.productAbout.caseType.map((elem) => (
+                  <li key={elem.id}>{"- " + elem.material}</li>
+                ))}
+              </ul>
+            </div>
+
+            <p style={{ fontFamily: "Montserrat-Bold" }}>
+              {t.productAbout.innersurface}
+            </p>
+            <p className="px-5">{t.productAbout.surface}</p>
+            <p className="py-2">{product.about}</p>
           </div>
-        ))}
+        </div>
+        <div className="grid lg:grid-cols-3 grid-cols-2 gap-10 max-w-4xl mx-auto mb-20">
+          {filterProducts.map((product) => (
+            <div key={product._id}>
+              <ProductCard product={product} lang={lang} t={t} />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
