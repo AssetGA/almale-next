@@ -19,7 +19,7 @@ const Main = async ({ lang }) => {
       <Mission lang={lang} />
       <Production lang={lang} />
       <Advantages lang={lang} />
-      <Opinion lang={lang} t={t} />
+      {/* <Opinion lang={lang} t={t} /> */}
       <ConnectionForm lang={lang} t={t} />
     </>
   );

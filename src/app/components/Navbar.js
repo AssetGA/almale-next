@@ -47,7 +47,7 @@ const Navbar = ({ lang, t }) => {
                   width={100}
                   height={30}
                   alt="Logo Almale"
-                  className="px-5 sm:px-0 w-[200px] h-[20px]"
+                  className="px-5 sm:px-0 sm:w-[200px] sm:h-[20px] w-[200px] h-[16px]"
                 />
               </a>
             </button>
@@ -107,7 +107,7 @@ const Navbar = ({ lang, t }) => {
         {isOpen && (
           <div className="absolute pb-60 md:hidden bg-white z-50">
             <div className="flex flex-row">
-              <div className="px-10 py-12 space-y-1 sm:px-3 font-bold text-2xl leading-loose">
+              <div className="px-8 py-12 space-y-1 sm:px-3 font-bold text-2xl leading-loose">
                 <a
                   href={`/${lang}/#brand`}
                   className="block px-3 py-2 font-medium focus:underline"
@@ -144,7 +144,7 @@ const Navbar = ({ lang, t }) => {
                   {t.navbar.navbarcontacts}
                 </a>
               </div>
-              <div className="mt-8 px-20 py-10">
+              <div className="mt-8 px-8 m-4 py-10">
                 <button
                   className="p-3 bg-[url('/img/close.svg')] bg-cover"
                   onClick={() => setIsOpen(false)}
