@@ -38,7 +38,7 @@ const Advantages = async ({ lang }) => {
           <div className="flex flex-col items-center ">
             <Image
               src={"img/object3.svg"}
-              className="px-5 sm:px-0 w-[100px] h-[100px] lg:w-[175px] lg:h-[175px]"
+              className="w-[100px] h-[100px] lg:w-[175px] lg:h-[175px]"
               width={100}
               height={100}
               alt="моменты жизни на кухне"
