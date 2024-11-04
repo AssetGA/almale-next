@@ -80,32 +80,6 @@ export const listProductId = [
     arr: [
       {
         _id: "1",
-        src: "/img/fryingpan/1.png",
-      },
-      {
-        _id: "2",
-        src: "/img/fryingpan/2.png",
-      },
-      {
-        _id: "3",
-        src: "/img/fryingpan/3.png",
-      },
-      {
-        _id: "4",
-        src: "/img/fryingpan/4.png",
-      },
-    ],
-    title: "Сковорода медная - Alma Le",
-    description:
-      "Сковородка Alma с внутренним покрытием из нержавеющей стали и внешним покрытием из алюминия и меди. Идеальный помощник для жарки.",
-    keywords:
-      "AlmaLe, сковородка, нержавеющая сталь, алюминий, медь, посуда, жарка, антипригарное покрытие, медная посуда",
-  },
-  {
-    id: "671f8ad851c70fa561f432e4",
-    arr: [
-      {
-        _id: "1",
         src: "/img/sousepan/1.png",
       },
       {
@@ -119,6 +93,32 @@ export const listProductId = [
       {
         _id: "4",
         src: "/img/sousepan/4.png",
+      },
+    ],
+    title: "Сковорода медная - Alma Le",
+    description:
+      "Сковородка Alma с внутренним покрытием из нержавеющей стали и внешним покрытием из алюминия и меди. Идеальный помощник для жарки.",
+    keywords:
+      "AlmaLe, сковородка, нержавеющая сталь, алюминий, медь, посуда, жарка, антипригарное покрытие, медная посуда",
+  },
+  {
+    id: "671f8ad851c70fa561f432e4",
+    arr: [
+      {
+        _id: "1",
+        src: "/img/fryingpan/1.png",
+      },
+      {
+        _id: "2",
+        src: "/img/fryingpan/2.png",
+      },
+      {
+        _id: "3",
+        src: "/img/fryingpan/3.png",
+      },
+      {
+        _id: "4",
+        src: "/img/fryingpan/4.png",
       },
     ],
     title: "Сотейник медный - Alma Le",

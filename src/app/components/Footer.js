@@ -16,7 +16,7 @@ const Footer = ({ t }) => {
                 className="px-5 sm:px-0 w-full h-auto object-cover"
               />
             </div>
-            <p className="w-72">{t.footer.head}</p>
+            <p className="max-w-40 sm:w-72">{t.footer.head}</p>
           </div>
           <div className="w-full">
             <div className="flex flex-col items-end pt-6">
