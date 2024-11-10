@@ -1400,9 +1400,6 @@ video {
 .w-\[190px\] {
   width: 190px;
 }
-.w-\[200px\] {
-  width: 200px;
-}
 .w-\[250px\] {
   width: 250px;
 }
@@ -2098,10 +2095,6 @@ body {
     width: 18rem;
   }
 
-  .sm\:w-\[200px\] {
-    width: 200px;
-  }
-
   .sm\:w-\[400px\] {
     width: 400px;
   }
@@ -2428,6 +2421,10 @@ body {
   .xl\:mx-auto {
     margin-left: auto;
     margin-right: auto;
+  }
+
+  .xl\:h-\[20px\] {
+    height: 20px;
   }
 
   .xl\:h-\[300px\] {

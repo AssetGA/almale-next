@@ -11,6 +11,7 @@
   "dependencies": {
     "@reduxjs/toolkit": "^2.3.0",
     "axios": "^1.7.7",
+    "config": "^3.3.12",
     "dotenv": "^16.4.5",
     "i18next": "^23.16.4",
     "i18next-resources-to-backend": "^1.2.1",
@@ -20,6 +21,7 @@
     "next": "^14.2.13",
     "next-i18n-router": "^5.5.1",
     "next-redux-wrapper": "^8.1.0",
+    "next-sitemap": "^4.2.3",
     "nodemailer": "^6.9.16",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",

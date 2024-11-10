@@ -4,8 +4,7 @@ import Values from "./Values.js";
 import History from "./History.js";
 import Mission from "./Mission.js";
 import Advantages from "./Advantages.js";
-import Opinion from "./Opinion.js";
-import ConnectionForm from "./ConnectionForm.js";
+import ConnectionForm from "./ConnectionForm.jsx";
 import Production from "./Production.js";
 import { getDictionary } from "../[lang]/dictionaries.js";
 
