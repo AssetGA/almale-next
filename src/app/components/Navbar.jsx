@@ -44,10 +44,10 @@ const Navbar = ({ lang, t }) => {
               <a href={`/${lang}`}>
                 <Image
                   src={"/img/logo1.png"}
-                  width={100}
-                  height={30}
+                  width={150}
+                  height={60}
                   alt="Logo Almale"
-                  className="px-5 sm:px-0 sm:w-[200px] sm:h-[20px] w-[200px] h-[16px]"
+                  className="px-5 sm:px-0  h-[16px] xl:h-[20px] w-full"
                 />
               </a>
             </button>
