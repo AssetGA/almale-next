@@ -1,5 +1,12 @@
 import Main from "../components/Main";
 
 export default function Home({ params: { lang } }) {
-  return <Main lang={lang} />;
+  return (
+    <>
+      <Head>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <Main lang={lang} />
+    </>
+  );
 }
