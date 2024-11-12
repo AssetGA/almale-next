@@ -9,7 +9,7 @@ const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
 export function createHttpWithLang(lang) {
   return axios.create({
-    baseURL: `${apiUrl}/${"kz" || "ru" || "en"}/api`,
+    baseURL: `${apiUrl}`,
   });
 }
 const http = createHttpWithLang();

@@ -32,12 +32,9 @@ export async function generateMetadata({ params }) {
 
 async function fetchProducts(lang) {
   try {
-    const res = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/${lang}/api/product`,
-      {
-        params: { lang: lang },
-      }
-    ); // Замените на URL вашего API
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/product`, {
+      params: { lang: lang },
+    }); // Замените на URL вашего API
     if (!res.ok) throw new Error("Ошибка при загрузке товаров");
     const products = await res.json();
     return products;

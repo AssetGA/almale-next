@@ -21,11 +21,6 @@
       "static/chunks/main-app.js",
       "static/chunks/app/[lang]/product/[id]/page.js"
     ],
-    "/[lang]/basket/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/[lang]/basket/page.js"
-    ],
     "/_not-found/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
