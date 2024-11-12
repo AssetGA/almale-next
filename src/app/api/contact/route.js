@@ -1,7 +1,7 @@
 // app/api/product/route.js
 import { NextResponse } from "next/server";
-import { connectToDataBase } from "../../../../lib/mongodb";
-import { sendMessage } from "../../../utils/telegraf";
+import { connectToDataBase } from "../../../lib/mongodb";
+import { sendMessage } from "../../utils/telegraf";
 
 export async function GET(request) {
   await connectToDataBase();

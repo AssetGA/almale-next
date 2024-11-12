@@ -1,8 +1,6 @@
 // app/api/product/[id]/route.js
 import { NextResponse } from "next/server";
-import { connectToDataBase } from "../../../../../lib/mongodb";
-import Product from "../../../../../models/Product";
-import ProductTranslation from "../../../../../models/ProductTranslate";
+import { connectToDataBase } from "../../../lib/mongodb";
 
 export async function GET(request) {
   await connectToDataBase();

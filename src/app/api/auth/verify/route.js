@@ -1,10 +1,10 @@
 // app/api/auth/verify/route.js
 import { NextResponse } from "next/server";
-import { connectToDataBase } from "../../../../../lib/mongodb";
-import User from "../../../../../models/User";
-import UserChecks from "../../../../../models/UserChecks";
+import { connectToDataBase } from "../../../../lib/mongodb";
+import User from "../../../../models/User";
+import UserChecks from "../../../../models/UserChecks";
 import randomNumber from "../../../../utils/randomNumber";
-import { sendVerificationMail } from "../../../../utils/sendVerificationMail";
+import { sendVerificationMail } from "../../../utils/sendVerificationMail";
 
 export async function POST(request) {
   await connectToDataBase();
