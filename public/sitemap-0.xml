@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-<url><loc>http://localhost:3000/en/basket</loc><lastmod>2024-11-12T17:41:34.154Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>http://localhost:3000/kz/basket</loc><lastmod>2024-11-12T17:41:34.154Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>http://localhost:3000/ru/basket</loc><lastmod>2024-11-12T17:41:34.154Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>http://localhost:3000/en/product</loc><lastmod>2024-11-12T17:41:34.154Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>http://localhost:3000/kz/product</loc><lastmod>2024-11-12T17:41:34.154Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>http://localhost:3000/ru/product</loc><lastmod>2024-11-12T17:41:34.154Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>http://localhost:3000/en</loc><lastmod>2024-11-12T17:41:34.154Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>http://localhost:3000/kz</loc><lastmod>2024-11-12T17:41:34.154Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>http://localhost:3000/ru</loc><lastmod>2024-11-12T17:41:34.154Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>http://localhost:3000/api/user</loc><lastmod>2024-11-12T17:41:34.154Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.alma-le.com/kz</loc><lastmod>2024-11-12T17:59:12.622Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.alma-le.com/en</loc><lastmod>2024-11-12T17:59:12.622Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.alma-le.com/ru</loc><lastmod>2024-11-12T17:59:12.622Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.alma-le.com/en/product</loc><lastmod>2024-11-12T17:59:12.622Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.alma-le.com/kz/product</loc><lastmod>2024-11-12T17:59:12.622Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.alma-le.com/ru/product</loc><lastmod>2024-11-12T17:59:12.622Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.alma-le.com/en/basket</loc><lastmod>2024-11-12T17:59:12.622Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.alma-le.com/kz/basket</loc><lastmod>2024-11-12T17:59:12.622Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.alma-le.com/ru/basket</loc><lastmod>2024-11-12T17:59:12.622Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.alma-le.com/api/user</loc><lastmod>2024-11-12T17:59:12.622Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
 </urlset>
