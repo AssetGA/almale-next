@@ -4,12 +4,15 @@ import configFile from "../../../config.json";
 
 axios.defaults.headers.common["Content-Type"] = "application/json";
 
+// Используем функцию
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
-const http = axios.create({
-  // при использовании production apiEndpoint2 для dev apiEndpoint3
-  baseURL: apiUrl,
-});
+export function createHttpWithLang(lang) {
+  return axios.create({
+    baseURL: `${apiUrl}/${"kz" || "ru" || "en"}/api`,
+  });
+}
+const http = createHttpWithLang();
 
 function transformData(data) {
   return data && !data._id
@@ -18,6 +21,7 @@ function transformData(data) {
       }))
     : data;
 }
+
 http.interceptors.response.use(
   (res) => {
     if (configFile.isFireBase) {
@@ -39,6 +43,7 @@ http.interceptors.response.use(
     return Promise.reject(error);
   }
 );
+
 const httpService = {
   get: http.get,
   post: http.post,
@@ -46,4 +51,5 @@ const httpService = {
   delete: http.delete,
   patch: http.patch,
 };
+
 export default httpService;

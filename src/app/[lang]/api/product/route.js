@@ -1,12 +1,13 @@
 // app/api/product/route.js
 import { NextResponse } from "next/server";
-import { connectToDataBase } from "../../../lib/mongodb";
-import Product from "../../../models/Product";
-import ProductTranslation from "../../../models/ProductTranslate";
+import { connectToDataBase } from "../../../../lib/mongodb";
+import Product from "../../../../models/Product";
+import ProductTranslation from "../../../../models/ProductTranslate";
 
 export async function GET(request) {
   await connectToDataBase();
   try {
+    console.log("regurl", request.url);
     const newLang = request.url.slice(-2);
     const list = await Product.find();
     const newList = await Promise.all(

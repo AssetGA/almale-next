@@ -1,15 +1,14 @@
 // app/api/product/route.js
 import { NextResponse } from "next/server";
-import { connectToDataBase } from "../../../lib/mongodb";
-import User from "../../../models/User";
-import Order from "../../../models/Order";
+import { connectToDataBase } from "../../../../lib/mongodb";
+import User from "../../../../models/User";
+import Order from "../../../../models/Order";
 
 export async function POST(request) {
   await connectToDataBase();
   try {
     const { userId, productId, deliveryPrice, quantity, total } =
       await request.json();
-    console.log("userId", userId);
     const findUser = await User.findById(userId);
     if (findUser !== null) {
       try {

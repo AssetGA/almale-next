@@ -54,36 +54,36 @@ const Navbar = ({ lang, t }) => {
             {/* Меню по центру */}
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-2 lg:space-x-6">
-                <a
+                <Link
                   href={`/${lang}/#brand`}
                   className="rounded-md text-sm font-medium hover:underline"
                 >
                   {t.navbar.navbarbrand}
-                </a>
-                <a
+                </Link>
+                <Link
                   href={`/${lang}/#production`}
                   className="rounded-md text-sm font-medium hover:underline"
                 >
                   {t.navbar.navbarproduct}
-                </a>
-                <a
+                </Link>
+                <Link
                   href={`/${lang}/#adventages`}
                   className="rounded-md text-sm font-medium hover:underline"
                 >
                   {t.navbar.navbaradventages}
-                </a>
-                <a
+                </Link>
+                {/* <a
                   href={`/${lang}/#opinion`}
                   className="rounded-md text-sm font-medium hover:underline"
                 >
                   {t.navbar.navbaropinions}
-                </a>
-                <a
+                </a> */}
+                <Link
                   href={`/${lang}/#contact`}
                   className="rounded-md text-sm font-medium hover:underline"
                 >
                   {t.navbar.navbarcontacts}
-                </a>
+                </Link>
               </div>
             </div>
             {/* Переключение языка */}
@@ -108,41 +108,41 @@ const Navbar = ({ lang, t }) => {
           <div className="absolute pb-60 md:hidden bg-white z-50">
             <div className="flex flex-row">
               <div className="px-8 py-12 space-y-1 sm:px-3 font-bold text-2xl leading-loose">
-                <a
+                <Link
                   href={`/${lang}/#brand`}
                   className="block px-3 py-2 font-medium focus:underline"
                   onClick={() => setIsOpen(false)}
                 >
                   {t.navbar.navbarbrand}
-                </a>
-                <a
+                </Link>
+                <Link
                   href={`/${lang}/#production`}
                   className="block px-3 py-2 font-medium focus:underline"
                   onClick={() => setIsOpen(false)}
                 >
                   {t.navbar.navbarproduct}
-                </a>
-                <a
+                </Link>
+                <Link
                   href={`/${lang}/#adventages`}
                   className="block px-3 py-2 font-medium focus:underline"
                   onClick={() => setIsOpen(false)}
                 >
                   {t.navbar.navbaradventages}
-                </a>
-                <a
+                </Link>
+                {/* <a
                   href={`/${lang}/#opinion`}
                   className="block px-3 py-2 font-medium focus:underline"
                   onClick={() => setIsOpen(false)}
                 >
                   {t.navbar.navbaropinions}
-                </a>
-                <a
+                </a> */}
+                <Link
                   href={`/${lang}/#contact`}
                   className="block px-3 py-2 font-medium focus:underline"
                   onClick={() => setIsOpen(false)}
                 >
                   {t.navbar.navbarcontacts}
-                </a>
+                </Link>
               </div>
               <div className="mt-8 px-8 m-4 py-10">
                 <button
