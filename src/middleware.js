@@ -11,10 +11,9 @@ function getLocale() {
 export function middleware(request) {
   // Check if there is any supported locale in the pathname
   const { pathname } = request.nextUrl;
-  if (pathname.startsWith("/img") || pathname.startsWith("/favicon.ico")) {
-    return NextResponse.next();
-  }
   if (
+    pathname.startsWith("/img") ||
+    pathname === "/favicon.ico" ||
     pathname.startsWith("/fonts") ||
     pathname.startsWith("/api") ||
     pathname.endsWith(".woff2") ||
@@ -46,10 +45,11 @@ export function middleware(request) {
 }
 
 export const config = {
-  matcher: [
-    // Skip all internal paths (_next)
-    "/((?!_next).*)",
-    // Optional: only run on root (/) URL
-    // '/'
-  ],
+  // matcher: [
+  //   // Skip all internal paths (_next)
+  //   "/((?!api|_next/static|_next/image|img/|fonts/|favicon.ico).*)",
+  //   // Optional: only run on root (/) URL
+  //   // '/'
+  // ],
+  matcher: ["/((?!_next).*)"],
 };

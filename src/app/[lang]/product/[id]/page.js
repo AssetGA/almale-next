@@ -21,9 +21,10 @@ export async function generateMetadata({ params }) {
   const product = listProductId.find((elem) => {
     return elem.id === params.id;
   });
+  console.log("product", product);
   return (
     product && {
-      title: product.title,
+      title: `${product.title} - Alma Le`,
       description: product.description,
       keywords: product.keywords,
     }
@@ -32,7 +33,7 @@ export async function generateMetadata({ params }) {
 
 async function fetchProducts(lang) {
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/product`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/product`, {
       params: { lang: lang },
     }); // Замените на URL вашего API
     if (!res.ok) throw new Error("Ошибка при загрузке товаров");
