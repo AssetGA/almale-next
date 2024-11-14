@@ -52,7 +52,6 @@ export const removeOrder = (payload) => async (dispatch) => {
 };
 
 export const orderCreate = (payload) => async (dispatch) => {
-  console.log("orderslice", payload);
   try {
     const { content } = await orderService.create(payload);
     dispatch(orderUpdate(content));

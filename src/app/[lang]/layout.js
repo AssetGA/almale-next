@@ -21,6 +21,9 @@ export const metadata = {
   verification: {
     google: "rn1ZlN9g8g7fHia45p5G5UtdckF8ogxRywzzlJrHY-k",
   },
+  icons: {
+    icon: "/img/icon.png", // /public path
+  },
 };
 
 export async function generateStaticParams() {
