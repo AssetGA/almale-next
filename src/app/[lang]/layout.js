@@ -13,9 +13,7 @@ const montserrat = localFont({
 });
 
 export const metadata = {
-  title: {
-    template: "Alma Le - Набор профессиональной медной посуды премиум класса",
-  },
+  title: "Alma Le - Набор профессиональной медной посуды премиум класса",
   description:
     "Премиум набор медной посуды Alma Le: равномерный нагрев, бактериальные свойства и уникальный вкус. С внутренним слоем из нержавеющей стали и внешним покрытием из меди и алюминия, идеально для готовки на любой кухне.",
   keywords:
@@ -23,11 +21,10 @@ export const metadata = {
   verification: {
     google: "rn1ZlN9g8g7fHia45p5G5UtdckF8ogxRywzzlJrHY-k",
   },
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
-
-{
-  /* <meta name="google-site-verification" content="" />; */
-}
 
 export async function generateStaticParams() {
   return [{ lang: "en" }, { lang: "kz" }, { lang: "ru" }];

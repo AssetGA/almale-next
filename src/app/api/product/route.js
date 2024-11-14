@@ -23,6 +23,7 @@ export async function GET(request) {
           diameter: translation?.diameter,
           size: translation?.size,
           about: translation?.about,
+          title: translation?.title,
         };
         return localizedProduct;
       })
