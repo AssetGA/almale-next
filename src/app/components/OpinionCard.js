@@ -11,6 +11,7 @@ const OpinionCard = ({ opinion }) => {
         width={300}
         height={300}
         className="w-[250px] h-[250px] xl:w-[300px] xl:h-[300px] object-cover hover:opacity-90 rounded-full p-10"
+        priority
       />
 
       <div className="text-center p-4 ">
