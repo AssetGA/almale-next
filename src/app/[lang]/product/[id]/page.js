@@ -1,6 +1,5 @@
 import fetch from "node-fetch";
 import ProductAbout from "../../../components/ProductAbout";
-import { listProductId } from "../../../utils/listSrc";
 import { getDictionary } from "../../dictionaries";
 
 export async function getServerSideProps({ req }) {
@@ -27,7 +26,6 @@ export async function generateMetadata({ params }) {
   const product = products.find((elem) => {
     return elem._id === params.id;
   });
-  console.log("params", params);
   return (
     product && {
       title: `${product.title} - Alma Le`,
