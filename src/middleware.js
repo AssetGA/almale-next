@@ -12,6 +12,8 @@ export function middleware(request) {
   // Check if there is any supported locale in the pathname
   const { pathname } = request.nextUrl;
   if (
+    pathname === "/sitemap.xml" ||
+    pathname === "/robots.txt" ||
     pathname.startsWith("/img") ||
     pathname === "/favicon.ico" ||
     pathname.startsWith("/fonts") ||
