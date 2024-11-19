@@ -70,7 +70,7 @@ const ProductAbout = ({ lang, t }) => {
                 }
                 width={320}
                 height={300}
-                alt={product?.name}
+                alt={product?.title}
                 priority
               />
             </div>
@@ -88,7 +88,7 @@ const ProductAbout = ({ lang, t }) => {
                       src={elem.src}
                       width={200}
                       height={200}
-                      alt="alma le"
+                      alt="almale"
                       priority
                     />
                   </div>

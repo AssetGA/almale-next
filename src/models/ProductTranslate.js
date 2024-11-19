@@ -9,6 +9,8 @@ const schema = new Schema({
   diameter: { type: String },
   size: { type: String },
   about: { type: String },
+  keywords: { type: String },
+  descriptionMeta: { type: String },
 });
 
 const ProductTranslation =

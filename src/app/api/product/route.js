@@ -6,15 +6,15 @@ import ProductTranslation from "../../../models/ProductTranslate";
 
 export async function GET(request) {
   await connectToDataBase();
+  const url = new URL(request.url); // Создаем объект URL
+  const lang = url.searchParams.get("lang"); //
   try {
-    console.log("regurl", request.url);
-    const newLang = request.url.slice(-2);
     const list = await Product.find();
     const newList = await Promise.all(
       list.map(async (elem) => {
         const translation = await ProductTranslation.findOne({
           product: elem._id,
-          language: newLang,
+          language: lang,
         });
         const localizedProduct = {
           ...elem._doc,
@@ -24,6 +24,8 @@ export async function GET(request) {
           size: translation?.size,
           about: translation?.about,
           title: translation?.title,
+          keywords: translation?.keywords,
+          descriptionMeta: translation?.descriptionMeta,
         };
         return localizedProduct;
       })
