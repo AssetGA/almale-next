@@ -18,14 +18,20 @@ export async function getServerSideProps({ req }) {
 }
 
 export async function generateMetadata({ params }) {
-  const product = listProductId.find((elem) => {
-    return elem.id === params.id;
+  const t = await getDictionary(params.lang);
+
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/product?lang=${params.lang}`
+  );
+  const products = await response.json();
+  const product = products.find((elem) => {
+    return elem._id === params.id;
   });
-  console.log("product", product);
+  console.log("params", params);
   return (
     product && {
       title: `${product.title} - Alma Le`,
-      description: product.description,
+      description: product.descriptionMeta,
       keywords: product.keywords,
     }
   );
