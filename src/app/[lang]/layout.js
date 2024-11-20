@@ -12,19 +12,35 @@ const montserrat = localFont({
   weight: "100 900",
 });
 
-export const metadata = {
-  title: "Alma Le - Набор профессиональной медной посуды премиум класса",
-  description:
-    "Премиум набор медной посуды Alma Le: равномерный нагрев, бактериальные свойства и уникальный вкус. С внутренним слоем из нержавеющей стали и внешним покрытием из меди и алюминия, идеально для готовки на любой кухне.",
-  keywords:
-    "AlmaLe, медная посуда, кастрюли, сковороды, сотейники, нержавеющая сталь, медь, алюминий, кухня",
-  verification: {
-    google: "rn1ZlN9g8g7fHia45p5G5UtdckF8ogxRywzzlJrHY-k",
-  },
-  icons: {
-    icon: "/img/icon.png", // /public path
-  },
-};
+export async function getServerSideProps({ req }) {
+  // Извлекаем язык из URL
+  const { pathname } = req;
+  const langMatch = pathname.match(/^\/(kz|en|ru)(\/|$)/);
+  const lang = langMatch ? langMatch[1] : "kz"; // Если язык найден, берем его, иначе — 'kz'
+
+  // Возвращаем данные как props для компонента
+  return {
+    props: {
+      lang,
+    },
+  };
+}
+
+export async function generateMetadata({ params }) {
+  const t = await getDictionary(params.lang);
+
+  return {
+    title: `${t.metadata.title} - Alma Le`,
+    description: t.metadata.description,
+    keywords: t.metadata.keywords,
+    verification: {
+      google: "rn1ZlN9g8g7fHia45p5G5UtdckF8ogxRywzzlJrHY-k",
+    },
+    icons: {
+      icon: "/img/icon.png", // /public path
+    },
+  };
+}
 
 export async function generateStaticParams() {
   return [{ lang: "en" }, { lang: "kz" }, { lang: "ru" }];
