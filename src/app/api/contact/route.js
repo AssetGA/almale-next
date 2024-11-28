@@ -1,7 +1,7 @@
 // app/api/product/route.js
 import { NextResponse } from "next/server";
 import { connectToDataBase } from "../../../lib/mongodb";
-import { sendMessage } from "../../utils/telegraf";
+import { sendMessage, sendMessageToPhone } from "../../utils/telegraf";
 
 export async function GET(request) {
   await connectToDataBase();
@@ -27,7 +27,11 @@ export async function GET(request) {
 
     // Логика обработки
     const getInfo = await sendMessage(
-      `Имя заказчика: ${name}, почта: ${email}, номер телефона: https://wa.me/8${phone}, сообщение: ${message}`
+      `Имя заказчика: ${name}, почта: ${email}, номер телефона: https://wa.me/${phone}, сообщение: ${message}`
+    );
+
+    await sendMessageToPhone(
+      `Имя заказчика: ${name}, почта: ${email}, номер телефона: https://wa.me/${phone}, сообщение: ${message}`
     );
     return NextResponse.json({ message: getInfo }, { status: 200, headers });
   } catch (e) {

@@ -43,7 +43,7 @@ const ProductAbout = ({ lang, t }) => {
       setSelectImage(srcSel);
     }
   };
-
+  console.log("srclist", listSrc);
   return (
     <div className="flex flex-col px-5">
       <div className="flex flex-col md:flex-row bg-white rounded-lg p-4 max-w-4xl mx-auto my-20">

@@ -13,6 +13,7 @@ export function middleware(request) {
   const { pathname } = request.nextUrl;
   if (
     pathname === "/sitemap.xml" ||
+    pathname === "/sitemap-0.xml" ||
     pathname === "/robots.txt" ||
     pathname.startsWith("/img") ||
     pathname === "/favicon.ico" ||
