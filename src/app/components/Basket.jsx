@@ -194,7 +194,7 @@ const Basket = ({ lang, t }) => {
                         src={product?.imageUrl}
                         width={100}
                         height={100}
-                        alt="alma-le"
+                        alt="almale"
                       />
                     )}
                   </div>

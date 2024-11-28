@@ -1,8 +1,8 @@
-// File: /home/asset/projects/almale/almale-next/src/app/[lang]/product/page.js
-import * as entry from '../../../../../src/app/[lang]/product/page.js'
+// File: /home/asset/projects/almale/almale-next/src/app/[lang]/basket/page.js
+import * as entry from '../../../../../src/app/[lang]/basket/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
-type TEntry = typeof import('../../../../../src/app/[lang]/product/page.js')
+type TEntry = typeof import('../../../../../src/app/[lang]/basket/page.js')
 
 // Check that the entry is a valid entry
 checkFields<Diff<{
