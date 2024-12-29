@@ -4,5 +4,6 @@
       "@/*": ["./*"]
     }
   },
+  "resolveJsonModule": true,
   "isFireBase": false
 }

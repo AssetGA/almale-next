@@ -1,5 +1,3 @@
-import "server-only";
-
 const dictionaries = {
   kz: () =>
     import("../../../public/dictionaries/kz.json").then(
@@ -15,4 +13,6 @@ const dictionaries = {
     ),
 };
 
-export const getDictionary = async (locale) => dictionaries[locale]();
+export const getDictionary = async (locale) => {
+  return dictionaries[locale]();
+};

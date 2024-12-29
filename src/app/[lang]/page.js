@@ -1,5 +1,6 @@
 import Main from "../components/Main";
 
-export default function Home({ params: { lang } }) {
+export default async function Home({ params }) {
+  const { lang } = await params;
   return <Main lang={lang} />;
 }

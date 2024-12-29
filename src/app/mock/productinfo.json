@@ -1,0 +1,52 @@
+[
+  {
+    "_id": "12",
+    "productId": "675a1528abab837f85c2555c",
+    "src": [
+      "/img/set/1.png",
+      "/img/set/2.png",
+      "/img/set/3.png",
+      "/img/set/4.png"
+    ]
+  },
+  {
+    "_id": "13",
+    "productId": "675a1528abab837f85c25553",
+    "src": [
+      "/img/pan6/1.png",
+      "/img/pan6/2.png",
+      "/img/pan6/3.png",
+      "/img/pan6/4.png"
+    ]
+  },
+  {
+    "_id": "14",
+    "productId": "675a1528abab837f85c25554",
+    "src": [
+      "/img/pan35/1.png",
+      "/img/pan35/2.png",
+      "/img/pan35/3.png",
+      "/img/pan35/4.png"
+    ]
+  },
+  {
+    "_id": "15",
+    "productId": "675a1528abab837f85c25555",
+    "src": [
+      "/img/sousepan/1.png",
+      "/img/sousepan/2.png",
+      "/img/sousepan/3.png",
+      "/img/sousepan/4.png"
+    ]
+  },
+  {
+    "_id": "16",
+    "productId": "675a1528abab837f85c25556",
+    "src": [
+      "/img/fryingpan/1.png",
+      "/img/fryingpan/2.png",
+      "/img/fryingpan/3.png",
+      "/img/fryingpan/4.png"
+    ]
+  }
+]

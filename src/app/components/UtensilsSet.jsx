@@ -4,15 +4,23 @@ import Image from "next/image";
 import Link from "next/link";
 import ProductCard from "./ProductCard";
 import { useAppSelector } from "../store/hooks";
-import { listSrc } from "../utils/listSrc";
 import { useState } from "react";
 
 const UtensilsSet = ({ lang, t }) => {
   const products = useAppSelector((state) => state.product.entity);
+  const productsInfo = useAppSelector((state) => state.productInfo.entity);
   const isLoading = useAppSelector((state) => state.product.dataLoaded);
+  const isLoadingProductInfo = useAppSelector(
+    (state) => state.productInfo.dataLoaded
+  );
   const [selectImage, setSelectImage] = useState({ src: "" });
+  const [listSrc] = useState(["0", "1", "2", "3"]);
   // Проверяем, если продукты загружены
   if (!isLoading) {
+    return <p>{t.utensil.one}</p>;
+  }
+
+  if (!isLoadingProductInfo) {
     return <p>{t.utensil.one}</p>;
   }
 
@@ -20,9 +28,21 @@ const UtensilsSet = ({ lang, t }) => {
     return <p>{t.utensil.two}</p>;
   }
 
-  const newProducts = products.filter((elem) => {
-    return elem.name !== products[0].name && elem;
+  const utensilProduct = products.find((elem) => {
+    return (
+      elem._id === "674a3cf6deec0f0dd2b22010" ||
+      elem._id === "675a1528abab837f85c2555c"
+    );
   });
+
+  const newProducts = products.filter((elem) => {
+    return (
+      elem._id !== "674a3cf6deec0f0dd2b22010" &&
+      elem._id !== "675a1528abab837f85c2555c" &&
+      elem
+    );
+  });
+
   const handleSelect = (srcSel) => {
     if (selectImage !== "") {
       setSelectImage(srcSel);
@@ -42,10 +62,12 @@ const UtensilsSet = ({ lang, t }) => {
                 className="text-xl font-semibold mb-2 sm:hidden px-5"
                 style={{ fontFamily: "Montserrat-Bold" }}
               >
-                {products[0]?.name}
+                {utensilProduct?.name}
               </h2>
               {/* Описание товара */}
-              <p className="mb-6 sm:hidden px-5">{products[0]?.description}</p>
+              <p className="mb-6 sm:hidden px-5">
+                {utensilProduct.description}
+              </p>
               {/* Основное изображение товара */}
               <div className="w-full">
                 <div
@@ -56,29 +78,35 @@ const UtensilsSet = ({ lang, t }) => {
                     className="w-full h-auto object-cover rounded-lg"
                     src={
                       selectImage.src === ""
-                        ? products[0]?.imageUrl
+                        ? utensilProduct?.imageUrl
                         : selectImage.src
                     }
                     width={320}
                     height={300}
-                    alt={products[0]?.name}
+                    alt={
+                      utensilProduct
+                        ? utensilProduct?.name
+                        : "almale kitchenware"
+                    }
                     priority
                   />
                 </div>
                 {/* Миниатюры изображений */}
                 <div className="grid grid-cols-4 gap-2 sm:gap-3">
-                  {listSrc[0].arr.map((elem) => (
-                    <div key={elem._id} className="w-26 w-26">
+                  {listSrc.map((elem, index) => (
+                    <div key={elem} className="w-26 w-26">
                       <button
                         className="w-ful h-full"
-                        onMouseEnter={() => handleSelect({ src: elem.src })}
+                        onMouseEnter={() =>
+                          handleSelect({ src: productsInfo[1]?.src[index] })
+                        }
                       >
                         <Image
                           className={`object-contain rounded-lg cursor-pointer border hover:shadow-lg hover:`}
-                          src={elem.src}
+                          src={productsInfo[1]?.src[index]}
                           width={300}
                           height={300}
-                          alt="alma le"
+                          alt={productsInfo[1]?.meta[index]}
                           priority
                         />
                       </button>
@@ -96,16 +124,16 @@ const UtensilsSet = ({ lang, t }) => {
                   className="text-xl font-semibold mb-2 hidden sm:block"
                   style={{ fontFamily: "Montserrat-Bold" }}
                 >
-                  {products[0]?.name}
+                  {utensilProduct?.name}
                 </h2>
                 {/* Описание товара */}
                 <p className="mb-6 hidden sm:block">
-                  {products[0]?.description}
+                  {utensilProduct?.description}
                 </p>
                 {/* Цена товара */}
                 <div className="flex flex-row justify-between">
                   <p className="text-xl font-semibold text-gray-600 mb-4">
-                    {products[0]?.price}
+                    {utensilProduct?.price}
                     <span className="px-2">
                       {lang !== "en" ? "тг" : "tg (KZ)"}
                     </span>
@@ -131,7 +159,7 @@ const UtensilsSet = ({ lang, t }) => {
             </div>
             <div className="grid lg:grid-cols-3 grid-cols-2 gap-5 md:gap-10 max-w-4xl p-5 mb-20">
               {newProducts.map((product) => (
-                <div key={product.name}>
+                <div key={product._id}>
                   <ProductCard product={product} lang={lang} t={t} />
                 </div>
               ))}

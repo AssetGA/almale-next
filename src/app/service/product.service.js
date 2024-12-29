@@ -1,15 +1,16 @@
 import httpService from "./http.service";
 
-const productEndpoint = "/product";
+const productEndpoint = "/api/product";
 
 const productService = {
   get: async (payload) => {
-    const { data } = await httpService.get(productEndpoint, {
+    console.log("payload", payload);
+    const { data } = await httpService.get(`/lib${productEndpoint}`, {
       params: payload, // Передача параметра lang в query
     });
     return data;
   },
-  getOne: async (payload) => {
+  getOne: async () => {
     const { data } = await httpService.get(userEndpoint + "/" + payload);
     return data;
   },

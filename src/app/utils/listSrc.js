@@ -5,18 +5,22 @@ export const listSrc = [
       {
         _id: "1",
         src: "/img/set/1.png",
+        meta: "Подарок маме",
       },
       {
         _id: "2",
         src: "/img/set/2.png",
+        meta: "Набор медной посуды",
       },
       {
         _id: "3",
         src: "/img/set/3.png",
+        meta: "Подарочный набор",
       },
       {
         _id: "4",
         src: "/img/set/4.png",
+        meta: "Посуда медная",
       },
     ],
   },
@@ -26,22 +30,26 @@ export const listProductId = [
   {
     id: "671f8ad851c70fa561f432e3",
     arr: [
-      {
-        _id: "1",
-        src: "/img/pan6/1.png",
-      },
-      {
-        _id: "2",
-        src: "/img/pan6/2.png",
-      },
-      {
-        _id: "3",
-        src: "/img/pan6/3.png",
-      },
-      {
-        _id: "4",
-        src: "/img/pan6/4.png",
-      },
+      // {
+      //   _id: "1",
+      //   src: "/img/pan6/1.png",
+      //   meta: "Кастрюля медная",
+      // },
+      // {
+      //   _id: "2",
+      //   src: "/img/pan6/2.png",
+      //   meta: "Медная кастрюля",
+      // },
+      // {
+      //   _id: "3",
+      //   src: "/img/pan6/3.png",
+      //   meta: "Copper pan",
+      // },
+      // {
+      //   _id: "4",
+      //   src: "/img/pan6/4.png",
+      //   meta: "Pan copper",
+      // },
     ],
     title: "Кастрюля медная 3,5 л - Alma Le",
     description:
@@ -52,22 +60,26 @@ export const listProductId = [
   {
     id: "671f8ad851c70fa561f432e5",
     arr: [
-      {
-        _id: "1",
-        src: "/img/pan35/1.png",
-      },
-      {
-        _id: "2",
-        src: "/img/pan35/2.png",
-      },
-      {
-        _id: "3",
-        src: "/img/pan35/3.png",
-      },
-      {
-        _id: "4",
-        src: "/img/pan35/4.png",
-      },
+      // {
+      //   _id: "1",
+      //   src: "/img/pan35/1.png",
+      //   meta: "Медная кастрюля",
+      // },
+      // {
+      //   _id: "2",
+      //   src: "/img/pan35/2.png",
+      //   meta: "Подарок жене",
+      // },
+      // {
+      //   _id: "3",
+      //   src: "/img/pan35/3.png",
+      //   meta: "Профессиональная посуда",
+      // },
+      // {
+      //   _id: "4",
+      //   src: "/img/pan35/4.png",
+      //   meta: "Кастрюля медная 6 литров",
+      // },
     ],
     title: "Кастрюля медная 6 л - Alma Le",
     description:
@@ -78,22 +90,26 @@ export const listProductId = [
   {
     id: "671f8ad851c70fa561f432e6",
     arr: [
-      {
-        _id: "1",
-        src: "/img/sousepan/1.png",
-      },
-      {
-        _id: "2",
-        src: "/img/sousepan/2.png",
-      },
-      {
-        _id: "3",
-        src: "/img/sousepan/3.png",
-      },
-      {
-        _id: "4",
-        src: "/img/sousepan/4.png",
-      },
+      // {
+      //   _id: "1",
+      //   src: "/img/sousepan/1.png",
+      //   meta: "Сотейник медный",
+      // },
+      // {
+      //   _id: "2",
+      //   src: "/img/sousepan/2.png",
+      //   meta: "Медная посуда",
+      // },
+      // {
+      //   _id: "3",
+      //   src: "/img/sousepan/3.png",
+      //   meta: "Медный сотейник",
+      // },
+      // {
+      //   _id: "4",
+      //   src: "/img/sousepan/4.png",
+      //   meta: "Сотейник в наборе",
+      // },
     ],
     title: "Сковорода медная - Alma Le",
     description:
@@ -107,18 +123,22 @@ export const listProductId = [
       {
         _id: "1",
         src: "/img/fryingpan/1.png",
+        meta: "Сковорода медная",
       },
       {
         _id: "2",
         src: "/img/fryingpan/2.png",
+        meta: "Медная сковорода",
       },
       {
         _id: "3",
         src: "/img/fryingpan/3.png",
+        meta: "Сковорода сотейник медная",
       },
       {
         _id: "4",
         src: "/img/fryingpan/4.png",
+        meta: "Антипригарная сковорода",
       },
     ],
     title: "Сотейник медный - Alma Le",

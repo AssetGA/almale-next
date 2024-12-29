@@ -1,4 +1,10 @@
 import { NextResponse } from "next/server";
+import { cookies } from "next/headers";
+import { decrypt } from "./app/lib/session";
+
+// 1. Specify protected and public routes
+const protectedRoutes = ["/basket", "/payment"];
+const publicRoutes = ["/product", "/login", "/signup", "/"];
 
 let locales = ["kz", "en", "ru"];
 let defaultLocale = "kz";
@@ -8,7 +14,7 @@ function getLocale() {
   return defaultLocale;
 }
 
-export function middleware(request) {
+export default async function middleware(request) {
   // Check if there is any supported locale in the pathname
   const { pathname } = request.nextUrl;
   if (
@@ -18,41 +24,78 @@ export function middleware(request) {
     pathname.startsWith("/img") ||
     pathname === "/favicon.ico" ||
     pathname.startsWith("/fonts") ||
-    pathname.startsWith("/api") ||
+    pathname.startsWith("/dictionaries") ||
     pathname.endsWith(".woff2") ||
-    pathname.endsWith(".ttf")
+    pathname.endsWith(".ttf") ||
+    pathname.startsWith("/lib/api") ||
+    pathname.endsWith(".css")
   ) {
     return NextResponse.next();
   }
-  if (pathname.endsWith(".css")) {
-    // Здесь вы можете добавить логику для обработки стилей, например:
-    // - Логирование
-    // - Кэширование
-    // - Добавление заголовков
 
-    // В случае необходимости измените URL или обработайте запрос
-    return NextResponse.next();
-  }
   const pathnameHasLocale = locales.some(
     (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
   );
 
-  if (pathnameHasLocale) return;
-
+  // 3. Decrypt the session from the cookie
+  const cookie = (await cookies()).get("session")?.value;
+  const session = await decrypt(cookie);
+  console.log("session midlware", session);
   // Redirect if there is no locale
-  const locale = getLocale(request);
-  request.nextUrl.pathname = `/${locale}${pathname}`;
+  const locale = getLocale();
+
+  // 4. Redirect if there is no locale in the path
+  if (!pathnameHasLocale) {
+    return NextResponse.redirect(
+      new URL(`/${locale}${pathname}`, request.nextUrl)
+    );
+  }
+
+  const currentLocale = locales.find(
+    (locale) =>
+      pathname.startsWith(`/${locale}`) || pathname.startsWith(`/${locale}/`)
+  );
+
+  const isProtectedRoute = protectedRoutes.some((route) =>
+    pathname.startsWith(`/${currentLocale}${route}`)
+  );
+  const isPublicRoute = publicRoutes.some((route) =>
+    pathname.startsWith(`/${currentLocale}${route}`)
+  );
+
+  // request.nextUrl.pathname = `/${locale}${pathname}`;
+  // 5. Redirect to /login if the user is not authenticated
+  if (isProtectedRoute && !session?.userId) {
+    return NextResponse.redirect(
+      new URL(`/${currentLocale}/login`, request.nextUrl)
+    );
+  }
+  // 4. Redirect if there is no locale in the path
+  // if (!pathnameHasLocale) {
+  //   return NextResponse.redirect(
+  //     new URL(`/${locale}${pathname}`, request.nextUrl)
+  //   );
+  // }
   // e.g. incoming request is /products
   // The new URL is now /en-US/products
-  return NextResponse.redirect(request.nextUrl);
+
+  if (
+    isPublicRoute &&
+    session?.userId &&
+    !session?.userId &&
+    !request.nextUrl.pathname.startsWith(`/${currentLocale}/product`)
+  ) {
+    return NextResponse.redirect(
+      new URL(`/${currentLocale}/product`, request.nextUrl)
+    );
+  }
+
+  return NextResponse.next();
 }
 
 export const config = {
-  // matcher: [
-  //   // Skip all internal paths (_next)
-  //   "/((?!api|_next/static|_next/image|img/|fonts/|favicon.ico).*)",
-  //   // Optional: only run on root (/) URL
-  //   // '/'
-  // ],
-  matcher: ["/((?!_next).*)"],
+  matcher: [
+    "/((?!_next).*)",
+    "/((?!api|_next/static|_next/image|.*\\.png$).*)",
+  ],
 };

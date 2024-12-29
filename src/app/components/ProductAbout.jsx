@@ -8,15 +8,23 @@ import Tooltip from "./Tooltip";
 import { usePathname } from "next/navigation";
 import { useAppSelector } from "../store/hooks";
 import { haracter } from "../utils/api";
-import { listProductId } from "../utils/listSrc";
 
 const ProductAbout = ({ lang, t }) => {
   const products = useAppSelector((state) => state.product.entity);
+  const productsInfo = useAppSelector((state) => state.productInfo.entity);
   const loading = useAppSelector((state) => state.product.isLoading);
+  const isLoadingProductInfo = useAppSelector(
+    (state) => state.productInfo.dataLoaded
+  );
   const [selectImage, setSelectImage] = useState({ src: "" });
+  const [list] = useState(["0", "1", "2", "3"]);
   const params = usePathname();
   // Проверяем, если продукты загружены
   if (loading) {
+    return <p>{t.utensil.one}</p>;
+  }
+
+  if (!isLoadingProductInfo) {
     return <p>{t.utensil.one}</p>;
   }
 
@@ -29,11 +37,15 @@ const ProductAbout = ({ lang, t }) => {
   });
 
   const filterProducts = products.filter((elem) => {
-    return elem.name !== products[0].name && elem;
+    return (
+      elem._id !== "674a3cf6deec0f0dd2b22010" &&
+      elem._id !== "675a1528abab837f85c2555c" &&
+      elem
+    );
   });
 
-  const listSrc = listProductId.find((elem) => {
-    return elem.id === product._id;
+  const listSrc = productsInfo.find((elem) => {
+    return elem.productId === product._id;
   });
 
   const handleSelect = (srcSel) => {
@@ -43,7 +55,6 @@ const ProductAbout = ({ lang, t }) => {
       setSelectImage(srcSel);
     }
   };
-  console.log("srclist", listSrc);
   return (
     <div className="flex flex-col px-5">
       <div className="flex flex-col md:flex-row bg-white rounded-lg p-4 max-w-4xl mx-auto my-20">
@@ -70,25 +81,27 @@ const ProductAbout = ({ lang, t }) => {
                 }
                 width={320}
                 height={300}
-                alt={product?.title}
+                alt={product !== undefined ? product?.title : "Almale cookware"}
                 priority
               />
             </div>
             {/* Миниатюры изображений */}
             <div className="grid grid-cols-4 gap-2 sm:gap-3">
-              {listSrc !== undefined &&
-                listSrc.arr.map((elem) => (
+              {list !== undefined &&
+                list.map((elem, index) => (
                   <div
-                    key={elem._id}
+                    key={elem}
                     className="aspect-w-1 aspect-h-1"
-                    onMouseEnter={() => handleSelect({ src: elem.src })}
+                    onMouseEnter={() =>
+                      handleSelect({ src: listSrc.src[index] })
+                    }
                   >
                     <Image
                       className=" rounded-lg cursor-pointer border border-gray-200 hover:border-gray"
-                      src={elem.src}
+                      src={listSrc.src[index]}
                       width={200}
                       height={200}
-                      alt="almale"
+                      alt={listSrc ? listSrc.meta[index] : "Alma cookeware"}
                       priority
                     />
                   </div>

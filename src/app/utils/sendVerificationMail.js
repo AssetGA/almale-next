@@ -5,7 +5,6 @@ require("dotenv").config();
 
 // отправка верификации
 const sendVerificationMail = async (user, number) => {
-  console.log("1111", user);
   let transporter = nodemailer.createTransport(
     {
       host: "smtp.mail.ru",

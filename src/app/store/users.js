@@ -14,7 +14,7 @@ const initialState = {
 };
 
 const usersSlice = createSlice({
-  name: "users",
+  name: "user",
   initialState,
   reducers: {
     usersInitialize: (state) => {
@@ -32,13 +32,13 @@ const usersSlice = createSlice({
       state.api = action.payload;
       state.isLoading = false;
     },
-    userUnauthorize: (state, action) => {
-      state.auth = action.payload.auth;
-      state.userId = action.payload.userId;
+    userUnVerify: (state, action) => {
+      state.isVerify = action.payload.isVerify;
       state.api = action.payload.api;
     },
-    usersReceived: (state, action) => {
+    userReceived: (state, action) => {
       state.entities = action.payload;
+      state.userId = action.payload._id;
       state.isLoading = false;
     },
     usersRequestFailed: (state, action) => {
@@ -47,10 +47,6 @@ const usersSlice = createSlice({
     },
     authRequested: (state) => {
       state.isLoading = true;
-    },
-    authRequestSuccess: (state, action) => {
-      state.auth = action.payload;
-      state.isLoggedIn = true;
     },
     authRequestFailed: (state, action) => {
       state.isLoggedIn = false;
@@ -64,15 +60,8 @@ const usersSlice = createSlice({
       state.error = action.payload;
       state.isLoading = false;
     },
-    userCreated: (state, action) => {
-      if (!Array.isArray(state.entities)) {
-        state.entities = [];
-      }
-      if (action.payload.user !== null) {
-        state.entities.push(action.payload.user);
-      }
-      state.auth = action.payload.content;
-      state.userId = action.payload.id;
+    userCreatedVerify: (state, action) => {
+      state.isVerify = action.payload.content;
       state.api = action.payload.api;
       state.isLoading = false;
     },
@@ -98,8 +87,8 @@ const { reducer: usersReducer, actions } = usersSlice;
 const {
   usersRequested,
   usersClearError,
-  userCreated,
-  usersReceived,
+  userCreatedVerify,
+  userReceived,
   usersRequestFailed,
   authRequestSuccess,
   authRequestFailed,
@@ -107,7 +96,7 @@ const {
   userUpdateSuccessed,
   verifyRequestSend,
   verifyRequestFailed,
-  userUnauthorize,
+  userUnVerify,
   userGetApi,
 } = actions;
 
@@ -115,18 +104,19 @@ const authRequested = createAction("users/authRequested");
 const userUpdateRequested = createAction("users/userUpdateRequested");
 const userUpdateFailed = createAction("users/userUpdateFailed");
 
-export const initializeUsers = () => async (dispatch) => {
+export const authorizeUser = () => async (dispatch) => {
   dispatch(authRequested());
   try {
     const { content } = await userService.get();
-    dispatch(usersReceived(content));
+    console.log("user store", content);
+    dispatch(userReceived(content));
   } catch (error) {
     dispatch(verifyRequestFailed(error.message));
   }
 };
 
-export const UnauthorizeUser = () => async (dispatch) => {
-  dispatch(userUnauthorize({ auth: false, userId: null, api: null }));
+export const RemoveVerifyUser = () => async (dispatch) => {
+  dispatch(userUnVerify({ isVerify: false, api: null }));
 };
 
 export const clearUsersError = () => async (dispatch) => {
@@ -134,25 +124,26 @@ export const clearUsersError = () => async (dispatch) => {
   dispatch(usersClearError(null));
 };
 
-export const signUp = (payload) => async (dispatch) => {
-  dispatch(authRequested());
-  try {
-    const data = await authService.verify(payload);
-    if (data.content === null) {
-      dispatch(verifyRequestSend(data));
-    } else {
-      dispatch(verifyRequestSend(data));
-    }
-  } catch (error) {
-    dispatch(verifyRequestFailed(error.message));
-  }
-};
+// export const signUp = (payload) => async (dispatch) => {
+//   dispatch(authRequested());
+//   try {
+//     const data = await authService.verify(payload);
+//     if (data.content === null) {
+//       dispatch(verifyRequestSend(data));
+//     } else {
+//       dispatch(verifyRequestSend(data));
+//     }
+//   } catch (error) {
+//     dispatch(verifyRequestFailed(error.message));
+//   }
+// };
 
 export const Verify = (payload) => async (dispatch) => {
   dispatch(usersRequested());
   try {
-    const data = await authService.verifyGet(payload);
-    dispatch(userCreated(data));
+    const { content } = await authService.verify(payload);
+    console.log("content verify", content);
+    dispatch(userCreatedVerify(content));
   } catch (error) {
     dispatch(
       verifyRequestFailed(
@@ -164,21 +155,22 @@ export const Verify = (payload) => async (dispatch) => {
   }
 };
 
-export const getApiUrl = (payload) => async (dispatch) => {
+export const getApiUrl = () => async (dispatch) => {
   dispatch(usersRequested());
   try {
-    const { content } = await userService.getApi(payload);
-    dispatch(userGetApi(data.content));
+    const { content } = await userService.getApi();
+
+    dispatch(userGetApi(content));
   } catch (error) {
     dispatch(verifyRequestFailed(error.message));
   }
 };
 
-export const getIsLoggedIn = () => (state) => state.users.isLoggedIn;
-export const getDataStatus = () => (state) => state.users.dataLoaded;
-export const getUsersLoadingStatus = () => (state) => state.users.isLoading;
+export const getIsLoggedIn = () => (state) => state.user.isLoggedIn;
+export const getDataStatus = () => (state) => state.user.dataLoaded;
+export const getUsersLoadingStatus = () => (state) => state.user.isLoading;
 export const getCurrentUserId = () => (state) => state.users.auth.userId;
-export const getAuthErrors = () => (state) => state.users.error;
-export const getIsVerifyUser = () => (state) => state.users.isVerify;
+export const getAuthErrors = () => (state) => state.user.error;
+export const getIsVerifyUser = () => (state) => state.user.isVerify;
 
 export default usersReducer;
