@@ -6,17 +6,17 @@ import RadioGroup from "./RadioGroup";
 import { validator } from "../utils/validator";
 import TextField from "./common/TextField";
 import { useAppDispatch, useAppSelector, useAppStore } from "../store/hooks";
-import { loadOrder, orderCreate } from "../store/orderSlice";
+import { loadOrder, orderCreate, removeOrder } from "../store/orderSlice";
 import {
+  authorizeUser,
   clearUsersError,
   getApiUrl,
-  initializeUsers,
-  signUp,
-  UnauthorizeUser,
+  RemoveVerifyUser,
   Verify,
 } from "../store/users";
 import { deliveries } from "../utils/api";
 import { useRouter } from "next/navigation";
+import { logout } from "../actions/auth";
 
 const Basket = ({ lang, t }) => {
   const router = useRouter();
@@ -24,14 +24,25 @@ const Basket = ({ lang, t }) => {
   const initialized = useRef(false);
   if (!initialized.current) {
     store.dispatch(loadOrder());
-    store.dispatch(initializeUsers());
+    store.dispatch(authorizeUser());
+    store.dispatch(getApiUrl());
     initialized.current = true;
   }
   const dispatch = useAppDispatch();
   const { entity } = useAppSelector((state) => state.product);
-  const { error, auth, api, userId } = useAppSelector((state) => state.users);
-  // const { send, errorOrder } = useAppSelector((state) => state.orderRedux);
-  const product = entity.length === 0 ? null : entity[0];
+  const { error, isVerify, api, userId } = useAppSelector(
+    (state) => state.user
+  );
+
+  const { productOrder, errorOrder } = useAppSelector((state) => state.order);
+  const product =
+    entity.length > 0 &&
+    entity.find((elem) => {
+      return (
+        elem._id === "674a3cf6deec0f0dd2b22010" ||
+        elem._id === "675a1528abab837f85c2555c"
+      );
+    });
 
   const [address, setAddress] = useState({
     name: "",
@@ -131,7 +142,31 @@ const Basket = ({ lang, t }) => {
     // Здесь можно добавить обработку отправки адреса
     const isValid = validate();
     if (!isValid) return;
-    dispatch(signUp({ name: address.name, email: address.email }));
+    const newTotal = order.quantity * product.price + order.deliveryPrice;
+    dispatch(
+      orderCreate({
+        ...order,
+        ...address,
+        total: newTotal,
+        productId: product._id,
+        userId: userId,
+      })
+    );
+    setAddress({
+      name: "",
+      email: "",
+      mobile: "",
+      street: "",
+      city: "",
+      postalCode: "",
+    });
+    setOrder({
+      productId: "",
+      quantity: 1,
+      deliveryPrice: 0,
+      total: 0,
+      userId: "",
+    });
 
     openModal();
   };
@@ -146,7 +181,7 @@ const Basket = ({ lang, t }) => {
   // Отправка кода
   const handleSubmitCheck = (e) => {
     e.preventDefault();
-    dispatch(Verify({ ...address, code: code }));
+    dispatch(Verify({ code: code, orderId: productOrder }));
 
     setCode("");
     closeModal(); // Закрываем модальное окно после отправки
@@ -154,28 +189,17 @@ const Basket = ({ lang, t }) => {
 
   const handleGo = (e) => {
     e.preventDefault();
-    const newTotal = order.quantity * product.price + order.deliveryPrice;
-    dispatch(
-      orderCreate({
-        ...order,
-        total: newTotal,
-        productId: product._id,
-        userId: userId,
-      })
-    );
 
     window.open(`${api}`);
-    dispatch(UnauthorizeUser());
-    router.push(`/${lang}/#production`);
+
+    router.push(`/${lang}/payment`);
+    dispatch(RemoveVerifyUser());
   };
 
   const handleBack = () => {
-    dispatch(UnauthorizeUser());
+    dispatch(RemoveVerifyUser());
+    dispatch(removeOrder(productOrder));
   };
-
-  useEffect(() => {
-    dispatch(getApiUrl({ id: userId }));
-  }, [auth]);
 
   return (
     <div className="container mx-auto p-4  py-20">
@@ -194,7 +218,8 @@ const Basket = ({ lang, t }) => {
                         src={product?.imageUrl}
                         width={100}
                         height={100}
-                        alt="almale"
+                        alt="Медная посуда"
+                        priority
                       />
                     )}
                   </div>
@@ -211,7 +236,7 @@ const Basket = ({ lang, t }) => {
                     min="1" // Минимальное количество — 1
                   />
                   <p className="ml-2 font-bold px-1">
-                    {product?.price}{" "}
+                    {product?.price}
                     <span className="pl-2">{lang !== "en" ? "тг" : "t"}</span>
                   </p>
                 </div>
@@ -322,7 +347,13 @@ const Basket = ({ lang, t }) => {
                   />
                 </div>
 
-                <div className="flex flex-row justify-end">
+                <div className="flex flex-row justify-between">
+                  <button
+                    className="bg-green text-white py-2 px-4 rounded-md hover:bg-green-light"
+                    onClick={logout}
+                  >
+                    выход
+                  </button>
                   <button
                     type="submit"
                     className="bg-green text-white py-2 px-4 rounded-md hover:bg-green-light"
@@ -367,7 +398,7 @@ const Basket = ({ lang, t }) => {
             </div>
           </div>
         )}
-        {error === "Unauthorize" && (
+        {(error === "Unauthorize" || error === "No Verify") && (
           <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
             <div className="bg-white p-6 rounded-lg shadow-lg max-w-md w-full">
               <h2 className="text-xl font-bold mb-4">{t.basket.headVerif}</h2>
@@ -384,7 +415,7 @@ const Basket = ({ lang, t }) => {
             </div>
           </div>
         )}
-        {auth === true && (
+        {isVerify === true && (
           <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
             <div className="bg-white md:px-6 m-2 py-6 rounded-lg shadow-lg max-w-md w-full text-center">
               <div className="flex flex-cols w-full items-center">

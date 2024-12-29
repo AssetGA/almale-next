@@ -1,14 +1,14 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import counterReducer from "./counterSlice";
 import productReducer from "./productSlice";
 import orderReducer from "./orderSlice";
 import usersReducer from "./users";
+import productInfoReducer from "./productInfoSlice";
 
 const rootReducer = combineReducers({
-  counter: counterReducer,
   product: productReducer,
   order: orderReducer,
-  users: usersReducer,
+  user: usersReducer,
+  productInfo: productInfoReducer,
 });
 
 export function createStore() {

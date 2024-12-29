@@ -5,6 +5,7 @@ import Footer from "../components/Footer";
 import localFont from "next/font/local";
 import StoreProvider from "../StoreProvider";
 import { getDictionary } from "./dictionaries";
+import { getUser } from "../lib/dai";
 
 const montserrat = localFont({
   src: "../../../public/fonts/Montserat/Montserrat-Medium.ttf",
@@ -14,7 +15,7 @@ const montserrat = localFont({
 
 export async function getServerSideProps({ req }) {
   // Извлекаем язык из URL
-  const { pathname } = req;
+  const { pathname } = await req;
   const langMatch = pathname.match(/^\/(kz|en|ru)(\/|$)/);
   const lang = langMatch ? langMatch[1] : "kz"; // Если язык найден, берем его, иначе — 'kz'
 
@@ -27,8 +28,8 @@ export async function getServerSideProps({ req }) {
 }
 
 export async function generateMetadata({ params }) {
-  const t = await getDictionary(params.lang);
-
+  const { lang } = await params;
+  const t = await getDictionary(lang);
   return {
     title: `${t.metadata.title} - Alma Le`,
     description: t.metadata.description,
@@ -42,12 +43,16 @@ export async function generateMetadata({ params }) {
   };
 }
 
-export async function generateStaticParams() {
+export function generateStaticParams() {
   return [{ lang: "en" }, { lang: "kz" }, { lang: "ru" }];
 }
 
-export default async function LocaleLayout({ children, params: { lang } }) {
+export default async function LocaleLayout({ children, params }) {
+  const { lang } = await params;
   const t = await getDictionary(lang);
+
+  const user = await getUser();
+
   return (
     <html lang={lang}>
       <body className={montserrat.className}>

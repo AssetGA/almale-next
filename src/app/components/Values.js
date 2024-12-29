@@ -15,7 +15,7 @@ const Values = async ({ lang }) => {
         <div className="grid grid-rows-3 sm:grid-rows-none sm:grid-cols-3 gap-5 lg:gap-20 w-auto xl:px-40 sm:py-20 px-5 sm:px-0">
           <div className="flex flex-col items-center p-2">
             <Image
-              src={"img/object1.svg"}
+              src={"/img/object1.svg"}
               className="w-[100px] h-[100px] lg:w-[175px] lg:h-[175px]"
               width={100}
               height={100}
@@ -25,7 +25,7 @@ const Values = async ({ lang }) => {
           </div>
           <div className="flex flex-col items-center p-2">
             <Image
-              src={"img/object2.svg"}
+              src={"/img/object2.svg"}
               className="w-[100px] h-[100px] lg:w-[175px] lg:h-[175px]"
               width={100}
               height={100}
@@ -36,7 +36,7 @@ const Values = async ({ lang }) => {
 
           <div className="flex flex-col items-center p-2">
             <Image
-              src={"img/object3.svg"}
+              src={"/img/object3.svg"}
               className="w-[100px] h-[100px] lg:w-[175px] lg:h-[175px]"
               width={100}
               height={100}

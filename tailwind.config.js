@@ -30,7 +30,13 @@ module.exports = {
       azure: "#F8F8FF",
     },
     fontFamily: {
-      geist: ["geistMonoVF", "geistVF", "Montserrat", "Montserrat-bold"],
+      geist: [
+        "geistMonoVF",
+        "geistVF",
+        "Montserrat",
+        "Montserrat-bold",
+        "Montserrat-Black",
+      ],
     },
     extend: {
       // spacing: {

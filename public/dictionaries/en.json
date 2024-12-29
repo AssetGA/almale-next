@@ -66,7 +66,7 @@
     "deliveryLabel1": "Delivery in Kazakhstan",
     "deliveryLabel2": "International delivery",
     "total": "TOTAL",
-    "name": "Name",
+    "name": "Full name of recipient",
     "email": "Email",
     "phone": "Mobile number",
     "address": "Delivery address",
@@ -118,5 +118,25 @@
     "title": "Copper utensil set",
     "description": "Set of copper utensils Almaty, Astana - buy",
     "keywords": "Premium Copper Pots & Pans, Professional Copper Cookware, Durable Copper Cookset, Copper Pan, Pan & Casserole, Secondary Keywords, High Quality Copper Cookware, Nonstick Copper Kitchen Tools, Copper Pan Benefits, Copper Cookware Thermal Conductivity, Elegant Kitchen Utensils Design, Target keywords for functions, environmentally friendly copper pots, multilayer copper base"
+  },
+  "signup": {
+    "head": "Signup",
+    "phone": "phone number",
+    "name": "Full name",
+    "email": "Email",
+    "password": "password",
+    "p": "Already have an account?",
+    "link": "Login here"
+  },
+  "signin": {
+    "head": "Login",
+    "name": "Last name",
+    "email": "Email",
+    "password": "Password",
+    "p": "No account?",
+    "link": "Registration"
+  },
+  "payment": {
+    "head": "Good health to your family"
   }
 }

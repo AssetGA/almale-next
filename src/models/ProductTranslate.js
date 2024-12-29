@@ -1,4 +1,7 @@
-const { Schema, model, models } = require("mongoose");
+const mongoose = require("mongoose");
+
+const { Schema, model, models } = mongoose;
+mongoose.Promise = global.Promise;
 
 const schema = new Schema({
   product: { type: Schema.Types.ObjectId, ref: "Product", required: true },
@@ -13,7 +16,6 @@ const schema = new Schema({
   descriptionMeta: { type: String },
 });
 
-const ProductTranslation =
-  models.ProductTranslation || model("ProductTranslation", schema);
-
-module.exports = ProductTranslation;
+module.exports = models?.ProductTranslation
+  ? models.ProductTranslation
+  : model("ProductTranslation", schema);

@@ -1,6 +1,6 @@
 import httpService from "./http.service";
 
-const botEndpoint = "/contact";
+const botEndpoint = "/lib/api/contact";
 
 const botService = {
   get: async (payload) => {

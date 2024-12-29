@@ -25,7 +25,7 @@ const ProductCard = ({ product, lang, t }) => {
         <span className="text-sm">{product.diameter}</span>
 
         {/* Описание товара */}
-        <p className="text-gray-600 mt-2">{product.description}</p>
+        <p className="text-gray-600 mt-2 truncate">{product.description}</p>
 
         {/* Цена */}
 

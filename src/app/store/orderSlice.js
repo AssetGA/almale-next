@@ -3,37 +3,35 @@ import orderService from "../service/order.service";
 
 // Начальное состояние
 const initialState = {
-  productOrder: {},
-  send: false,
+  productOrder: null,
   errorOrder: null,
 };
 
 // Слайс для продуктов
 const orderSlice = createSlice({
-  name: "orderRedux",
+  name: "order",
   initialState,
   reducers: {
     loadOrderState: (state) => {
-      state.orderRedux;
+      state.order;
     },
     // Действие для успешной загрузки продуктов
     orderReceived: (state, action) => {
-      state.orderRedux = action.payload;
+      state.productOrder = action.payload;
+    },
+    orderRemove: (state, action) => {
+      state.productOrder = action.payload.orderId;
     },
     // Действие при ошибке загрузки
     orderRequestFailed(state, action) {
       state.errorOrder = action.payload;
     },
-    orderUpdate: (state, action) => {
-      if (action.payload === "send") {
-        state.send = true;
-      } else {
-        state.send = false;
-      }
+    createOrder: (state, action) => {
+      state.productOrder = action.payload;
     },
     // Добавление продукта
     updateOrderProduct(state, action) {
-      state.orderRedux = action.payload;
+      state.order = action.payload;
     },
   },
 });
@@ -41,20 +39,28 @@ const orderSlice = createSlice({
 const { reducer: orderReducer, actions } = orderSlice;
 
 // Экспортируем действия
-const { loadOrderState, orderRequestFailed } = actions;
+const { loadOrderState, orderRemove, orderRequestFailed, createOrder } =
+  actions;
 
 export const loadOrder = () => async (dispatch) => {
   dispatch(loadOrderState());
 };
 
 export const removeOrder = (payload) => async (dispatch) => {
-  dispatch(orderUpdate(payload));
+  try {
+    const { content } = await orderService.delete(payload);
+    console.log("order delet", content);
+    dispatch(orderRemove(content));
+  } catch (error) {
+    dispatch(orderRequestFailed(error.message));
+  }
 };
 
 export const orderCreate = (payload) => async (dispatch) => {
   try {
     const { content } = await orderService.create(payload);
-    dispatch(orderUpdate(content));
+    console.log("order store", content);
+    dispatch(createOrder(content));
   } catch (error) {
     dispatch(orderRequestFailed(error.message));
   }

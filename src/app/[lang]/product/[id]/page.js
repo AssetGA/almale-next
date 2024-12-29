@@ -17,29 +17,45 @@ export async function getServerSideProps({ req }) {
 }
 
 export async function generateMetadata({ params }) {
-  const t = await getDictionary(params.lang);
-
-  const response = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/product?lang=${params.lang}`
-  );
-  const products = await response.json();
-  const product = products.find((elem) => {
-    return elem._id === params.id;
+  const { id, lang } = await params;
+  console.log("lang id", lang, id);
+  const products = await fetchProducts(lang);
+  console.log("products meta", products);
+  const productSet = products.filter((elem) => {
+    return (
+      elem._id !== "675a1528abab837f85c2555c" ||
+      elem._id !== "674a3cf6deec0f0dd2b22010"
+    );
   });
-  return (
-    product && {
+  const product = productSet.find((elem) => {
+    return elem._id === id;
+  });
+  if (product) {
+    return {
       title: `${product.title} - Alma Le`,
       description: product.descriptionMeta,
       keywords: product.keywords,
-    }
-  );
+    };
+  }
+  return {
+    title: "Product Not Found - Alma Le",
+    description: "The product you are looking for could not be found.",
+    keywords: "product, Alma Le, not found",
+  };
 }
 
-async function fetchProducts(lang) {
+export async function fetchProducts(lang) {
+  console.log("fetch lang", lang);
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/product`, {
-      params: { lang: lang },
-    }); // Замените на URL вашего API
+    const url = new URL(`${process.env.NEXT_PUBLIC_SITE_URL}/lib/api/product`);
+    url.searchParams.append("lang", lang); // Добавляем параметр lang
+    const res = await fetch(url.toString());
+    // const res = await fetch(
+    //   `${process.env.NEXT_PUBLIC_SITE_URL}/lib/api/product`,
+    //   {
+    //     params: { lang: lang },
+    //   }
+    // ); // Замените на URL вашего API
     if (!res.ok) throw new Error("Ошибка при загрузке товаров");
     const products = await res.json();
     return products;
@@ -74,7 +90,8 @@ export async function generateStaticParams() {
   return params; // Возвращаем параметры для генерации статичных страниц
 }
 
-export default async function Page({ params: { lang } }) {
+export default async function Page({ params }) {
+  const { lang } = await params;
   const t = await getDictionary(lang);
   return <ProductAbout lang={lang} t={t} />;
 }

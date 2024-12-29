@@ -1,13 +1,14 @@
+"use client";
+
 import axios from "axios";
-import { toast } from "react-toastify";
 import configFile from "../../../config.json";
 
 axios.defaults.headers.common["Content-Type"] = "application/json";
 
 // Используем функцию
-const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+const apiUrl = process.env.NEXT_PUBLIC_SITE_URL;
 
-export function createHttpWithLang(lang) {
+export function createHttpWithLang() {
   return axios.create({
     baseURL: `${apiUrl}`,
   });
@@ -37,8 +38,7 @@ http.interceptors.response.use(
       error.response.status < 500;
 
     if (!expectedErrors) {
-      console.log(error);
-      toast.error("Something was wrong. Try it later");
+      console.log("Something was wrong. Try it later", error);
     }
     return Promise.reject(error);
   }

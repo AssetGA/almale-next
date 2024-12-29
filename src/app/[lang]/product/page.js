@@ -1,5 +1,6 @@
 import UtensilsSet from "../../components/UtensilsSet";
 import { getDictionary } from "../dictionaries";
+import { fetchProducts } from "./[id]/page";
 
 export async function getServerSideProps({ req }) {
   // Извлекаем язык из URL
@@ -16,16 +17,26 @@ export async function getServerSideProps({ req }) {
 }
 
 export async function generateMetadata({ params }) {
-  const t = await getDictionary(params.lang);
-
-  return {
-    title: `${t.metadataProduct.title} - Alma Le`,
-    description: t.metadataProduct.description,
-    keywords: t.metadataProduct.keywords,
-  };
+  const { lang } = await params;
+  const t = await getDictionary(lang);
+  const products = await fetchProducts(lang);
+  const productSet = products.find((elem) => {
+    return (
+      elem._id === "675a1528abab837f85c2555c" ||
+      elem._id === "674a3cf6deec0f0dd2b22010"
+    );
+  });
+  if (productSet) {
+    return {
+      title: `${t.metadataProduct.title} - Alma Le`,
+      description: t.metadataProduct.description,
+      keywords: t.metadataProduct.keywords,
+    };
+  }
 }
 
-export default async function Page({ params: { lang } }) {
+export default async function Page({ params }) {
+  const { lang } = await params;
   const t = await getDictionary(lang);
   return <UtensilsSet lang={lang} t={t} />;
 }
