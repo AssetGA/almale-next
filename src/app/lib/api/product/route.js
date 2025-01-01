@@ -6,10 +6,10 @@ import { connectToDatabase } from "../../mongodb";
 
 export async function GET(request) {
   await connectToDatabase();
-  console.log("request", request.url);
+
   const url = new URL(request.url); // Создаем объект URL
   const lang = url.searchParams.get("lang");
-  console.log("url", url.searchParams);
+
   try {
     const list = await Product.find();
     const newList = await Promise.all(
@@ -18,7 +18,7 @@ export async function GET(request) {
           product: elem._id,
           language: lang,
         });
-        console.log("elem_doc", translation, lang);
+
         const localizedProduct = {
           ...elem._doc,
           name: translation?.name,

@@ -1,3 +1,5 @@
+"use server";
+
 import mongoose from "mongoose";
 import initDatabase from "../utils/InitDatabase";
 
@@ -29,17 +31,4 @@ export const connectToDatabase = async () => {
     console.error("Database connection error:", error);
     throw new Error("Failed to connect to the database");
   }
-
-  // try {
-  //   await mongoose.connection.once("open", () => {
-  //     initDatabase();
-  //   });
-  //   await mongoose.connect(process.env.MONGODB_URI);
-  //   app.listen(PORT, () => {
-  //     console.log(`Server has been started on port ${PORT}...`);
-  //   });
-  // } catch (e) {
-  //   console.log("error mongoose", e.message);
-  //   process.exit(1);
-  // }
 };

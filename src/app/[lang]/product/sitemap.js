@@ -13,23 +13,6 @@ export async function generateSitemaps() {
         console.warn(`No products found for language: ${lang}`);
         return;
       }
-
-      products.forEach((product) => {
-        params.push({ lang, id: product._id });
-      });
-    })
-  );
-
-  return params; // Return parameters for static generation
-}
-
-export default async function sitemap() {
-  const sitemapUrls = [];
-
-  await Promise.all(
-    SUPPORTED_LANGS.map(async (lang) => {
-      const products = await fetchProducts(lang);
-
       const productSet = products.filter((elem) => {
         return (
           elem._id === "675a1528abab837f85c2555c" ||
@@ -38,15 +21,28 @@ export default async function sitemap() {
       });
 
       productSet.forEach((product) => {
-        sitemapUrls.push({
-          url: `${process.env.NEXT_PUBLIC_SITE_URL}/${lang}/product`,
-          lastModified: product.date
-            ? new Date(product.date).toISOString()
-            : new Date().toISOString(),
-        });
+        params.push({ lang, id: product._id });
       });
     })
   );
 
-  return sitemapUrls;
+  return params; // Return parameters for static generation
+}
+
+export default async function sitemap({ lang, id }) {
+  const products = await fetchProducts(lang);
+
+  const productSet = products.find((elem) => {
+    return (
+      elem._id === "675a1528abab837f85c2555c" ||
+      elem._id === "674a3cf6deec0f0dd2b22010"
+    );
+  });
+
+  return {
+    url: `${process.env.NEXT_PUBLIC_SITE_URL}/${lang}/product/${productSet._id}`,
+    lastModified: productSet.date
+      ? new Date(product.date).toISOString()
+      : new Date().toISOString(),
+  };
 }

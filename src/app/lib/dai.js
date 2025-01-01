@@ -20,6 +20,7 @@ export const verifySession = cache(async () => {
 export const getUser = cache(async () => {
   const session = await verifySession();
   if (!session) return null;
+
   await connectToDatabase();
   try {
     // Получение пользователя по userId из сессии

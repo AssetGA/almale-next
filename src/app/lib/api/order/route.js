@@ -29,7 +29,7 @@ export async function POST(request) {
       try {
         await randomNumber.start();
         const number = randomNumber.getNumber();
-        console.log("number", number, typeof number);
+
         const newOrder = await Order.create({
           name: name,
           email: email,
@@ -44,7 +44,7 @@ export async function POST(request) {
           userId: userId,
           numberCheck: number,
         });
-        console.log("newOrder", newOrder);
+
         sendVerificationMail(findUser, number).catch(console.error);
         return NextResponse.json({ orderId: newOrder._id }, { status: 200 });
       } catch (error) {
