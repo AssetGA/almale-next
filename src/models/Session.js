@@ -1,4 +1,6 @@
-const { Schema, model, models } = require("mongoose");
+"use server";
+
+import { Schema, model, models } from "mongoose";
 
 const schema = new Schema(
   {

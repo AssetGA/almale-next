@@ -1,8 +1,6 @@
 import "server-only";
 import { cookies } from "next/headers";
 import { SignJWT, jwtVerify } from "jose";
-import Session from "../../models/Session.js";
-import { connectToDatabase } from "./mongodb.js";
 
 const secretKey = process.env.SESSION_SECRET;
 const encodedKey = new TextEncoder().encode(secretKey);
@@ -26,26 +24,49 @@ export async function decrypt(session) {
   }
 }
 
+export async function fetchCreateSession(id) {
+  try {
+    const url = new URL(`${process.env.NEXT_PUBLIC_SITE_URL}/lib/api/session`);
+    url.searchParams.append("id", id); // Добавляем параметр lang
+    const res = await fetch(url.toString(), {
+      method: "POST", // Указываем метод POST
+      headers: {
+        "Content-Type": "application/json", // Устанавливаем заголовок
+      },
+      body: JSON.stringify({ id }), // Передаём данные в теле запроса
+    });
+
+    if (!res.ok) throw new Error("Ошибка при загрузке товаров");
+    const session = await res.json();
+    return session;
+  } catch (error) {
+    console.error("Error fetching products:", error);
+    return []; // Возвращаем пустой массив, если произошла ошибка
+  }
+}
+
 export async function createSession(id) {
-  await connectToDatabase();
-  const expiresAt = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000);
+  // await connectToDatabase();
+  // const expiresAt = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000);
 
-  // 1. Create a session in the database
+  // // 1. Create a session in the database
 
-  const data = await Session.create({
-    userId: id,
-    expiresAt,
-    role: "user",
-  });
+  // const data = await Session.create({
+  //   userId: id,
+  //   expiresAt,
+  //   role: "user",
+  // });
+  const data = await fetchCreateSession(id);
 
   const sessionId = data._id;
+  const expiresAt = new Date(data.expiresAt);
 
   // 2. Encrypt the session ID
 
   const session = await encrypt({
     sessionId,
     userId: data.userId,
-    expiresAt,
+    expiresAt: expiresAt,
     role: data.role,
   });
 
@@ -85,5 +106,6 @@ export function getSessionCookie() {
 
 export async function deleteSession() {
   const cookieStore = await cookies();
+
   cookieStore.delete("session");
 }
