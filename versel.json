@@ -1,10 +1,10 @@
 {
   "functions": {
-    "api/test.js": {
+    "lib/api/test.js": {
       "memory": 3009,
       "maxDuration": 30
     },
-    "api/*.js": {
+    "lib/api/*.js": {
       "memory": 3009,
       "maxDuration": 30
     }
