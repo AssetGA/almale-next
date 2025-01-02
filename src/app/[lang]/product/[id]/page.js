@@ -45,7 +45,6 @@ export async function generateMetadata({ params }) {
 }
 
 export async function fetchProducts(lang) {
-  console.log("fetch lang", lang);
   try {
     const url = new URL(`${process.env.NEXT_PUBLIC_SITE_URL}/lib/api/product`);
     url.searchParams.append("lang", lang); // Добавляем параметр lang

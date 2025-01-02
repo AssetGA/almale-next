@@ -10,10 +10,6 @@ const productService = {
     });
     return data;
   },
-  getOne: async () => {
-    const { data } = await httpService.get(userEndpoint + "/" + payload);
-    return data;
-  },
 };
 
 export default productService;
