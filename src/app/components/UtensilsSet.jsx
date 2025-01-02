@@ -30,14 +30,14 @@ const UtensilsSet = ({ lang, t }) => {
 
   const utensilProduct = products.find((elem) => {
     return (
-      elem._id === "674a3cf6deec0f0dd2b22010" ||
+      elem._id === "671f8ad851c70fa561f432e2" ||
       elem._id === "675a1528abab837f85c2555c"
     );
   });
 
   const newProducts = products.filter((elem) => {
     return (
-      elem._id !== "674a3cf6deec0f0dd2b22010" &&
+      elem._id !== "671f8ad851c70fa561f432e2" &&
       elem._id !== "675a1528abab837f85c2555c" &&
       elem
     );
@@ -50,6 +50,7 @@ const UtensilsSet = ({ lang, t }) => {
       setSelectImage(srcSel);
     }
   };
+  console.log("utensilproduct", utensilProduct);
 
   return (
     <>
