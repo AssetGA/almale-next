@@ -38,7 +38,7 @@ const ProductAbout = ({ lang, t }) => {
 
   const filterProducts = products.filter((elem) => {
     return (
-      elem._id !== "674a3cf6deec0f0dd2b22010" &&
+      elem._id !== "671f8ad851c70fa561f432e2" &&
       elem._id !== "675a1528abab837f85c2555c" &&
       elem
     );
