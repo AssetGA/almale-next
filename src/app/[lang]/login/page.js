@@ -12,7 +12,7 @@ export default async function Login({ params }) {
         <h1 className="text-2xl font-bold text-gray-800 text-center mb-6">
           {t.signin.head} {/* Локализованное название бренда */}
         </h1>
-        <LoginForm t={t} />
+        <LoginForm t={t} lang={lang} />
         <p className="text-sm text-gray-600 mt-4 text-center">
           {t.signin.p}{" "}
           <Link href={`/${lang}/signup`} className="text-green hover:underline">

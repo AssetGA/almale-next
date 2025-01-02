@@ -13,7 +13,7 @@ export default async function Signup({ params }) {
         <h1 className="text-2xl font-bold text-gray-800 text-center mb-6">
           {t.signup.head} {/* Локализованное название бренда */}
         </h1>
-        <SignupForm t={t} />
+        <SignupForm t={t} lang={lang} />
         <p className="text-sm text-gray-600 mt-4 text-center">
           {t.signup.p + " "}
           <Link

@@ -6,10 +6,10 @@ import { createSession, deleteSession } from "../../app/lib/session"; // Assumin
 import bcrypt from "bcryptjs";
 import { redirect } from "next/navigation";
 import { connectToDatabase } from "../lib/mongodb";
-import Session from "../../models/Session";
 
-export async function SignUp(state, formData) {
+export async function SignUp(req, formData) {
   await connectToDatabase();
+  console.log("request", req);
   try {
     // Validate form fields
 
@@ -19,6 +19,7 @@ export async function SignUp(state, formData) {
       email: formData.get("email"),
       password: formData.get("password"),
     });
+    console.log("validate", validatedFields);
 
     // If any form fields are invalid, return early
     if (!validatedFields.success) {
@@ -29,7 +30,7 @@ export async function SignUp(state, formData) {
     const { mobile, name, email, password } = validatedFields.data;
 
     const existingUser = await Users.findOne({ email });
-
+    console.log("exist", existingUser);
     if (existingUser) {
       return {
         error: {
@@ -50,7 +51,7 @@ export async function SignUp(state, formData) {
       email,
       password: hashedPassword,
     });
-
+    console.log("user", user);
     if (!user) {
       return {
         message: "An error occurred while creating your account.",
@@ -65,8 +66,10 @@ export async function SignUp(state, formData) {
         },
       };
     }
-
-    redirect("/ru/basket");
+    // Redirect the user to the desired page
+    if (session) {
+      return { redirect: `/basket` };
+    }
   } catch (error) {
     console.error("Error during sign-up:", error);
     return {
@@ -79,6 +82,7 @@ export async function SignUp(state, formData) {
 }
 
 export async function SignIn(state, formData) {
+  console.log("state", state);
   await connectToDatabase();
   try {
     // Validate form fields
@@ -119,17 +123,20 @@ export async function SignIn(state, formData) {
         },
       };
     }
-
-    const sessionFind = await Session.findOne({ userId: existingUser._id });
-    console.log("sessionfind", sessionFind);
-    if (sessionFind) {
-      await sessionFind.deleteOne();
-    }
     // If the user exists and the password is valid, create a session
-    await createSession(existingUser._id);
-
+    const session = await createSession(existingUser._id);
+    console.log("sestion", session);
+    if (!session) {
+      return {
+        error: {
+          message: "Failed to create session",
+        },
+      };
+    }
     // Redirect the user to the desired page
-    redirect("/ru/basket");
+    if (session) {
+      return { redirect: `/basket` };
+    }
   } catch (error) {
     console.error("Error during sign-up:", error);
     return {
@@ -143,5 +150,5 @@ export async function SignIn(state, formData) {
 
 export async function logout() {
   deleteSession();
-  redirect("/login");
+  redirect(`/`);
 }

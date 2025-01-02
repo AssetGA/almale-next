@@ -79,6 +79,7 @@ export async function createSession(id) {
     sameSite: "lax",
     path: "/",
   });
+  return data;
 }
 
 export async function updateSession() {

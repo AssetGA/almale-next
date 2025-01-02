@@ -3,9 +3,11 @@
 import { useActionState } from "react";
 import { SignUp } from "../actions/auth";
 
-export default function SignupForm({ t }) {
-  const [state, action, pending] = useActionState(SignUp, undefined);
-
+export default function SignupForm({ t, lang }) {
+  const [state, action, pending] = useActionState(SignUp, lang, undefined);
+  if (state?.redirect) {
+    window.location.href = `/${lang}` + state.redirect;
+  }
   return (
     <form action={action} className="space-y-4">
       <div>

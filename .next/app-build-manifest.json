@@ -6,10 +6,15 @@
       "static/css/app/[lang]/layout.css",
       "static/chunks/app/[lang]/layout.js"
     ],
-    "/[lang]/page": [
+    "/[lang]/basket/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/[lang]/page.js"
+      "static/chunks/app/[lang]/basket/page.js"
+    ],
+    "/[lang]/login/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/[lang]/login/page.js"
     ],
     "/lib/api/product/route": [
       "static/chunks/webpack.js",
@@ -21,11 +26,6 @@
       "static/chunks/main-app.js",
       "static/chunks/app/lib/api/product/info/route.js"
     ],
-    "/[lang]/login/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/[lang]/login/page.js"
-    ],
     "/[lang]/signup/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
@@ -36,10 +36,10 @@
       "static/chunks/main-app.js",
       "static/chunks/app/lib/api/session/route.js"
     ],
-    "/[lang]/basket/page": [
+    "/[lang]/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/[lang]/basket/page.js"
+      "static/chunks/app/[lang]/page.js"
     ],
     "/lib/api/user/getApi/route": [
       "static/chunks/webpack.js",
@@ -50,6 +50,26 @@
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/lib/api/user/route.js"
+    ],
+    "/lib/api/order/route": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/lib/api/order/route.js"
+    ],
+    "/lib/api/auth/verify/route": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/lib/api/auth/verify/route.js"
+    ],
+    "/[lang]/payment/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/[lang]/payment/page.js"
+    ],
+    "/_not-found/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/_not-found/page.js"
     ]
   }
 }
