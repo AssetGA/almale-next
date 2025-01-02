@@ -1,10 +1,14 @@
 {
   "functions": {
-    "lib/api/test.js": {
+    "src/app/lib/api/test.js": {
       "memory": 3009,
       "maxDuration": 30
     },
-    "lib/api/*.js": {
+    "src/app/lib/api/*.js": {
+      "memory": 3009,
+      "maxDuration": 30
+    },
+    "src/app/actions/*.js": {
       "memory": 3009,
       "maxDuration": 30
     }
