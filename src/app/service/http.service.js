@@ -3,11 +3,11 @@
 import axios from "axios";
 import configFile from "../../../config.json";
 
-axios.defaults.headers.common["Content-Type"] = "application/json";
+// axios.defaults.headers.common["Content-Type"] = "application/json";
 
 // Используем функцию
 const apiUrl = process.env.NEXT_PUBLIC_SITE_URL;
-
+console.log("api", apiUrl);
 export function createHttpWithLang() {
   return axios.create({
     baseURL: `${apiUrl}`,

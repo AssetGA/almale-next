@@ -13,60 +13,12 @@
         "app/lib/api/product/info/route": {
           "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fasset%2Fprojects%2Falmale%2Falmale-next%2Fsrc%2Fapp%2Flib%2Fmongodb.js%22%2C%5B%5B%227ff7ac485ca25562c3848de5d6d696452198d1c729%22%2C%22connectToDatabase%22%5D%5D%5D%5D&__client_imported__=!",
           "async": false
-        },
-        "app/[lang]/login/page": {
-          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fasset%2Fprojects%2Falmale%2Falmale-next%2Fsrc%2Fapp%2Flib%2Fmongodb.js%22%2C%5B%5B%227ff7ac485ca25562c3848de5d6d696452198d1c729%22%2C%22connectToDatabase%22%5D%5D%5D%5D&__client_imported__=!",
-          "async": false
-        },
-        "app/[lang]/product/page": {
-          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fasset%2Fprojects%2Falmale%2Falmale-next%2Fsrc%2Fapp%2Flib%2Fmongodb.js%22%2C%5B%5B%227ff7ac485ca25562c3848de5d6d696452198d1c729%22%2C%22connectToDatabase%22%5D%5D%5D%5D&__client_imported__=!",
-          "async": false
-        },
-        "app/[lang]/product/[id]/page": {
-          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fasset%2Fprojects%2Falmale%2Falmale-next%2Fsrc%2Fapp%2Flib%2Fmongodb.js%22%2C%5B%5B%227ff7ac485ca25562c3848de5d6d696452198d1c729%22%2C%22connectToDatabase%22%5D%5D%5D%5D&__client_imported__=!",
-          "async": false
         }
       },
       "layer": {
         "app/[lang]/page": "rsc",
         "app/lib/api/product/route": "rsc",
-        "app/lib/api/product/info/route": "rsc",
-        "app/[lang]/login/page": "rsc",
-        "app/[lang]/product/page": "rsc",
-        "app/[lang]/product/[id]/page": "rsc"
-      }
-    },
-    "00e1920ca06c5168419fd5af21075798e5c997b688": {
-      "workers": {
-        "app/[lang]/login/page": {
-          "moduleId": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fasset%2Fprojects%2Falmale%2Falmale-next%2Fsrc%2Fapp%2Factions%2Fauth.js%22%2C%5B%5B%2200e1920ca06c5168419fd5af21075798e5c997b688%22%2C%22logout%22%5D%2C%5B%2260356b8a5a7f399fcc281b073f4708c31a3925a2cf%22%2C%22SignIn%22%5D%2C%5B%2260c51eb0215d92840ff65f243c1b1d83d637e89510%22%2C%22SignUp%22%5D%5D%5D%5D&__client_imported__=true!",
-          "async": false
-        }
-      },
-      "layer": {
-        "app/[lang]/login/page": "action-browser"
-      }
-    },
-    "60356b8a5a7f399fcc281b073f4708c31a3925a2cf": {
-      "workers": {
-        "app/[lang]/login/page": {
-          "moduleId": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fasset%2Fprojects%2Falmale%2Falmale-next%2Fsrc%2Fapp%2Factions%2Fauth.js%22%2C%5B%5B%2200e1920ca06c5168419fd5af21075798e5c997b688%22%2C%22logout%22%5D%2C%5B%2260356b8a5a7f399fcc281b073f4708c31a3925a2cf%22%2C%22SignIn%22%5D%2C%5B%2260c51eb0215d92840ff65f243c1b1d83d637e89510%22%2C%22SignUp%22%5D%5D%5D%5D&__client_imported__=true!",
-          "async": false
-        }
-      },
-      "layer": {
-        "app/[lang]/login/page": "action-browser"
-      }
-    },
-    "60c51eb0215d92840ff65f243c1b1d83d637e89510": {
-      "workers": {
-        "app/[lang]/login/page": {
-          "moduleId": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fasset%2Fprojects%2Falmale%2Falmale-next%2Fsrc%2Fapp%2Factions%2Fauth.js%22%2C%5B%5B%2200e1920ca06c5168419fd5af21075798e5c997b688%22%2C%22logout%22%5D%2C%5B%2260356b8a5a7f399fcc281b073f4708c31a3925a2cf%22%2C%22SignIn%22%5D%2C%5B%2260c51eb0215d92840ff65f243c1b1d83d637e89510%22%2C%22SignUp%22%5D%5D%5D%5D&__client_imported__=true!",
-          "async": false
-        }
-      },
-      "layer": {
-        "app/[lang]/login/page": "action-browser"
+        "app/lib/api/product/info/route": "rsc"
       }
     }
   },
