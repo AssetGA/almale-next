@@ -4,7 +4,7 @@ import { useActionState } from "react";
 import { SignIn } from "../actions/auth";
 
 export default function LoginForm({ t, lang }) {
-  const [state, action, pending] = useActionState(SignIn, undefined);
+  const [state, action, pending] = useActionState(SignIn, lang, undefined);
 
   return (
     <form action={action} className="space-y-4">

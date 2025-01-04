@@ -38,6 +38,18 @@ export async function SignUp(state, formData) {
         },
       };
     }
+    const arr = ["ru", "kz", "en"];
+    const langFind = arr.find((elem) => {
+      return elem === state;
+    });
+    if (langFind === undefined) {
+      return {
+        error: {
+          message: "Clear errors",
+          code: 401,
+        },
+      };
+    }
 
     // e.g. Hash the user's password before storing it
     const hashedPassword = await bcrypt.hash(password, 10);
@@ -70,8 +82,7 @@ export async function SignUp(state, formData) {
     };
   } finally {
     if (success) {
-      const url = `/basket`;
-      console.log("url", url);
+      const url = `/${state}/basket`;
       redirect(url);
     }
   }
@@ -119,6 +130,18 @@ export async function SignIn(state, formData) {
         },
       };
     }
+    const arr = ["ru", "kz", "en"];
+    const langFind = arr.find((elem) => {
+      return elem === state;
+    });
+    if (langFind === undefined) {
+      return {
+        error: {
+          message: "Clear errors",
+          code: 401,
+        },
+      };
+    }
     // If the user exists and the password is valid, create a session
     await createSession(existingUser._id);
     success = true;
@@ -133,7 +156,7 @@ export async function SignIn(state, formData) {
     };
   } finally {
     if (success) {
-      const url = `/basket`;
+      const url = `/${state}/basket`;
       redirect(url);
     }
   }
