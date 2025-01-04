@@ -10,6 +10,9 @@ export async function ServerAction() {
   if (userRole !== "admin") {
     return null;
   }
+  if (userRole === "user") {
+    return session.user.userId;
+  }
 
   // Proceed with the action for authorized users
 }
