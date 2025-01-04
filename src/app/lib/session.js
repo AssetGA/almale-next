@@ -62,7 +62,7 @@ export async function createSession(id) {
     httpOnly: true,
     secure: true,
     expires: expiresAt,
-    sameSite: "None",
+    sameSite: "lax",
     path: "/",
   });
 }
@@ -75,14 +75,15 @@ export async function updateSession() {
     return null;
   }
 
-  const expires = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000);
+  const expiresAt = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000);
 
   const cookieStore = await cookies();
   cookieStore.set("session", session, {
+    domain: ".alma-le.com",
     httpOnly: true,
     secure: true,
-    expires: expires,
-    sameSite: "None",
+    expires: expiresAt,
+    sameSite: "lax",
     path: "/",
   });
 }

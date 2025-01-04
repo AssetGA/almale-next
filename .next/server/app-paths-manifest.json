@@ -1,5 +1,5 @@
 {
-  "/[lang]/page": "app/[lang]/page.js",
-  "/[lang]/basket/page": "app/[lang]/basket/page.js",
-  "/[lang]/login/page": "app/[lang]/login/page.js"
+  "/lib/api/product/route": "app/lib/api/product/route.js",
+  "/lib/api/product/info/route": "app/lib/api/product/info/route.js",
+  "/[lang]/page": "app/[lang]/page.js"
 }

@@ -10,6 +10,16 @@ const nextConfig = {
       },
     ],
   },
+  async headers() {
+    return [
+      {
+        source: "/(.*)",
+        headers: [
+          { key: "Set-Cookie", value: "HttpOnly; Secure; SameSite=Lax" },
+        ],
+      },
+    ];
+  },
 };
 
 export default nextConfig;
