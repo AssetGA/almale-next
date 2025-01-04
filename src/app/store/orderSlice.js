@@ -49,7 +49,7 @@ export const loadOrder = () => async (dispatch) => {
 export const removeOrder = (payload) => async (dispatch) => {
   try {
     const { content } = await orderService.delete(payload);
-    console.log("order delet", content);
+
     dispatch(orderRemove(content));
   } catch (error) {
     dispatch(orderRequestFailed(error.message));
@@ -59,7 +59,7 @@ export const removeOrder = (payload) => async (dispatch) => {
 export const orderCreate = (payload) => async (dispatch) => {
   try {
     const { content } = await orderService.create(payload);
-    console.log("order store", content);
+
     dispatch(createOrder(content));
   } catch (error) {
     dispatch(orderRequestFailed(error.message));

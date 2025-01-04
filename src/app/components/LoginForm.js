@@ -5,10 +5,7 @@ import { SignIn } from "../actions/auth";
 
 export default function LoginForm({ t, lang }) {
   const [state, action, pending] = useActionState(SignIn, undefined);
-  if (state?.redirect) {
-    window.location.href = `/${lang}` + state.redirect;
-  }
-  console.log("state", state);
+
   return (
     <form action={action} className="space-y-4">
       <div>
@@ -26,7 +23,6 @@ export default function LoginForm({ t, lang }) {
       </div>
       <div className="px-4 py-1 text-red">
         {state?.errors !== undefined ? state.errors.email : ""}
-        {state?.error?.message}
       </div>
       <div>
         <label
@@ -46,6 +42,7 @@ export default function LoginForm({ t, lang }) {
       </div>
       <div className="px-4 py-1 text-red">
         {state?.errors !== undefined ? state.errors.password : ""}
+        {state?.error?.message}
       </div>
       <button
         type="submit"

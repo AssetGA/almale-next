@@ -108,7 +108,7 @@ export const authorizeUser = () => async (dispatch) => {
   dispatch(authRequested());
   try {
     const { content } = await userService.get();
-    console.log("user store", content);
+
     dispatch(userReceived(content));
   } catch (error) {
     dispatch(verifyRequestFailed(error.message));
@@ -124,25 +124,10 @@ export const clearUsersError = () => async (dispatch) => {
   dispatch(usersClearError(null));
 };
 
-// export const signUp = (payload) => async (dispatch) => {
-//   dispatch(authRequested());
-//   try {
-//     const data = await authService.verify(payload);
-//     if (data.content === null) {
-//       dispatch(verifyRequestSend(data));
-//     } else {
-//       dispatch(verifyRequestSend(data));
-//     }
-//   } catch (error) {
-//     dispatch(verifyRequestFailed(error.message));
-//   }
-// };
-
 export const Verify = (payload) => async (dispatch) => {
   dispatch(usersRequested());
   try {
     const { content } = await authService.verify(payload);
-    console.log("content verify", content);
     dispatch(userCreatedVerify(content));
   } catch (error) {
     dispatch(
