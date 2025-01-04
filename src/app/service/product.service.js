@@ -4,7 +4,6 @@ const productEndpoint = "/api/product";
 
 const productService = {
   get: async (payload) => {
-    console.log("payload", payload);
     const { data } = await httpService.get(`/lib${productEndpoint}`, {
       params: payload, // Передача параметра lang в query
     });

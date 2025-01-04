@@ -7,7 +7,6 @@ import configFile from "../../../config.json";
 
 // Используем функцию
 const apiUrl = process.env.NEXT_PUBLIC_SITE_URL;
-console.log("api", apiUrl);
 export function createHttpWithLang() {
   return axios.create({
     baseURL: `${apiUrl}`,
