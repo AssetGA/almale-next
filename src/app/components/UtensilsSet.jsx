@@ -50,7 +50,6 @@ const UtensilsSet = ({ lang, t }) => {
       setSelectImage(srcSel);
     }
   };
-  console.log("utensilproduct", utensilProduct);
 
   return (
     <>

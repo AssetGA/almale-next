@@ -16,6 +16,7 @@ function getLocale() {
 
 export default async function middleware(request) {
   // Check if there is any supported locale in the pathname
+
   const { pathname } = request.nextUrl;
   if (
     pathname === "/sitemap.xml" ||
@@ -41,6 +42,14 @@ export default async function middleware(request) {
   const cookie = (await cookies()).get("session")?.value;
   const session = await decrypt(cookie);
   // Redirect if there is no locale
+
+  if (!session) {
+    response.cookies.set("session", "new_session", {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "lax",
+    });
+  }
   const locale = getLocale();
 
   // 4. Redirect if there is no locale in the path
@@ -62,7 +71,6 @@ export default async function middleware(request) {
     pathname.startsWith(`/${currentLocale}${route}`)
   );
 
-  // request.nextUrl.pathname = `/${locale}${pathname}`;
   // 5. Redirect to /login if the user is not authenticated
   if (isProtectedRoute && !session?.userId) {
     return NextResponse.redirect(
@@ -70,13 +78,6 @@ export default async function middleware(request) {
     );
   }
   // 4. Redirect if there is no locale in the path
-  // if (!pathnameHasLocale) {
-  //   return NextResponse.redirect(
-  //     new URL(`/${locale}${pathname}`, request.nextUrl)
-  //   );
-  // }
-  // e.g. incoming request is /products
-  // The new URL is now /en-US/products
 
   if (
     isPublicRoute &&
@@ -96,7 +97,19 @@ export default async function middleware(request) {
 
 export const config = {
   matcher: [
-    "/((?!_next).*)",
-    "/((?!api|_next/static|_next/image|.*\\.png$).*)",
+    {
+      source: "/((?!_next).*)",
+      missing: [
+        { type: "header", key: "next-router-prefetch" },
+        { type: "header", key: "purpose", value: "prefetch" },
+      ],
+    },
+    {
+      source: "/((?!api|_next/static|_next/image|.*\\.png$).*)",
+      missing: [
+        { type: "header", key: "next-router-prefetch" },
+        { type: "header", key: "purpose", value: "prefetch" },
+      ],
+    },
   ],
 };

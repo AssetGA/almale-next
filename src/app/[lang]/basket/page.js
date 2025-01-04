@@ -10,7 +10,6 @@ const Page = async ({ params }) => {
 
   const session = await verifySession();
   const userRole = session.role; // Assuming 'role' is part of the session object
-  console.log("session", session);
 
   if (userRole === "admin") {
     return <AdminDashboard />;

@@ -11,7 +11,7 @@ export async function ServerAction() {
     return null;
   }
   if (userRole === "user") {
-    return session.user.userId;
+    return session;
   }
 
   // Proceed with the action for authorized users
