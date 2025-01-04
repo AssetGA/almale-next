@@ -6,25 +6,15 @@
       "static/css/app/[lang]/layout.css",
       "static/chunks/app/[lang]/layout.js"
     ],
-    "/[lang]/page": [
+    "/[lang]/login/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/[lang]/page.js"
+      "static/chunks/app/[lang]/login/page.js"
     ],
     "/[lang]/basket/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/[lang]/basket/page.js"
-    ],
-    "/lib/api/product/route": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/lib/api/product/route.js"
-    ],
-    "/lib/api/product/info/route": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/lib/api/product/info/route.js"
     ],
     "/lib/api/user/getApi/route": [
       "static/chunks/webpack.js",
@@ -36,15 +26,20 @@
       "static/chunks/main-app.js",
       "static/chunks/app/lib/api/user/route.js"
     ],
-    "/[lang]/login/page": [
+    "/lib/api/product/route": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/[lang]/login/page.js"
+      "static/chunks/app/lib/api/product/route.js"
     ],
-    "/[lang]/signup/page": [
+    "/lib/api/product/info/route": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/[lang]/signup/page.js"
+      "static/chunks/app/lib/api/product/info/route.js"
+    ],
+    "/[lang]/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/[lang]/page.js"
     ],
     "/_not-found/page": [
       "static/chunks/webpack.js",
