@@ -83,7 +83,8 @@
     "errorName": "First name Last name required",
     "errorEmail": "Mail is required",
     "errorMobile": "Check the number",
-    "errorMobileCount": "Numbers only"
+    "errorMobileCount": "Numbers only",
+    "logout": "logout"
   },
   "utensil": {
     "p": "Description",

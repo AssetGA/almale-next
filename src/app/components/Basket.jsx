@@ -352,7 +352,7 @@ const Basket = ({ lang, t }) => {
                     className="bg-green text-white py-2 px-4 rounded-md hover:bg-green-light"
                     onClick={logout}
                   >
-                    выход
+                    {t.basket.logout}
                   </button>
                   <button
                     type="submit"

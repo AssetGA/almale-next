@@ -14,10 +14,6 @@ function getLocale() {
   return defaultLocale;
 }
 
-function currentLang(elem) {
-  return elem;
-}
-
 export default async function middleware(request) {
   // Check if there is any supported locale in the pathname
   const { pathname } = request.nextUrl;
@@ -94,7 +90,6 @@ export default async function middleware(request) {
   }
 
   const response = NextResponse.next();
-  response.headers.set("x-lang", currentLocale);
   return response;
 }
 

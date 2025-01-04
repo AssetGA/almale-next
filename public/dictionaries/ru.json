@@ -83,7 +83,8 @@
     "errorName": "Имя Фамилия обязательны для заполнения",
     "errorEmail": "Почта обязательны для заполнения",
     "errorMobile": "Проверьте номер",
-    "errorMobileCount": "Только цифры"
+    "errorMobileCount": "Только цифры",
+    "logout": "выход"
   },
   "utensil": {
     "p": "Описание",

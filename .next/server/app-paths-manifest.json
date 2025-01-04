@@ -1,15 +1,13 @@
 {
-  "/_not-found/page": "app/_not-found/page.js",
-  "/lib/api/session/route": "app/lib/api/session/route.js",
   "/lib/api/user/getApi/route": "app/lib/api/user/getApi/route.js",
   "/lib/api/user/route": "app/lib/api/user/route.js",
   "/lib/api/product/route": "app/lib/api/product/route.js",
   "/lib/api/product/info/route": "app/lib/api/product/info/route.js",
+  "/_not-found/page": "app/_not-found/page.js",
   "/lib/api/order/route": "app/lib/api/order/route.js",
   "/lib/api/auth/verify/route": "app/lib/api/auth/verify/route.js",
-  "/[lang]/login/page": "app/[lang]/login/page.js",
-  "/[lang]/signup/page": "app/[lang]/signup/page.js",
-  "/[lang]/page": "app/[lang]/page.js",
+  "/lib/api/order/[orderId]/route": "app/lib/api/order/[orderId]/route.js",
   "/[lang]/basket/page": "app/[lang]/basket/page.js",
-  "/[lang]/payment/page": "app/[lang]/payment/page.js"
+  "/[lang]/login/page": "app/[lang]/login/page.js",
+  "/[lang]/signup/page": "app/[lang]/signup/page.js"
 }

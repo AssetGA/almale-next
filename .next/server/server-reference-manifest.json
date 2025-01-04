@@ -6,7 +6,15 @@
           "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fasset%2Fprojects%2Falmale%2Falmale-next%2Fsrc%2Fapp%2Flib%2Fmongodb.js%22%2C%5B%5B%227ff7ac485ca25562c3848de5d6d696452198d1c729%22%2C%22connectToDatabase%22%5D%5D%5D%5D&__client_imported__=!",
           "async": false
         },
-        "app/[lang]/login/page": {
+        "app/lib/api/user/getApi/route": {
+          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fasset%2Fprojects%2Falmale%2Falmale-next%2Fsrc%2Fapp%2Flib%2Fmongodb.js%22%2C%5B%5B%227ff7ac485ca25562c3848de5d6d696452198d1c729%22%2C%22connectToDatabase%22%5D%5D%5D%5D&__client_imported__=!",
+          "async": false
+        },
+        "app/lib/api/user/route": {
+          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fasset%2Fprojects%2Falmale%2Falmale-next%2Fsrc%2Fapp%2Flib%2Fapi%2Fuser%2Froute.js%22%2C%5B%5B%22406c541e3665b49938a21457655a750f7d95ffa86c%22%2C%22GET%22%5D%5D%5D%2C%5B%22%2Fhome%2Fasset%2Fprojects%2Falmale%2Falmale-next%2Fsrc%2Fapp%2Flib%2Fmongodb.js%22%2C%5B%5B%227ff7ac485ca25562c3848de5d6d696452198d1c729%22%2C%22connectToDatabase%22%5D%5D%5D%5D&__client_imported__=!",
+          "async": false
+        },
+        "app/[lang]/page": {
           "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fasset%2Fprojects%2Falmale%2Falmale-next%2Fsrc%2Fapp%2Flib%2Fmongodb.js%22%2C%5B%5B%227ff7ac485ca25562c3848de5d6d696452198d1c729%22%2C%22connectToDatabase%22%5D%5D%5D%5D&__client_imported__=!",
           "async": false
         },
@@ -18,24 +26,12 @@
           "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fasset%2Fprojects%2Falmale%2Falmale-next%2Fsrc%2Fapp%2Flib%2Fmongodb.js%22%2C%5B%5B%227ff7ac485ca25562c3848de5d6d696452198d1c729%22%2C%22connectToDatabase%22%5D%5D%5D%5D&__client_imported__=!",
           "async": false
         },
+        "app/[lang]/login/page": {
+          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fasset%2Fprojects%2Falmale%2Falmale-next%2Fsrc%2Fapp%2Flib%2Fmongodb.js%22%2C%5B%5B%227ff7ac485ca25562c3848de5d6d696452198d1c729%22%2C%22connectToDatabase%22%5D%5D%5D%5D&__client_imported__=!",
+          "async": false
+        },
         "app/[lang]/signup/page": {
           "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fasset%2Fprojects%2Falmale%2Falmale-next%2Fsrc%2Fapp%2Flib%2Fmongodb.js%22%2C%5B%5B%227ff7ac485ca25562c3848de5d6d696452198d1c729%22%2C%22connectToDatabase%22%5D%5D%5D%5D&__client_imported__=!",
-          "async": false
-        },
-        "app/lib/api/session/route": {
-          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fasset%2Fprojects%2Falmale%2Falmale-next%2Fsrc%2Fapp%2Flib%2Fapi%2Fsession%2Froute.js%22%2C%5B%5B%2240b288f7aa1b54b911c62370d5de9bccf2cb39556c%22%2C%22POST%22%5D%5D%5D%2C%5B%22%2Fhome%2Fasset%2Fprojects%2Falmale%2Falmale-next%2Fsrc%2Fapp%2Flib%2Fmongodb.js%22%2C%5B%5B%227ff7ac485ca25562c3848de5d6d696452198d1c729%22%2C%22connectToDatabase%22%5D%5D%5D%5D&__client_imported__=!",
-          "async": false
-        },
-        "app/[lang]/page": {
-          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fasset%2Fprojects%2Falmale%2Falmale-next%2Fsrc%2Fapp%2Flib%2Fmongodb.js%22%2C%5B%5B%227ff7ac485ca25562c3848de5d6d696452198d1c729%22%2C%22connectToDatabase%22%5D%5D%5D%5D&__client_imported__=!",
-          "async": false
-        },
-        "app/lib/api/user/getApi/route": {
-          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fasset%2Fprojects%2Falmale%2Falmale-next%2Fsrc%2Fapp%2Flib%2Fmongodb.js%22%2C%5B%5B%227ff7ac485ca25562c3848de5d6d696452198d1c729%22%2C%22connectToDatabase%22%5D%5D%5D%5D&__client_imported__=!",
-          "async": false
-        },
-        "app/lib/api/user/route": {
-          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fasset%2Fprojects%2Falmale%2Falmale-next%2Fsrc%2Fapp%2Flib%2Fapi%2Fuser%2Froute.js%22%2C%5B%5B%22406c541e3665b49938a21457655a750f7d95ffa86c%22%2C%22GET%22%5D%5D%5D%2C%5B%22%2Fhome%2Fasset%2Fprojects%2Falmale%2Falmale-next%2Fsrc%2Fapp%2Flib%2Fmongodb.js%22%2C%5B%5B%227ff7ac485ca25562c3848de5d6d696452198d1c729%22%2C%22connectToDatabase%22%5D%5D%5D%5D&__client_imported__=!",
           "async": false
         },
         "app/lib/api/order/route": {
@@ -46,24 +42,23 @@
           "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fasset%2Fprojects%2Falmale%2Falmale-next%2Fsrc%2Fapp%2Flib%2Fmongodb.js%22%2C%5B%5B%227ff7ac485ca25562c3848de5d6d696452198d1c729%22%2C%22connectToDatabase%22%5D%5D%5D%5D&__client_imported__=!",
           "async": false
         },
-        "app/[lang]/payment/page": {
+        "app/lib/api/order/[orderId]/route": {
           "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fasset%2Fprojects%2Falmale%2Falmale-next%2Fsrc%2Fapp%2Flib%2Fmongodb.js%22%2C%5B%5B%227ff7ac485ca25562c3848de5d6d696452198d1c729%22%2C%22connectToDatabase%22%5D%5D%5D%5D&__client_imported__=!",
           "async": false
         }
       },
       "layer": {
         "app/[lang]/basket/page": "rsc",
-        "app/[lang]/login/page": "rsc",
-        "app/lib/api/product/route": "rsc",
-        "app/lib/api/product/info/route": "rsc",
-        "app/[lang]/signup/page": "rsc",
-        "app/lib/api/session/route": "rsc",
-        "app/[lang]/page": "rsc",
         "app/lib/api/user/getApi/route": "rsc",
         "app/lib/api/user/route": "rsc",
+        "app/[lang]/page": "rsc",
+        "app/lib/api/product/route": "rsc",
+        "app/lib/api/product/info/route": "rsc",
+        "app/[lang]/login/page": "rsc",
+        "app/[lang]/signup/page": "rsc",
         "app/lib/api/order/route": "rsc",
         "app/lib/api/auth/verify/route": "rsc",
-        "app/[lang]/payment/page": "rsc"
+        "app/lib/api/order/[orderId]/route": "rsc"
       }
     },
     "00e1920ca06c5168419fd5af21075798e5c997b688": {
@@ -127,17 +122,6 @@
         "app/[lang]/basket/page": "action-browser",
         "app/[lang]/login/page": "action-browser",
         "app/[lang]/signup/page": "action-browser"
-      }
-    },
-    "40b288f7aa1b54b911c62370d5de9bccf2cb39556c": {
-      "workers": {
-        "app/lib/api/session/route": {
-          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fasset%2Fprojects%2Falmale%2Falmale-next%2Fsrc%2Fapp%2Flib%2Fapi%2Fsession%2Froute.js%22%2C%5B%5B%2240b288f7aa1b54b911c62370d5de9bccf2cb39556c%22%2C%22POST%22%5D%5D%5D%2C%5B%22%2Fhome%2Fasset%2Fprojects%2Falmale%2Falmale-next%2Fsrc%2Fapp%2Flib%2Fmongodb.js%22%2C%5B%5B%227ff7ac485ca25562c3848de5d6d696452198d1c729%22%2C%22connectToDatabase%22%5D%5D%5D%5D&__client_imported__=!",
-          "async": false
-        }
-      },
-      "layer": {
-        "app/lib/api/session/route": "rsc"
       }
     },
     "406c541e3665b49938a21457655a750f7d95ffa86c": {

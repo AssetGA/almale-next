@@ -83,7 +83,8 @@
     "errorName": "Аты Тегі толтыру үшін міндетті",
     "errorEmail": "Пошта толтыру үшін міндетті",
     "errorMobile": "Нөмірді тексеріңіз",
-    "errorMobileCount": "Тек сандар"
+    "errorMobileCount": "Тек сандар",
+    "logout": "шығу"
   },
   "utensil": {
     "p": "Сипаттама",

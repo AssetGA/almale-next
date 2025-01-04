@@ -11,10 +11,20 @@
       "static/chunks/main-app.js",
       "static/chunks/app/[lang]/basket/page.js"
     ],
-    "/[lang]/login/page": [
+    "/lib/api/user/getApi/route": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/[lang]/login/page.js"
+      "static/chunks/app/lib/api/user/getApi/route.js"
+    ],
+    "/lib/api/user/route": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/lib/api/user/route.js"
+    ],
+    "/[lang]/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/[lang]/page.js"
     ],
     "/lib/api/product/route": [
       "static/chunks/webpack.js",
@@ -26,30 +36,15 @@
       "static/chunks/main-app.js",
       "static/chunks/app/lib/api/product/info/route.js"
     ],
+    "/[lang]/login/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/[lang]/login/page.js"
+    ],
     "/[lang]/signup/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/[lang]/signup/page.js"
-    ],
-    "/lib/api/session/route": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/lib/api/session/route.js"
-    ],
-    "/[lang]/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/[lang]/page.js"
-    ],
-    "/lib/api/user/getApi/route": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/lib/api/user/getApi/route.js"
-    ],
-    "/lib/api/user/route": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/lib/api/user/route.js"
     ],
     "/lib/api/order/route": [
       "static/chunks/webpack.js",
@@ -61,10 +56,10 @@
       "static/chunks/main-app.js",
       "static/chunks/app/lib/api/auth/verify/route.js"
     ],
-    "/[lang]/payment/page": [
+    "/lib/api/order/[orderId]/route": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/[lang]/payment/page.js"
+      "static/chunks/app/lib/api/order/[orderId]/route.js"
     ],
     "/_not-found/page": [
       "static/chunks/webpack.js",
