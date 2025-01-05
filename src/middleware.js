@@ -97,19 +97,7 @@ export default async function middleware(request) {
 
 export const config = {
   matcher: [
-    {
-      source: "/((?!_next).*)",
-      missing: [
-        { type: "header", key: "next-router-prefetch" },
-        { type: "header", key: "purpose", value: "prefetch" },
-      ],
-    },
-    {
-      source: "/((?!api|_next/static|_next/image|.*\\.png$).*)",
-      missing: [
-        { type: "header", key: "next-router-prefetch" },
-        { type: "header", key: "purpose", value: "prefetch" },
-      ],
-    },
+    "/((?!_next).*)",
+    "/((?!api|_next/static|_next/image|.*\\.png$).*)",
   ],
 };
