@@ -84,13 +84,6 @@ export default async function middleware(request) {
   }
 
   const response = NextResponse.next();
-  if (!session) {
-    response.cookies.set("session", "new_session", {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-      sameSite: "lax",
-    });
-  }
   response.headers.set("x-lang", currentLocale);
   return response;
 }

@@ -59,6 +59,7 @@ export async function createSession(id) {
   // 3. Store the session in cookies for optimistic auth checks
   const cookieStore = await cookies();
   cookieStore.set("session", session, {
+    domain: "alma-le.com",
     httpOnly: true,
     secure: true,
     expires: expiresAt,
@@ -79,7 +80,7 @@ export async function updateSession() {
 
   const cookieStore = await cookies();
   cookieStore.set("session", session, {
-    domain: ".alma-le.com",
+    domain: "alma-le.com",
     httpOnly: true,
     secure: true,
     expires: expiresAt,
