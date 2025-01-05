@@ -43,13 +43,6 @@ export default async function middleware(request) {
   const session = await decrypt(cookie);
   // Redirect if there is no locale
 
-  if (!session) {
-    response.cookies.set("session", "new_session", {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-      sameSite: "lax",
-    });
-  }
   const locale = getLocale();
 
   // 4. Redirect if there is no locale in the path
@@ -91,6 +84,13 @@ export default async function middleware(request) {
   }
 
   const response = NextResponse.next();
+  if (!session) {
+    response.cookies.set("session", "new_session", {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "lax",
+    });
+  }
   response.headers.set("x-lang", currentLocale);
   return response;
 }

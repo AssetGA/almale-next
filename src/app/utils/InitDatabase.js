@@ -19,12 +19,10 @@ module.exports = async () => {
     await createInitialEntity(Product, productMock);
   }
   const productInfo = await ProductInfo.find();
-  console.log("1111", productInfo.length, productInfoMock.length);
   if (productInfo.length !== productInfoMock.length) {
     const list = products.map((elem) => {
       return elem._id;
     });
-    console.log("list", list, list.length);
     await createInitialEntityNew(
       ProductInfo,
       productInfoMock,
@@ -41,7 +39,6 @@ module.exports = async () => {
       newList.push(elem._id);
       newList.push(elem._id);
     });
-    console.log("newList", newList);
     await createInitialEntityNew(
       ProductInfoTranslation,
       productInfoTranslationMock,
