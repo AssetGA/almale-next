@@ -1,4 +1,3 @@
-import React from "react";
 import Basket from "../../components/Basket";
 import { getDictionary } from "../dictionaries";
 import { verifySession } from "../../lib/dai";

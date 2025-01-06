@@ -9,19 +9,21 @@ import { connectToDatabase } from "./mongodb";
 
 export const verifySession = cache(async () => {
   const cookie = (await cookies()).get("session")?.value;
+  console.log("cookie", cookie);
   const session = await decrypt(cookie);
   // if (!session?.userId) {
   //   redirect(`/`);
   // }
-
   return { isAuth: true, userId: session?.userId, role: session?.role };
 });
 
 export const getUser = cache(async () => {
   const session = await verifySession();
+  console.log("session get", session);
   if (!session) return null;
 
   await connectToDatabase();
+  console.log("connect");
   try {
     // Получение пользователя по userId из сессии
     const user = await Users.findById(session.userId); // lean() для повышения производительности, если вы просто читаете данные
