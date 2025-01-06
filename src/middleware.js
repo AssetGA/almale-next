@@ -42,7 +42,7 @@ export default async function middleware(request) {
   const cookie = (await cookies()).get("session")?.value;
 
   const session = await decrypt(cookie);
-  console.log("session", session);
+
   // Redirect if there is no locale
 
   const locale = getLocale();

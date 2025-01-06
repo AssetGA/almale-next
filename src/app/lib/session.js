@@ -24,27 +24,6 @@ export async function decrypt(session) {
   }
 }
 
-// export async function fetchCreateSession(id) {
-//   try {
-//     const url = new URL(`${process.env.NEXT_PUBLIC_SITE_URL}/lib/api/session`);
-//     url.searchParams.append("id", id); // Добавляем параметр lang
-//     const res = await fetch(url.toString(), {
-//       method: "POST", // Указываем метод POST
-//       headers: {
-//         "Content-Type": "application/json", // Устанавливаем заголовок
-//       },
-//       body: JSON.stringify({ id }), // Передаём данные в теле запроса
-//     });
-
-//     if (!res.ok) throw new Error("Ошибка при загрузке товаров");
-//     const session = await res.json();
-//     return session;
-//   } catch (error) {
-//     console.error("Error fetching products:", error);
-//     return []; // Возвращаем пустой массив, если произошла ошибка
-//   }
-// }
-
 export async function createSession(id) {
   const expiresAt = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000);
 
