@@ -19,7 +19,7 @@ export default function LoginForm({ t, lang }) {
           placeholder={t.signin.email}
           required
           className="mt-1 block w-full px-3 py-2 border border-gray rounded-md shadow-sm focus:ring-green focus:border-green sm:text-sm"
-          autocomplete="new-password"
+          autoComplete="current-password"
         />
       </div>
       <div className="px-4 py-1 text-red">
