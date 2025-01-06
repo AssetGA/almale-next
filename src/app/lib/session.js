@@ -59,11 +59,10 @@ export async function createSession(id) {
   // 3. Store the session in cookies for optimistic auth checks
   const cookieStore = await cookies();
   cookieStore.set("session", session, {
-    domain: "www.alma-le.com",
     httpOnly: true,
     secure: true,
     expires: expiresAt,
-    sameSite: "lax",
+    sameSite: "none",
     path: "/",
   });
 }
@@ -81,11 +80,10 @@ export async function updateSession() {
   const cookieStore = await cookies();
 
   cookieStore.set("session", session, {
-    domain: "www.alma-le.com",
     httpOnly: true,
     secure: true,
     expires: expiresAt,
-    sameSite: "lax",
+    sameSite: "none",
     path: "/",
   });
 }
