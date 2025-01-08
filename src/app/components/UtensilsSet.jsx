@@ -29,18 +29,11 @@ const UtensilsSet = ({ lang, t }) => {
   }
 
   const utensilProduct = products.find((elem) => {
-    return (
-      elem._id === "671f8ad851c70fa561f432e2" ||
-      elem._id === "675a1528abab837f85c2555c"
-    );
+    return elem.price === 395000;
   });
 
   const newProducts = products.filter((elem) => {
-    return (
-      elem._id !== "671f8ad851c70fa561f432e2" &&
-      elem._id !== "675a1528abab837f85c2555c" &&
-      elem
-    );
+    return elem.price !== 395000;
   });
 
   const handleSelect = (srcSel) => {
@@ -50,6 +43,10 @@ const UtensilsSet = ({ lang, t }) => {
       setSelectImage(srcSel);
     }
   };
+
+  const productInfo = productsInfo.find((elem) => {
+    return elem.productId === utensilProduct._id;
+  });
 
   return (
     <>
@@ -103,10 +100,10 @@ const UtensilsSet = ({ lang, t }) => {
                       >
                         <Image
                           className={`object-contain rounded-lg cursor-pointer border hover:shadow-lg hover:`}
-                          src={productsInfo[1]?.src[index]}
+                          src={productInfo?.src[index]}
                           width={300}
                           height={300}
-                          alt={productsInfo[1]?.meta[index]}
+                          alt={productInfo?.meta[index]}
                           priority
                         />
                       </button>
