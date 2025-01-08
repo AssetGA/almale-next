@@ -37,16 +37,13 @@ const ProductAbout = ({ lang, t }) => {
   });
 
   const filterProducts = products.filter((elem) => {
-    return (
-      elem._id !== "671f8ad851c70fa561f432e2" &&
-      elem._id !== "675a1528abab837f85c2555c" &&
-      elem
-    );
+    return elem.price !== 395000;
   });
 
   const listSrc = productsInfo.find((elem) => {
     return elem.productId === product._id;
   });
+  console.log("listsrc", listSrc, productsInfo, product);
 
   const handleSelect = (srcSel) => {
     if (selectImage !== "") {

@@ -14,10 +14,7 @@ export async function generateSitemaps() {
         return;
       }
       const productSet = products.filter((elem) => {
-        return (
-          elem._id !== "675a1528abab837f85c2555c" ||
-          elem._id !== "671f8ad851c70fa561f432e2"
-        );
+        return elem.price !== 395000;
       });
 
       productSet.forEach((product) => {
@@ -32,7 +29,6 @@ export async function generateSitemaps() {
 export default async function sitemap({ lang, id }) {
   const products = await fetchProducts(lang);
 
-  console.log("product.date", products);
   return products.map((product) => ({
     url: `${process.env.NEXT_PUBLIC_SITE_URL}/${lang}/product/${id}`,
     lastModified: product.date

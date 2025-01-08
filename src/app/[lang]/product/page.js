@@ -21,10 +21,7 @@ export async function generateMetadata({ params }) {
   const t = await getDictionary(lang);
   const products = await fetchProducts(lang);
   const productSet = products.find((elem) => {
-    return (
-      elem._id === "675a1528abab837f85c2555c" ||
-      elem._id === "671f8ad851c70fa561f432e2"
-    );
+    return elem.price === 395000;
   });
   if (productSet) {
     return {

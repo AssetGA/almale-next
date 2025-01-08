@@ -18,14 +18,11 @@ export async function getServerSideProps({ req }) {
 
 export async function generateMetadata({ params }) {
   const { id, lang } = await params;
-  console.log("lang id", lang, id);
+
   const products = await fetchProducts(lang);
-  console.log("products meta", products);
+
   const productSet = products.filter((elem) => {
-    return (
-      elem._id !== "675a1528abab837f85c2555c" ||
-      elem._id !== "671f8ad851c70fa561f432e2"
-    );
+    return elem.price === 395000;
   });
   const product = productSet.find((elem) => {
     return elem._id === id;
