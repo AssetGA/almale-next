@@ -63,7 +63,7 @@ export async function fetchProducts(lang) {
 
 export async function generateStaticParams() {
   // Укажите возможные значения для [lang] и [id]
-  const langs = ["en", "ru", "kz"]; // Например, поддерживаемые языки
+  const langs = ["kz", "en", "ru"]; // Например, поддерживаемые языки
   const params = [];
 
   for (const lang of langs) {
