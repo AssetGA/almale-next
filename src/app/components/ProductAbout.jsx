@@ -43,7 +43,6 @@ const ProductAbout = ({ lang, t }) => {
   const listSrc = productsInfo.find((elem) => {
     return elem.productId === product._id;
   });
-  console.log("listsrc", listSrc, productsInfo, product);
 
   const handleSelect = (srcSel) => {
     if (selectImage !== "") {

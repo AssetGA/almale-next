@@ -95,7 +95,7 @@ const UtensilsSet = ({ lang, t }) => {
                       <button
                         className="w-ful h-full"
                         onMouseEnter={() =>
-                          handleSelect({ src: productsInfo[1]?.src[index] })
+                          handleSelect({ src: productInfo?.src[index] })
                         }
                       >
                         <Image
