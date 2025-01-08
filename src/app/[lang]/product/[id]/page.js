@@ -77,7 +77,6 @@ export async function generateStaticParams() {
     // Преобразуем список продуктов в массив id
     const productIds = products.map((elem) => elem._id);
 
-    // Для каждого продукта создаем параметр для генерации статичных страниц
     productIds.forEach((id) => {
       params.push({ lang, id });
     });
