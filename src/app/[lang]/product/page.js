@@ -1,6 +1,6 @@
+import { fetchProducts } from "../../actions/products";
 import UtensilsSet from "../../components/UtensilsSet";
 import { getDictionary } from "../dictionaries";
-import { fetchProducts } from "./[id]/page";
 
 export async function getServerSideProps({ req }) {
   // Извлекаем язык из URL

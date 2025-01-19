@@ -56,7 +56,7 @@ const UtensilsSet = ({ lang, t }) => {
             {/* Левая часть: основное изображение и миниатюры */}
             <div className="md:w-1/2 flex flex-col items-center">
               <h2
-                className="text-xl font-semibold mb-2 sm:hidden px-5"
+                className="text-2xl font-semibold mb-2 sm:hidden px-5"
                 style={{ fontFamily: "Montserrat-Bold" }}
               >
                 {utensilProduct?.name}

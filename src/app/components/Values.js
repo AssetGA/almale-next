@@ -7,7 +7,7 @@ const Values = async ({ lang }) => {
     <div className="w-full" id="brand">
       <div className="flex flex-col py-20">
         <p
-          className="text-center font-bold text-xl"
+          className="text-center font-bold text-2xl"
           style={{ fontFamily: "Montserrat-Bold" }}
         >
           {t.brand.head}

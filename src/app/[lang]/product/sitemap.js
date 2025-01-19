@@ -1,4 +1,4 @@
-import { fetchProducts } from "./[id]/page";
+import { fetchProducts } from "../../actions/products";
 
 const SUPPORTED_LANGS = ["kz", "en", "ru"];
 
