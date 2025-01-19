@@ -8,7 +8,7 @@ const Advantages = async ({ lang }) => {
     <div id="adventages" className="w-full">
       <div className="flex flex-col py-20 md:px-5">
         <h2
-          className="text-center font-bold text-xl"
+          className="text-center font-bold text-2xl"
           style={{ fontFamily: "Montserrat-Bold" }}
         >
           {t.advantages.head}

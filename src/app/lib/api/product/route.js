@@ -7,7 +7,7 @@ import { connectToDatabase } from "../../mongodb";
 export async function GET(request) {
   await connectToDatabase();
 
-  const url = new URL(request.url); // Создаем объект URL
+  const url = new URL(request.url); // Получаем URL
   const lang = url.searchParams.get("lang");
 
   try {

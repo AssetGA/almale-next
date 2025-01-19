@@ -8,7 +8,7 @@ const Production = async ({ lang }) => {
     <div id="production" className="w-full text-lg font-bold">
       <div className="flex flex-col items-center p-10 xl:mx-40 lg:mx-20 md:mx-10">
         <h3
-          className="text-center py-10"
+          className="text-center py-10 text-2xl"
           style={{ fontFamily: "Montserrat-Bold" }}
         >
           {t.product.head}
