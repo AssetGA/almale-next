@@ -5,7 +5,7 @@ import Footer from "../components/Footer";
 import localFont from "next/font/local";
 import StoreProvider from "../StoreProvider";
 import { getDictionary } from "./dictionaries";
-import { getUser } from "../lib/dai";
+import { headers } from "next/headers";
 
 const montserrat = localFont({
   src: "../../../public/fonts/Montserat/Montserrat-Medium.ttf",
@@ -19,6 +19,8 @@ export async function getServerSideProps({ req }) {
   const langMatch = pathname.match(/^\/(kz|en|ru)(\/|$)/);
   const lang = langMatch ? langMatch[1] : "kz"; // Если язык найден, берем его, иначе — 'kz'
 
+  // Путь запроса
+
   // Возвращаем данные как props для компонента
   return {
     props: {
@@ -28,8 +30,13 @@ export async function getServerSideProps({ req }) {
 }
 
 export async function generateMetadata({ params }) {
+  const heads = await headers();
+  const pathname = heads.get("x-url");
+
   const { lang } = await params;
   const t = await getDictionary(lang);
+  const canonicalUrl = pathname;
+
   return {
     title: `${t.metadata.title} - Alma Le`,
     description: t.metadata.description,
@@ -39,6 +46,12 @@ export async function generateMetadata({ params }) {
     },
     icons: {
       icon: "/img/icon.png", // /public path
+      ...(lang === "en" && {
+        other: {
+          rel: "canonical",
+          url: `${canonicalUrl}`,
+        },
+      }),
     },
   };
 }
@@ -50,8 +63,6 @@ export function generateStaticParams() {
 export default async function LocaleLayout({ children, params }) {
   const { lang } = await params;
   const t = await getDictionary(lang);
-
-  const user = await getUser();
 
   return (
     <html lang={lang}>
