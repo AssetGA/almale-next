@@ -6,7 +6,7 @@ export async function fetchProducts(lang) {
   try {
     const url = new URL(`${process.env.NEXT_PUBLIC_SITE_URL}/lib/api/product`);
     url.searchParams.append("lang", lang); // Добавляем параметр lang
-    const res = await fetch(url.toString());
+    const res = await fetch(url.href);
     // const res = await fetch(
     //   `${process.env.NEXT_PUBLIC_SITE_URL}/lib/api/product`,
     //   {
