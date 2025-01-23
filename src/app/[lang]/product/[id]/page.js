@@ -22,23 +22,23 @@ export async function generateMetadata({ params }) {
   const products = await fetchProducts(lang);
 
   const productSet = products.filter((elem) => {
-    return elem.price === 395000;
+    return elem.price !== 395000;
   });
+
   const product = productSet.find((elem) => {
     return elem._id === id;
   });
-  if (product) {
-    return {
-      title: `${product.title} - Alma Le`,
-      description: product.descriptionMeta,
-      keywords: product.keywords,
-    };
-  }
+
   return {
-    title: "Product Not Found - Alma Le",
-    description: "The product you are looking for could not be found.",
-    keywords: "product, Alma Le, not found",
+    title: `${product.title} - Alma Le`,
+    description: product.descriptionMeta,
+    keywords: product.keywords,
   };
+  // return {
+  //   title: "Product Not Found - Alma Le",
+  //   description: "The product you are looking for could not be found.",
+  //   keywords: "product, Alma Le, not found",
+  // };
 }
 
 export async function generateStaticParams() {
