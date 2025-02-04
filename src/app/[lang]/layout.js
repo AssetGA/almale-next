@@ -42,7 +42,30 @@ export async function generateMetadata({ params }) {
   return {
     title: `${t.metadata.title} - Alma Le`,
     description: t.metadata.description,
-    keywords: t.metadata.keywords,
+    openGraph: {
+      title: `${t.metadata.title}`,
+      description: `${t.metadata.description}`,
+      images: [
+        "https://alma-le.com/img/set/1.png",
+        "https://alma-le.com/img/set/0.png",
+        "https://alma-le.com/img/set/2.png",
+        "https://alma-le.com/img/set/3.png",
+      ], // ✅ Supports array
+      url: "https://alma-le.com/product",
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${t.metadata.title}`,
+      description: `${t.metadata.description}`,
+      images: ["https://alma-le.com/img/set/0.png"],
+    },
+    other: {
+      "al:ios:url":
+        "https://www.instagram.com/almale_com?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==", // ✅ Instagram App Link
+      "al:android:url": "https://www.instagram.com/almale_com/", // ✅ Instagram Web Link
+    },
+    keywords: `${t.metadata.keywords}`,
     verification: {
       google: "rn1ZlN9g8g7fHia45p5G5UtdckF8ogxRywzzlJrHY-k",
     },

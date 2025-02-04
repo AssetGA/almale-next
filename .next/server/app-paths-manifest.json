@@ -1,11 +1,6 @@
 {
   "/lib/api/product/route": "app/lib/api/product/route.js",
   "/lib/api/product/info/route": "app/lib/api/product/info/route.js",
-  "/lib/api/user/getApi/route": "app/lib/api/user/getApi/route.js",
-  "/lib/api/user/route": "app/lib/api/user/route.js",
-  "/_not-found/page": "app/_not-found/page.js",
   "/[lang]/page": "app/[lang]/page.js",
-  "/[lang]/basket/page": "app/[lang]/basket/page.js",
-  "/[lang]/login/page": "app/[lang]/login/page.js",
-  "/[lang]/product/page": "app/[lang]/product/page.js"
+  "/[lang]/login/page": "app/[lang]/login/page.js"
 }
