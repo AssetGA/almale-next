@@ -6,7 +6,13 @@ import { getUser } from "../../dai";
 export async function GET(request) {
   try {
     const user = await getUser();
-    return NextResponse.json(user, { status: 200 });
+
+    const sendUser = {
+      _id: user._id,
+      name: user.name,
+      email: user.email,
+    };
+    return NextResponse.json(sendUser, { status: 200 });
   } catch (e) {
     return NextResponse.json(
       {

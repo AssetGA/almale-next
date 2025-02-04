@@ -22,12 +22,15 @@ const Basket = ({ lang, t }) => {
   const router = useRouter();
   const store = useAppStore();
   const initialized = useRef(false);
-  if (!initialized.current) {
-    store.dispatch(loadOrder());
-    store.dispatch(authorizeUser());
-    store.dispatch(getApiUrl());
-    initialized.current = true;
-  }
+  useEffect(() => {
+    if (!initialized.current) {
+      store.dispatch(loadOrder());
+      store.dispatch(authorizeUser());
+      store.dispatch(getApiUrl());
+      initialized.current = true;
+    }
+  }, [initialized]);
+
   const dispatch = useAppDispatch();
   const { entity } = useAppSelector((state) => state.product);
   const { error, isVerify, api, userId } = useAppSelector(
