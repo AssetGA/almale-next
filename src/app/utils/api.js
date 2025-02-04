@@ -131,6 +131,6 @@ export const deliveries = [
   },
   {
     id: 2,
-    price: 20000,
+    price: 80000,
   },
 ];

@@ -142,5 +142,9 @@
   },
   "video": {
     "title": "Introduction to Alma'Le"
+  },
+  "chat": {
+    "button": "Chat",
+    "span": "Manager"
   }
 }

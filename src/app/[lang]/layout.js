@@ -6,6 +6,8 @@ import localFont from "next/font/local";
 import StoreProvider from "../StoreProvider";
 import { getDictionary } from "./dictionaries";
 import { headers } from "next/headers";
+import ChatWindow from "../components/ChatWindow";
+import { getUser } from "../lib/dai";
 
 const montserrat = localFont({
   src: "../../../public/fonts/Montserat/Montserrat-Medium.ttf",
@@ -69,6 +71,7 @@ export default async function LocaleLayout({ children, params }) {
       <body className={montserrat.className}>
         <StoreProvider lang={lang}>
           <Navbar lang={lang} t={t} />
+          <ChatWindow t={t} />
           <main className="xl:container xl:mx-auto">{children}</main>
           <Footer lang={lang} t={t} />
         </StoreProvider>

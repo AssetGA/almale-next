@@ -108,7 +108,6 @@ export const authorizeUser = () => async (dispatch) => {
   dispatch(authRequested());
   try {
     const { content } = await userService.get();
-
     dispatch(userReceived(content));
   } catch (error) {
     dispatch(verifyRequestFailed(error.message));

@@ -6,7 +6,6 @@ import { getUser } from "../../../dai";
 export async function GET(request) {
   try {
     const user = await getUser();
-    console.log("user", user);
     const api = process.env.PAYMENT_URL;
     const findUser = await User.findById(user._id);
     if (findUser !== null) {
