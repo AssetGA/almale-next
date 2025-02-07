@@ -31,6 +31,17 @@ export async function getServerSideProps({ req }) {
   };
 }
 
+{
+  /* <meta itemprop="name" content="Luxury Copper Cookware Set">
+<meta itemprop="description" content="Handcrafted copper cookware set for professional and home chefs. Perfect heat control, premium quality, and timeless design.">
+<meta itemprop="image" content="https://yourwebsite.com/images/copper-cookware.jpg">
+<meta itemprop="brand" content="Alma Le">
+<meta itemprop="sku" content="COPPERSET-001">
+<meta itemprop="priceCurrency" content="USD">
+<meta itemprop="price" content="299.99">
+<meta itemprop="availability" content="InStock"> */
+}
+
 export async function generateMetadata({ params }) {
   const heads = await headers();
   const pathname = heads.get("x-url");
@@ -42,18 +53,6 @@ export async function generateMetadata({ params }) {
   return {
     title: `${t.metadata.title} - Alma Le`,
     description: t.metadata.description,
-    openGraph: {
-      title: `${t.metadata.title}`,
-      description: `${t.metadata.description}`,
-      images: [
-        "https://alma-le.com/img/set/1.png",
-        "https://alma-le.com/img/set/0.png",
-        "https://alma-le.com/img/set/2.png",
-        "https://alma-le.com/img/set/3.png",
-      ], // ✅ Supports array
-      url: "https://alma-le.com/product",
-      type: "website",
-    },
     twitter: {
       card: "summary_large_image",
       title: `${t.metadata.title}`,

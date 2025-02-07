@@ -28,6 +28,17 @@ export async function generateMetadata({ params }) {
       title: `${t.metadataProduct.title} - Alma Le`,
       description: t.metadataProduct.description,
       keywords: t.metadataProduct.keywords,
+      openGraph: {
+        title: `${t.metadata.title}`,
+        description: `${t.metadata.description}`,
+        images: [
+          "https://alma-le.com/img/set/1.png",
+          "https://alma-le.com/img/set/0.png",
+          "https://alma-le.com/img/set/2.png",
+          "https://alma-le.com/img/set/3.png",
+        ], // ✅ Supports array
+        url: "https://alma-le.com/product",
+      },
     };
   }
 }
