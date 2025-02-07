@@ -1,8 +1,8 @@
-// File: /home/asset/projects/almale/almale-next/src/app/[lang]/login/page.js
-import * as entry from '../../../../../src/app/[lang]/login/page.js'
+// File: /home/asset/projects/almale/almale-next/src/app/[lang]/product/[id]/page.js
+import * as entry from '../../../../../../src/app/[lang]/product/[id]/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
-type TEntry = typeof import('../../../../../src/app/[lang]/login/page.js')
+type TEntry = typeof import('../../../../../../src/app/[lang]/product/[id]/page.js')
 
 type SegmentParams<T extends Object = any> = T extends Record<string, any>
   ? { [K in keyof T]: T[K] extends string ? string | string[] | undefined : never }

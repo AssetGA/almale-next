@@ -33,6 +33,12 @@ export async function generateMetadata({ params }) {
     title: `${product.title} - Alma Le`,
     description: product.descriptionMeta,
     keywords: product.keywords,
+    openGraph: {
+      title: `${product.title}`,
+      description: `${product.descriptionMeta}`,
+      images: [`https://alma-le.com${product.imageUrl}`], // ✅ Supports array
+      url: `https://alma-le.com/product/${id}`,
+    },
   };
   // return {
   //   title: "Product Not Found - Alma Le",
