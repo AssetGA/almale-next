@@ -1,4 +1,5 @@
 import { getDictionary } from "../[lang]/dictionaries";
+// import TimerTab from "./TimeTab";
 
 const Head = async ({ lang }) => {
   const t = await getDictionary(lang);
@@ -39,6 +40,7 @@ const Head = async ({ lang }) => {
           </div>
         </div>
       </div>
+      {/* <TimerTab /> */}
     </div>
   );
 };
