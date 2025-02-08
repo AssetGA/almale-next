@@ -1,19 +1,19 @@
-export default function robots() {
-  return {
-    rules: [
-      {
-        userAgent: "Googlebot",
-        allow: ["/"],
-        disallow: ["/private/"],
-      },
-      {
-        userAgent: ["Applebot", "Bingbot"],
-        disallow: ["/"],
-      },
-    ],
-    sitemap: "https://alma-le.com/sitemap.xml",
-  };
-}
+// export default function robots() {
+//   return {
+//     rules: [
+//       {
+//         userAgent: "Googlebot",
+//         allow: ["/"],
+//         disallow: ["/private/"],
+//       },
+//       {
+//         userAgent: ["Applebot", "Bingbot"],
+//         disallow: ["/"],
+//       },
+//     ],
+//     sitemap: "https://alma-le.com/sitemap.xml",
+//   };
+// }
 
 export default function robots() {
   return {
@@ -30,7 +30,7 @@ export default function robots() {
       },
       {
         userAgent: ["Applebot", "Bingbot"],
-        allow: ["/", "/images/", "/img/",], // ✅ Разрешает индексировать картинки
+        allow: ["/", "/images/", "/img/"], // ✅ Разрешает индексировать картинки
         disallow: ["/admin/"], // Закрытые разделы
       },
       {
