@@ -50,6 +50,15 @@ export async function generateMetadata({ params }) {
   const t = await getDictionary(lang);
   const canonicalUrl = pathname;
 
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL;
+
+  const alternateLinks = [
+    { lang: "x-default", href: `${baseUrl}/` },
+    { lang: "en", href: `${baseUrl}/en` },
+    { lang: "ru", href: `${baseUrl}/ru` },
+    { lang: "kk", href: `${baseUrl}/kz` },
+  ];
+
   return {
     title: `${t.metadata.title} - Alma Le`,
     description: t.metadata.description,
@@ -63,6 +72,10 @@ export async function generateMetadata({ params }) {
       "al:ios:url":
         "https://www.instagram.com/almale_com?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==", // ✅ Instagram App Link
       "al:android:url": "https://www.instagram.com/almale_com/", // ✅ Instagram Web Link
+    },
+    alternates: {
+      canonical: `${baseUrl}/${lang || "en"}`,
+      languages: { lang: `${lang}`, href: `${baseUrl}/${lang}` },
     },
     keywords: `${t.metadata.keywords}`,
     verification: {

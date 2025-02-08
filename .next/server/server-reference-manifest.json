@@ -1,101 +1,27 @@
 {
   "node": {
-    "7fe627b2d28f757b5190ef5df18a6d137f030859bd": {
+    "7fbd57272dc24bc53f1a4d8788a4db7008736c6855": {
       "workers": {
-        "app/[lang]/login/page": {
-          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fasset%2Fprojects%2Falmale%2Falmale-next%2Fsrc%2Fapp%2Flib%2Fmongodb.js%22%2C%5B%5B%227fe627b2d28f757b5190ef5df18a6d137f030859bd%22%2C%22connectToDatabase%22%5D%5D%5D%5D&__client_imported__=!",
+        "app/[lang]/page": {
+          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fasset%2Fprojects%2Falmale%2Falmale-next%2Fsrc%2Fapp%2Flib%2Fmongodb.js%22%2C%5B%5B%227fbd57272dc24bc53f1a4d8788a4db7008736c6855%22%2C%22connectToDatabase%22%5D%5D%5D%5D&__client_imported__=!",
           "async": false
         },
-        "app/[lang]/basket/page": {
-          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fasset%2Fprojects%2Falmale%2Falmale-next%2Fsrc%2Fapp%2Flib%2Fmongodb.js%22%2C%5B%5B%227fe627b2d28f757b5190ef5df18a6d137f030859bd%22%2C%22connectToDatabase%22%5D%5D%5D%5D&__client_imported__=!",
+        "app/lib/api/product/route": {
+          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fasset%2Fprojects%2Falmale%2Falmale-next%2Fsrc%2Fapp%2Flib%2Fmongodb.js%22%2C%5B%5B%227fbd57272dc24bc53f1a4d8788a4db7008736c6855%22%2C%22connectToDatabase%22%5D%5D%5D%5D&__client_imported__=!",
           "async": false
         },
-        "app/lib/api/user/getApi/route": {
-          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fasset%2Fprojects%2Falmale%2Falmale-next%2Fsrc%2Fapp%2Flib%2Fmongodb.js%22%2C%5B%5B%227fe627b2d28f757b5190ef5df18a6d137f030859bd%22%2C%22connectToDatabase%22%5D%5D%5D%5D&__client_imported__=!",
-          "async": false
-        },
-        "app/lib/api/user/route": {
-          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fasset%2Fprojects%2Falmale%2Falmale-next%2Fsrc%2Fapp%2Flib%2Fapi%2Fuser%2Froute.js%22%2C%5B%5B%22400ab0e5fb5530774c21f4fda4a6b9f0e3985b46b9%22%2C%22GET%22%5D%5D%5D%2C%5B%22%2Fhome%2Fasset%2Fprojects%2Falmale%2Falmale-next%2Fsrc%2Fapp%2Flib%2Fmongodb.js%22%2C%5B%5B%227fe627b2d28f757b5190ef5df18a6d137f030859bd%22%2C%22connectToDatabase%22%5D%5D%5D%5D&__client_imported__=!",
-          "async": false
-        },
-        "app/lib/api/order/route": {
-          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fasset%2Fprojects%2Falmale%2Falmale-next%2Fsrc%2Fapp%2Flib%2Fmongodb.js%22%2C%5B%5B%227fe627b2d28f757b5190ef5df18a6d137f030859bd%22%2C%22connectToDatabase%22%5D%5D%5D%5D&__client_imported__=!",
-          "async": false
-        },
-        "app/lib/api/auth/verify/route": {
-          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fasset%2Fprojects%2Falmale%2Falmale-next%2Fsrc%2Fapp%2Flib%2Fmongodb.js%22%2C%5B%5B%227fe627b2d28f757b5190ef5df18a6d137f030859bd%22%2C%22connectToDatabase%22%5D%5D%5D%5D&__client_imported__=!",
+        "app/lib/api/product/info/route": {
+          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fasset%2Fprojects%2Falmale%2Falmale-next%2Fsrc%2Fapp%2Flib%2Fmongodb.js%22%2C%5B%5B%227fbd57272dc24bc53f1a4d8788a4db7008736c6855%22%2C%22connectToDatabase%22%5D%5D%5D%5D&__client_imported__=!",
           "async": false
         }
       },
       "layer": {
-        "app/[lang]/login/page": "rsc",
-        "app/[lang]/basket/page": "rsc",
-        "app/lib/api/user/getApi/route": "rsc",
-        "app/lib/api/user/route": "rsc",
-        "app/lib/api/order/route": "rsc",
-        "app/lib/api/auth/verify/route": "rsc"
-      }
-    },
-    "00e31d5506a64b348d089bbf7094200bd7eef93fe6": {
-      "workers": {
-        "app/[lang]/login/page": {
-          "moduleId": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fasset%2Fprojects%2Falmale%2Falmale-next%2Fsrc%2Fapp%2Factions%2Fauth.js%22%2C%5B%5B%2200e31d5506a64b348d089bbf7094200bd7eef93fe6%22%2C%22logout%22%5D%2C%5B%22604ef3b8550d7732efc07f402255b468e5dd8e1ffc%22%2C%22SignIn%22%5D%2C%5B%2260c597d8e63894389779eed6ebdb6729b43ab9eb35%22%2C%22SignUp%22%5D%5D%5D%5D&__client_imported__=true!",
-          "async": false
-        },
-        "app/[lang]/basket/page": {
-          "moduleId": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fasset%2Fprojects%2Falmale%2Falmale-next%2Fsrc%2Fapp%2Factions%2Fauth.js%22%2C%5B%5B%2200e31d5506a64b348d089bbf7094200bd7eef93fe6%22%2C%22logout%22%5D%2C%5B%22604ef3b8550d7732efc07f402255b468e5dd8e1ffc%22%2C%22SignIn%22%5D%2C%5B%2260c597d8e63894389779eed6ebdb6729b43ab9eb35%22%2C%22SignUp%22%5D%5D%5D%5D&__client_imported__=true!",
-          "async": false
-        }
-      },
-      "layer": {
-        "app/[lang]/login/page": "action-browser",
-        "app/[lang]/basket/page": "action-browser"
-      }
-    },
-    "604ef3b8550d7732efc07f402255b468e5dd8e1ffc": {
-      "workers": {
-        "app/[lang]/login/page": {
-          "moduleId": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fasset%2Fprojects%2Falmale%2Falmale-next%2Fsrc%2Fapp%2Factions%2Fauth.js%22%2C%5B%5B%2200e31d5506a64b348d089bbf7094200bd7eef93fe6%22%2C%22logout%22%5D%2C%5B%22604ef3b8550d7732efc07f402255b468e5dd8e1ffc%22%2C%22SignIn%22%5D%2C%5B%2260c597d8e63894389779eed6ebdb6729b43ab9eb35%22%2C%22SignUp%22%5D%5D%5D%5D&__client_imported__=true!",
-          "async": false
-        },
-        "app/[lang]/basket/page": {
-          "moduleId": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fasset%2Fprojects%2Falmale%2Falmale-next%2Fsrc%2Fapp%2Factions%2Fauth.js%22%2C%5B%5B%2200e31d5506a64b348d089bbf7094200bd7eef93fe6%22%2C%22logout%22%5D%2C%5B%22604ef3b8550d7732efc07f402255b468e5dd8e1ffc%22%2C%22SignIn%22%5D%2C%5B%2260c597d8e63894389779eed6ebdb6729b43ab9eb35%22%2C%22SignUp%22%5D%5D%5D%5D&__client_imported__=true!",
-          "async": false
-        }
-      },
-      "layer": {
-        "app/[lang]/login/page": "action-browser",
-        "app/[lang]/basket/page": "action-browser"
-      }
-    },
-    "60c597d8e63894389779eed6ebdb6729b43ab9eb35": {
-      "workers": {
-        "app/[lang]/login/page": {
-          "moduleId": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fasset%2Fprojects%2Falmale%2Falmale-next%2Fsrc%2Fapp%2Factions%2Fauth.js%22%2C%5B%5B%2200e31d5506a64b348d089bbf7094200bd7eef93fe6%22%2C%22logout%22%5D%2C%5B%22604ef3b8550d7732efc07f402255b468e5dd8e1ffc%22%2C%22SignIn%22%5D%2C%5B%2260c597d8e63894389779eed6ebdb6729b43ab9eb35%22%2C%22SignUp%22%5D%5D%5D%5D&__client_imported__=true!",
-          "async": false
-        },
-        "app/[lang]/basket/page": {
-          "moduleId": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fasset%2Fprojects%2Falmale%2Falmale-next%2Fsrc%2Fapp%2Factions%2Fauth.js%22%2C%5B%5B%2200e31d5506a64b348d089bbf7094200bd7eef93fe6%22%2C%22logout%22%5D%2C%5B%22604ef3b8550d7732efc07f402255b468e5dd8e1ffc%22%2C%22SignIn%22%5D%2C%5B%2260c597d8e63894389779eed6ebdb6729b43ab9eb35%22%2C%22SignUp%22%5D%5D%5D%5D&__client_imported__=true!",
-          "async": false
-        }
-      },
-      "layer": {
-        "app/[lang]/login/page": "action-browser",
-        "app/[lang]/basket/page": "action-browser"
-      }
-    },
-    "400ab0e5fb5530774c21f4fda4a6b9f0e3985b46b9": {
-      "workers": {
-        "app/lib/api/user/route": {
-          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fasset%2Fprojects%2Falmale%2Falmale-next%2Fsrc%2Fapp%2Flib%2Fapi%2Fuser%2Froute.js%22%2C%5B%5B%22400ab0e5fb5530774c21f4fda4a6b9f0e3985b46b9%22%2C%22GET%22%5D%5D%5D%2C%5B%22%2Fhome%2Fasset%2Fprojects%2Falmale%2Falmale-next%2Fsrc%2Fapp%2Flib%2Fmongodb.js%22%2C%5B%5B%227fe627b2d28f757b5190ef5df18a6d137f030859bd%22%2C%22connectToDatabase%22%5D%5D%5D%5D&__client_imported__=!",
-          "async": false
-        }
-      },
-      "layer": {
-        "app/lib/api/user/route": "rsc"
+        "app/[lang]/page": "rsc",
+        "app/lib/api/product/route": "rsc",
+        "app/lib/api/product/info/route": "rsc"
       }
     }
   },
   "edge": {},
-  "encryptionKey": "oYQTCfVI9QEuR3rCVMQiMpIwonHVhG5SZhLSnBSMCBU="
+  "encryptionKey": "JoDhoFAth0mqZeHL7rNBjaJaUjTXDTyZ+LV6sS4tK10="
 }
