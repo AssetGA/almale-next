@@ -1,1 +1,27 @@
-{"node":{"7fbd57272dc24bc53f1a4d8788a4db7008736c6855":{"workers":{"app/lib/api/auth/verify/route":{"moduleId":"94268","async":false},"app/lib/api/contact/route":{"moduleId":"94268","async":false},"app/lib/api/chat/route":{"moduleId":"94268","async":false},"app/lib/api/message/route":{"moduleId":"94268","async":false},"app/lib/api/product/info/route":{"moduleId":"94268","async":false},"app/lib/api/product/route":{"moduleId":"94268","async":false},"app/lib/api/order/route":{"moduleId":"94268","async":false},"app/lib/api/order/[orderId]/route":{"moduleId":"94268","async":false},"app/lib/api/route":{"moduleId":"94268","async":false},"app/lib/api/session/route":{"moduleId":"18151","async":false},"app/lib/api/user/route":{"moduleId":"46613","async":false},"app/lib/api/user/getApi/route":{"moduleId":"94268","async":false},"app/[lang]/page":{"moduleId":"94268","async":false},"app/[lang]/basket/page":{"moduleId":"94268","async":false},"app/[lang]/login/page":{"moduleId":"94268","async":false},"app/[lang]/signup/page":{"moduleId":"94268","async":false},"app/[lang]/payment/page":{"moduleId":"94268","async":false},"app/[lang]/product/page":{"moduleId":"88558","async":false},"app/[lang]/product/[id]/page":{"moduleId":"88558","async":false}},"layer":{"app/lib/api/auth/verify/route":"rsc","app/lib/api/contact/route":"rsc","app/lib/api/chat/route":"rsc","app/lib/api/message/route":"rsc","app/lib/api/product/info/route":"rsc","app/lib/api/product/route":"rsc","app/lib/api/order/route":"rsc","app/lib/api/order/[orderId]/route":"rsc","app/lib/api/route":"rsc","app/lib/api/session/route":"rsc","app/lib/api/user/route":"rsc","app/lib/api/user/getApi/route":"rsc","app/[lang]/page":"rsc","app/[lang]/basket/page":"rsc","app/[lang]/login/page":"rsc","app/[lang]/signup/page":"rsc","app/[lang]/payment/page":"rsc","app/[lang]/product/page":"rsc","app/[lang]/product/[id]/page":"rsc"}},"405fa3756edbb75e8f14f617a7491b1ea983291259":{"workers":{"app/lib/api/session/route":{"moduleId":"18151","async":false}},"layer":{"app/lib/api/session/route":"rsc"}},"4057e74941a2672530fbce5c6dcf3c5f4cf4410cf1":{"workers":{"app/lib/api/user/route":{"moduleId":"46613","async":false}},"layer":{"app/lib/api/user/route":"rsc"}},"404727220afb05d25fd04d0d39c1b8b621705db7b2":{"workers":{"app/[lang]/product/page":{"moduleId":"88558","async":false},"app/[lang]/product/[id]/page":{"moduleId":"88558","async":false}},"layer":{"app/[lang]/product/page":"rsc","app/[lang]/product/[id]/page":"rsc"}},"00399ce28aa1c616b34a9addb4a950ea4c1a7f85e7":{"workers":{"app/[lang]/basket/page":{"moduleId":"45043","async":false},"app/[lang]/login/page":{"moduleId":"45043","async":false},"app/[lang]/signup/page":{"moduleId":"45043","async":false}},"layer":{"app/[lang]/basket/page":"action-browser","app/[lang]/login/page":"action-browser","app/[lang]/signup/page":"action-browser"}},"6031e93cdc27bc1439e679c4821490d8a27b1a6aad":{"workers":{"app/[lang]/basket/page":{"moduleId":"45043","async":false},"app/[lang]/login/page":{"moduleId":"45043","async":false},"app/[lang]/signup/page":{"moduleId":"45043","async":false}},"layer":{"app/[lang]/basket/page":"action-browser","app/[lang]/login/page":"action-browser","app/[lang]/signup/page":"action-browser"}},"6080862659afb7ff40314a360308d406657eb14d05":{"workers":{"app/[lang]/basket/page":{"moduleId":"45043","async":false},"app/[lang]/login/page":{"moduleId":"45043","async":false},"app/[lang]/signup/page":{"moduleId":"45043","async":false}},"layer":{"app/[lang]/basket/page":"action-browser","app/[lang]/login/page":"action-browser","app/[lang]/signup/page":"action-browser"}}},"edge":{},"encryptionKey":"JoDhoFAth0mqZeHL7rNBjaJaUjTXDTyZ+LV6sS4tK10="}
+{
+  "node": {
+    "7fbd57272dc24bc53f1a4d8788a4db7008736c6855": {
+      "workers": {
+        "app/[lang]/page": {
+          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fasset%2Fprojects%2Falmale%2Falmale-next%2Fsrc%2Fapp%2Flib%2Fmongodb.js%22%2C%5B%5B%227fbd57272dc24bc53f1a4d8788a4db7008736c6855%22%2C%22connectToDatabase%22%5D%5D%5D%5D&__client_imported__=!",
+          "async": false
+        },
+        "app/lib/api/product/route": {
+          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fasset%2Fprojects%2Falmale%2Falmale-next%2Fsrc%2Fapp%2Flib%2Fmongodb.js%22%2C%5B%5B%227fbd57272dc24bc53f1a4d8788a4db7008736c6855%22%2C%22connectToDatabase%22%5D%5D%5D%5D&__client_imported__=!",
+          "async": false
+        },
+        "app/lib/api/product/info/route": {
+          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fasset%2Fprojects%2Falmale%2Falmale-next%2Fsrc%2Fapp%2Flib%2Fmongodb.js%22%2C%5B%5B%227fbd57272dc24bc53f1a4d8788a4db7008736c6855%22%2C%22connectToDatabase%22%5D%5D%5D%5D&__client_imported__=!",
+          "async": false
+        }
+      },
+      "layer": {
+        "app/[lang]/page": "rsc",
+        "app/lib/api/product/route": "rsc",
+        "app/lib/api/product/info/route": "rsc"
+      }
+    }
+  },
+  "edge": {},
+  "encryptionKey": "JoDhoFAth0mqZeHL7rNBjaJaUjTXDTyZ+LV6sS4tK10="
+}

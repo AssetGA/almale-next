@@ -31,17 +31,6 @@ export async function getServerSideProps({ req }) {
   };
 }
 
-{
-  /* <meta itemprop="name" content="Luxury Copper Cookware Set">
-<meta itemprop="description" content="Handcrafted copper cookware set for professional and home chefs. Perfect heat control, premium quality, and timeless design.">
-<meta itemprop="image" content="https://yourwebsite.com/images/copper-cookware.jpg">
-<meta itemprop="brand" content="Alma Le">
-<meta itemprop="sku" content="COPPERSET-001">
-<meta itemprop="priceCurrency" content="USD">
-<meta itemprop="price" content="299.99">
-<meta itemprop="availability" content="InStock"> */
-}
-
 export async function generateMetadata({ params }) {
   const heads = await headers();
   const pathname = heads.get("x-url");
@@ -52,12 +41,7 @@ export async function generateMetadata({ params }) {
 
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL;
 
-  const alternateLinks = [
-    { lang: "x-default", href: `${baseUrl}/` },
-    { lang: "en", href: `${baseUrl}/en` },
-    { lang: "ru", href: `${baseUrl}/ru` },
-    { lang: "kk", href: `${baseUrl}/kz` },
-  ];
+  const elem = lang;
 
   return {
     title: `${t.metadata.title} - Alma Le`,
@@ -75,7 +59,12 @@ export async function generateMetadata({ params }) {
     },
     alternates: {
       canonical: `${baseUrl}/${lang || "en"}`,
-      languages: { lang: `${lang}`, href: `${baseUrl}/${lang}` },
+      languages: {
+        "x-default": `${baseUrl}/en`,
+        en: `${baseUrl}/en`,
+        ru: `${baseUrl}/ru`,
+        kz: `${baseUrl}/kz`, // ✅ Correct ISO 639-1 language code
+      },
     },
     keywords: `${t.metadata.keywords}`,
     verification: {
@@ -91,6 +80,17 @@ export async function generateMetadata({ params }) {
       }),
     },
   };
+}
+
+{
+  /* <meta itemprop="name" content="Luxury Copper Cookware Set">
+<meta itemprop="description" content="Handcrafted copper cookware set for professional and home chefs. Perfect heat control, premium quality, and timeless design.">
+<meta itemprop="image" content="https://yourwebsite.com/images/copper-cookware.jpg">
+<meta itemprop="brand" content="Alma Le">
+<meta itemprop="sku" content="COPPERSET-001">
+<meta itemprop="priceCurrency" content="USD">
+<meta itemprop="price" content="299.99">
+<meta itemprop="availability" content="InStock"> */
 }
 
 export function generateStaticParams() {
