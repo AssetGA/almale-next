@@ -21,7 +21,6 @@ const Advantages = async ({ lang }) => {
               width={100}
               height={100}
               alt="моменты жизни на кухне"
-              priority
             />
             <p className="text-center pt-5">{t.advantages.one}</p>
           </div>
@@ -32,7 +31,6 @@ const Advantages = async ({ lang }) => {
               width={100}
               height={100}
               alt="моменты жизни на кухне"
-              priority
             />
             <p className="text-center pt-5">{t.advantages.two}</p>
           </div>
@@ -44,7 +42,6 @@ const Advantages = async ({ lang }) => {
               width={100}
               height={100}
               alt="моменты жизни на кухне"
-              priority
             />
             <p className="text-center pt-5">{t.advantages.three}</p>
           </div>

@@ -12,6 +12,7 @@ const ProductCard = ({ product, lang, t }) => {
         height={300}
         className="w-full object-cover hover:opacity-90"
         priority
+        unoptimized // ✅ Позволяет Google индексировать
       />
 
       <div className="p-4">

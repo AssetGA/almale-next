@@ -88,6 +88,10 @@ export default async function middleware(request) {
   const response = NextResponse.next();
   response.headers.set("x-lang", currentLocale);
   response.headers.set("x-url", request.url);
+  response.headers.set(
+    "Set-Cookie",
+    "user_token=xyz456; Secure; HttpOnly; SameSite=None; Partitioned; Path=/"
+  );
 
   return response;
 }
