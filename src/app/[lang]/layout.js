@@ -63,7 +63,7 @@ export async function generateMetadata({ params }) {
         "x-default": `${baseUrl}/en`,
         en: `${baseUrl}/en`,
         ru: `${baseUrl}/ru`,
-        kz: `${baseUrl}/kz`, // ✅ Correct ISO 639-1 language code
+        kk: `${baseUrl}/kz`, // ✅ Correct ISO 639-1 language code
       },
     },
     keywords: `${t.metadata.keywords}`,
