@@ -99,6 +99,7 @@ const ProductAbout = ({ lang, t }) => {
                       height={200}
                       alt={listSrc ? listSrc.meta[index] : "Alma cookeware"}
                       priority
+                      unoptimized // ✅ Позволяет Google индексировать
                     />
                   </div>
                 ))}
@@ -128,6 +129,7 @@ const ProductAbout = ({ lang, t }) => {
                     height={100}
                     alt={elem.name}
                     priority
+                    unoptimized // ✅ Позволяет Google индексировать
                   />
                 </Tooltip>
               ))}

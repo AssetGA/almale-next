@@ -223,6 +223,7 @@ const Basket = ({ lang, t }) => {
                         height={100}
                         alt={t.metadataProduct.title}
                         priority
+                        unoptimized // ✅ Позволяет Google индексировать
                       />
                     )}
                   </div>

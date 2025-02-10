@@ -48,7 +48,6 @@ const Navbar = ({ lang, t }) => {
                   height={60}
                   alt="Logo Almale"
                   className="px-5 sm:px-0  h-[16px] xl:h-[20px] w-full"
-                  priority
                 />
               </a>
             </button>
