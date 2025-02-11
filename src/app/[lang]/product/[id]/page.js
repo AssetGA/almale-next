@@ -40,11 +40,6 @@ export async function generateMetadata({ params }) {
       url: `https://alma-le.com/product/${id}`,
     },
   };
-  // return {
-  //   title: "Product Not Found - Alma Le",
-  //   description: "The product you are looking for could not be found.",
-  //   keywords: "product, Alma Le, not found",
-  // };
 }
 
 export async function generateStaticParams() {
