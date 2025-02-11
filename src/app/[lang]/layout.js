@@ -56,8 +56,6 @@ export async function generateMetadata({ params }) {
       "al:ios:url":
         "https://www.instagram.com/almale_com?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==", // ✅ Instagram App Link
       "al:android:url": "https://www.instagram.com/almale_com/", // ✅ Instagram Web Link
-      "link:rel:preload": "/img/main2.png",
-      "link:rel:preload": "/img/главная.jpg",
     },
     alternates: {
       canonical: `${baseUrl}/${lang || "en"}`,
@@ -80,6 +78,11 @@ export async function generateMetadata({ params }) {
           url: `${canonicalUrl}`,
         },
       }),
+    },
+    openGraph: {
+      title: `${t.metadata.title}`,
+      description: `${t.metadata.description}`,
+      images: ["/img/main2.png", "/img/fronthead.jpg"], // ✅ Supports array
     },
   };
 }
