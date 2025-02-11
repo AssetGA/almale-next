@@ -56,6 +56,8 @@ export async function generateMetadata({ params }) {
       "al:ios:url":
         "https://www.instagram.com/almale_com?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==", // ✅ Instagram App Link
       "al:android:url": "https://www.instagram.com/almale_com/", // ✅ Instagram Web Link
+      "link:rel:preload": "/img/main2.png",
+      "link:rel:preload": "/img/главная.jpg",
     },
     alternates: {
       canonical: `${baseUrl}/${lang || "en"}`,
@@ -80,17 +82,6 @@ export async function generateMetadata({ params }) {
       }),
     },
   };
-}
-
-{
-  /* <meta itemprop="name" content="Luxury Copper Cookware Set">
-<meta itemprop="description" content="Handcrafted copper cookware set for professional and home chefs. Perfect heat control, premium quality, and timeless design.">
-<meta itemprop="image" content="https://yourwebsite.com/images/copper-cookware.jpg">
-<meta itemprop="brand" content="Alma Le">
-<meta itemprop="sku" content="COPPERSET-001">
-<meta itemprop="priceCurrency" content="USD">
-<meta itemprop="price" content="299.99">
-<meta itemprop="availability" content="InStock"> */
 }
 
 export function generateStaticParams() {
