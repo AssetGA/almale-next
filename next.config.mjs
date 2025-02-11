@@ -9,6 +9,8 @@ const nextConfig = {
         hostname: "chef.ru",
       },
     ],
+    domains: ["alma-le.com"],
+    formats: ["image/avif", "image/webp"],
   },
   async headers() {
     return [

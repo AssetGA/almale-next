@@ -16,6 +16,15 @@
   }
 } */
 
+.bg-preload {
+  background-image: url("/img/main2.png");
+}
+@media (min-width: 640px) {
+  .bg-preload {
+    background-image: url("/img/fronthead.jpg");
+  }
+}
+
 body {
   /* color: var(--foreground);
   background: var(--background); */

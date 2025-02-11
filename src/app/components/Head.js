@@ -5,7 +5,7 @@ const Head = async ({ lang }) => {
   const t = await getDictionary(lang);
   return (
     <div className="relative w-full z-0 overflow-hidden">
-      <div className="w-full bg-[url('/img/main2.png')] sm:bg-[url('/img/главная.jpg')] bg-cover sm:bg-contain bg-no-repeat sm:bg-right flex flex-col sm:flex-row ">
+      <div className="w-full bg-preload bg-[url('/img/main2.png')] sm:bg-[url('/img/fronthead.jpg')] bg-cover sm:bg-contain bg-no-repeat sm:bg-right flex flex-col sm:flex-row ">
         <div className="bg-[url('/img/Layer6.svg')] bg-contain bg-no-repeat px-12 py-12 sm:hidden -translate-y-16">
           .
         </div>

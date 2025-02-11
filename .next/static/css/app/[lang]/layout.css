@@ -1990,6 +1990,15 @@ input[type="number"] {
   }
 } */
 
+.bg-preload {
+  background-image: url("/img/main2.png");
+}
+@media (min-width: 640px) {
+  .bg-preload {
+    background-image: url("/img/fronthead.jpg");
+  }
+}
+
 body {
   /* color: var(--foreground);
   background: var(--background); */
@@ -2277,6 +2286,10 @@ body {
     background-image: url('/img/Layer14.svg');
   }
 
+  .sm\:bg-\[url\(\'\/img\/fronthead\.jpg\'\)\] {
+    background-image: url('/img/fronthead.jpg');
+  }
+
   .sm\:bg-\[url\(\'\/img\/history\.png\'\)\] {
     background-image: url('/img/history.png');
   }
@@ -2287,10 +2300,6 @@ body {
 
   .sm\:bg-\[url\(\'\/img\/production-desc\.png\'\)\] {
     background-image: url('/img/production-desc.png');
-  }
-
-  .sm\:bg-\[url\(\'\/img\/\433\43B\430\432\43D\430\44F\.jpg\'\)\] {
-    background-image: url('/img/главная.jpg');
   }
 
   .sm\:bg-contain {
