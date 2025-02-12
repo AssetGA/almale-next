@@ -50,7 +50,7 @@ export async function generateMetadata({ params }) {
       card: "summary_large_image",
       title: `${t.metadata.title}`,
       description: `${t.metadata.description}`,
-      images: ["https://alma-le.com/img/set/0.png"],
+      images: [`${baseUrl}/img/set/0.png`],
     },
     other: {
       "al:ios:url":

@@ -1,5 +1,5 @@
 import { getDictionary } from "../[lang]/dictionaries";
-import { convertToEmbedUrl } from "../utils/embed";
+import LazyYouTube from "../components/LazyYouTube.jsx";
 
 const VideoSection = async ({ lang }) => {
   const t = await getDictionary(lang);
@@ -37,19 +37,7 @@ const VideoSection = async ({ lang }) => {
               key={video.id}
               className="group bg-white rounded-lg shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-xl"
             >
-              <iframe
-                title="about Alma`le brand"
-                className="w-full h-56 group-hover:opacity-90 transition-opacity duration-300"
-                src={convertToEmbedUrl(video.url).replace(
-                  "www.youtube.com",
-                  "www.youtube-nocookie.com"
-                )}
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                sandbox="allow-same-origin allow-scripts allow-presentation"
-                allowFullScreen
-                loading="lazy" // Lazy load the iframe
-              ></iframe>
+              <LazyYouTube video={video} />
             </div>
           ))}
         </div>

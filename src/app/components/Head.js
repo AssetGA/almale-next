@@ -33,7 +33,7 @@ const Head = async ({ lang }) => {
           </div>
         </div>
         <div className="w-0 lg:w-[250px] h-full flex flex-row pt-0 md:pt-20 xl:pt-32">
-          <div className="w-full h-full right-0 bottom-0 bg-no-repeat bg-[url('/img/Layer15.svg')] bg-contain">
+          <div className="w-full h-full right-0 bottom-0 bg-lazy bg-no-repeat bg-[url('/img/Layer15.svg')] bg-contain">
             <div className="py-[100px] md:py-[150px] lg:py-[210px] xl:py-[220px]">
               .
             </div>
