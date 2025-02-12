@@ -16,12 +16,40 @@
   }
 } */
 
-.bg-preload {
-  background-image: url("/img/main2.png");
+.bg-preload1::before {
+  content: "";
+  background: url("/img/main.png") no-repeat;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  visibility: hidden;
 }
+
+.bg-preload2::before {
+  content: "";
+  background: url("/img/front.png") no-repeat;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  visibility: hidden;
+}
+
 @media (min-width: 640px) {
-  .bg-preload {
-    background-image: url("/img/fronthead.jpg");
+  .bg-preload1::before {
+    content: "";
+    background: url("/img/main.png") no-repeat;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    visibility: hidden;
+  }
+  .bg-preload2::before {
+    content: "";
+    background: url("/img/front.png") no-repeat;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    visibility: hidden;
   }
 }
 
