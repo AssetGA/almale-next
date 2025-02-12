@@ -9,7 +9,7 @@ const VideoSection = async ({ lang }) => {
       id: "video1",
       title: "Exploring the Mountains",
       url: "https://www.youtube.com/watch?v=AAHCllXUXrI&t=5s",
-      img: "/img/production-desc.png",
+      img: "/img/set/3.png",
     },
     {
       id: "video2",
