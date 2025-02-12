@@ -1695,6 +1695,9 @@ video {
 .bg-gradient-to-r {
   background-image: linear-gradient(to right, var(--tw-gradient-stops));
 }
+.bg-\[url\(\'\/img\/main\.webp\'\)\] {
+  background-image: url('/img/main.webp');
+}
 .bg-contain {
   background-size: contain;
 }
@@ -1989,26 +1992,6 @@ input[type="number"] {
     --foreground: #ededed;
   }
 } */
-
-.bg-preload1::before {
-  content: "";
-  background: url("/img/main.png") no-repeat;
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  visibility: hidden;
-}
-
-@media (min-width: 640px) {
-  .bg-preload2::before {
-    content: "";
-    background: url("/img/front.png") no-repeat;
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    visibility: hidden;
-  }
-}
 
 body {
   /* color: var(--foreground);
@@ -2311,6 +2294,10 @@ body {
 
   .sm\:bg-\[url\(\'\/img\/production-desc\.png\'\)\] {
     background-image: url('/img/production-desc.png');
+  }
+
+  .sm\:bg-\[url\(\'\/img\/front\.webp\'\)\] {
+    background-image: url('/img/front.webp');
   }
 
   .sm\:bg-contain {

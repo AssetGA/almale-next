@@ -9,19 +9,19 @@ const VideoSection = async ({ lang }) => {
       id: "video1",
       title: "Exploring the Mountains",
       url: "https://www.youtube.com/watch?v=AAHCllXUXrI&t=5s",
-      id: "AAHCllXUXrI&t=5s",
+      img: "/img/production-desc.png",
     },
     {
       id: "video2",
       title: "Ocean Adventures",
       url: "https://www.youtube.com/watch?v=nFNJUepGYHY",
-      id: "nFNJUepGYHY",
+      img: "/img/set/1.png",
     },
     {
       id: "video3",
       title: "City Life Vibes",
       url: "https://www.youtube.com/watch?v=5W05UwE_LQ0&t=6s",
-      id: "5W05UwE_LQ0&t=6s",
+      img: "/img/set/2.png",
     },
   ];
 
