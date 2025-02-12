@@ -15,7 +15,7 @@ const Main = async ({ lang }) => {
   const b = false;
   return (
     <>
-      <Head lang={lang} />
+      <Head lang={lang} t={t} />
       <Values lang={lang} />
       <History lang={lang} />
       <Mission lang={lang} />

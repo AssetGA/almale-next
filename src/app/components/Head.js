@@ -1,9 +1,14 @@
-import Image from "next/image";
-import { getDictionary } from "../[lang]/dictionaries";
-// import TimerTab from "./TimeTab";
+"use client";
 
-const Head = async ({ lang }) => {
-  const t = await getDictionary(lang);
+import { useEffect } from "react";
+
+const Head = ({ t }) => {
+  useEffect(() => {
+    const img = new Image();
+    const img2 = new Image();
+    img.src = "/img/front.png";
+    img2.src = "/img/main.png";
+  }, []);
   return (
     <div className="relative w-full z-0 overflow-hidden">
       <div className="w-full bg-preload1 bg-preload2 bg-[url('/img/main.png')] sm:bg-[url('/img/front.png')] bg-cover sm:bg-contain bg-no-repeat sm:bg-right flex flex-col sm:flex-row ">
