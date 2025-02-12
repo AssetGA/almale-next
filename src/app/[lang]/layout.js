@@ -7,7 +7,6 @@ import StoreProvider from "../StoreProvider";
 import { getDictionary } from "./dictionaries";
 import { headers } from "next/headers";
 import ChatWindow from "../components/ChatWindow";
-import { getUser } from "../lib/dai";
 
 const montserrat = localFont({
   src: "../../../public/fonts/Montserat/Montserrat-Medium.ttf",
@@ -70,6 +69,7 @@ export async function generateMetadata({ params }) {
     verification: {
       google: "rn1ZlN9g8g7fHia45p5G5UtdckF8ogxRywzzlJrHY-k",
     },
+    preload: {},
     icons: {
       icon: "/img/icon.png", // /public path
       ...(lang === "en" && {
@@ -82,7 +82,7 @@ export async function generateMetadata({ params }) {
     openGraph: {
       title: `${t.metadata.title}`,
       description: `${t.metadata.description}`,
-      images: [`${baseUrl}/img/main2.png`, `${baseUrl}/img/front.png`], // ✅ Supports array
+      images: [`${baseUrl}/img/main.png`, `${baseUrl}/img/front.png`], // ✅ Supports array
     },
   };
 }
@@ -97,7 +97,7 @@ export default async function LocaleLayout({ children, params }) {
 
   return (
     <html lang={lang === "kz" ? "kk" : lang}>
-      <body className={montserrat.className}>
+      <body className={`${montserrat.className}`}>
         <StoreProvider lang={lang}>
           <Navbar lang={lang} t={t} />
           <ChatWindow t={t} />
