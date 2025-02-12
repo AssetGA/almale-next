@@ -36,8 +36,8 @@ export async function generateMetadata({ params }) {
     openGraph: {
       title: `${product.title}`,
       description: `${product.descriptionMeta}`,
-      images: [`https://alma-le.com${product.imageUrl}`], // ✅ Supports array
-      url: `https://alma-le.com/product/${id}`,
+      images: [`${process.env.NEXT_PUBLIC_SITE_URL}${product.imageUrl}`], // ✅ Supports array
+      url: `${process.env.NEXT_PUBLIC_SITE_URL}/${id}`,
     },
   };
 }
