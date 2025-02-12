@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { getDictionary } from "../[lang]/dictionaries";
 // import TimerTab from "./TimeTab";
 
