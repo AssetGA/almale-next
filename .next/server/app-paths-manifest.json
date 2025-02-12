@@ -1,1 +1,6 @@
-{}
+{
+  "/_not-found/page": "app/_not-found/page.js",
+  "/lib/api/product/route": "app/lib/api/product/route.js",
+  "/lib/api/product/info/route": "app/lib/api/product/info/route.js",
+  "/[lang]/page": "app/[lang]/page.js"
+}
