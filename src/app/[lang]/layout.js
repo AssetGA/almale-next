@@ -82,7 +82,7 @@ export async function generateMetadata({ params }) {
     openGraph: {
       title: `${t.metadata.title}`,
       description: `${t.metadata.description}`,
-      images: ["/img/main2.png", "/img/fronthead.jpg"], // ✅ Supports array
+      images: ["/img/main2.png", "/img/front.png"], // ✅ Supports array
     },
   };
 }
