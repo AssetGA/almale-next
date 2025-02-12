@@ -11,7 +11,7 @@ const Head = ({ t }) => {
   }, []);
   return (
     <div className="relative w-full z-0 overflow-hidden">
-      <div className="w-full bg-preload1 bg-preload2 bg-[url('/img/main.png')] sm:bg-[url('/img/front.png')] bg-cover sm:bg-contain bg-no-repeat sm:bg-right flex flex-col sm:flex-row ">
+      <div className="w-full bg-[url('/img/main.png')] sm:bg-[url('/img/front.png')] bg-cover sm:bg-contain bg-no-repeat sm:bg-right flex flex-col sm:flex-row ">
         <div className="bg-[url('/img/Layer6.svg')] bg-contain bg-no-repeat px-12 py-12 sm:hidden -translate-y-16">
           .
         </div>
