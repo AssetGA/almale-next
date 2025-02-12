@@ -5,7 +5,7 @@ const History = async ({ lang }) => {
   const t = await getDictionary(lang);
   return (
     <div className="w-full bg-black pt-10">
-      <div className="w-full bg-[url('/img/history-mob.png')] sm:bg-[url('/img/history.png')] bg-contain sm:bg-cover">
+      <div className="w-full bg-[url('/img/history-mob.webp')] sm:bg-[url('/img/history.webp')] bg-contain sm:bg-cover">
         <div className="pt-56 sm:pt-0 xl:py-40 xl:px-40 lg:py-20 lg:pl-20 py-10 px-10 text-white lg:text-lg">
           <div className="sm:w-[400px] -translate-y-56 sm:translate-y-0">
             <h1
