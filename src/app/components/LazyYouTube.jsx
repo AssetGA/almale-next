@@ -8,13 +8,7 @@ const LazyYouTube = ({ video }) => {
 
   useEffect(() => {
     // Загружает YouTube только после полной загрузки страницы
-    const fixPassiveListeners = () => {
-      document.addEventListener("wheel", () => {}, { passive: true });
-      document.addEventListener("touchmove", () => {}, { passive: true });
-      document.addEventListener("scroll", () => {}, { passive: true });
-    };
 
-    fixPassiveListeners();
     const onLoad = () => setIsLoaded(true);
     window.addEventListener("load", onLoad);
     return () => window.removeEventListener("load", onLoad);

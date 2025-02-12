@@ -17,7 +17,7 @@ const Navbar = ({ lang, t }) => {
       <nav className="w-full bg-gray-header text-black mx-auto relative my-auto z-20">
         <div className="px-3 xl:px-10 mx-auto">
           <div className="flex items-center justify-between h-20">
-            <div className="-mr-2 flex md:hidden">
+            <div className="-mr-2 flex md:hidden relative ">
               <button
                 onClick={toggleMenu}
                 className="inline-flex items-center justify-center p-2 rounded-md text-black focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
