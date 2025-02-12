@@ -16,26 +16,6 @@
   }
 } */
 
-.bg-preload1::before {
-  content: "";
-  background: url("/img/main.png") no-repeat;
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  visibility: hidden;
-}
-
-@media (min-width: 640px) {
-  .bg-preload2::before {
-    content: "";
-    background: url("/img/front.png") no-repeat;
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    visibility: hidden;
-  }
-}
-
 body {
   /* color: var(--foreground);
   background: var(--background); */

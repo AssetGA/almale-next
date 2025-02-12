@@ -57,7 +57,6 @@
 //             elem._id !== "674a3cf6deec0f0dd2b22010"
 //           );
 //         });
-//         console.log("productsSet", productSet);
 
 //         // Generate paths for products
 //         productSet.forEach((product) => {
