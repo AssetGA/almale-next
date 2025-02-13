@@ -52,7 +52,6 @@ export default function WizardLetter() {
     return Object.keys(errors).length === 0;
   };
   const isValid = Object.keys(errors).length === 0;
-  console.log("errors", errors, isValid);
   const handleSend = async (e) => {
     e.preventDefault();
     try {
@@ -67,7 +66,9 @@ export default function WizardLetter() {
         contact: "",
         message: "",
       });
-    } catch (error) {}
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (

@@ -25,10 +25,9 @@ const botService = {
     return data;
   },
   post: async (payload) => {
-    console.log("payload", payload);
     const { data } = await httpService.post(botEndpoint, payload, {
       headers: {
-        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Origin": `${process.env.NEXT_PUBLIC_SITE_URL}`,
         "Content-Type": "application/json",
       },
     });
