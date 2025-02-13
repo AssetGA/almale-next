@@ -76,7 +76,7 @@ export default function SantaLetterButton({ t }) {
         message: "",
       });
     } catch (error) {
-      setError(error);
+      console.log(error);
     }
   };
 
