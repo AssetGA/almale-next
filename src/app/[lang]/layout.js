@@ -7,6 +7,7 @@ import StoreProvider from "../StoreProvider";
 import { getDictionary } from "./dictionaries";
 import { headers } from "next/headers";
 import ChatWindow from "../components/ChatWindow";
+import Head from "next/head";
 
 const montserrat = localFont({
   src: "../../../public/fonts/Montserat/Montserrat-Medium.ttf",
@@ -40,11 +41,33 @@ export async function generateMetadata({ params }) {
 
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL;
 
-  const elem = lang;
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: "Медный набор посуды Alma Le",
+    description: "Профессиональная медная посуда для кухни.",
+    image: [
+      "https://www.alma-le.com/img/set/0.png",
+      "https://www.alma-le.com/img/set/1.png",
+      "https://www.alma-le.com/img/set/2.png",
+    ],
+    brand: {
+      "@type": "Brand",
+      name: "Alma Le",
+    },
+    offers: {
+      "@type": "Offer",
+      price: "790",
+      priceCurrency: "USD",
+      availability: "https://schema.org/InStock",
+      url: `https://www.alma-le.com/${lang}/product`,
+    },
+  };
 
   return {
     title: `${t.metadata.title} - Alma Le`,
     description: t.metadata.description,
+    metadataBase: new URL(baseUrl),
     twitter: {
       card: "summary_large_image",
       title: `${t.metadata.title}`,
@@ -83,6 +106,8 @@ export async function generateMetadata({ params }) {
       title: `${t.metadata.title}`,
       description: `${t.metadata.description}`,
       images: [`${baseUrl}/img/main.webp`, `${baseUrl}/img/front.webp`], // ✅ Supports array
+      type: "website",
+      url: `${process.env.NEXT_PUBLIC_SITE_URL}/${lang}`,
     },
   };
 }
@@ -97,6 +122,35 @@ export default async function LocaleLayout({ children, params }) {
 
   return (
     <html lang={lang === "kz" ? "kk" : lang}>
+      <Head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Product",
+              name: "Медный набор посуды Alma Le",
+              description: "Профессиональная медная посуда для кухни.",
+              image: [
+                "https://www.alma-le.com/img/set/0.png",
+                "https://www.alma-le.com/img/set/1.png",
+                "https://www.alma-le.com/img/set/2.png",
+              ],
+              brand: {
+                "@type": "Brand",
+                name: "Alma Le",
+              },
+              offers: {
+                "@type": "Offer",
+                price: "790",
+                priceCurrency: "USD",
+                availability: "https://schema.org/InStock",
+                url: `https://www.alma-le.com/${lang}/product`,
+              },
+            }),
+          }}
+        />
+      </Head>
       <body className={`${montserrat.className}`}>
         <StoreProvider lang={lang}>
           <Navbar lang={lang} t={t} />

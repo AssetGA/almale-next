@@ -25,7 +25,7 @@ export default function robots() {
       },
       {
         userAgent: "Googlebot",
-        allow: ["/", "/images/"], // ✅ Разрешает индексировать картинки
+        allow: ["/", "/img/"], // ✅ Разрешает индексировать картинки
         disallow: ["/private/"],
       },
       {

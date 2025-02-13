@@ -1,6 +1,6 @@
 "use client";
 
-const Head = ({ t }) => {
+const Header = ({ t }) => {
   return (
     <div className="relative w-full z-0 overflow-hidden">
       <div className="w-full bg-[url('/img/main.webp')] sm:bg-[url('/img/front.webp')] bg-cover sm:bg-contain bg-no-repeat sm:bg-right flex flex-col sm:flex-row ">
@@ -43,4 +43,4 @@ const Head = ({ t }) => {
   );
 };
 
-export default Head;
+export default Header;
