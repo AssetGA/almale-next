@@ -47,6 +47,7 @@ const ConnectionForm = ({ t }) => {
         >
           {t.form.head}
         </h2>
+
         <div className="grid grid-rows-2 sm:grid-rows-none sm:grid-cols-2 text-white sm:bg-green rounded-md">
           <div className="w-full p-2 md:p-6">
             {submitted ? (

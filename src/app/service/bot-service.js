@@ -24,5 +24,17 @@ const botService = {
 
     return data;
   },
+  post: async (payload) => {
+    console.log("payload", payload);
+    const { data } = await httpService.post(botEndpoint, payload, {
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Content-Type": "application/json",
+      },
+    });
+
+    return data;
+  },
 };
+
 export default botService;

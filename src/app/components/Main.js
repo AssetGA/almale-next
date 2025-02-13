@@ -9,6 +9,7 @@ import Production from "./Production.js";
 import { getDictionary } from "../[lang]/dictionaries.js";
 import Opinion from "./Opinion.jsx";
 import VideoSection from "./VideoSection.js";
+import Letters from "./Letters.js";
 
 const Main = async ({ lang }) => {
   const t = await getDictionary(lang);
@@ -23,7 +24,7 @@ const Main = async ({ lang }) => {
       <Advantages lang={lang} />
       {b ? <Opinion lang={lang} t={t} /> : ""}
       <VideoSection lang={lang} />
-      <ConnectionForm lang={lang} t={t} />
+      <ConnectionForm lang={lang} t={t} /> <Letters />
     </>
   );
 };

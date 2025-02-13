@@ -9,11 +9,16 @@
         "app/lib/api/product/info/route": {
           "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fasset%2Fprojects%2Falmale%2Falmale-next%2Fsrc%2Fapp%2Flib%2Fmongodb.js%22%2C%5B%5B%227fbd57272dc24bc53f1a4d8788a4db7008736c6855%22%2C%22connectToDatabase%22%5D%5D%5D%5D&__client_imported__=!",
           "async": false
+        },
+        "app/lib/api/contact/route": {
+          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fasset%2Fprojects%2Falmale%2Falmale-next%2Fsrc%2Fapp%2Flib%2Fmongodb.js%22%2C%5B%5B%227fbd57272dc24bc53f1a4d8788a4db7008736c6855%22%2C%22connectToDatabase%22%5D%5D%5D%5D&__client_imported__=!",
+          "async": false
         }
       },
       "layer": {
         "app/lib/api/product/route": "rsc",
-        "app/lib/api/product/info/route": "rsc"
+        "app/lib/api/product/info/route": "rsc",
+        "app/lib/api/contact/route": "rsc"
       }
     }
   },

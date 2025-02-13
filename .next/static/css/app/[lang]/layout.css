@@ -1433,6 +1433,9 @@ video {
 .w-80 {
   width: 20rem;
 }
+.w-96 {
+  width: 24rem;
+}
 .w-\[100px\] {
   width: 100px;
 }
@@ -1615,6 +1618,9 @@ video {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+.rounded {
+  border-radius: 0.25rem;
+}
 .rounded-full {
   border-radius: 9999px;
 }
@@ -1694,6 +1700,9 @@ video {
 }
 .bg-gradient-to-r {
   background-image: linear-gradient(to right, var(--tw-gradient-stops));
+}
+.bg-\[url\(\'\/img\/magic\.webp\'\)\] {
+  background-image: url('/img/magic.webp');
 }
 .bg-contain {
   background-size: contain;
@@ -2103,6 +2112,16 @@ body {
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
 }
 
+.hover\:text-gray:hover {
+  --tw-text-opacity: 1;
+  color: rgb(132 146 166 / var(--tw-text-opacity, 1));
+}
+
+.hover\:text-black:hover {
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity, 1));
+}
+
 .hover\:underline:hover {
   text-decoration-line: underline;
 }
@@ -2341,6 +2360,11 @@ body {
     padding-bottom: 44px;
   }
 
+  .sm\:py-10 {
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+
   .sm\:pb-0 {
     padding-bottom: 0px;
   }
@@ -2363,6 +2387,10 @@ body {
 
   .sm\:pt-0 {
     padding-top: 0px;
+  }
+
+  .sm\:pt-10 {
+    padding-top: 2.5rem;
   }
 
   .sm\:text-sm {
@@ -2454,6 +2482,16 @@ body {
 
   .md\:pt-20 {
     padding-top: 5rem;
+  }
+
+  .md\:text-lg {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+
+  .md\:text-sm {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
   }
 }
 
