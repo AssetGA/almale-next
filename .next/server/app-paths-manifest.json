@@ -1,4 +1,5 @@
 {
-  "/lib/api/contact/route": "app/lib/api/contact/route.js",
+  "/lib/api/product/route": "app/lib/api/product/route.js",
+  "/lib/api/product/info/route": "app/lib/api/product/info/route.js",
   "/[lang]/page": "app/[lang]/page.js"
 }

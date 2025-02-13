@@ -1701,9 +1701,6 @@ video {
 .bg-gradient-to-r {
   background-image: linear-gradient(to right, var(--tw-gradient-stops));
 }
-.bg-\[url\(\'\/img\/magic\.webp\'\)\] {
-  background-image: url('/img/magic.webp');
-}
 .bg-contain {
   background-size: contain;
 }
@@ -2097,6 +2094,11 @@ body {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
 }
 
+.hover\:text-black:hover {
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity, 1));
+}
+
 .hover\:text-gray-header:hover {
   --tw-text-opacity: 1;
   color: rgb(237 241 245 / var(--tw-text-opacity, 1));
@@ -2110,16 +2112,6 @@ body {
 .hover\:text-white:hover {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
-}
-
-.hover\:text-gray:hover {
-  --tw-text-opacity: 1;
-  color: rgb(132 146 166 / var(--tw-text-opacity, 1));
-}
-
-.hover\:text-black:hover {
-  --tw-text-opacity: 1;
-  color: rgb(0 0 0 / var(--tw-text-opacity, 1));
 }
 
 .hover\:underline:hover {
@@ -2340,6 +2332,11 @@ body {
     padding-bottom: 0px;
   }
 
+  .sm\:py-10 {
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+
   .sm\:py-20 {
     padding-top: 5rem;
     padding-bottom: 5rem;
@@ -2358,11 +2355,6 @@ body {
   .sm\:py-\[44px\] {
     padding-top: 44px;
     padding-bottom: 44px;
-  }
-
-  .sm\:py-10 {
-    padding-top: 2.5rem;
-    padding-bottom: 2.5rem;
   }
 
   .sm\:pb-0 {
@@ -2387,10 +2379,6 @@ body {
 
   .sm\:pt-0 {
     padding-top: 0px;
-  }
-
-  .sm\:pt-10 {
-    padding-top: 2.5rem;
   }
 
   .sm\:text-sm {
@@ -2482,11 +2470,6 @@ body {
 
   .md\:pt-20 {
     padding-top: 5rem;
-  }
-
-  .md\:text-lg {
-    font-size: 1.125rem;
-    line-height: 1.75rem;
   }
 
   .md\:text-sm {
