@@ -41,31 +41,8 @@ export async function generateMetadata({ params }) {
 
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL;
 
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Product",
-    name: "Медный набор посуды Alma Le",
-    description: "Профессиональная медная посуда для кухни.",
-    image: [
-      "https://www.alma-le.com/img/set/0.png",
-      "https://www.alma-le.com/img/set/1.png",
-      "https://www.alma-le.com/img/set/2.png",
-    ],
-    brand: {
-      "@type": "Brand",
-      name: "Alma Le",
-    },
-    offers: {
-      "@type": "Offer",
-      price: "790",
-      priceCurrency: "USD",
-      availability: "https://schema.org/InStock",
-      url: `https://www.alma-le.com/${lang}/product`,
-    },
-  };
-
   return {
-    title: `${t.metadata.title} - Alma Le`,
+    title: `${t.metadata.title}`,
     description: t.metadata.description,
     metadataBase: new URL(baseUrl),
     twitter: {

@@ -37,7 +37,7 @@ export async function generateMetadata({ params }) {
           "https://alma-le.com/img/set/2.png",
           "https://alma-le.com/img/set/3.png",
         ], // ✅ Supports array
-        url: `${process.env.NEXT_PUBLIC_SITE_URL}/product`,
+        url: `${process.env.NEXT_PUBLIC_SITE_URL}/${lang}/product`,
       },
     };
   }
