@@ -37,7 +37,7 @@ export async function generateMetadata({ params }) {
       title: `${product.title}`,
       description: `${product.descriptionMeta}`,
       images: [`${process.env.NEXT_PUBLIC_SITE_URL}${product.imageUrl}`], // ✅ Supports array
-      url: `${process.env.NEXT_PUBLIC_SITE_URL}/${id}`,
+      url: `${process.env.NEXT_PUBLIC_SITE_URL}/${lang}/product/${id}`,
     },
   };
 }
