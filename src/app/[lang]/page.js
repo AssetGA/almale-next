@@ -33,15 +33,6 @@ export async function generateMetadata({ params }) {
     },
     keywords: `${t.metadata.keywords}`,
 
-    icons: {
-      icon: "/img/icon.png", // /public path
-      ...(lang === "en" && {
-        other: {
-          rel: "canonical",
-          url: `${baseUrl}/en`,
-        },
-      }),
-    },
     openGraph: {
       title: `${t.metadata.title}`,
       description: `${t.metadata.description}`,
