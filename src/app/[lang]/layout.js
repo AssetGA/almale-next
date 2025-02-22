@@ -49,7 +49,7 @@ export async function generateMetadata({ params }) {
       ...(lang === "en" && {
         other: {
           rel: "canonical",
-          url: `${baseUrl}/en`,
+          url: `${baseUrl}/${lang}`,
         },
       }),
     },
