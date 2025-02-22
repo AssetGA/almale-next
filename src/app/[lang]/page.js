@@ -23,7 +23,7 @@ export async function generateMetadata({ params }) {
       "al:android:url": "https://www.instagram.com/almale_com/", // ✅ Instagram Web Link
     },
     alternates: {
-      canonical: `${baseUrl}/en`,
+      canonical: `${baseUrl}/${lang}`,
       languages: {
         "x-default": `${baseUrl}/en`,
         en: `${baseUrl}/en`,
