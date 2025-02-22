@@ -1,9 +1,0 @@
-# *
-User-agent: *
-Allow: ["/", "/img/" ]
-
-# Host
-Host: https://alma-le.com
-
-# Sitemaps
-Sitemap: https://alma-le.com/sitemap.xml
