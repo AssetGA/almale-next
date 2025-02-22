@@ -6,10 +6,18 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "chef.ru",
+        hostname: "alma-le.com/en",
+      },
+      {
+        protocol: "https",
+        hostname: "alma-le.com/ru",
+      },
+      {
+        protocol: "https",
+        hostname: "alma-le.com/kz",
       },
     ],
-    domains: ["alma-le.com"],
+
     formats: ["image/avif", "image/webp"],
   },
   async headers() {
