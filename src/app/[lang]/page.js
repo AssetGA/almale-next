@@ -90,8 +90,9 @@ export default async function Home({ params }) {
             {
               "@context": "https://schema.org",
               "@type": "VideoObject",
-              name: "Exploring the Mountains",
-              description: "A fascinating journey through the mountains.",
+              name: "Alma`le best cooper cookware set",
+              description:
+                "It showcases an unboxing experience of Alma'le's premium copper cookware, highlighting how quality kitchenware can make cooking more enjoyable and efficient. The video emphasizes that every mother, woman, and homemaker knows the value of good cookware in enhancing the cooking experience.",
               thumbnailUrl:
                 "https://img.youtube.com/vi/AAHCllXUXrI/maxresdefault.jpg",
               uploadDate: "2023-11-30",
@@ -110,8 +111,8 @@ export default async function Home({ params }) {
             {
               "@context": "https://schema.org",
               "@type": "VideoObject",
-              name: "Ocean Adventures",
-              description: "Discover adventures across the ocean.",
+              name: "Готовим на медной посуде Alma`le",
+              description: "Готовка на медной посуде с поваром из Казахстана",
               thumbnailUrl:
                 "https://img.youtube.com/vi/nFNJUepGYHY/maxresdefault.jpg",
               uploadDate: "2023-12-12",
@@ -130,8 +131,8 @@ export default async function Home({ params }) {
             {
               "@context": "https://schema.org",
               "@type": "VideoObject",
-              name: "City Life Vibes",
-              description: "Feel the dynamic vibes of city life.",
+              name: "Utensil set of cupper cookware of Alma`le",
+              description: "Cooking Kazakh national food in a copper saucepan",
               thumbnailUrl:
                 "https://img.youtube.com/vi/5W05UwE_LQ0/maxresdefault.jpg",
               uploadDate: "2023-11-28",
