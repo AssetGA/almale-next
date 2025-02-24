@@ -7,7 +7,7 @@ const protectedRoutes = ["/basket", "/payment"];
 const publicRoutes = ["/product", "/login", "/signup", "/"];
 
 let locales = ["kz", "en", "ru"];
-let defaultLocale = "en";
+let defaultLocale = "kz";
 
 // Get the preferred locale, similar to the above or using a library
 function getLocale() {
