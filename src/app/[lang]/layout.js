@@ -31,12 +31,7 @@ export async function getServerSideProps({ req }) {
 }
 
 export async function generateMetadata({ params }) {
-  const heads = await headers();
-  const pathname = heads.get("x-url");
-
   const { lang } = await params;
-  const t = await getDictionary(lang);
-  const canonicalUrl = pathname;
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL;
 
   return {
@@ -65,7 +60,7 @@ export default async function LocaleLayout({ children, params }) {
   const t = await getDictionary(lang);
 
   return (
-    <html lang={lang === "kz" ? "kk" : lang}>
+    <html lang={lang === "kz" ? "kz" : lang}>
       <body className={`${montserrat.className}`}>
         <StoreProvider lang={lang}>
           <Navbar lang={lang} t={t} />

@@ -64,6 +64,7 @@ export default async function Home({ params }) {
               "@type": "Brand",
               name: "Alma Le",
             },
+            uploadDate: new Date().toISOString(), // Динамическое определение даты
             offers: {
               "@type": "Offer",
               price: "790",
@@ -86,7 +87,7 @@ export default async function Home({ params }) {
                 "It showcases an unboxing experience of Alma'le's premium copper cookware, highlighting how quality kitchenware can make cooking more enjoyable and efficient. The video emphasizes that every mother, woman, and homemaker knows the value of good cookware in enhancing the cooking experience.",
               thumbnailUrl:
                 "https://img.youtube.com/vi/AAHCllXUXrI/maxresdefault.jpg",
-              uploadDate: "2023-11-30",
+              uploadDate: new Date().toISOString(), // Динамическое определение даты
               duration: "PT4M30S",
               publisher: {
                 "@type": "Organization",
@@ -106,7 +107,7 @@ export default async function Home({ params }) {
               description: "Готовка на медной посуде с поваром из Казахстана",
               thumbnailUrl:
                 "https://img.youtube.com/vi/nFNJUepGYHY/maxresdefault.jpg",
-              uploadDate: "2023-12-12",
+              uploadDate: new Date().toISOString(), // Динамическое определение даты
               duration: "PT1M20S",
               publisher: {
                 "@type": "Organization",
@@ -126,7 +127,7 @@ export default async function Home({ params }) {
               description: "Cooking Kazakh national food in a copper saucepan",
               thumbnailUrl:
                 "https://img.youtube.com/vi/5W05UwE_LQ0/maxresdefault.jpg",
-              uploadDate: "2023-11-28",
+              uploadDate: new Date().toISOString(), // Динамическое определение даты
               duration: "PT2M47S",
               publisher: {
                 "@type": "Organization",
