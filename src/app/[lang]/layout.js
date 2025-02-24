@@ -31,7 +31,11 @@ export async function getServerSideProps({ req }) {
 }
 
 export async function generateMetadata({ params }) {
-  const { lang } = params;
+  const heads = await headers();
+  const pathname = heads.get("x-url");
+
+  const { lang } = await params;
+  const t = await getDictionary(lang);
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL;
 
   return {
@@ -40,11 +44,13 @@ export async function generateMetadata({ params }) {
     },
 
     icons: {
-      icon: `${baseUrl}/img/icon.png`, // Сделано абсолютным путем для SEO
-    },
-
-    alternates: {
-      canonical: `${baseUrl}/${lang}`,
+      icon: "/img/icon.png", // /public path
+      ...(lang === "en" && {
+        other: {
+          rel: "canonical",
+          url: `${baseUrl}/${lang}`,
+        },
+      }),
     },
   };
 }
