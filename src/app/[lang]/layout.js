@@ -31,7 +31,7 @@ export async function getServerSideProps({ req }) {
 }
 
 export async function generateMetadata({ params }) {
-  const { lang } = await params;
+  const { lang } = params;
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL;
 
   return {
@@ -40,13 +40,11 @@ export async function generateMetadata({ params }) {
     },
 
     icons: {
-      icon: "/img/icon.png", // /public path
-      ...(lang === "en" && {
-        other: {
-          rel: "canonical",
-          url: `${baseUrl}/${lang}`,
-        },
-      }),
+      icon: `${baseUrl}/img/icon.png`, // Сделано абсолютным путем для SEO
+    },
+
+    alternates: {
+      canonical: `${baseUrl}/${lang}`,
     },
   };
 }
