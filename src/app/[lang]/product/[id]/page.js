@@ -28,6 +28,13 @@ export async function generateMetadata({ params }) {
   const product = productSet.find((elem) => {
     return elem._id === id;
   });
+  if (!product) {
+    console.error(`❌ Ошибка: Товар с ID ${id} не найден`);
+    return {
+      title: "Товар не найден | Alma Le",
+      description: "Извините, этот товар недоступен.",
+    };
+  }
 
   return {
     title: `${product.title} - Alma Le`,
