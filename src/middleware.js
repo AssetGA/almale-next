@@ -20,6 +20,8 @@ export default async function middleware(request) {
   const { pathname } = request.nextUrl;
   if (
     pathname === "/sitemap.xml" ||
+    pathname === "/sitemap-index.xml" ||
+    pathname === "/video" ||
     pathname === "/sitemap-0.xml" ||
     pathname === "/robots.txt" ||
     pathname.startsWith("/img") ||
