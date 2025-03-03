@@ -2,12 +2,17 @@
   "node": {
     "400f3943f6aa6661956e700404e74774c7a10fa691": {
       "workers": {
+        "app/[lang]/product/[id]/page": {
+          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fasset%2Fprojects%2Falmale%2Falmale-next%2Fsrc%2Fapp%2Factions%2Fproducts.js%22%2C%5B%5B%22400f3943f6aa6661956e700404e74774c7a10fa691%22%2C%22fetchProducts%22%5D%5D%5D%5D&__client_imported__=!",
+          "async": false
+        },
         "app/[lang]/product/page": {
           "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fasset%2Fprojects%2Falmale%2Falmale-next%2Fsrc%2Fapp%2Factions%2Fproducts.js%22%2C%5B%5B%22400f3943f6aa6661956e700404e74774c7a10fa691%22%2C%22fetchProducts%22%5D%5D%5D%5D&__client_imported__=!",
           "async": false
         }
       },
       "layer": {
+        "app/[lang]/product/[id]/page": "rsc",
         "app/[lang]/product/page": "rsc"
       }
     },
