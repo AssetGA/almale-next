@@ -25,7 +25,7 @@ export async function generateMetadata({ params }) {
     alternates: {
       canonical: `${baseUrl}/${lang}`,
       languages: {
-        "x-default": `${baseUrl}/en`,
+        "x-default": `${baseUrl}/kz`,
         en: `${baseUrl}/en`,
         ru: `${baseUrl}/ru`,
         kk: `${baseUrl}/kz`, // ✅ Correct ISO 639-1 language code
