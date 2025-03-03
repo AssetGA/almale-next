@@ -5,9 +5,7 @@ export async function generateSitemaps() {
 
   await Promise.all(
     SUPPORTED_LANGS.map(async (lang) => {
-      productSet.forEach(() => {
-        params.push({ lang });
-      });
+      params.push({ lang });
     })
   );
 
@@ -16,9 +14,7 @@ export async function generateSitemaps() {
 
 export default async function sitemap({ lang }) {
   return {
-    url: `${process.env.NEXT_PUBLIC_SITE_URL}/${lang}/product`,
-    lastModified: productSet.date
-      ? new Date(product.date).toISOString()
-      : new Date().toISOString(),
+    url: `${process.env.NEXT_PUBLIC_SITE_URL}/${lang}`,
+    lastModified: new Date().toISOString(),
   };
 }
