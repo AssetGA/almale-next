@@ -5,9 +5,7 @@ export async function generateSitemaps() {
 
   await Promise.all(
     SUPPORTED_LANGS.map(async (lang) => {
-      productSet.forEach(() => {
-        params.push({ lang });
-      });
+      params.push({ lang });
     })
   );
 
