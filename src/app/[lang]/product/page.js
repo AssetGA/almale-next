@@ -43,6 +43,18 @@ export async function generateMetadata({ params }) {
   }
 }
 
+export async function generateStaticParams() {
+  // Укажите возможные значения для [lang] и [id]
+  const langs = ["kz", "en", "ru"]; // Например, поддерживаемые языки
+  const params = [];
+
+  for (const lang of langs) {
+    params.push({ lang });
+  }
+
+  return params; // Возвращаем параметры для генерации статичных страниц
+}
+
 export default async function Page({ params }) {
   const { lang } = await params;
   const t = await getDictionary(lang);
