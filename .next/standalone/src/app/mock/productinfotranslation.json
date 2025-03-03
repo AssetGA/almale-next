@@ -1,0 +1,147 @@
+[
+  {
+    "_id": "1",
+    "productInfoId": "675a1528abab837f85c2555c",
+    "lang": "ru",
+    "meta": [
+      "Набор медной посуды",
+      "Медная посуда",
+      "Подарок маме",
+      "Профессиональная посуда"
+    ]
+  },
+  {
+    "_id": "01",
+    "productInfoId": "675a1528abab837f85c2555c",
+    "lang": "kz",
+    "meta": ["Мыс ыдыс жиынтығы", "Мыс ыдыс", "Анаға сыйлық", "Кәсіби ыдыс"]
+  },
+  {
+    "_id": "011",
+    "productInfoId": "675a1528abab837f85c2555c",
+    "lang": "en",
+    "meta": [
+      "Copper utensil set",
+      "Copper utensils",
+      "Gift to mom",
+      "Professional glassware"
+    ]
+  },
+  {
+    "_id": "2",
+    "productInfoId": "675a1528abab837f85c25552",
+    "lang": "ru",
+    "meta": [
+      "Кастрюля медная",
+      "Медная кастрюля",
+      "Кастрюля медь",
+      "Медные кастрюли"
+    ]
+  },
+  {
+    "_id": "02",
+    "productInfoId": "675a1528abab837f85c25552",
+    "lang": "kz",
+    "meta": ["Мыс кастрюль", "Мыс кастрюль", "Мыс кастрюль", "Мыс кастрюльдер"]
+  },
+  {
+    "_id": "022",
+    "productInfoId": "675a1528abab837f85c25552",
+    "lang": "en",
+    "meta": ["Copper pan", "Copper pan", "Pot copper", "Copper pots"]
+  },
+  {
+    "_id": "3",
+    "productInfoId": "675a1528abab837f85c25551",
+    "lang": "ru",
+    "meta": [
+      "Медная кастрюля",
+      "Подарок жене",
+      "Профессиональная посуда",
+      "Кастрюля медная 6 литров"
+    ]
+  },
+  {
+    "_id": "03",
+    "productInfoId": "675a1528abab837f85c25551",
+    "lang": "kz",
+    "meta": [
+      "Мыс кастрюль",
+      "Әйеліне сыйлық",
+      "Кәсіби ыдыс-аяқ",
+      "6 литр мыс кастрөл"
+    ]
+  },
+  {
+    "_id": "033",
+    "productInfoId": "675a1528abab837f85c25551",
+    "lang": "en",
+    "meta": [
+      "Copper pan",
+      "Gift to wife",
+      "Professional tableware",
+      "Copper pot 6 liters"
+    ]
+  },
+  {
+    "_id": "4",
+    "productInfoId": "675a1528abab837f85c25551",
+    "lang": "ru",
+    "meta": [
+      "Сотейник медный",
+      "Медная посуда",
+      "Медный сотейник",
+      "Сотейник в наборе"
+    ]
+  },
+  {
+    "_id": "04",
+    "productInfoId": "675a1528abab837f85c25551",
+    "lang": "kz",
+    "meta": ["Мыс ыдыс", "Мыс ыдыс-аяқ", "Мыс ыдыс", "Жиынтықтағы ыдыс"]
+  },
+  {
+    "_id": "044",
+    "productInfoId": "675a1528abab837f85c25551",
+    "lang": "en",
+    "meta": [
+      "Copper sauté pan",
+      "Copper dishes",
+      "Copper sauté pan",
+      "Saucepan in Set"
+    ]
+  },
+  {
+    "_id": "5",
+    "productInfoId": "675a1528abab837f85c25556",
+    "lang": "ru",
+    "meta": [
+      "Сковорода медная",
+      "Медная сковорода",
+      "Сковорода сотейник медная",
+      "Антипригарная сковорода"
+    ]
+  },
+  {
+    "_id": "05",
+    "productInfoId": "675a1528abab837f85c25556",
+    "lang": "kz",
+    "meta": [
+      "Мыс табасы",
+      "Мыс табасы",
+      "Мыс ыдыс табасы",
+      "Жапсырмайтын табасы"
+    ]
+  },
+  {
+    "_id": "055",
+    "productInfoId": "675a1528abab837f85c25556",
+    "lang": "en",
+    "meta": [
+      "Copper frying pan",
+      "Copper frying pan",
+      "Copper sauté pan",
+      "Non-stick frying pan"
+    ]
+  }
+]

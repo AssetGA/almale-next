@@ -1,5 +1,3 @@
-import { fetchProducts } from "../../actions/products";
-
 const SUPPORTED_LANGS = ["kz", "en", "ru"];
 
 export async function generateSitemaps() {
@@ -7,18 +5,8 @@ export async function generateSitemaps() {
 
   await Promise.all(
     SUPPORTED_LANGS.map(async (lang) => {
-      const products = await fetchProducts(lang);
-
-      if (products.length === 0) {
-        console.warn(`No products found for language: ${lang}`);
-        return;
-      }
-      const productSet = products.filter((elem) => {
-        return elem.price === 395000;
-      });
-
-      productSet.forEach((product) => {
-        params.push({ lang, id: product._id });
+      productSet.forEach(() => {
+        params.push({ lang });
       });
     })
   );
@@ -26,15 +14,9 @@ export async function generateSitemaps() {
   return params; // Return parameters for static generation
 }
 
-export default async function sitemap({ lang, id }) {
-  const products = await fetchProducts(lang);
-
-  const productSet = products.find((elem) => {
-    return elem.price === 395000;
-  });
-
+export default async function sitemap({ lang }) {
   return {
-    url: `${process.env.NEXT_PUBLIC_SITE_URL}/${lang}/product/${productSet._id}`,
+    url: `${process.env.NEXT_PUBLIC_SITE_URL}/${lang}/product`,
     lastModified: productSet.date
       ? new Date(product.date).toISOString()
       : new Date().toISOString(),
