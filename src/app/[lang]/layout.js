@@ -64,7 +64,7 @@ export default async function LocaleLayout({ children, params }) {
   const t = await getDictionary(lang);
 
   return (
-    <html lang={lang === "kz" ? "kz" : lang}>
+    <html lang={lang}>
       <body className={`${montserrat.className}`}>
         <StoreProvider lang={lang}>
           <Navbar lang={lang} t={t} />
