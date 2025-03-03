@@ -17,8 +17,6 @@ export async function generateSitemaps() {
 export default async function sitemap({ lang }) {
   return {
     url: `${process.env.NEXT_PUBLIC_SITE_URL}/${lang}/product`,
-    lastModified: productSet.date
-      ? new Date(product.date).toISOString()
-      : new Date().toISOString(),
+    lastModified: new Date().toISOString(),
   };
 }
