@@ -38,6 +38,9 @@ export default function robots() {
         allow: ["/images/", "/img/", "/public/"], // ✅ Папки с изображениями
       },
     ],
-    sitemap: "https://alma-le.com/sitemap.xml",
+    sitemap: [
+      "https://alma-le.com/sitemap.xml",
+      "https://alma-le.com/video-sitemap.xml",
+    ],
   };
 }
