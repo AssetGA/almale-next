@@ -2,7 +2,53 @@
         xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <!-- Видео 1 -->
   <url>
-    <loc>https://www.alma-le.com/</loc> <!-- URL страницы с видео -->
+    <loc>https://www.alma-le.com/ru</loc> <!-- URL страницы с видео -->
+    <video:video>
+      <video:thumbnail_loc>https://img.youtube.com/vi/AAHCllXUXrI/maxresdefault.jpg</video:thumbnail_loc>
+      <video:title>Alma`le лудший набор медной посуды</video:title>
+      <video:description>Набор медной посуды для поваров и домохозяек, медь обеспечивает быстрое нагреваниеб крышка позволяет наблюдать за процессом</video:description>
+      <video:content_loc>https://www.youtube.com/watch?v=AAHCllXUXrI</video:content_loc>
+      <video:duration>270</video:duration> <!-- Длительность в секундах (4 минуты 30 секунд = 270 секунд) -->
+      <video:publication_date>2023-10-01T00:00:00+00:00</video:publication_date> <!-- Дата публикации -->
+      <video:family_friendly>yes</video:family_friendly>
+      <video:view_count>1000</video:view_count> <!-- Пример количества просмотров -->
+      <video:uploader info="https://www.alma-le.com">Alma Le</video:uploader>
+    </video:video>
+  </url>
+
+  <!-- Видео 2 -->
+  <url>
+    <loc>https://www.alma-le.com/ru</loc> <!-- URL страницы с видео -->
+    <video:video>
+      <video:thumbnail_loc>https://img.youtube.com/vi/nFNJUepGYHY/maxresdefault.jpg</video:thumbnail_loc>
+      <video:title>Готовим на медной посуде - Alma`le</video:title>
+      <video:description>Медный набор посуды из Казахстана</video:description>
+      <video:content_loc>https://www.youtube.com/watch?v=nFNJUepGYHY</video:content_loc>
+      <video:duration>80</video:duration> <!-- Длительность в секундах (1 минута 20 секунд = 80 секунд) -->
+      <video:publication_date>2023-10-01T00:00:00+00:00</video:publication_date> <!-- Дата публикации -->
+      <video:family_friendly>yes</video:family_friendly>
+      <video:view_count>500</video:view_count> <!-- Пример количества просмотров -->
+      <video:uploader info="https://www.alma-le.com">Alma Le</video:uploader>
+    </video:video>
+  </url>
+
+  <!-- Видео 3 -->
+  <url>
+    <loc>https://www.alma-le.com/ru</loc> <!-- URL страницы с видео -->
+    <video:video>
+      <video:thumbnail_loc>https://img.youtube.com/vi/5W05UwE_LQ0/maxresdefault.jpg</video:thumbnail_loc>
+      <video:title>Набор медной посуды Alma`le</video:title>
+      <video:description>Набор медной посуды из Казахстана создан для домашних поваров которые любят готовить</video:description>
+      <video:content_loc>https://www.youtube.com/watch?v=5W05UwE_LQ0</video:content_loc>
+      <video:duration>167</video:duration> <!-- Длительность в секундах (2 минуты 47 секунд = 167 секунд) -->
+      <video:publication_date>2023-10-01T00:00:00+00:00</video:publication_date> <!-- Дата публикации -->
+      <video:family_friendly>yes</video:family_friendly>
+      <video:view_count>750</video:view_count> <!-- Пример количества просмотров -->
+      <video:uploader info="https://www.alma-le.com">Alma Le</video:uploader>
+    </video:video>
+  </url>
+    <url>
+    <loc>https://www.alma-le.com/en</loc> <!-- URL страницы с видео -->
     <video:video>
       <video:thumbnail_loc>https://img.youtube.com/vi/AAHCllXUXrI/maxresdefault.jpg</video:thumbnail_loc>
       <video:title>Alma`le best cooper cookware set</video:title>
@@ -18,11 +64,11 @@
 
   <!-- Видео 2 -->
   <url>
-    <loc>https://www.alma-le.com/</loc> <!-- URL страницы с видео -->
+    <loc>https://www.alma-le.com/en</loc> <!-- URL страницы с видео -->
     <video:video>
       <video:thumbnail_loc>https://img.youtube.com/vi/nFNJUepGYHY/maxresdefault.jpg</video:thumbnail_loc>
-      <video:title>Готовим на медной посуде Alma`le</video:title>
-      <video:description>Готовка на медной посуде с поваром из Казахстана</video:description>
+      <video:title>Cook on cooper cookware Alma`le</video:title>
+      <video:description>Cook from Kazakstan cooking on copper set</video:description>
       <video:content_loc>https://www.youtube.com/watch?v=nFNJUepGYHY</video:content_loc>
       <video:duration>80</video:duration> <!-- Длительность в секундах (1 минута 20 секунд = 80 секунд) -->
       <video:publication_date>2023-10-01T00:00:00+00:00</video:publication_date> <!-- Дата публикации -->
@@ -34,11 +80,57 @@
 
   <!-- Видео 3 -->
   <url>
-    <loc>https://www.alma-le.com/</loc> <!-- URL страницы с видео -->
+    <loc>https://www.alma-le.com/en</loc> <!-- URL страницы с видео -->
     <video:video>
       <video:thumbnail_loc>https://img.youtube.com/vi/5W05UwE_LQ0/maxresdefault.jpg</video:thumbnail_loc>
-      <video:title>Utensil set of cupper cookware of Alma`le</video:title>
-      <video:description>Cooking Kazakh national food in a copper saucepan</video:description>
+      <video:title>Alma`le copper cookware set</video:title>
+      <video:description>Cook on Alma`le brand name cookware </video:description>
+      <video:content_loc>https://www.youtube.com/watch?v=5W05UwE_LQ0</video:content_loc>
+      <video:duration>167</video:duration> <!-- Длительность в секундах (2 минуты 47 секунд = 167 секунд) -->
+      <video:publication_date>2023-10-01T00:00:00+00:00</video:publication_date> <!-- Дата публикации -->
+      <video:family_friendly>yes</video:family_friendly>
+      <video:view_count>750</video:view_count> <!-- Пример количества просмотров -->
+      <video:uploader info="https://www.alma-le.com">Alma Le</video:uploader>
+    </video:video>
+  </url>
+    <url>
+    <loc>https://www.alma-le.com/kz</loc> <!-- URL страницы с видео -->
+    <video:video>
+      <video:thumbnail_loc>https://img.youtube.com/vi/AAHCllXUXrI/maxresdefault.jpg</video:thumbnail_loc>
+      <video:title>Alma`le мыс ыдыстың ең жақсы жиынтығы</video:title>
+      <video:description>Ол премиум-класс Alma 'le мыс ыдыстарын ашуды көрсетеді, сапалы ас үй ыдыстары тағамды жағымды және тиімді ете алатынын баса көрсетеді</video:description>
+      <video:content_loc>https://www.youtube.com/watch?v=AAHCllXUXrI</video:content_loc>
+      <video:duration>270</video:duration> <!-- Длительность в секундах (4 минуты 30 секунд = 270 секунд) -->
+      <video:publication_date>2023-10-01T00:00:00+00:00</video:publication_date> <!-- Дата публикации -->
+      <video:family_friendly>yes</video:family_friendly>
+      <video:view_count>1000</video:view_count> <!-- Пример количества просмотров -->
+      <video:uploader info="https://www.alma-le.com">Alma Le</video:uploader>
+    </video:video>
+  </url>
+
+  <!-- Видео 2 -->
+  <url>
+    <loc>https://www.alma-le.com/kz</loc> <!-- URL страницы с видео -->
+    <video:video>
+      <video:thumbnail_loc>https://img.youtube.com/vi/nFNJUepGYHY/maxresdefault.jpg</video:thumbnail_loc>
+      <video:title>Мыс ыдыста дайындаймыз Alma`le</video:title>
+      <video:description>Қазақстан аспазымен мыс ыдыста дайындау</video:description>
+      <video:content_loc>https://www.youtube.com/watch?v=nFNJUepGYHY</video:content_loc>
+      <video:duration>80</video:duration> <!-- Длительность в секундах (1 минута 20 секунд = 80 секунд) -->
+      <video:publication_date>2023-10-01T00:00:00+00:00</video:publication_date> <!-- Дата публикации -->
+      <video:family_friendly>yes</video:family_friendly>
+      <video:view_count>500</video:view_count> <!-- Пример количества просмотров -->
+      <video:uploader info="https://www.alma-le.com">Alma Le</video:uploader>
+    </video:video>
+  </url>
+
+  <!-- Видео 3 -->
+  <url>
+    <loc>https://www.alma-le.com/kz</loc> <!-- URL страницы с видео -->
+    <video:video>
+      <video:thumbnail_loc>https://img.youtube.com/vi/5W05UwE_LQ0/maxresdefault.jpg</video:thumbnail_loc>
+      <video:title>Ас үй ыдыстарынан жасалған ыдыс жиынтығы Alma`le</video:title>
+      <video:description>Қазақ ұлттық тағамын мыс кастрюльде дайындап жатырмыз</video:description>
       <video:content_loc>https://www.youtube.com/watch?v=5W05UwE_LQ0</video:content_loc>
       <video:duration>167</video:duration> <!-- Длительность в секундах (2 минуты 47 секунд = 167 секунд) -->
       <video:publication_date>2023-10-01T00:00:00+00:00</video:publication_date> <!-- Дата публикации -->
