@@ -1,20 +1,3 @@
-// export default function robots() {
-//   return {
-//     rules: [
-//       {
-//         userAgent: "Googlebot",
-//         allow: ["/"],
-//         disallow: ["/private/"],
-//       },
-//       {
-//         userAgent: ["Applebot", "Bingbot"],
-//         disallow: ["/"],
-//       },
-//     ],
-//     sitemap: "https://alma-le.com/sitemap.xml",
-//   };
-// }
-
 export default function robots() {
   return {
     rules: [
@@ -40,6 +23,7 @@ export default function robots() {
     ],
     sitemap: [
       "https://alma-le.com/sitemap.xml",
+      "https://alma-le.com/sitemap-index.xml",
       "https://alma-le.com/video-sitemap.xml",
     ],
   };
