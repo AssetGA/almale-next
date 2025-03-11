@@ -153,6 +153,14 @@ const UtensilsSet = ({ lang, t }) => {
                 {t.utensil.p}
               </p>
               <p className="max-w-[800px]">{t.utensil.description}</p>
+              {/* <Link
+                href={`${
+                  process.env.NEXT_PUBLIC_SITE_URL + "/" + lang
+                }/recipes`}
+                className="hover:text-green"
+              >
+                recipes
+              </Link> */}
             </div>
             <div className="grid lg:grid-cols-3 grid-cols-2 gap-5 md:gap-10 max-w-4xl p-5 mb-20">
               {newProducts.map((product) => (

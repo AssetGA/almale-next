@@ -1,1 +1,71 @@
-{"node":{"7f9414d4f22652e3e0200b0265b4a1f0bb484f873e":{"workers":{"app/lib/api/auth/verify/route":{"moduleId":"45235","async":false},"app/lib/api/chat/route":{"moduleId":"45235","async":false},"app/lib/api/contact/route":{"moduleId":"45235","async":false},"app/lib/api/message/route":{"moduleId":"45235","async":false},"app/lib/api/order/[orderId]/route":{"moduleId":"45235","async":false},"app/lib/api/order/route":{"moduleId":"45235","async":false},"app/lib/api/product/info/route":{"moduleId":"45235","async":false},"app/lib/api/product/route":{"moduleId":"45235","async":false},"app/lib/api/route":{"moduleId":"45235","async":false},"app/lib/api/session/route":{"moduleId":"2678","async":false},"app/lib/api/user/getApi/route":{"moduleId":"45235","async":false},"app/lib/api/user/route":{"moduleId":"80003","async":false},"app/[lang]/basket/page":{"moduleId":"45235","async":false}},"layer":{"app/lib/api/auth/verify/route":"rsc","app/lib/api/chat/route":"rsc","app/lib/api/contact/route":"rsc","app/lib/api/message/route":"rsc","app/lib/api/order/[orderId]/route":"rsc","app/lib/api/order/route":"rsc","app/lib/api/product/info/route":"rsc","app/lib/api/product/route":"rsc","app/lib/api/route":"rsc","app/lib/api/session/route":"rsc","app/lib/api/user/getApi/route":"rsc","app/lib/api/user/route":"rsc","app/[lang]/basket/page":"rsc"}},"408fbd7f95e3b5e019b3e4b89b377add0295b55685":{"workers":{"app/lib/api/session/route":{"moduleId":"2678","async":false}},"layer":{"app/lib/api/session/route":"rsc"}},"4056b43f81b5093313ba014f1d85a298e6630d88db":{"workers":{"app/lib/api/user/route":{"moduleId":"80003","async":false}},"layer":{"app/lib/api/user/route":"rsc"}},"400f3943f6aa6661956e700404e74774c7a10fa691":{"workers":{"app/[lang]/product/[id]/page":{"moduleId":"84383","async":false},"app/[lang]/product/page":{"moduleId":"84383","async":false}},"layer":{"app/[lang]/product/[id]/page":"rsc","app/[lang]/product/page":"rsc"}},"00566da91aa44da0f90222a65c1590c97143518f28":{"workers":{"app/[lang]/basket/page":{"moduleId":"75842","async":false},"app/[lang]/login/page":{"moduleId":"75842","async":false},"app/[lang]/signup/page":{"moduleId":"75842","async":false}},"layer":{"app/[lang]/basket/page":"action-browser","app/[lang]/login/page":"action-browser","app/[lang]/signup/page":"action-browser"}},"6062fc0d693c916228a83a35667be2f5133bb6a18f":{"workers":{"app/[lang]/basket/page":{"moduleId":"75842","async":false},"app/[lang]/login/page":{"moduleId":"75842","async":false},"app/[lang]/signup/page":{"moduleId":"75842","async":false}},"layer":{"app/[lang]/basket/page":"action-browser","app/[lang]/login/page":"action-browser","app/[lang]/signup/page":"action-browser"}},"60aaa6db832806dee3f937a7d235cac3f918e431a9":{"workers":{"app/[lang]/basket/page":{"moduleId":"75842","async":false},"app/[lang]/login/page":{"moduleId":"75842","async":false},"app/[lang]/signup/page":{"moduleId":"75842","async":false}},"layer":{"app/[lang]/basket/page":"action-browser","app/[lang]/login/page":"action-browser","app/[lang]/signup/page":"action-browser"}}},"edge":{},"encryptionKey":"4T7LaoilIM4g09lHQ8/dYFyW13R4bJ+i4yCH9TVtckI="}
+{
+  "node": {
+    "400f3943f6aa6661956e700404e74774c7a10fa691": {
+      "workers": {
+        "app/[lang]/product/page": {
+          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fasset%2Fprojects%2Falmale%2Falmale-next%2Fsrc%2Fapp%2Factions%2Fproducts.js%22%2C%5B%5B%22400f3943f6aa6661956e700404e74774c7a10fa691%22%2C%22fetchProducts%22%5D%5D%5D%5D&__client_imported__=!",
+          "async": false
+        },
+        "app/[lang]/product/[id]/page": {
+          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fasset%2Fprojects%2Falmale%2Falmale-next%2Fsrc%2Fapp%2Factions%2Fproducts.js%22%2C%5B%5B%22400f3943f6aa6661956e700404e74774c7a10fa691%22%2C%22fetchProducts%22%5D%5D%5D%5D&__client_imported__=!",
+          "async": false
+        }
+      },
+      "layer": {
+        "app/[lang]/product/page": "rsc",
+        "app/[lang]/product/[id]/page": "rsc"
+      }
+    },
+    "7f9414d4f22652e3e0200b0265b4a1f0bb484f873e": {
+      "workers": {
+        "app/lib/api/product/route": {
+          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fasset%2Fprojects%2Falmale%2Falmale-next%2Fsrc%2Fapp%2Flib%2Fmongodb.js%22%2C%5B%5B%227f9414d4f22652e3e0200b0265b4a1f0bb484f873e%22%2C%22connectToDatabase%22%5D%5D%5D%5D&__client_imported__=!",
+          "async": false
+        },
+        "app/lib/api/product/info/route": {
+          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fasset%2Fprojects%2Falmale%2Falmale-next%2Fsrc%2Fapp%2Flib%2Fmongodb.js%22%2C%5B%5B%227f9414d4f22652e3e0200b0265b4a1f0bb484f873e%22%2C%22connectToDatabase%22%5D%5D%5D%5D&__client_imported__=!",
+          "async": false
+        }
+      },
+      "layer": {
+        "app/lib/api/product/route": "rsc",
+        "app/lib/api/product/info/route": "rsc"
+      }
+    },
+    "00566da91aa44da0f90222a65c1590c97143518f28": {
+      "workers": {
+        "app/[lang]/login/page": {
+          "moduleId": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fasset%2Fprojects%2Falmale%2Falmale-next%2Fsrc%2Fapp%2Factions%2Fauth.js%22%2C%5B%5B%2200566da91aa44da0f90222a65c1590c97143518f28%22%2C%22logout%22%5D%2C%5B%226062fc0d693c916228a83a35667be2f5133bb6a18f%22%2C%22SignIn%22%5D%2C%5B%2260aaa6db832806dee3f937a7d235cac3f918e431a9%22%2C%22SignUp%22%5D%5D%5D%5D&__client_imported__=true!",
+          "async": false
+        }
+      },
+      "layer": {
+        "app/[lang]/login/page": "action-browser"
+      }
+    },
+    "6062fc0d693c916228a83a35667be2f5133bb6a18f": {
+      "workers": {
+        "app/[lang]/login/page": {
+          "moduleId": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fasset%2Fprojects%2Falmale%2Falmale-next%2Fsrc%2Fapp%2Factions%2Fauth.js%22%2C%5B%5B%2200566da91aa44da0f90222a65c1590c97143518f28%22%2C%22logout%22%5D%2C%5B%226062fc0d693c916228a83a35667be2f5133bb6a18f%22%2C%22SignIn%22%5D%2C%5B%2260aaa6db832806dee3f937a7d235cac3f918e431a9%22%2C%22SignUp%22%5D%5D%5D%5D&__client_imported__=true!",
+          "async": false
+        }
+      },
+      "layer": {
+        "app/[lang]/login/page": "action-browser"
+      }
+    },
+    "60aaa6db832806dee3f937a7d235cac3f918e431a9": {
+      "workers": {
+        "app/[lang]/login/page": {
+          "moduleId": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fasset%2Fprojects%2Falmale%2Falmale-next%2Fsrc%2Fapp%2Factions%2Fauth.js%22%2C%5B%5B%2200566da91aa44da0f90222a65c1590c97143518f28%22%2C%22logout%22%5D%2C%5B%226062fc0d693c916228a83a35667be2f5133bb6a18f%22%2C%22SignIn%22%5D%2C%5B%2260aaa6db832806dee3f937a7d235cac3f918e431a9%22%2C%22SignUp%22%5D%5D%5D%5D&__client_imported__=true!",
+          "async": false
+        }
+      },
+      "layer": {
+        "app/[lang]/login/page": "action-browser"
+      }
+    }
+  },
+  "edge": {},
+  "encryptionKey": "4T7LaoilIM4g09lHQ8/dYFyW13R4bJ+i4yCH9TVtckI="
+}
