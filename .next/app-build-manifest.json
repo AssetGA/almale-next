@@ -6,10 +6,10 @@
       "static/css/app/[lang]/layout.css",
       "static/chunks/app/[lang]/layout.js"
     ],
-    "/[lang]/product/page": [
+    "/[lang]/product/[id]/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/[lang]/product/page.js"
+      "static/chunks/app/[lang]/product/[id]/page.js"
     ],
     "/lib/api/product/route": [
       "static/chunks/webpack.js",
@@ -20,26 +20,6 @@
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/lib/api/product/info/route.js"
-    ],
-    "/[lang]/product/[id]/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/[lang]/product/[id]/page.js"
-    ],
-    "/[lang]/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/[lang]/page.js"
-    ],
-    "/[lang]/recipes/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/[lang]/recipes/page.js"
-    ],
-    "/[lang]/login/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/[lang]/login/page.js"
     ]
   }
 }

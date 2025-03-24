@@ -2104,6 +2104,11 @@ body {
   color: rgb(237 241 245 / var(--tw-text-opacity, 1));
 }
 
+.hover\:text-green:hover {
+  --tw-text-opacity: 1;
+  color: rgb(20 58 35 / var(--tw-text-opacity, 1));
+}
+
 .hover\:text-green-light:hover {
   --tw-text-opacity: 1;
   color: rgb(32 93 56 / var(--tw-text-opacity, 1));
@@ -2112,11 +2117,6 @@ body {
 .hover\:text-white:hover {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
-}
-
-.hover\:text-green:hover {
-  --tw-text-opacity: 1;
-  color: rgb(20 58 35 / var(--tw-text-opacity, 1));
 }
 
 .hover\:underline:hover {
