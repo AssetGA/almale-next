@@ -1,16 +1,5 @@
 {
   "node": {
-    "40ed3d033e5ffa5a1e076728c8cf2889b91b7b3d47": {
-      "workers": {
-        "app/[lang]/product/[id]/page": {
-          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fasset%2Fprojects%2Falmale%2Falmale-next%2Fsrc%2Fapp%2Factions%2Fproducts.js%22%2C%5B%5B%2240ed3d033e5ffa5a1e076728c8cf2889b91b7b3d47%22%2C%22fetchProducts%22%5D%5D%5D%5D&__client_imported__=!",
-          "async": false
-        }
-      },
-      "layer": {
-        "app/[lang]/product/[id]/page": "rsc"
-      }
-    },
     "7f863104964d1c9830f9e538d0e7551d5ac98c57c4": {
       "workers": {
         "app/lib/api/product/route": {
@@ -25,6 +14,22 @@
       "layer": {
         "app/lib/api/product/route": "rsc",
         "app/lib/api/product/info/route": "rsc"
+      }
+    },
+    "40ed3d033e5ffa5a1e076728c8cf2889b91b7b3d47": {
+      "workers": {
+        "app/[lang]/product/page": {
+          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fasset%2Fprojects%2Falmale%2Falmale-next%2Fsrc%2Fapp%2Factions%2Fproducts.js%22%2C%5B%5B%2240ed3d033e5ffa5a1e076728c8cf2889b91b7b3d47%22%2C%22fetchProducts%22%5D%5D%5D%5D&__client_imported__=!",
+          "async": false
+        },
+        "app/[lang]/product/[id]/page": {
+          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fasset%2Fprojects%2Falmale%2Falmale-next%2Fsrc%2Fapp%2Factions%2Fproducts.js%22%2C%5B%5B%2240ed3d033e5ffa5a1e076728c8cf2889b91b7b3d47%22%2C%22fetchProducts%22%5D%5D%5D%5D&__client_imported__=!",
+          "async": false
+        }
+      },
+      "layer": {
+        "app/[lang]/product/page": "rsc",
+        "app/[lang]/product/[id]/page": "rsc"
       }
     }
   },
