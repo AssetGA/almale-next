@@ -26,10 +26,10 @@
       "static/chunks/main-app.js",
       "static/chunks/app/[lang]/product/page.js"
     ],
-    "/[lang]/product/[id]/page": [
+    "/[lang]/login/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/[lang]/product/[id]/page.js"
+      "static/chunks/app/[lang]/login/page.js"
     ]
   }
 }

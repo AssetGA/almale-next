@@ -3,5 +3,5 @@
   "/lib/api/product/info/route": "app/lib/api/product/info/route.js",
   "/[lang]/page": "app/[lang]/page.js",
   "/[lang]/product/page": "app/[lang]/product/page.js",
-  "/[lang]/product/[id]/page": "app/[lang]/product/[id]/page.js"
+  "/[lang]/login/page": "app/[lang]/login/page.js"
 }
