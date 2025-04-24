@@ -40,7 +40,7 @@ const ConnectionForm = ({ t }) => {
 
   return (
     <div id="contact" className="w-full">
-      <div className="lg:px-40 md:px-20 px-5 sm:py-40 py-5 bg-green sm:bg-white">
+      <div className="lg:px-40 md:px-20 px-5 sm:py-40 py-5 bg-green sm:bg-white shadow-2xl">
         <h2
           className="text-2xl font-bold mb-6 text-white sm:text-black text-center"
           style={{ fontFamily: "Montserrat-Bold" }}

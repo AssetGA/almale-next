@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@gsap/react": "^2.1.2",
     "@reduxjs/toolkit": "^2.3.0",
     "axios": "^1.7.7",
     "bcryptjs": "^2.4.3",
@@ -16,6 +17,7 @@
     "date-fns": "^4.1.0",
     "dotenv": "^16.4.5",
     "fs-extra": "^11.3.0",
+    "gsap": "^3.12.7",
     "i18next": "^23.16.4",
     "i18next-resources-to-backend": "^1.2.1",
     "jose": "^5.9.6",

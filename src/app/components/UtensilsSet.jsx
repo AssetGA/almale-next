@@ -5,6 +5,7 @@ import Link from "next/link";
 import ProductCard from "./ProductCard";
 import { useAppSelector } from "../store/hooks";
 import { useState } from "react";
+import GlowingButton from "./common/GlowingButton";
 
 const UtensilsSet = ({ lang, t }) => {
   const products = useAppSelector((state) => state.product.entity);
@@ -55,12 +56,12 @@ const UtensilsSet = ({ lang, t }) => {
           <div className="flex flex-col md:flex-row bg-white rounded-lg p-4 max-w-4xl mx-auto my-10 sm:my-20">
             {/* Левая часть: основное изображение и миниатюры */}
             <div className="md:w-1/2 flex flex-col items-center">
-              <h2
+              <h1
                 className="text-2xl font-semibold mb-2 sm:hidden px-5"
                 style={{ fontFamily: "Montserrat-Bold" }}
               >
                 {utensilProduct?.name}
-              </h2>
+              </h1>
               {/* Описание товара */}
               <p className="mb-6 sm:hidden px-5">
                 {utensilProduct.description}
@@ -136,9 +137,10 @@ const UtensilsSet = ({ lang, t }) => {
                     </span>
                   </p>
                   <Link href={`/${lang}/basket`} className="right-0">
-                    <div className="bg-green hover:bg-green-light text-white py-2 px-4 rounded-md hover:bg-blue-600">
-                      {t.utensil.buttonBuy}
-                    </div>
+                    <GlowingButton
+                      text={t.utensil.buttonBuy}
+                      elemClass="py-2 px-4 rounded-md"
+                    />
                   </Link>
                 </div>
               </div>

@@ -1,9 +1,10 @@
 import Link from "next/link";
-import React from "react";
 import { getDictionary } from "../[lang]/dictionaries";
+import ButtonLink from "./common/ButtonLink";
 
 const Production = async ({ lang }) => {
   const t = await getDictionary(lang);
+
   return (
     <div id="production" className="w-full text-lg font-bold">
       <div className="flex flex-col items-center p-10 xl:mx-40 lg:mx-20 md:mx-10">

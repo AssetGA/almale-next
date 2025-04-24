@@ -111,12 +111,12 @@ const ProductAbout = ({ lang, t }) => {
         <div className="md:w-1/2 md:pl-8 flex flex-col justify-between">
           <div className="py-5">
             {/* Название товара */}
-            <h2
+            <h1
               className="text-xl font-semibold mb-2 hidden sm:block"
               style={{ fontFamily: "Montserrat-Bold" }}
             >
               {product?.name}
-            </h2>
+            </h1>
             {/* Описание товара */}
             <p className="mb-6 hidden sm:block">{product?.description}</p>
 

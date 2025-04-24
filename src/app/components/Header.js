@@ -1,5 +1,8 @@
 "use client";
 
+import AnimatedLetters from "./common/AnimatedLetters";
+import GlowingButton from "./common/GlowingButton";
+
 const Header = ({ t }) => {
   return (
     <div className="relative w-full z-0 overflow-hidden">
@@ -11,12 +14,11 @@ const Header = ({ t }) => {
           <div className="w-full h-full bg-no-repeat left-0 sm:top-0 bg-[url('/img/Layer5.svg')] sm:bg-[url('/img/Layer14.svg')] bg-cover sm:bg-contain translate-y-56 sm:translate-y-0">
             <div className="sm:w-[400px] md:w-1/2">
               <div className="flex flex-col text-white px-10 py-[44px] sm:py-[44px] lg:pl-[70px] md:py-[85px] lg:py-[130px] xl:pl-[180px] xl:py-[130px]">
-                <h1
-                  className="font-bold text-xl"
-                  style={{ fontFamily: "Montserrat-Bold" }}
-                >
-                  {t.head.headh1}
-                </h1>
+                <AnimatedLetters
+                  text={t.head.headh1}
+                  elemClass={"font-bold text-xl"}
+                />
+
                 <p className="pt-3 text-sm">{t.head.headp}</p>
                 <div className="mt-10">
                   <a
