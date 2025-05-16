@@ -11,6 +11,8 @@ import VideoSection from "./VideoSection.js";
 import Letters from "./Letters.js";
 import Header from "./Header.js";
 import Head from "next/head.js";
+import Carousel from "./Carousel.jsx";
+import AutoPlayVideo from "./AutoPlayVideo.js";
 
 const Main = async ({ lang }) => {
   const t = await getDictionary(lang);
@@ -53,6 +55,7 @@ const Main = async ({ lang }) => {
       <Advantages lang={lang} />
       {b ? <Opinion lang={lang} t={t} /> : ""}
       <VideoSection lang={lang} />
+      <Carousel />
       <ConnectionForm lang={lang} t={t} /> <Letters />
     </>
   );

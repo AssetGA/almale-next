@@ -120,7 +120,7 @@ const Navbar = ({ lang, t }) => {
                     {t.navbar.navbarproduct}
                   </Link>
                   <Link
-                    href={`/${lang}/#adventages`}
+                    href={`/${lang}/gallery`}
                     className="rounded-md text-sm font-medium hover:underline"
                   >
                     {t.navbar.navbaradventages}
