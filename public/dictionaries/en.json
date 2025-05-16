@@ -146,5 +146,8 @@
   "chat": {
     "button": "Chat",
     "span": "Manager"
+  },
+  "gallery": {
+    "altInfo": "Gift to mom"
   }
 }

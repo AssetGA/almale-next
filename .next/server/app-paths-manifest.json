@@ -1,7 +1,4 @@
 {
-  "/lib/api/product/route": "app/lib/api/product/route.js",
-  "/lib/api/product/info/route": "app/lib/api/product/info/route.js",
-  "/[lang]/page": "app/[lang]/page.js",
-  "/[lang]/product/page": "app/[lang]/product/page.js",
-  "/[lang]/login/page": "app/[lang]/login/page.js"
+  "/[lang]/gallery/page": "app/[lang]/gallery/page.js",
+  "/[lang]/page": "app/[lang]/page.js"
 }

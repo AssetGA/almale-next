@@ -6,10 +6,10 @@
       "static/css/app/[lang]/layout.css",
       "static/chunks/app/[lang]/layout.js"
     ],
-    "/[lang]/page": [
+    "/[lang]/gallery/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/[lang]/page.js"
+      "static/chunks/app/[lang]/gallery/page.js"
     ],
     "/lib/api/product/route": [
       "static/chunks/webpack.js",
@@ -21,15 +21,10 @@
       "static/chunks/main-app.js",
       "static/chunks/app/lib/api/product/info/route.js"
     ],
-    "/[lang]/product/page": [
+    "/[lang]/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/[lang]/product/page.js"
-    ],
-    "/[lang]/login/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/[lang]/login/page.js"
+      "static/chunks/app/[lang]/page.js"
     ]
   }
 }
