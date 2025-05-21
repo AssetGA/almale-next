@@ -177,7 +177,7 @@ const Navbar = ({ lang, t }) => {
                     {t.navbar.navbarproduct}
                   </Link>
                   <Link
-                    href={`/${lang}/#adventages`}
+                    href={`/${lang}/gallery`}
                     className="block px-3 py-2 font-medium focus:underline"
                     onClick={() => setIsOpen(false)}
                   >
