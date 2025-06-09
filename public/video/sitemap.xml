@@ -1,0 +1,12 @@
+export default function sitemap() {
+  return [
+    {
+      url: "https://www.alma-le.com/kz/gallery",
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.5,
+    },
+   
+   
+  ];
+}

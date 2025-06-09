@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import { getDictionary } from "../[lang]/dictionaries";
+import SlowTextReveal from "./SlowTextReveal";
 
 const Advantages = async ({ lang }) => {
   const t = await getDictionary(lang);
@@ -22,7 +23,9 @@ const Advantages = async ({ lang }) => {
               height={100}
               alt="моменты жизни на кухне"
             />
-            <p className="text-center pt-5">{t.advantages.one}</p>
+            <p className="text-center pt-5">
+              <SlowTextReveal text={t.advantages.one}></SlowTextReveal>
+            </p>
           </div>
           <div className="flex flex-col items-center ">
             <Image
@@ -32,7 +35,9 @@ const Advantages = async ({ lang }) => {
               height={100}
               alt="моменты жизни на кухне"
             />
-            <p className="text-center pt-5">{t.advantages.two}</p>
+            <p className="text-center pt-5">
+              <SlowTextReveal text={t.advantages.two}></SlowTextReveal>
+            </p>
           </div>
 
           <div className="flex flex-col items-center ">
@@ -43,7 +48,9 @@ const Advantages = async ({ lang }) => {
               height={100}
               alt="моменты жизни на кухне"
             />
-            <p className="text-center pt-5">{t.advantages.three}</p>
+            <p className="text-center pt-5">
+              <SlowTextReveal text={t.advantages.three}></SlowTextReveal>
+            </p>
           </div>
         </div>
       </div>

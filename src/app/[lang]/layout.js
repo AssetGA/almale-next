@@ -69,7 +69,7 @@ export default async function LocaleLayout({ children, params }) {
         <StoreProvider lang={lang}>
           <Navbar lang={lang} t={t} />
           <ChatWindow t={t} />
-          <main className="xl:container xl:mx-auto">{children}</main>
+          <main className="xl:container xl:mx-auto mt-24">{children}</main>
           <Footer lang={lang} t={t} />
         </StoreProvider>
       </body>

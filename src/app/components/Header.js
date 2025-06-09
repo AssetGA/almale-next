@@ -1,7 +1,6 @@
 "use client";
 
 import AnimatedLetters from "./common/AnimatedLetters";
-import GlowingButton from "./common/GlowingButton";
 
 const Header = ({ t }) => {
   return (

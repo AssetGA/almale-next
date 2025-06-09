@@ -21,9 +21,11 @@ export default async function middleware(request) {
   if (
     pathname === "/sitemap.xml" ||
     pathname === "/sitemap-index.xml" ||
-    pathname === "/video" ||
+    pathname === "/videos" ||
     pathname === "/sitemap-0.xml" ||
     pathname === "/robots.txt" ||
+    pathname.startsWith("/video") ||
+    pathname.startsWith("/videos") ||
     pathname.startsWith("/img") ||
     pathname === "/favicon.ico" ||
     pathname.startsWith("/fonts") ||
