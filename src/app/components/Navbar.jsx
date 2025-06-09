@@ -114,7 +114,7 @@ const Navbar = ({ lang, t }) => {
                     {t.navbar.navbarbrand}
                   </Link>
                   <Link
-                    href={`/${lang}/#production`}
+                    href={`/${lang}/product`}
                     className="rounded-md text-sm font-medium hover:underline"
                   >
                     {t.navbar.navbarproduct}
@@ -170,7 +170,7 @@ const Navbar = ({ lang, t }) => {
                     {t.navbar.navbarbrand}
                   </Link>
                   <Link
-                    href={`/${lang}/#production`}
+                    href={`/${lang}/product`}
                     className="block px-3 py-2 font-medium focus:underline"
                     onClick={() => setIsOpen(false)}
                   >

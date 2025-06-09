@@ -58,5 +58,9 @@ export async function generateStaticParams() {
 export default async function Page({ params }) {
   const { lang } = await params;
   const t = await getDictionary(lang);
-  return <UtensilsSet lang={lang} t={t} />;
+  return (
+    <div className="mt-32">
+      <UtensilsSet lang={lang} t={t} />
+    </div>
+  );
 }

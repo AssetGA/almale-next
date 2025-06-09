@@ -12,7 +12,7 @@ import Letters from "./Letters.js";
 import Header from "./Header.js";
 import Head from "next/head.js";
 import Carousel from "./Carousel.jsx";
-import AutoPlayVideo from "./AutoPlayVideo.js";
+import SlowTextReveal from "./SlowTextReveal.jsx";
 
 const Main = async ({ lang }) => {
   const t = await getDictionary(lang);

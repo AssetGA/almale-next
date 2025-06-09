@@ -39,6 +39,9 @@ module.exports = {
       ],
     },
     extend: {
+      perspective: {
+        1000: "1000px",
+      },
       // spacing: {
       //   128: "32rem",
       //   144: "36rem",
@@ -51,5 +54,13 @@ module.exports = {
       // },
     },
   },
-  plugins: [],
+  plugins: [
+    function ({ addUtilities }) {
+      addUtilities({
+        ".perspective-1000": {
+          perspective: "1000px",
+        },
+      });
+    },
+  ],
 };

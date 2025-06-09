@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { getDictionary } from "../[lang]/dictionaries";
+import SlowTextReveal from "./SlowTextReveal";
 
 const Values = async ({ lang }) => {
   const t = await getDictionary(lang);
@@ -7,7 +8,7 @@ const Values = async ({ lang }) => {
     <div className="w-full" id="brand">
       <div className="flex flex-col py-20">
         <p
-          className="text-center font-bold text-2xl"
+          className="text-center font-bold text-2xl py-10"
           style={{ fontFamily: "Montserrat-Bold" }}
         >
           {t.brand.head}
@@ -21,7 +22,9 @@ const Values = async ({ lang }) => {
               height={100}
               alt="моменты жизни на кухне"
             />
-            <p className="text-center pt-5">{t.brand.one}</p>
+            <p className="text-center pt-5">
+              <SlowTextReveal text={t.brand.one}></SlowTextReveal>
+            </p>
           </div>
           <div className="flex flex-col items-center p-2">
             <Image
@@ -31,7 +34,9 @@ const Values = async ({ lang }) => {
               height={100}
               alt="моменты жизни на кухне"
             />
-            <p className="text-center pt-5">{t.brand.two}</p>
+            <p className="text-center pt-5">
+              <SlowTextReveal text={t.brand.two}></SlowTextReveal>
+            </p>
           </div>
 
           <div className="flex flex-col items-center p-2">
@@ -42,7 +47,9 @@ const Values = async ({ lang }) => {
               height={100}
               alt="моменты жизни на кухне"
             />
-            <p className="text-center pt-5">{t.brand.three}</p>
+            <p className="text-center pt-5">
+              <SlowTextReveal text={t.brand.three}></SlowTextReveal>
+            </p>
           </div>
         </div>
       </div>
