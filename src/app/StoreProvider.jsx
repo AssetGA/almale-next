@@ -5,6 +5,7 @@ import { Provider } from "react-redux";
 import { createStore } from "./store/store";
 import { loadProductList } from "./store/productSlice";
 import { loadProductInfoList } from "./store/productInfoSlice";
+import { loadVideoList } from "./store/videoSlice";
 
 export default function StoreProvider({ children, lang }) {
   const storeRef = useRef();
@@ -17,6 +18,7 @@ export default function StoreProvider({ children, lang }) {
     // Обновляем список продуктов при изменении языка
     storeRef.current.dispatch(loadProductList({ lang: lang }));
     storeRef.current.dispatch(loadProductInfoList({ lang: lang }));
+    storeRef.current.dispatch(loadVideoList({ lang: lang }));
   }, [lang]);
 
   return <Provider store={storeRef.current}>{children}</Provider>;

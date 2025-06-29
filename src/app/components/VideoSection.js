@@ -1,29 +1,9 @@
 import { getDictionary } from "../[lang]/dictionaries";
 import LazyYouTube from "../components/LazyYouTube.jsx";
+import { videos } from "../utils/api.js";
 
 const VideoSection = async ({ lang }) => {
   const t = await getDictionary(lang);
-
-  const videos = [
-    {
-      id: "video1",
-      title: "Exploring the Mountains",
-      url: "https://www.youtube.com/watch?v=AAHCllXUXrI&t=5s",
-      img: "/img/set/3.png",
-    },
-    {
-      id: "video2",
-      title: "Ocean Adventures",
-      url: "https://www.youtube.com/watch?v=nFNJUepGYHY",
-      img: "/img/set/1.png",
-    },
-    {
-      id: "video3",
-      title: "City Life Vibes",
-      url: "https://www.youtube.com/watch?v=5W05UwE_LQ0&t=6s",
-      img: "/img/set/2.png",
-    },
-  ];
 
   return (
     <section className="bg-gradient-to-r from-blue-100 to-indigo-100 py-12">
