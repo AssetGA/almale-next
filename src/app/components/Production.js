@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { getDictionary } from "../[lang]/dictionaries";
-import ButtonLink from "./common/ButtonLink";
 
 const Production = async ({ lang }) => {
   const t = await getDictionary(lang);
