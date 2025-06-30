@@ -3,5 +3,6 @@
   "/lib/api/product/info/route": "app/lib/api/product/info/route.js",
   "/lib/api/video/route": "app/lib/api/video/route.js",
   "/[lang]/page": "app/[lang]/page.js",
+  "/[lang]/gallery/page": "app/[lang]/gallery/page.js",
   "/[lang]/gallery/[id]/page": "app/[lang]/gallery/[id]/page.js"
 }

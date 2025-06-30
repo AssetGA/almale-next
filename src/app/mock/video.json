@@ -1,54 +1,80 @@
 [
   {
     "id": "1",
-    "videoUrl": "/video/1.mp4"
+    "videoUrl": "/video/1.mp4",
+    "title": "Лудший подарок для мамы",
+    "description": "Удивите самую родную — это видео расскажет о самом трогательном и душевном подарке для мамы. Вдохновляйтесь идеями и создайте особенный момент, который она запомнит навсегда."
   },
   {
     "id": "2",
-    "videoUrl": "/video/2.mp4"
+    "videoUrl": "/video/2.mp4",
+    "title": "Подарок жене",
+    "description": "Ищете идею идеального подарка для любимой жены? В этом видео — трогательные, стильные и запоминающиеся варианты, которые помогут выразить любовь и заботу."
   },
   {
     "id": "3",
-    "videoUrl": "/video/3.mp4"
+    "videoUrl": "/video/3.mp4",
+    "title": "Подарок на свадьбу",
+    "description": "Идеальный подарок на свадьбу – медная посуда, сочетающая в себе традиции, стиль и долговечность. Сделайте день молодожёнов особенным."
   },
   {
     "id": "4",
-    "videoUrl": "https://www.youtube.com/embed/AAHCllXUXrI?start=5"
+    "videoUrl": "https://www.youtube.com/embed/AAHCllXUXrI?start=5",
+    "title": "Подарок на кызузату",
+    "description": "Подарок на кыз узату, который подчеркнёт уважение к традициям. Медная посуда — символ уюта и семейного тепла."
   },
   {
     "id": "5",
-    "videoUrl": "https://www.youtube.com/embed/nFNJUepGYHY"
+    "videoUrl": "https://www.youtube.com/embed/nFNJUepGYHY",
+    "title": "Медная посуда для дома",
+    "description": "Медная посуда — стильный и практичный выбор для любого дома. Узнайте, как она может украсить вашу кухню."
   },
   {
     "id": "6",
-    "videoUrl": "https://www.youtube.com/embed/5W05UwE_LQ0?start=6"
+    "videoUrl": "https://www.youtube.com/embed/5W05UwE_LQ0?start=6",
+    "title": "Медная посуда для ресторана",
+    "description": "Профессиональная медная посуда для ресторанов. Качество, которое ценят шеф-повара по всему миру."
   },
   {
     "id": "7",
-    "videoUrl": "https://www.youtube.com/embed/Ks9DHMhkWAA"
+    "videoUrl": "https://www.youtube.com/embed/Ks9DHMhkWAA",
+    "title": "Медная сковорода",
+    "description": "Откройте для себя медную сковороду — незаменимый инструмент для идеального обжаривания и равномерного прогрева."
   },
   {
     "id": "8",
-    "videoUrl": "https://www.youtube.com/embed/UWuLsTLCA3A"
+    "videoUrl": "https://www.youtube.com/embed/UWuLsTLCA3A",
+    "title": "Медная кастрюля",
+    "description": "Медная кастрюля — сочетание красоты и функциональности на вашей кухне. Готовьте с удовольствием и вкусом."
   },
   {
     "id": "9",
-    "videoUrl": "https://www.youtube.com/embed/5W05UwE_LQ0?start=7"
+    "videoUrl": "https://www.youtube.com/embed/5W05UwE_LQ0?start=7",
+    "title": "Медный сотейник",
+    "description": "Сотейник из меди идеально подходит для тушения, жарки и соусов. Узнайте, почему его выбирают профессионалы."
   },
   {
     "id": "10",
-    "videoUrl": "https://www.youtube.com/embed/nFNJUepGYHY?start=7"
+    "videoUrl": "https://www.youtube.com/embed/nFNJUepGYHY?start=7",
+    "title": "Медный набор посуды",
+    "description": "Медный набор посуды — изысканный подарок и практичное решение для настоящих ценителей кулинарии."
   },
   {
     "id": "11",
-    "videoUrl": "https://www.youtube.com/embed/qcWBa-81fW8"
+    "videoUrl": "https://www.youtube.com/embed/qcWBa-81fW8",
+    "title": "Медный набор посуды",
+    "description": "Роскошный медный набор, который превратит готовку в удовольствие. Идеально для подарка или личного пользования."
   },
   {
     "id": "12",
-    "videoUrl": "https://www.youtube.com/embed/qcWBa-81fW8"
+    "videoUrl": "https://www.youtube.com/embed/qcWBa-81fW8",
+    "title": "Подарочный набор",
+    "description": "Подарочный набор из меди — впечатляющий выбор для дорогих вам людей. Подчеркните внимание и заботу."
   },
   {
     "id": "13",
-    "videoUrl": "https://www.youtube.com/embed/5W05UwE_LQ0?start=7"
+    "videoUrl": "https://www.youtube.com/embed/5W05UwE_LQ0?start=7",
+    "title": "Посуда медная",
+    "description": "Посуда из меди — это не только красота, но и польза. Улучшите качество приготовления с помощью меди."
   }
 ]
