@@ -3,6 +3,7 @@
 import React, { useEffect, useRef } from "react";
 import Image from "next/image";
 import { gsap } from "gsap";
+import Link from "next/link";
 
 const images = [
   { src: "/img/gallery/1.JPEG", altName: "Лудший подарок маме" },
@@ -20,7 +21,7 @@ const images = [
   { src: "/img/4-блок_Миссия.jpg", altName: "Медная сковорода" },
 ];
 
-const Gallery = ({ t }) => {
+const Gallery = ({ t, lang }) => {
   const imageRefs = useRef([]);
 
   useEffect(() => {
@@ -49,14 +50,16 @@ const Gallery = ({ t }) => {
           }}
           className="relative w-full h-64 overflow-hidden rounded-xl shadow-md"
         >
-          <Image
-            src={src.src}
-            alt={`${src.altName === "" ? t.gallery.altInfo : src.altName}`}
-            fill
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            className="object-cover transition-transform duration-500 hover:scale-105"
-            priority
-          />
+          <Link href={`/${lang}/gallery/${idx}`}>
+            <Image
+              src={src.src}
+              alt={`${src.altName === "" ? t.gallery.altInfo : src.altName}`}
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              className="object-cover transition-transform duration-500 hover:scale-105 pointer"
+              priority
+            />
+          </Link>
         </div>
       ))}
     </div>

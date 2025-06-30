@@ -23,9 +23,9 @@ const Advantages = async ({ lang }) => {
               height={100}
               alt="моменты жизни на кухне"
             />
-            <p className="text-center pt-5">
+            <div className="text-center pt-5">
               <SlowTextReveal text={t.advantages.one}></SlowTextReveal>
-            </p>
+            </div>
           </div>
           <div className="flex flex-col items-center ">
             <Image
@@ -35,9 +35,9 @@ const Advantages = async ({ lang }) => {
               height={100}
               alt="моменты жизни на кухне"
             />
-            <p className="text-center pt-5">
+            <div className="text-center pt-5">
               <SlowTextReveal text={t.advantages.two}></SlowTextReveal>
-            </p>
+            </div>
           </div>
 
           <div className="flex flex-col items-center ">
@@ -48,9 +48,9 @@ const Advantages = async ({ lang }) => {
               height={100}
               alt="моменты жизни на кухне"
             />
-            <p className="text-center pt-5">
+            <div className="text-center pt-5">
               <SlowTextReveal text={t.advantages.three}></SlowTextReveal>
-            </p>
+            </div>
           </div>
         </div>
       </div>

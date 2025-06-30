@@ -32,11 +32,10 @@ export default function VideoPage() {
     }
   };
 
-  console.log("video.videoUrl", videos.length);
   return (
     <div className="flex flex-col items-center justify-center min-h-screen px-4 py-10 bg-black/30 text-white">
       <h1 className="text-3xl md:text-5xl font-bold mb-6 text-center">
-        Видео обзор нашей посуды
+        {video?.title}
       </h1>
       <div className="grid grid-cols-2">
         <button
@@ -83,8 +82,7 @@ export default function VideoPage() {
       </div>
 
       <p className="mt-6 text-lg text-gray-300 text-center max-w-2xl">
-        Это демонстрационное видео рассказывает о нашей работе, подходах и
-        ценностях.
+        {video?.description}
       </p>
     </div>
   );

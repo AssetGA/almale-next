@@ -9,7 +9,7 @@ async function page({ params }) {
   return (
     <div className="mb-48">
       <VideoBook lang={lang} />
-      <Gallery t={t} />
+      <Gallery t={t} lang={lang} />
     </div>
   );
 }
