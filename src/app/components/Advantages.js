@@ -55,6 +55,7 @@ const Advantages = async ({ lang }) => {
         </div>
       </div>
     </div>
+    // fvmfdv
   );
 };
 
