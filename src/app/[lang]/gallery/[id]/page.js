@@ -1,13 +1,14 @@
 import React from "react";
 import VideoPage from "../../../components/VideoPage";
 import { getDictionary } from "../../dictionaries";
-import { getVideoById } from "../../../store/videoSlice";
+import { fetchVideoById } from "../../../actions/video";
 
 // app/video/[id]/page.tsx (или любую страницу, где используешь видео)
 
 export async function generateMetadata({ params }) {
-  const { id } = await params;
-  const video = await getVideoById(id); // или из JSON напрямую
+  const { id, lang } = await params;
+  const video = await fetchVideoById(lang, id); // или из JSON напрямую
+  console.log("video", video);
   if (!video) return {};
 
   return {
@@ -17,9 +18,13 @@ export async function generateMetadata({ params }) {
       title: video.title,
       description: video.description,
       type: "video.other",
-      url: `https://example.com/video/${video.id}`,
+      url: `${process.env.NEXT_PUBLIC_SITE_URL + "/" + lang}/gallery/${
+        video.id
+      }`,
       video: {
-        url: video.videoUrl,
+        url: `${process.env.NEXT_PUBLIC_SITE_URL + "/" + lang}/gallery/${
+          video.id
+        }`,
         width: 1280,
         height: 720,
       },
@@ -28,7 +33,9 @@ export async function generateMetadata({ params }) {
       card: "player",
       title: video.title,
       description: video.description,
-      player: video.videoUrl,
+      player: `${process.env.NEXT_PUBLIC_SITE_URL + "/" + lang}/gallery/${
+        video.id
+      }`,
     },
   };
 }
