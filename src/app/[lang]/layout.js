@@ -45,12 +45,12 @@ export async function generateMetadata({ params }) {
 
     icons: {
       icon: "/img/icon.png", // /public path
-      // ...(lang === "en" && {
-      //   other: {
-      //     rel: "canonical",
-      //     url: `${baseUrl}/${lang}`,
-      //   },
-      // }),
+      ...(lang === "en" && {
+        other: {
+          hrefLang: `${lang}`,
+          url: `${baseUrl}/${lang}`,
+        },
+      }),
     },
   };
 }

@@ -8,17 +8,17 @@ export default function robots() {
       },
       {
         userAgent: "Googlebot",
-        allow: ["/", "/img/"], // ✅ Разрешает индексировать картинки
+        allow: ["/", "/img/", "/video"], // ✅ Разрешает индексировать картинки
         disallow: ["/private/"],
       },
       {
         userAgent: ["Applebot", "Bingbot"],
-        allow: ["/", "/images/", "/img/"], // ✅ Разрешает индексировать картинки
+        allow: ["/", "/images/", "/img/", "/video"], // ✅ Разрешает индексировать картинки
         disallow: ["/admin/"], // Закрытые разделы
       },
       {
         userAgent: "Googlebot-Image", // ✅ Разрешает индексацию картинок Google Images
-        allow: ["/images/", "/img/", "/public/"], // ✅ Папки с изображениями
+        allow: ["/images/", "/img/", "/public/", "/video/"], // ✅ Папки с изображениями
       },
     ],
     sitemap: [

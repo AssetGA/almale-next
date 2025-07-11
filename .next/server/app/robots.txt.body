@@ -6,6 +6,7 @@ Disallow: /admin/
 User-Agent: Googlebot
 Allow: /
 Allow: /img/
+Allow: /video
 Disallow: /private/
 
 User-Agent: Applebot
@@ -13,12 +14,14 @@ User-Agent: Bingbot
 Allow: /
 Allow: /images/
 Allow: /img/
+Allow: /video
 Disallow: /admin/
 
 User-Agent: Googlebot-Image
 Allow: /images/
 Allow: /img/
 Allow: /public/
+Allow: /video/
 
 Sitemap: https://alma-le.com/sitemap.xml
 Sitemap: https://alma-le.com/sitemap-index.xml

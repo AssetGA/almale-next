@@ -41,26 +41,28 @@ const Gallery = ({ t, lang }) => {
   }, []);
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 p-6">
+    <div className="relative grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 p-6">
       {images.map((src, idx) => (
-        <div
+        <Link
+          href={`/${lang}/gallery/${idx}`}
+          className="w-full max-h-72"
           key={idx}
-          ref={(el) => {
-            if (el) imageRefs.current[idx] = el;
-          }}
-          className="relative w-full h-64 overflow-hidden rounded-xl shadow-md"
         >
-          <Link href={`/${lang}/gallery/${idx}`}>
+          <div
+            ref={(el) => {
+              if (el) imageRefs.current[idx] = el;
+            }}
+            className="relative w-full h-64 overflow-hidden rounded-xl shadow-md"
+          >
             <Image
               src={src.src}
               alt={`${src.altName === "" ? t.gallery.altInfo : src.altName}`}
               fill
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               className="object-cover transition-transform duration-500 hover:scale-105 pointer"
-              priority
             />
-          </Link>
-        </div>
+          </div>
+        </Link>
       ))}
     </div>
   );

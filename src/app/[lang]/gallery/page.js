@@ -7,7 +7,7 @@ async function page({ params }) {
   const { lang } = await params;
   const t = await getDictionary(lang);
   return (
-    <div className="mb-48">
+    <div className="relative mb-48">
       <VideoBook lang={lang} />
       <Gallery t={t} lang={lang} />
     </div>

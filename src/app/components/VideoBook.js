@@ -17,7 +17,7 @@ export default function VideoBook() {
       ref={containerRef}
       className="relative h-[150vh] bg-white flex items-center justify-center"
     >
-      <div className="sticky top-1/2 -translate-y-1/2 w-[600px] h-[400px] perspective-1000">
+      <div className="top-1/2 -translate-y-1/2 w-[600px] h-[400px] perspective-1000">
         {videos.map((src, i) => {
           const rotateY = useTransform(
             scrollYProgress,

@@ -35,10 +35,19 @@ export async function generateMetadata({ params }) {
       description: "Извините, этот товар недоступен.",
     };
   }
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL;
 
   return {
     title: `${product.title}`,
     description: product.descriptionMeta,
+    alternates: {
+      languages: {
+        "x-default": `${baseUrl}/ru/product/${id}`,
+        en: `${baseUrl}/en/product/${id}`,
+        ru: `${baseUrl}/ru/product/${id}`,
+        kk: `${baseUrl}/kz/product/${id}`,
+      },
+    },
     keywords: product.keywords,
     openGraph: {
       title: `${product.title}`,
