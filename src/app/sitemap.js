@@ -111,6 +111,8 @@
 //   ];
 // }
 
+import { fetchProducts } from "./actions/products";
+
 // app/sitemap.ts (если у тебя App Router)import { fetchProducts } from "./actions/products";
 
 export default async function sitemap() {
