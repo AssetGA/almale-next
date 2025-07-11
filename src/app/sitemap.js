@@ -136,14 +136,14 @@ export default async function sitemap() {
   });
   const products = await fetchProducts("ru");
 
-  const productUrls = products.map((product) =>
-    langs.map((lang) => ({
+  const productUrls = products.map((product) => {
+    return langs.map((lang) => ({
       url: `${baseUrl}/${lang}/product/${product._id}`,
       lastModified: new Date().toISOString(),
       changeFrequency: "weekly",
       priority: 0.5,
-    }))
-  );
+    }));
+  });
   console.log("productUrls", productUrls, pagesLang, pagesLangProduct);
 
   return [...pagesLang, ...productUrls, ...pagesLangProduct];
