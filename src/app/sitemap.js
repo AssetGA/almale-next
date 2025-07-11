@@ -111,40 +111,49 @@
 //   ];
 // }
 
-// app/sitemap.ts (если у тебя App Router)
-import { fetchProducts } from "./actions/products";
+// app/sitemap.ts (если у тебя App Router)import { fetchProducts } from "./actions/products";
 
 export default async function sitemap() {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.alma-le.com";
   const langs = ["kz", "ru", "en"];
-  const pagesLang = langs.map((lang) => {
-    return {
+
+  const staticPages = langs.flatMap((lang) => [
+    {
       url: `${baseUrl}/${lang}`,
       lastModified: new Date().toISOString(),
       changeFrequency: "weekly",
       priority: 0.5,
-    };
-  });
-
-  const pagesLangProduct = langs.map((lang) => {
-    return {
+      alternateRefs: langs.map((l) => ({
+        href: `${baseUrl}/${l}`,
+        hreflang: l,
+      })),
+    },
+    {
       url: `${baseUrl}/${lang}/product`,
       lastModified: new Date().toISOString(),
       changeFrequency: "weekly",
       priority: 0.5,
-    };
-  });
+      alternateRefs: langs.map((l) => ({
+        href: `${baseUrl}/${l}/product`,
+        hreflang: l,
+      })),
+    },
+  ]);
+
   const products = await fetchProducts("ru");
 
-  const productUrls = products.map((product) => {
+  const productPages = products.flatMap((product) => {
     return langs.map((lang) => ({
       url: `${baseUrl}/${lang}/product/${product._id}`,
       lastModified: new Date().toISOString(),
       changeFrequency: "weekly",
       priority: 0.5,
+      alternateRefs: langs.map((l) => ({
+        href: `${baseUrl}/${l}/product/${product._id}`,
+        hreflang: l,
+      })),
     }));
   });
-  console.log("productUrls", productUrls, pagesLang, pagesLangProduct);
 
-  return [...pagesLang, ...productUrls, ...pagesLangProduct];
+  return [...staticPages, ...productPages];
 }
