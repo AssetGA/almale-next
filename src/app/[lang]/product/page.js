@@ -20,14 +20,23 @@ export async function generateMetadata({ params }) {
   const { lang } = await params;
   const t = await getDictionary(lang);
   const products = await fetchProducts(lang);
-  console.log("products", products);
   const productSet = products.find((elem) => {
     return elem.price === 395000;
   });
+
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL;
   if (productSet) {
     return {
       title: `${t.metadataProduct.title} - Alma Le`,
       description: t.metadataProduct.description,
+      alternates: {
+        languages: {
+          "x-default": `${baseUrl}/ru/product`,
+          en: `${baseUrl}/en/product`,
+          ru: `${baseUrl}/ru/product`,
+          kk: `${baseUrl}/kz/product`,
+        },
+      },
       keywords: t.metadataProduct.keywords,
       openGraph: {
         title: `${t.metadata.title}`,

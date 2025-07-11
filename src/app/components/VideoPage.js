@@ -33,7 +33,7 @@ export default function VideoPage() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen px-4 py-10 bg-black/30 text-white">
+    <div className="relative flex flex-col items-center justify-center min-h-screen px-4 py-10 bg-black/30 text-white">
       <h1 className="text-3xl md:text-5xl font-bold mb-6 text-center">
         {video?.title}
       </h1>

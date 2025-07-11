@@ -53,7 +53,7 @@ const ProductAbout = ({ lang, t }) => {
   };
   return (
     <div className="flex flex-col px-5">
-      <div className="flex flex-col md:flex-row bg-white rounded-lg p-4 max-w-4xl mx-auto my-20">
+      <div className="relative flex flex-col md:flex-row bg-white rounded-lg p-4 max-w-4xl mx-auto my-20">
         {/* Левая часть: основное изображение и миниатюры */}
         <div className="md:w-1/2 flex flex-col items-center">
           <h2
@@ -98,7 +98,6 @@ const ProductAbout = ({ lang, t }) => {
                       width={200}
                       height={200}
                       alt={listSrc ? listSrc.meta[index] : "Alma cookeware"}
-                      priority
                       unoptimized // ✅ Позволяет Google индексировать
                     />
                   </div>
@@ -128,7 +127,6 @@ const ProductAbout = ({ lang, t }) => {
                     width={100}
                     height={100}
                     alt={elem.name}
-                    priority
                     unoptimized // ✅ Позволяет Google индексировать
                   />
                 </Tooltip>

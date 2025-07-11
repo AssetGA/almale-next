@@ -8,8 +8,15 @@ import { fetchVideoById } from "../../../actions/video";
 export async function generateMetadata({ params }) {
   const { id, lang } = await params;
   const video = await fetchVideoById(lang, id); // или из JSON напрямую
-  console.log("video", video);
+
   if (!video) return {};
+  if (!video) {
+    console.error(`❌ Ошибка: Товар с ID ${id} не найден`);
+    return {
+      title: "Товар не найден | Alma Le",
+      description: "Извините, этот товар недоступен.",
+    };
+  }
 
   return {
     title: video.title,
@@ -41,7 +48,7 @@ export async function generateMetadata({ params }) {
 }
 
 async function page({ params }) {
-  const { lang } = await params;
+  const { lang, id } = await params;
   const t = await getDictionary(lang);
 
   return (
