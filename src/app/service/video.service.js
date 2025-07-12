@@ -7,6 +7,7 @@ const videoService = {
     const { data } = await httpService.get(`/lib${videoEndpoint}`, {
       params: payload, // Передача параметра lang в query
     });
+    console.log("dataVideo", data);
     return data;
   },
 };

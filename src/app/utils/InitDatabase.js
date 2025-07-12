@@ -10,6 +10,8 @@ const productInfoMock = require("../mock/productinfo.json");
 const productInfoTranslationMock = require("../mock/productinfotranslation.json");
 const videosMock = require("../mock/video.json");
 const Video = require("../../models/Video.js");
+const VideoTranslation = require("../../models/VideoTranslation.js");
+const videoInfoTranslationMock = require("../mock/videoTranslation.json");
 
 module.exports = async () => {
   const productTranslate = await ProductTranslation.find();
@@ -51,6 +53,12 @@ module.exports = async () => {
       "productInfoId",
       newList
     );
+  }
+
+  const videoInfoTranslation = await VideoTranslation.find();
+  console.log("video", videoInfoTranslation.length);
+  if (videoInfoTranslation.length !== videoInfoTranslationMock.length) {
+    await createInitialEntity(VideoTranslation, videoInfoTranslationMock);
   }
 };
 

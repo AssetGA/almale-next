@@ -14,8 +14,8 @@ export async function fetchVideo(lang) {
     //   }
     // ); // Замените на URL вашего API
     if (!res.ok) throw new Error("Ошибка при загрузке товаров");
-    const products = await res.json();
-    return products;
+    const videos = await res.json();
+    return videos;
   } catch (error) {
     console.error("Error fetching products:", error);
     return []; // Возвращаем пустой массив, если произошла ошибка

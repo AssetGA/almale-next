@@ -112,6 +112,7 @@
 // }
 
 import { fetchProducts } from "./actions/products";
+import { fetchVideo } from "./actions/video";
 
 // app/sitemap.ts (если у тебя App Router)import { fetchProducts } from "./actions/products";
 
@@ -157,5 +158,34 @@ export default async function sitemap() {
     }));
   });
 
-  return [...staticPages, ...productPages];
+  const videos = await fetchVideo("ru");
+
+  const videoEntries = videos.flatMap((video, index) =>
+    langs.map((lang) => ({
+      url: `${baseUrl}/${lang}/gallery/${index}`,
+      video: {
+        title: video.title || "Product Video",
+        description: video.description || "Video of the product",
+        thumbnailLoc:
+          video.videoUrl.charAt(0) === "/"
+            ? `${baseUrl}${video.videoUrl}`
+            : `${video.videoUrl}`, // или product.thumbnailUrl
+        contentLoc:
+          video.videoUrl.charAt(0) === "/"
+            ? `${baseUrl}${video.videoUrl}`
+            : `${video.videoUrl}`, // прямой путь к видео
+      },
+    }))
+  );
+  const videoPages = videoEntries.map((entry) => {
+    return {
+      url: entry.url,
+      video: entry.video,
+      lastModified: new Date().toISOString(),
+      changeFrequency: "weekly",
+      priority: 0.8,
+    };
+  });
+
+  return [...staticPages, ...productPages, ...videoPages];
 }
