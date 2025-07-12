@@ -13,7 +13,7 @@ export default function VideoPage() {
   const videos = useAppSelector((state) => state.video.entity);
   const loading = useAppSelector((state) => state.video.isLoading);
   const [currentId, setCurrentId] = useState(Number(params.id));
-
+  console.log("videos", videos);
   const video = useMemo(() => {
     const id = Number(params.id);
     return videos.find((_, index) => index === id);
