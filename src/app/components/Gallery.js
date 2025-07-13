@@ -8,7 +8,7 @@ import { fetchVideo } from "../actions/video";
 import { useSelector } from "react-redux";
 import { getVideos } from "../store/videoSlice";
 
-const images = [
+export const images = [
   { src: "/img/gallery/1.JPEG", altName: "Лудший подарок маме" },
   { src: "/img/gallery/2.JPEG", altName: "Подарок жене" },
   { src: "/img/set/1.png", altName: "Подарочный набор" },
