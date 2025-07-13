@@ -1,8 +1,26 @@
-const fs = require("fs");
-const path = require("path");
-const { fetchVideo } = require("../actions/video");
+import fs from "fs";
+import fetch from "node-fetch";
+import path from "path";
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.alma-le.com";
+
+async function fetchVideoSeo(lang) {
+  try {
+    const url = new URL(`${siteUrl}/lib/api/video`);
+    url.searchParams.append("lang", lang); // Добавляем параметр lang
+    const res = await fetch(url.href);
+    if (!res.ok) throw new Error("Ошибка при загрузке товаров");
+    const videos = await res.json();
+    return videos;
+  } catch (error) {
+    console.error("Error fetching products:", error);
+    return []; // Возвращаем пустой массив, если произошла ошибка
+  }
+}
 
 async function generateVideoSitemap() {
   const langs = ["kz", "ru", "en"];
@@ -12,9 +30,12 @@ async function generateVideoSitemap() {
   sitemap += `        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">\n`;
 
   for (const lang of langs) {
-    const videos = await fetchVideo(lang); // ждем список видео
+    const videos = await fetchVideoSeo(lang); // ждем список видео
     for (let i = 0; i < videos.length; i++) {
       const video = videos[i];
+      const videoSrc = video.videoUrl.startsWith("/")
+        ? `${siteUrl}${video.videoUrl}`
+        : video.videoUrl;
 
       sitemap += `  <url>\n`;
       sitemap += `    <loc>${siteUrl}/${lang}/gallery/${video._id}</loc>\n`;
@@ -28,7 +49,7 @@ async function generateVideoSitemap() {
       sitemap += `      <video:thumbnail_loc>${siteUrl}/img/gallery/${
         i + 1
       }.JPEG</video:thumbnail_loc>\n`;
-      sitemap += `      <video:content_loc>${siteUrl}${video.videoUrl}</video:content_loc>\n`;
+      sitemap += `      <video:content_loc>${videoSrc}</video:content_loc>\n`;
       sitemap += `      <video:publication_date>${new Date().toISOString()}</video:publication_date>\n`;
       sitemap += `    </video:video>\n`;
       sitemap += `  </url>\n`;
