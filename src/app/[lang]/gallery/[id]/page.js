@@ -8,7 +8,6 @@ import { fetchVideoById } from "../../../actions/video";
 export async function generateMetadata({ params }) {
   const { id, lang } = await params;
   const video = await fetchVideoById(lang, id); // или из JSON напрямую
-
   if (!video) return {};
   if (!video) {
     console.error(`❌ Ошибка: Товар с ID ${id} не найден`);

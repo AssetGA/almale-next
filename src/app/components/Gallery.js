@@ -4,6 +4,9 @@ import React, { useEffect, useRef } from "react";
 import Image from "next/image";
 import { gsap } from "gsap";
 import Link from "next/link";
+import { fetchVideo } from "../actions/video";
+import { useSelector } from "react-redux";
+import { getVideos } from "../store/videoSlice";
 
 const images = [
   { src: "/img/gallery/1.JPEG", altName: "Лудший подарок маме" },
@@ -11,7 +14,6 @@ const images = [
   { src: "/img/set/1.png", altName: "Подарочный набор" },
   { src: "/img/gallery/3.JPEG", altName: "Подарок любимому человеку" },
   { src: "/img/gallery/4.JPEG", altName: "Подарок на свадьбу" },
-  // { src: "/img/gallery/5.JPEG", altName: "Подарок невесте" },
   { src: "/img/gallery/6.JPEG", altName: "Подарок на той" },
   { src: "/img/gallery/7.JPEG", altName: "Медная посуда" },
   { src: "/img/gallery/8.JPEG", altName: "Набор медной посуды" },
@@ -40,11 +42,16 @@ const Gallery = ({ t, lang }) => {
     );
   }, []);
 
+  const videos = useSelector(getVideos());
+
+  const newList = images.map((elem, index) => {
+    return { ...elem, videoId: videos[index]?._id };
+  });
   return (
     <div className="relative grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 p-6">
-      {images.map((src, idx) => (
+      {newList.map((src, idx) => (
         <Link
-          href={`/${lang}/gallery/${idx}`}
+          href={`/${lang}/gallery/${src.videoId}`}
           className="w-full max-h-72"
           key={idx}
         >

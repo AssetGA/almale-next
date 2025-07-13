@@ -28,4 +28,9 @@ module.exports = {
       alternateRefs,
     };
   },
+  additionalSitemaps: [
+    `${
+      process.env.NEXT_PUBLIC_SITE_URL || "https://www.alma-le.com"
+    }/video-sitemap.xml`,
+  ],
 };

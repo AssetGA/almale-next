@@ -56,7 +56,7 @@ export const loadVideoList = (payload) => async (dispatch) => {
 };
 
 export const getVideoById = (id) => (state) => {
-  return state.video.entity ? state.video.entity[id] : null;
+  return state.video?.entity ? state.video.entity[id] : null;
 };
 
 export const videoAdd = (payload) => async (dispatch) => {
