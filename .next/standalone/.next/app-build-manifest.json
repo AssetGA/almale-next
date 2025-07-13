@@ -49,19 +49,19 @@
       "static/chunks/main-app-e1ebe562ef728b9c.js",
       "static/chunks/app/lib/api/order/[orderId]/route-fb0aab70f07db179.js"
     ],
-    "/lib/api/order/route": [
-      "static/chunks/webpack-b743091e48250276.js",
-      "static/chunks/4bd1b696-8faaa9800882e57e.js",
-      "static/chunks/898-0ee44d270e06154a.js",
-      "static/chunks/main-app-e1ebe562ef728b9c.js",
-      "static/chunks/app/lib/api/order/route-ffaaaa57482f24bd.js"
-    ],
     "/lib/api/product/[id]/route": [
       "static/chunks/webpack-b743091e48250276.js",
       "static/chunks/4bd1b696-8faaa9800882e57e.js",
       "static/chunks/898-0ee44d270e06154a.js",
       "static/chunks/main-app-e1ebe562ef728b9c.js",
       "static/chunks/app/lib/api/product/[id]/route-2e3319476fe8dd71.js"
+    ],
+    "/lib/api/order/route": [
+      "static/chunks/webpack-b743091e48250276.js",
+      "static/chunks/4bd1b696-8faaa9800882e57e.js",
+      "static/chunks/898-0ee44d270e06154a.js",
+      "static/chunks/main-app-e1ebe562ef728b9c.js",
+      "static/chunks/app/lib/api/order/route-ffaaaa57482f24bd.js"
     ],
     "/lib/api/product/info/route": [
       "static/chunks/webpack-b743091e48250276.js",
@@ -91,19 +91,19 @@
       "static/chunks/main-app-e1ebe562ef728b9c.js",
       "static/chunks/app/lib/api/session/route-3f9adbb2990064d4.js"
     ],
-    "/lib/api/signup/route": [
-      "static/chunks/webpack-b743091e48250276.js",
-      "static/chunks/4bd1b696-8faaa9800882e57e.js",
-      "static/chunks/898-0ee44d270e06154a.js",
-      "static/chunks/main-app-e1ebe562ef728b9c.js",
-      "static/chunks/app/lib/api/signup/route-857e624df2eeba7c.js"
-    ],
     "/lib/api/token/route": [
       "static/chunks/webpack-b743091e48250276.js",
       "static/chunks/4bd1b696-8faaa9800882e57e.js",
       "static/chunks/898-0ee44d270e06154a.js",
       "static/chunks/main-app-e1ebe562ef728b9c.js",
       "static/chunks/app/lib/api/token/route-c459755b15450be4.js"
+    ],
+    "/lib/api/signup/route": [
+      "static/chunks/webpack-b743091e48250276.js",
+      "static/chunks/4bd1b696-8faaa9800882e57e.js",
+      "static/chunks/898-0ee44d270e06154a.js",
+      "static/chunks/main-app-e1ebe562ef728b9c.js",
+      "static/chunks/app/lib/api/signup/route-857e624df2eeba7c.js"
     ],
     "/lib/api/user/getApi/route": [
       "static/chunks/webpack-b743091e48250276.js",

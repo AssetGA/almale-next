@@ -2,7 +2,7 @@
 
 import fetch from "node-fetch";
 
-export async function fetchVideo(lang) {
+async function fetchVideo(lang) {
   try {
     const url = new URL(`${process.env.NEXT_PUBLIC_SITE_URL}/lib/api/video`);
     url.searchParams.append("lang", lang); // Добавляем параметр lang
@@ -22,7 +22,7 @@ export async function fetchVideo(lang) {
   }
 }
 
-export async function fetchVideoById(lang, id) {
+async function fetchVideoById(lang, id) {
   try {
     const url = new URL(`${process.env.NEXT_PUBLIC_SITE_URL}/lib/api/video`);
     url.searchParams.append("lang", lang);
@@ -47,3 +47,8 @@ export async function fetchVideoById(lang, id) {
     return null;
   }
 }
+
+module.exports = {
+  fetchVideo,
+  fetchVideoById,
+};
