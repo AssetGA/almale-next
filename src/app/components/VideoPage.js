@@ -4,6 +4,8 @@ import React, { useEffect, useMemo, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../store/hooks";
 import { useParams, useRouter } from "next/navigation";
 import { getVideoById } from "../store/videoSlice";
+import Script from "next/script";
+import { images } from "./Gallery";
 
 export default function VideoPage() {
   const params = useParams();
@@ -19,6 +21,8 @@ export default function VideoPage() {
   }, [videos, videoId]);
   console.log("curre", currentIndex);
   const video = videos?.[currentIndex];
+
+  const image = images?.[currentIndex];
 
   useEffect(() => {
     if (!videos || videos.length === 0) return;
@@ -83,6 +87,29 @@ export default function VideoPage() {
       <p className="mt-6 text-lg text-gray-300 text-center max-w-2xl">
         {video?.description}
       </p>
+      {video && (
+        <Script
+          id="video-jsonld"
+          type="application/ld+json"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "VideoObject",
+              name: video.title || "Видео",
+              description: video.description || "Описание видео",
+              thumbnailUrl: `${process.env.NEXT_PUBLIC_SITE_URL}${image.src}`,
+              uploadDate: video.createdAt
+                ? new Date(video.createdAt).toISOString()
+                : new Date().toISOString(),
+              contentUrl: video.videoUrl,
+              embedUrl: video.videoUrl.startsWith("http")
+                ? video.videoUrl
+                : `${process.env.NEXT_PUBLIC_SITE_URL}${video.videoUrl}`,
+            }),
+          }}
+        />
+      )}
     </div>
   );
 }
