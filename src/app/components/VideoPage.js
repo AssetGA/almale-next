@@ -10,25 +10,24 @@ export default function VideoPage() {
   const router = useRouter();
   const dispatch = useAppDispatch();
 
+  const videoId = params?.id; // например: /gallery/675a... (если route: /gallery/[id])
   const videos = useAppSelector((state) => state.video.entity);
   const loading = useAppSelector((state) => state.video.isLoading);
-  const [currentId, setCurrentId] = useState(Number(params.id));
-  console.log("videos", videos);
-  const video = useMemo(() => {
-    const id = Number(params.id);
-    return videos.find((_, index) => index === id);
-  }, [videos, params.id]);
+
+  const currentIndex = useMemo(() => {
+    return videos.findIndex((v) => v._id === videoId);
+  }, [videos, videoId]);
+  console.log("curre", currentIndex);
+  const video = videos?.[currentIndex];
 
   useEffect(() => {
-    if (!video && loading) {
-      dispatch(getVideoById(currentId));
-    }
-  }, [dispatch, currentId, video]);
+    if (!videos || videos.length === 0) return;
+    if (!video) dispatch(getVideoById(currentIndex));
+  }, [dispatch, currentIndex, videos]);
 
-  const goToVideo = (newId) => {
-    if (newId >= 0 && newId < videos.length) {
-      setCurrentId(newId);
-      router.push(`/gallery/${newId}`);
+  const goToVideo = (newIndex) => {
+    if (newIndex >= 0 && newIndex < videos.length) {
+      router.push(`/gallery/${videos[newIndex]._id}`);
     }
   };
 
@@ -40,15 +39,15 @@ export default function VideoPage() {
       <div className="grid grid-cols-2">
         <button
           className="px-4 py-3 w-full hover:bg-gray-header hover:text-black/80 transition-all duration-1000"
-          disabled={currentId === 0}
-          onClick={() => goToVideo(currentId - 1)}
+          disabled={currentIndex === 0}
+          onClick={() => goToVideo(currentIndex - 1)}
         >
           предыдущее
         </button>
         <button
           className="px-4 py-3 w-full hover:bg-gray-header hover:text-black/80 transition-all duration-1000"
-          disabled={currentId === videos.length - 1}
-          onClick={() => goToVideo(currentId + 1)}
+          disabled={currentIndex === videos.length - 1}
+          onClick={() => goToVideo(currentIndex + 1)}
         >
           следующее
         </button>

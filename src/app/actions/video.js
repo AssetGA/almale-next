@@ -40,7 +40,7 @@ export async function fetchVideoById(lang, id) {
     const videos = await res.json();
 
     // Найдём видео по id
-    const video = videos.find((v) => String(v.id) === String(id));
+    const video = videos.find((v) => String(v._id) === String(id));
     return video ?? null;
   } catch (error) {
     console.error("Ошибка при загрузке видео:", error);

@@ -158,25 +158,30 @@ export default async function sitemap() {
     }));
   });
 
-  const videos = await fetchVideo("ru");
+  const videoList = await Promise.all(
+    langs.map(async (lang) => {
+      const videos = await fetchVideo(lang); // массив
+      return videos.map((video) => ({ lang, video }));
+    })
+  );
 
-  const videoEntries = videos.flatMap((video, index) =>
-    langs.map((lang) => ({
-      url: `${baseUrl}/${lang}/gallery/${index}`,
+  const videoEntries = videoList.flatMap((items) =>
+    items.map(({ lang, video }) => ({
+      url: `${baseUrl}/${lang}/gallery/${video._id}`,
       video: {
         title: video.title || "Product Video",
         description: video.description || "Video of the product",
-        thumbnailLoc:
-          video.videoUrl.charAt(0) === "/"
-            ? `${baseUrl}${video.videoUrl}`
-            : `${video.videoUrl}`, // или product.thumbnailUrl
-        contentLoc:
-          video.videoUrl.charAt(0) === "/"
-            ? `${baseUrl}${video.videoUrl}`
-            : `${video.videoUrl}`, // прямой путь к видео
+        thumbnailLoc: video.videoUrl?.startsWith("/")
+          ? `${baseUrl}${video.videoUrl}`
+          : video.videoUrl,
+        contentLoc: video.videoUrl?.startsWith("/")
+          ? `${baseUrl}${video.videoUrl}`
+          : video.videoUrl,
+        publicationDate: new Date().toISOString(),
       },
     }))
   );
+
   const videoPages = videoEntries.map((entry) => {
     return {
       url: entry.url,
