@@ -21,6 +21,7 @@ export default async function middleware(request) {
   if (
     pathname === "/sitemap.xml" ||
     pathname === "/sitemap-index.xml" ||
+    pathname === "/image-sitemap.xml" ||
     pathname === "/videos" ||
     pathname === "/sitemap-0.xml" ||
     pathname === "/robots.txt" ||
