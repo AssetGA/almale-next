@@ -32,5 +32,8 @@ module.exports = {
     `${
       process.env.NEXT_PUBLIC_SITE_URL || "https://www.alma-le.com"
     }/video-sitemap.xml`,
+    `${
+      process.env.NEXT_PUBLIC_SITE_URL || "https://www.alma-le.com"
+    }/image-sitemap.xml`,
   ],
 };
