@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "postbuild": "next-sitemap && node scripts/generate-video-sitemap.mjs"
+    "postbuild": "next-sitemap && node scripts/generate-video-sitemap.mjs && node scripts/generate-image-sitemap.mjs"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
