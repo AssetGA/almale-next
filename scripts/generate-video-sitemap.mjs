@@ -35,8 +35,8 @@ async function generateVideoSitemap() {
       const video = videos[i];
 
       const videoSrcNew = video.videoUrl.startsWith("/")
-        ? `<video:player_loc allow_embed='yes' autoplay='ap=1'>${video.videoUrl}</video:player_loc>\n`
-        : `<video:content_loc>${video.videoUrl}</video:content_loc>\n`;
+        ? `<video:content_loc>${video.videoUrl}</video:content_loc>\n`
+        : `<video:player_loc allow_embed='yes' autoplay='ap=1'>${video.videoUrl}</video:player_loc>\n`;
       sitemap += `  <url>\n`;
       sitemap += `    <loc>${siteUrl}/${lang}/gallery/${video._id}</loc>\n`;
       sitemap += `    <video:video>\n`;
