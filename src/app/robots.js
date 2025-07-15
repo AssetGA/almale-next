@@ -2,29 +2,47 @@ export default function robots() {
   return {
     rules: [
       {
-        userAgent: "*", // Разрешает всем поисковикам индексировать сайт
+        userAgent: "*",
         allow: ["/"],
-        disallow: ["/private/", "/admin/"], // Закрытые разделы
+        disallow: ["/private/", "/admin/"],
       },
       {
         userAgent: "Googlebot",
-        allow: ["/", "/img/", "/video"], // ✅ Разрешает индексировать картинки
-        disallow: ["/private/"],
+        allow: [
+          "/",
+          "/img/",
+          "/video/",
+          "/kz/gallery/",
+          "/ru/gallery/",
+          "/en/gallery/",
+        ],
       },
       {
         userAgent: ["Applebot", "Bingbot"],
-        allow: ["/", "/images/", "/img/", "/video"], // ✅ Разрешает индексировать картинки
-        disallow: ["/admin/"], // Закрытые разделы
+        allow: ["/", "/images/", "/img/", "/video/"],
+        disallow: ["/admin/"],
       },
       {
-        userAgent: "Googlebot-Image", // ✅ Разрешает индексацию картинок Google Images
-        allow: ["/images/", "/img/", "/public/", "/video/"], // ✅ Папки с изображениями
+        userAgent: "Googlebot-Image",
+        allow: [
+          "/images/",
+          "/img/",
+          "/public/",
+          "/video/",
+          "/kz/gallery/",
+          "/ru/gallery/",
+          "/en/gallery/",
+        ],
+      },
+      {
+        userAgent: "Googlebot-Video",
+        allow: ["/video/", "/ru/gallery/", "/en/gallery/", "/kz/gallery/"],
       },
     ],
     sitemap: [
       "https://alma-le.com/sitemap.xml",
       "https://alma-le.com/sitemap-index.xml",
-      "https://alma-le.com/video-sitemap.xml",
+      "https://alma-le.com/video-sitemap.xml", // Обязательно добавьте видео-карту
     ],
   };
 }
