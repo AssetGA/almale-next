@@ -76,8 +76,9 @@ export default function VideoPage() {
             width="100%"
             height="500"
             src={video.videoUrl}
-            title="YouTube video"
+            title={video.title}
             frameBorder="0"
+            loading="lazy"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
           ></iframe>
@@ -103,6 +104,7 @@ export default function VideoPage() {
                 ? new Date(video.createdAt).toISOString()
                 : new Date().toISOString(),
               contentUrl: video.videoUrl,
+              duration: "PT3M42S",
               embedUrl: video.videoUrl.startsWith("http")
                 ? video.videoUrl
                 : `${process.env.NEXT_PUBLIC_SITE_URL}${video.videoUrl}`,

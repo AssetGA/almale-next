@@ -33,10 +33,10 @@ async function generateVideoSitemap() {
     const videos = await fetchVideoSeo(lang); // ждем список видео
     for (let i = 0; i < videos.length; i++) {
       const video = videos[i];
-      const videoSrc = video.videoUrl.startsWith("/")
-        ? `${siteUrl}${video.videoUrl}`
-        : video.videoUrl;
 
+      const videoSrcNew = video.videoUrl.startsWith("/")
+        ? `<video:player_loc allow_embed='yes' autoplay='ap=1'>${video.videoUrl}</video:player_loc>\n`
+        : `<video:content_loc>${video.videoUrl}</video:content_loc>\n`;
       sitemap += `  <url>\n`;
       sitemap += `    <loc>${siteUrl}/${lang}/gallery/${video._id}</loc>\n`;
       sitemap += `    <video:video>\n`;
@@ -44,12 +44,12 @@ async function generateVideoSitemap() {
         video.title || "Video"
       }]]></video:title>\n`;
       sitemap += `      <video:description><![CDATA[${
-        video.description || "Description"
+        video.description || "Alma`le лудшая посуда для приготовления блюд"
       }]]></video:description>\n`;
       sitemap += `      <video:thumbnail_loc>${siteUrl}/img/gallery/${
         i + 1
       }.JPEG</video:thumbnail_loc>\n`;
-      sitemap += `      <video:content_loc>${videoSrc}</video:content_loc>\n`;
+      sitemap += `      ${videoSrcNew}`;
       sitemap += `      <video:publication_date>${new Date().toISOString()}</video:publication_date>\n`;
       sitemap += `    </video:video>\n`;
       sitemap += `  </url>\n`;
