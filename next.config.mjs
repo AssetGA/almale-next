@@ -27,7 +27,7 @@ const nextConfig = {
         headers: [
           {
             key: "X-Frame-Options",
-            value: "ALLOW-FROM http://example.com", // Разрешить загрузку только с указанного домена
+            value: "ALLOW-FROM http://alma-le.com", // Разрешить загрузку только с указанного домена
           },
         ],
       },
