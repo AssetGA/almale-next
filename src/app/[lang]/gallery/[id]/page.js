@@ -1,7 +1,7 @@
 import React from "react";
 import VideoPage from "../../../components/VideoPage";
 import { getDictionary } from "../../dictionaries";
-import { fetchVideoById } from "../../../actions/video";
+import { fetchVideoById, fetchVideo } from "../../../actions/video";
 
 // app/video/[id]/page.tsx (или любую страницу, где используешь видео)
 
@@ -51,13 +51,38 @@ export async function generateMetadata({ params }) {
   };
 }
 
+export async function generateStaticParams() {
+  // Укажите возможные значения для [lang] и [id]
+  const langs = ["kz", "en", "ru"]; // Например, поддерживаемые языки
+  const params = [];
+
+  for (const lang of langs) {
+    const videos = await fetchVideo(lang); // Получаем продукты для текущего языка
+
+    if (videos.length === 0) {
+      console.warn(`No products found for language: ${lang}`);
+      continue; // Пропускаем, если для языка нет продуктов
+    }
+
+    // Преобразуем список продуктов в массив id
+    const videoIds = videos.map((elem) => elem._id);
+
+    videoIds.forEach((id) => {
+      params.push({ lang, id });
+    });
+  }
+
+  return params; // Возвращаем параметры для генерации статичных страниц
+}
+
 async function page({ params }) {
   const { lang, id } = await params;
+
   const t = await getDictionary(lang);
 
   return (
     <>
-      <VideoPage />
+      <VideoPage id={id} lang={lang} />
     </>
   );
 }
