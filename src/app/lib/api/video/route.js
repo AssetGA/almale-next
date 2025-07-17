@@ -15,7 +15,7 @@ export async function GET(request) {
     const newList = await Promise.all(
       list.map(async (elem, index) => {
         const translation = await VideoTranslation.findOne({
-          videoId: index,
+          videoId: String(index),
           language: lang,
         });
         const localizedProduct = {
