@@ -155,3 +155,18 @@ export const videos = [
     img: "/img/set/2.png",
   },
 ];
+
+export const images = [
+  { src: "/img/gallery/1.JPEG", altName: "Лудший подарок маме" },
+  { src: "/img/gallery/2.JPEG", altName: "Подарок жене" },
+  { src: "/img/set/1.png", altName: "Подарочный набор" },
+  { src: "/img/gallery/3.JPEG", altName: "Подарок любимому человеку" },
+  { src: "/img/gallery/4.JPEG", altName: "Подарок на свадьбу" },
+  { src: "/img/gallery/6.JPEG", altName: "Подарок на той" },
+  { src: "/img/gallery/7.JPEG", altName: "Медная посуда" },
+  { src: "/img/gallery/8.JPEG", altName: "Набор медной посуды" },
+  { src: "/img/gallery/9.JPEG", altName: "Лудщий подарок" },
+  { src: "/img/gallery/10.JPEG", altName: "Здоровье семьи" },
+  { src: "/img/gallery/11.JPEG", altName: "Медная сковорода" },
+  { src: "/img/4-блок_Миссия.jpg", altName: "Медная сковорода" },
+];

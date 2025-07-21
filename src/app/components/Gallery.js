@@ -4,7 +4,6 @@ import React, { useEffect, useRef } from "react";
 import Image from "next/image";
 import { gsap } from "gsap";
 import Link from "next/link";
-import { fetchVideo } from "../actions/video";
 import { useSelector } from "react-redux";
 import { getVideos } from "../store/videoSlice";
 

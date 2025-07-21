@@ -1,118 +1,6 @@
-// export default function sitemap() {
-//   return [
-//     {
-//       url: "https://alma-le.com/kz",
-//       lastModified: new Date(),
-//       changeFrequency: "yearly",
-//       priority: 1,
-//     },
-//     {
-//       url: "https://alma-le.com/ru",
-//       lastModified: new Date(),
-//       changeFrequency: "yearly",
-//       priority: 1,
-//     },
-//     {
-//       url: "https://alma-le.com/en",
-//       lastModified: new Date(),
-//       changeFrequency: "yearly",
-//       priority: 1,
-//     },
-//     {
-//       url: "https://alma-le.com/kz/product",
-//       lastModified: new Date(),
-//       changeFrequency: "monthly",
-//       priority: 0.8,
-//     },
-//     {
-//       url: "https://alma-le.com/ru/product",
-//       lastModified: new Date(),
-//       changeFrequency: "monthly",
-//       priority: 0.8,
-//     },
-//     {
-//       url: "https://alma-le.com/en/product",
-//       lastModified: new Date(),
-//       changeFrequency: "monthly",
-//       priority: 0.8,
-//     },
-//     {
-//       url: "https://www.alma-le.com/kz/product/671f8ad851c70fa561f432e3",
-//       lastModified: new Date(),
-//       changeFrequency: "weekly",
-//       priority: 0.5,
-//     },
-//     {
-//       url: "https://www.alma-le.com/ru/product/671f8ad851c70fa561f432e3",
-//       lastModified: new Date(),
-//       changeFrequency: "weekly",
-//       priority: 0.5,
-//     },
-//     {
-//       url: "https://www.alma-le.com/en/product/671f8ad851c70fa561f432e3",
-//       lastModified: new Date(),
-//       changeFrequency: "weekly",
-//       priority: 0.5,
-//     },
-//     {
-//       url: "https://www.alma-le.com/kz/product/671f8ad851c70fa561f432e5",
-//       lastModified: new Date(),
-//       changeFrequency: "weekly",
-//       priority: 0.5,
-//     },
-//     {
-//       url: "https://www.alma-le.com/ru/product/671f8ad851c70fa561f432e5",
-//       lastModified: new Date(),
-//       changeFrequency: "weekly",
-//       priority: 0.5,
-//     },
-//     {
-//       url: "https://www.alma-le.com/en/product/671f8ad851c70fa561f432e5",
-//       lastModified: new Date(),
-//       changeFrequency: "weekly",
-//       priority: 0.5,
-//     },
-//     {
-//       url: "https://www.alma-le.com/kz/product/671f8ad851c70fa561f432e6",
-//       lastModified: new Date(),
-//       changeFrequency: "weekly",
-//       priority: 0.5,
-//     },
-//     {
-//       url: "https://www.alma-le.com/ru/product/671f8ad851c70fa561f432e6",
-//       lastModified: new Date(),
-//       changeFrequency: "weekly",
-//       priority: 0.5,
-//     },
-//     {
-//       url: "https://www.alma-le.com/en/product/671f8ad851c70fa561f432e6",
-//       lastModified: new Date(),
-//       changeFrequency: "weekly",
-//       priority: 0.5,
-//     },
-//     {
-//       url: "https://www.alma-le.com/kz/product/671f8ad851c70fa561f432e4",
-//       lastModified: new Date(),
-//       changeFrequency: "weekly",
-//       priority: 0.5,
-//     },
-//     {
-//       url: "https://www.alma-le.com/ru/product/671f8ad851c70fa561f432e4",
-//       lastModified: new Date(),
-//       changeFrequency: "weekly",
-//       priority: 0.5,
-//     },
-//     {
-//       url: "https://www.alma-le.com/en/product/671f8ad851c70fa561f432e4",
-//       lastModified: new Date(),
-//       changeFrequency: "weekly",
-//       priority: 0.5,
-//     },
-//   ];
-// }
-
 import { fetchProducts } from "./actions/products";
 import { fetchVideo } from "./actions/video";
+import { images } from "./utils/api";
 
 // app/sitemap.ts (если у тебя App Router)import { fetchProducts } from "./actions/products";
 
@@ -165,16 +53,17 @@ export default async function sitemap() {
     })
   );
 
-  const videoEntries = videoList.flatMap((items) =>
+  const videoEntries = videoList.flatMap((items, index) =>
     items.map(({ lang, video }) => ({
       url: `${baseUrl}/${lang}/gallery/${video._id}`,
       video: {
         title: video.title || "Product Video",
         description: video.description || "Video of the product",
-        thumbnailLoc: video.videoUrl?.startsWith("/")
-          ? `${baseUrl}${video.videoUrl}`
-          : video.videoUrl,
-        contentLoc: video.videoUrl?.startsWith("/")
+        thumbnailLoc:
+          images[index] !== undefined
+            ? `${baseUrl}${images[index]}`
+            : `${baseUrl}/img/gallery/1.JPEG`,
+        contentLoc: video.videoUrl.startsWith("/")
           ? `${baseUrl}${video.videoUrl}`
           : video.videoUrl,
         publicationDate: new Date().toISOString(),
