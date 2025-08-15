@@ -2,6 +2,13 @@
 
 const nextConfig = {
   output: "standalone",
+  productionBrowserSourceMaps: false, // убирает eval из source maps
+  webpack: (config, { dev }) => {
+    if (!dev) {
+      config.devtool = false; // убирает eval в продакшене
+    }
+    return config;
+  },
   images: {
     remotePatterns: [
       {
