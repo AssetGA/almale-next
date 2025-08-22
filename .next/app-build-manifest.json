@@ -25,6 +25,16 @@
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/lib/api/video/route.js"
+    ],
+    "/[lang]/gallery/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/[lang]/gallery/page.js"
+    ],
+    "/[lang]/gallery/[id]/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/[lang]/gallery/[id]/page.js"
     ]
   }
 }
