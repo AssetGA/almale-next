@@ -2,67 +2,60 @@ import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
 import { decrypt } from "./app/lib/session";
 
-// 1. Specify protected and public routes
 const protectedRoutes = ["/basket", "/payment"];
 const publicRoutes = ["/product", "/login", "/signup", "/"];
 
-let locales = ["kz", "en", "ru"];
-let defaultLocale = "kz";
+const locales = ["kz", "en", "ru"];
+const defaultLocale = "kz";
 
-// Get the preferred locale, similar to the above or using a library
 function getLocale() {
   return defaultLocale;
 }
 
 export default async function middleware(request) {
-  // Check if there is any supported locale in the pathname
-
   const { pathname } = request.nextUrl;
+
+  // --- Исключения (не трогаем статику и sitemap) ---
   if (
     pathname === "/sitemap.xml" ||
     pathname === "/sitemap-index.xml" ||
     pathname === "/image-sitemap.xml" ||
-    pathname === "/videos" ||
     pathname === "/sitemap-0.xml" ||
     pathname === "/robots.txt" ||
+    pathname === "/favicon.ico" ||
     pathname.startsWith("/video") ||
     pathname.startsWith("/videos") ||
     pathname.startsWith("/img") ||
-    pathname === "/favicon.ico" ||
     pathname.startsWith("/fonts") ||
     pathname.startsWith("/dictionaries") ||
+    pathname.startsWith("/lib/api") ||
     pathname.endsWith(".woff2") ||
     pathname.endsWith(".ttf") ||
-    pathname.startsWith("/lib/api") ||
     pathname.endsWith(".css")
   ) {
     return NextResponse.next();
   }
 
+  // --- Проверка на наличие locale в URL ---
   const pathnameHasLocale = locales.some(
     (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
   );
 
-  // 3. Decrypt the session from the cookie
-  const cookie = (await cookies()).get("session")?.value;
-
-  const session = await decrypt(cookie);
-
-  // Redirect if there is no locale
-
   const locale = getLocale();
 
-  // 4. Redirect if there is no locale in the path
   if (!pathnameHasLocale) {
     return NextResponse.redirect(
       new URL(`/${locale}${pathname}`, request.nextUrl)
     );
   }
 
-  const currentLocale = locales.find(
-    (locale) =>
-      pathname.startsWith(`/${locale}`) || pathname.startsWith(`/${locale}/`)
-  );
+  const currentLocale =
+    locales.find((locale) => pathname.startsWith(`/${locale}`)) ||
+    defaultLocale;
+
+  // --- Достаём session ---
+  const cookie = (await cookies()).get("session")?.value;
+  const session = await decrypt(cookie);
 
   const isProtectedRoute = protectedRoutes.some((route) =>
     pathname.startsWith(`/${currentLocale}${route}`)
@@ -71,31 +64,29 @@ export default async function middleware(request) {
     pathname.startsWith(`/${currentLocale}${route}`)
   );
 
-  // 5. Redirect to /login if the user is not authenticated
+  // --- Если маршрут защищённый и нет сессии -> редирект на login ---
   if (isProtectedRoute && !session?.userId) {
     return NextResponse.redirect(
       new URL(`/${currentLocale}/login`, request.nextUrl)
     );
   }
-  // 4. Redirect if there is no locale in the path
 
-  if (
-    isPublicRoute &&
-    session?.userId &&
-    !session?.userId &&
-    !request.nextUrl.pathname.startsWith(`/${currentLocale}/product`)
-  ) {
+  // --- Если маршрут публичный, но пользователь авторизован -> редирект на product ---
+  if (isPublicRoute && session?.userId) {
     return NextResponse.redirect(
       new URL(`/${currentLocale}/product`, request.nextUrl)
     );
   }
 
+  // --- Ответ ---
   const response = NextResponse.next();
   response.headers.set("x-lang", currentLocale);
   response.headers.set("x-url", request.url);
+
+  // кука-токен (пример)
   response.headers.set(
     "Set-Cookie",
-    "user_token=xyz456; Secure; HttpOnly; SameSite=None; Partitioned; Path=/"
+    "user_token=xyz456; Secure; HttpOnly; SameSite=None; Path=/"
   );
 
   return response;
