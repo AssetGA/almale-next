@@ -1,18 +1,14 @@
-"use client";
+import Head from "next/head";
 
-import { usePathname } from "next/navigation";
-
-export default function VideoSeo({ video, image }) {
-  const pathname = usePathname();
-
+export default function VideoSeo({ video, image, pathname }) {
   if (!video) return null;
-
+  console.log("pathn", pathname);
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "VideoObject",
     name: video.title,
     description: video.description,
-    thumbnailUrl: `${process.env.NEXT_PUBLIC_SITE_URL}${image}`,
+    thumbnailUrl: `${process.env.NEXT_PUBLIC_SITE_URL}/${image}`,
     uploadDate: video.createdAt || new Date().toISOString(),
     contentUrl: video.videoUrl,
     duration: "PT3M42S",
@@ -25,10 +21,12 @@ export default function VideoSeo({ video, image }) {
   };
 
   return (
-    <script
-      id="video-jsonld"
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-    />
+    <Head>
+      <script
+        id="video-jsonld"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+    </Head>
   );
 }
