@@ -77,14 +77,9 @@ export async function generateStaticParams() {
 
 async function page({ params }) {
   const { lang, id } = await params;
-
   const t = await getDictionary(lang);
-
-  return (
-    <>
-      <VideoPage id={id} lang={lang} />
-    </>
-  );
+  const pathname = `/${lang}/gallery/${id}`;
+  return <VideoPage id={id} lang={lang} pathname={pathname} />;
 }
 
 export default page;
