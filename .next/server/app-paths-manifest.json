@@ -1,9 +1,8 @@
 {
-  "/_not-found/page": "app/_not-found/page.js",
-  "/lib/api/video/route": "app/lib/api/video/route.js",
   "/lib/api/product/route": "app/lib/api/product/route.js",
   "/lib/api/product/info/route": "app/lib/api/product/info/route.js",
+  "/lib/api/video/route": "app/lib/api/video/route.js",
+  "/[lang]/gallery/[id]/page": "app/[lang]/gallery/[id]/page.js",
   "/[lang]/page": "app/[lang]/page.js",
-  "/[lang]/gallery/page": "app/[lang]/gallery/page.js",
-  "/[lang]/gallery/[id]/page": "app/[lang]/gallery/[id]/page.js"
+  "/[lang]/gallery/page": "app/[lang]/gallery/page.js"
 }
