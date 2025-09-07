@@ -11,7 +11,7 @@ export default async function VideoPage({ id, lang, pathname }) {
 
   const currentIndex = videos.findIndex((v) => v._id === id);
   const image = images[currentIndex];
-
+  console.log("video", image.src);
   return (
     <>
       <VideoSeo video={video} image={image?.src} pathname={pathname} />
