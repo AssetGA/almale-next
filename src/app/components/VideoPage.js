@@ -1,7 +1,15 @@
 import { fetchVideo } from "../actions/video.js";
 import { notFound } from "next/navigation";
 import { images } from "../utils/api.js";
-import { makeAbsoluteUrl } from "../components/VideoSeo.js";
+
+export function makeAbsoluteUrl(path) {
+  if (!path || typeof path !== "string") return undefined;
+
+  if (path.startsWith("http")) return path;
+
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "";
+  return `${baseUrl}${path.startsWith("/") ? path : `/${path}`}`;
+}
 
 export default async function VideoPage({ id, lang, pathname }) {
   const videos = await fetchVideo(lang);
@@ -98,7 +106,7 @@ export default async function VideoPage({ id, lang, pathname }) {
               },
             },
             embedUrl: makeAbsoluteUrl(pathname),
-            contentUrl: video.videoUrl,
+            contentUrl: makeAbsoluteUrl(video.videoUrl),
           }),
         }}
       />
