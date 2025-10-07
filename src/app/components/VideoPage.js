@@ -1,19 +1,18 @@
 import { fetchVideo } from "../actions/video.js";
 import { notFound } from "next/navigation";
 import { images } from "../utils/api.js";
-import VideoSeo from "../components/VideoSeo.js";
+import { makeAbsoluteUrl } from "../components/VideoSeo.js";
 
 export default async function VideoPage({ id, lang, pathname }) {
   const videos = await fetchVideo(lang);
   const video = videos.find((v) => v._id === id);
 
   if (!video) return notFound();
-
+  console.log("video", pathname);
   const currentIndex = videos.findIndex((v) => v._id === id);
   const image = images[currentIndex];
   return (
     <>
-      <VideoSeo video={video} image={image?.src} pathname={pathname} />
       <main className="relative w-full min-h-screen bg-black text-white">
         {/* Видео на весь экран */}
         <div className="relative w-full h-screen">
@@ -79,6 +78,31 @@ export default async function VideoPage({ id, lang, pathname }) {
           )}
         </div>
       </main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "VideoObject",
+            name: video.title,
+            description: video.description,
+            thumbnailUrl: makeAbsoluteUrl(image),
+            uploadDate: new Date().toISOString(), // Динамическое определение даты
+            duration: "PT4M30S",
+            publisher: {
+              "@type": "Organization",
+              name: "Alma Le",
+              logo: {
+                "@type": "ImageObject",
+                url: "https://www.alma-le.com/img/logo.png",
+              },
+            },
+            embedUrl: makeAbsoluteUrl(pathname),
+            contentUrl: video.videoUrl,
+          }),
+        }}
+      />
+      {/* <VideoSeo video={video} image={image?.src} pathname={pathname} /> */}
     </>
   );
 }
