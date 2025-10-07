@@ -1,6 +1,6 @@
 import Head from "next/head";
 
-function makeAbsoluteUrl(path) {
+export function makeAbsoluteUrl(path) {
   if (!path) return undefined;
   if (path.startsWith("http")) return path; // уже абсолютный
   return `${process.env.NEXT_PUBLIC_SITE_URL}${
