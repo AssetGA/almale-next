@@ -94,7 +94,7 @@ export default async function VideoPage({ id, lang, pathname }) {
             "@type": "VideoObject",
             name: video.title,
             description: video.description,
-            thumbnailUrl: makeAbsoluteUrl(image),
+            thumbnailUrl: makeAbsoluteUrl(image?.src),
             uploadDate: new Date().toISOString(), // Динамическое определение даты
             duration: "PT4M30S",
             publisher: {
