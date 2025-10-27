@@ -68,7 +68,7 @@ export default async function LocaleLayout({ children, params }) {
       <body className={`${montserrat.className}`}>
         <StoreProvider lang={lang}>
           <Navbar lang={lang} t={t} />
-          <ChatWindow t={t} />
+          <ChatWindow t={t} lang={lang} />
           <main className="xl:container xl:mx-auto mt-24">{children}</main>
           <Footer lang={lang} t={t} />
         </StoreProvider>

@@ -21,10 +21,15 @@ class OpenAID {
     try {
       const completion = await this.openai.chat.completions.create({
         messages: messages,
-        model: "gpt-3.5-turbo",
+        model: "gpt-4o-mini",
+        temperature: 0.9,
         store: true,
       });
-      return completion.choices[0];
+      const reply =
+        completion.choices?.[0]?.message?.content ??
+        "Извините, не получил ответ от модели.";
+
+      return reply;
     } catch (error) {
       console.log("Error while chat", error.message);
     }
