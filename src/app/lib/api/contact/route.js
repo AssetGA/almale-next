@@ -25,6 +25,23 @@ export async function GET(request) {
     const email = searchParams.get("email");
     const message = searchParams.get("message");
 
+    // Проверка на отсутствие данных
+    const missingFields = [];
+    if (!name) missingFields.push("name");
+    if (!phone) missingFields.push("phone");
+    if (!email) missingFields.push("email");
+    if (!message) missingFields.push("message");
+
+    if (missingFields.length > 0) {
+      return NextResponse(
+        JSON.stringify({
+          success: false,
+          error: `Отсутствуют обязательные поля: ${missingFields.join(", ")}`,
+        }),
+        { status: 400, headers: { "Content-Type": "application/json" } }
+      );
+    }
+
     // Логика обработки
     const getInfo = await sendMessage(
       `Имя заказчика: ${name}, почта: ${email}, номер телефона: https://wa.me/${phone}, сообщение: ${message}`

@@ -42,6 +42,27 @@ module.exports = {
       perspective: {
         1000: "1000px",
       },
+      animation: {
+        "gem-glow": "gem-glow 3s ease-in-out infinite",
+      },
+      keyframes: {
+        "gem-glow": {
+          "0%, 100%": {
+            boxShadow: "0 0 5px rgba(34, 197, 94, 0.6)",
+          },
+          "25%": {
+            boxShadow:
+              "0 0 15px rgba(34, 197, 94, 0.8), 0 0 25px rgba(34, 197, 94, 0.4)",
+          },
+          "50%": {
+            boxShadow:
+              "0 0 10px rgba(245, 158, 11, 0.7), 0 0 20px rgba(34, 197, 94, 0.6)",
+          },
+          "75%": {
+            boxShadow: "0 0 15px rgba(34, 197, 94, 0.9)",
+          },
+        },
+      },
       // spacing: {
       //   128: "32rem",
       //   144: "36rem",

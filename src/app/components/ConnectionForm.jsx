@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import botService from "../service/bot-service";
+import { FaWhatsapp } from "react-icons/fa"; // ✅ иконка WhatsApp
 
 const ConnectionForm = ({ t }) => {
   const [formData, setFormData] = useState({
@@ -36,6 +37,14 @@ const ConnectionForm = ({ t }) => {
     } catch (error) {
       console.log("error", error.message);
     }
+  };
+
+  // ✅ Номер WhatsApp компании (можно заменить на свой)
+  const whatsappNumber = "+77471204110";
+
+  const handleWhatsAppClick = () => {
+    const url = `https://wa.me/${whatsappNumber.replace(/\D/g, "")}`;
+    window.open(url, "_blank");
   };
 
   return (
@@ -133,6 +142,13 @@ const ConnectionForm = ({ t }) => {
               <p className="pt-5">{t.form.aemail}</p>
               <p className="pt-5">{t.form.aphone}</p>
               <p className="pt-5">{t.form.aaddress}</p>
+              <button
+                onClick={handleWhatsAppClick}
+                className="mt-8 flex items-center justify-center gap-2 px-5 py-3 bg-[#25D366] hover:bg-[#1ebe5b] text-white rounded-full font-semibold transition-all duration-200 shadow-lg w-full"
+              >
+                <FaWhatsapp className="text-2xl" />
+                {t.form.whatsapp || "Написать в WhatsApp"}
+              </button>
             </div>
           </div>
         </div>
