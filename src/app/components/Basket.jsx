@@ -206,7 +206,7 @@ const Basket = ({ lang, t }) => {
 
   return (
     <div className="container mx-auto p-4  py-20">
-      <div className="flex flex-col lg:grid lg:grid-cols-2 gap-5 md:gap-10 xl:px-40">
+      <div className="flex flex-col lg:grid lg:grid-cols-2 gap-5 md:gap-9 xl:px-40">
         {/* Раздел с товарами */}
         <div className="w-full flex flex-col">
           <div className="flex flex-col">
