@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useState } from "react";
+import { locales } from "../lib/locales";
 
 const LanguageSwitcher = ({ lang }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -20,26 +21,17 @@ const LanguageSwitcher = ({ lang }) => {
       </button>
 
       {isOpen && (
-        <div className="absolute right-0 z-10 w-14 mt-2 origin-top-right bg-white border divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none z-60">
+        <div className="absolute end-0 z-10 mt-2 w-16 origin-top-right rounded-md border bg-white shadow-lg ring-1 ring-black ring-opacity-5">
           <div className="py-1">
-            <Link
-              href={`/kz${pathname.substring(3)}`}
-              className="block w-full px-4 py-2 text-sm text-gray-700 hover:bg-green-light hover:text-white"
-            >
-              kz
-            </Link>
-            <Link
-              href={`/ru${pathname.substring(3)}`}
-              className="block w-full px-4 py-2 text-sm text-gray-700 hover:bg-green-light hover:text-white"
-            >
-              ru
-            </Link>
-            <Link
-              href={`/en${pathname.substring(3)}`}
-              className="block w-full px-4 py-2 text-sm text-gray-700 hover:bg-green-light hover:text-white"
-            >
-              en
-            </Link>
+            {locales.map((code) => (
+              <Link
+                key={code}
+                href={`/${code}${pathname.substring(3)}`}
+                className="block w-full px-4 py-2 text-sm uppercase text-gray-700 hover:bg-green-light hover:text-white"
+              >
+                {code}
+              </Link>
+            ))}
           </div>
         </div>
       )}

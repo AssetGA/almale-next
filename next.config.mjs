@@ -30,11 +30,29 @@ const nextConfig = {
   async headers() {
     return [
       {
-        source: "/:path*", // Применяется ко всем путям
+        source: "/:path*",
         headers: [
           {
             key: "X-Frame-Options",
-            value: "ALLOW-FROM http://alma-le.com", // Разрешить загрузку только с указанного домена
+            value: "ALLOW-FROM http://alma-le.com",
+          },
+        ],
+      },
+      {
+        source: "/img/:path*",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=604800, stale-while-revalidate=2592000",
+          },
+        ],
+      },
+      {
+        source: "/fonts/:path*",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
           },
         ],
       },

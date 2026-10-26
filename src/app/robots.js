@@ -1,48 +1,53 @@
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.alma-le.com";
+
+const aiAgents = [
+  "GPTBot",
+  "ChatGPT-User",
+  "OAI-SearchBot",
+  "Google-Extended",
+  "GoogleOther",
+  "PerplexityBot",
+  "Perplexity-User",
+  "ClaudeBot",
+  "Claude-User",
+  "anthropic-ai",
+  "Applebot-Extended",
+  "Bingbot",
+  "Amazonbot",
+  "Bytespider",
+  "CCBot",
+  "Meta-ExternalAgent",
+  "FacebookBot",
+  "cohere-ai",
+];
+
 export default function robots() {
   return {
     rules: [
       {
         userAgent: "*",
         allow: ["/"],
-        disallow: ["/private/", "/admin/"],
+        disallow: ["/private/", "/admin/", "/login", "/signup", "/basket", "/payment"],
+      },
+      {
+        userAgent: aiAgents,
+        allow: ["/"],
+        disallow: ["/private/", "/admin/", "/login", "/signup", "/basket", "/payment"],
       },
       {
         userAgent: "Googlebot",
-        allow: [
-          "/",
-          "/img/",
-          "/video/",
-          "/kz/gallery/",
-          "/ru/gallery/",
-          "/en/gallery/",
-        ],
-      },
-      {
-        userAgent: ["Applebot", "Bingbot"],
-        allow: ["/", "/images/", "/img/", "/video/"],
-        disallow: ["/admin/"],
+        allow: ["/", "/img/", "/video/", "/kz/", "/ru/", "/en/", "/llms.txt"],
       },
       {
         userAgent: "Googlebot-Image",
-        allow: [
-          "/images/",
-          "/img/",
-          "/public/",
-          "/video/",
-          "/kz/gallery/",
-          "/ru/gallery/",
-          "/en/gallery/",
-        ],
+        allow: ["/img/", "/video/", "/kz/gallery/", "/ru/gallery/", "/en/gallery/"],
       },
       {
         userAgent: "Googlebot-Video",
         allow: ["/video/", "/ru/gallery/", "/en/gallery/", "/kz/gallery/"],
       },
     ],
-    sitemap: [
-      "https://alma-le.com/sitemap.xml",
-      "https://alma-le.com/sitemap-index.xml",
-      "https://alma-le.com/video-sitemap.xml", // Обязательно добавьте видео-карту
-    ],
+    sitemap: [`${siteUrl}/sitemap.xml`, `${siteUrl}/video-sitemap.xml`],
+    host: "www.alma-le.com",
   };
 }

@@ -1,5 +1,6 @@
 import Main from "../components/Main";
 import { getDictionary } from "./dictionaries";
+import { languageAlternates } from "../lib/locales";
 
 export async function generateMetadata({ params }) {
   const { lang } = await params;
@@ -23,12 +24,7 @@ export async function generateMetadata({ params }) {
       "al:android:url": "https://www.instagram.com/almale_com/", // ✅ Instagram Web Link
     },
     alternates: {
-      languages: {
-        "x-default": `${baseUrl}/ru`,
-        en: `${baseUrl}/en`,
-        ru: `${baseUrl}/ru`,
-        kk: `${baseUrl}/kz`, // ✅ Correct ISO 639-1 language code
-      },
+      languages: languageAlternates(baseUrl, ""),
     },
     keywords: `${t.metadata.keywords}`,
 
@@ -44,35 +40,69 @@ export async function generateMetadata({ params }) {
 
 export default async function Home({ params }) {
   const { lang } = await params;
+  const t = await getDictionary(lang);
+  const site = process.env.NEXT_PUBLIC_SITE_URL || "https://www.alma-le.com";
+  const pageUrl = `${site}/${lang}`;
+  const productUrl = `${site}/${lang}/product`;
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        name: "Alma Le",
+        url: `${site}/ru`,
+        logo: `${site}/img/logo.png`,
+        sameAs: ["https://www.instagram.com/almale_com/"],
+      },
+      {
+        "@type": "WebSite",
+        name: "Alma Le",
+        url: pageUrl,
+        inLanguage: lang === "kz" ? "kk" : lang,
+        publisher: { "@type": "Organization", name: "Alma Le" },
+      },
+      {
+        "@type": "Product",
+        name: t.metadata.title,
+        description: t.metadata.description,
+        category: t.product.one,
+        material: t.brand.three,
+        image: [
+          `${site}/img/set/0.png`,
+          `${site}/img/set/1.png`,
+          `${site}/img/set/2.png`,
+        ],
+        brand: { "@type": "Brand", name: "Alma Le" },
+        offers: {
+          "@type": "Offer",
+          price: "395000",
+          priceCurrency: "KZT",
+          availability: "https://schema.org/InStock",
+          url: productUrl,
+        },
+      },
+    ],
+  };
+
   return (
     <>
+      <link
+        rel="preload"
+        as="image"
+        href="/img/main.webp"
+        media="(max-width: 639px)"
+        fetchPriority="high"
+      />
+      <link
+        rel="preload"
+        as="image"
+        href="/img/front.webp"
+        media="(min-width: 640px)"
+        fetchPriority="high"
+      />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Product",
-            name: "Медный набор посуды Alma Le",
-            description: "Профессиональная медная посуда для кухни.",
-            image: [
-              "https://www.alma-le.com/img/set/0.png",
-              "https://www.alma-le.com/img/set/1.png",
-              "https://www.alma-le.com/img/set/2.png",
-            ],
-            brand: {
-              "@type": "Brand",
-              name: "Alma Le",
-            },
-            uploadDate: new Date().toISOString(), // Динамическое определение даты
-            offers: {
-              "@type": "Offer",
-              price: "790",
-              priceCurrency: "USD",
-              availability: "https://schema.org/InStock",
-              url: "https://www.alma-le.com/" + lang + "/product",
-            },
-          }),
-        }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <script
         type="application/ld+json"
@@ -81,19 +111,19 @@ export default async function Home({ params }) {
             {
               "@context": "https://schema.org",
               "@type": "VideoObject",
-              name: "Alma`le best cooper cookware set",
+              name: "Alma Le copper cookware set",
               description:
-                "It showcases an unboxing experience of Alma'le's premium copper cookware, highlighting how quality kitchenware can make cooking more enjoyable and efficient. The video emphasizes that every mother, woman, and homemaker knows the value of good cookware in enhancing the cooking experience.",
+                "Unboxing of the Alma Le premium copper cookware set: pots, saucepan and frying pan.",
               thumbnailUrl:
                 "https://img.youtube.com/vi/AAHCllXUXrI/maxresdefault.jpg",
-              uploadDate: new Date().toISOString(), // Динамическое определение даты
+              uploadDate: "2026-04-26T00:00:00.000Z",
               duration: "PT4M30S",
               publisher: {
                 "@type": "Organization",
                 name: "Alma Le",
                 logo: {
                   "@type": "ImageObject",
-                  url: "https://www.alma-le.com/img/logo.png",
+                  url: `${site}/img/logo.png`,
                 },
               },
               embedUrl: "https://www.youtube.com/embed/AAHCllXUXrI",
@@ -102,18 +132,18 @@ export default async function Home({ params }) {
             {
               "@context": "https://schema.org",
               "@type": "VideoObject",
-              name: "Готовим на медной посуде Alma`le",
-              description: "Готовка на медной посуде с поваром из Казахстана",
+              name: "Готовим на медной посуде Alma Le",
+              description: "Готовка на медной посуде Alma Le с поваром из Казахстана.",
               thumbnailUrl:
                 "https://img.youtube.com/vi/nFNJUepGYHY/maxresdefault.jpg",
-              uploadDate: new Date().toISOString(), // Динамическое определение даты
+              uploadDate: "2026-04-26T00:00:00.000Z",
               duration: "PT1M20S",
               publisher: {
                 "@type": "Organization",
                 name: "Alma Le",
                 logo: {
                   "@type": "ImageObject",
-                  url: "https://www.alma-le.com/img/logo.png",
+                  url: `${site}/img/logo.png`,
                 },
               },
               embedUrl: "https://www.youtube.com/embed/nFNJUepGYHY",
@@ -122,18 +152,18 @@ export default async function Home({ params }) {
             {
               "@context": "https://schema.org",
               "@type": "VideoObject",
-              name: "Utensil set of cupper cookware of Alma`le",
-              description: "Cooking Kazakh national food in a copper saucepan",
+              name: "Alma Le copper saucepan",
+              description: "Cooking in an Alma Le copper saucepan.",
               thumbnailUrl:
                 "https://img.youtube.com/vi/5W05UwE_LQ0/maxresdefault.jpg",
-              uploadDate: new Date().toISOString(), // Динамическое определение даты
+              uploadDate: "2026-04-26T00:00:00.000Z",
               duration: "PT2M47S",
               publisher: {
                 "@type": "Organization",
                 name: "Alma Le",
                 logo: {
                   "@type": "ImageObject",
-                  url: "https://www.alma-le.com/img/logo.png",
+                  url: `${site}/img/logo.png`,
                 },
               },
               embedUrl: "https://www.youtube.com/embed/5W05UwE_LQ0",
@@ -143,7 +173,6 @@ export default async function Home({ params }) {
         }}
       />
       <Main lang={lang} />
-      <div></div>
     </>
   );
 }

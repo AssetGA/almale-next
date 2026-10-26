@@ -1,6 +1,4 @@
 import { createAction, createSlice } from "@reduxjs/toolkit";
-import authService from "../service/auth.service";
-import userService from "../service/user.service";
 
 const initialState = {
   entities: null,
@@ -107,6 +105,7 @@ const userUpdateFailed = createAction("users/userUpdateFailed");
 export const authorizeUser = () => async (dispatch) => {
   dispatch(authRequested());
   try {
+    const { default: userService } = await import("../service/user.service");
     const { content } = await userService.get();
     dispatch(userReceived(content));
   } catch (error) {
@@ -126,6 +125,7 @@ export const clearUsersError = () => async (dispatch) => {
 export const Verify = (payload) => async (dispatch) => {
   dispatch(usersRequested());
   try {
+    const { default: authService } = await import("../service/auth.service");
     const { content } = await authService.verify(payload);
     dispatch(userCreatedVerify(content));
   } catch (error) {
@@ -142,6 +142,7 @@ export const Verify = (payload) => async (dispatch) => {
 export const getApiUrl = () => async (dispatch) => {
   dispatch(usersRequested());
   try {
+    const { default: userService } = await import("../service/user.service");
     const { content } = await userService.getApi();
 
     dispatch(userGetApi(content));

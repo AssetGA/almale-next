@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import productService from "../service/product.service";
 
 // Начальное состояние
 const initialState = {
@@ -48,6 +47,7 @@ const {
 export const loadProductList = (payload) => async (dispatch) => {
   dispatch(productRequested());
   try {
+    const { default: productService } = await import("../service/product.service");
     const { content } = await productService.get(payload);
     dispatch(productReceived(content));
   } catch (error) {
@@ -61,6 +61,7 @@ export const getProductById = () => (state) => {
 
 export const productAdd = (payload) => async (dispatch) => {
   try {
+    const { default: productService } = await import("../service/product.service");
     const data = await productService.create(payload);
     dispatch(addProduct(data));
   } catch (error) {

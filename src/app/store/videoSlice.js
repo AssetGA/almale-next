@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import videoService from "../service/video.service";
 
 // Начальное состояние
 const initialState = {
@@ -48,6 +47,7 @@ const {
 export const loadVideoList = (payload) => async (dispatch) => {
   dispatch(videoRequested());
   try {
+    const { default: videoService } = await import("../service/video.service");
     const { content } = await videoService.get(payload);
     dispatch(videoReceived(content));
   } catch (error) {
@@ -61,6 +61,7 @@ export const getVideoById = (id) => (state) => {
 
 export const videoAdd = (payload) => async (dispatch) => {
   try {
+    const { default: videoService } = await import("../service/video.service");
     const data = await videoService.create(payload);
     dispatch(addVideo(data));
   } catch (error) {

@@ -36,6 +36,8 @@ const LANGUAGE_LABELS = {
   kz: "Ответь на казахском языке, используя естественные и дружелюбные выражения.",
   ru: "Ответь на русском языке, дружелюбно и уверенно.",
   en: "Answer in English, warmly and professionally.",
+  de: "Antworte auf Deutsch, freundlich und sachlich.",
+  ar: "أجب باللغة العربية الفصحى، بلطف ووضوح.",
 };
 
 export async function POST(request) {
@@ -49,9 +51,9 @@ export async function POST(request) {
       );
     }
 
-    if (!lang || !["ru", "kz", "en"].includes(lang)) {
+    if (!lang || !["ru", "kz", "en", "de", "ar"].includes(lang)) {
       return NextResponse.json(
-        { message: "Неверно указан язык (должен быть ru, kz или en)." },
+        { message: "Неверно указан язык (должен быть ru, kz, en, de или ar)." },
         { status: 400 }
       );
     }

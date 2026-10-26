@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import orderService from "../service/order.service";
 
 // Начальное состояние
 const initialState = {
@@ -48,6 +47,7 @@ export const loadOrder = () => async (dispatch) => {
 
 export const removeOrder = (payload) => async (dispatch) => {
   try {
+    const { default: orderService } = await import("../service/order.service");
     const { content } = await orderService.delete(payload);
 
     dispatch(orderRemove(content));
@@ -58,6 +58,7 @@ export const removeOrder = (payload) => async (dispatch) => {
 
 export const orderCreate = (payload) => async (dispatch) => {
   try {
+    const { default: orderService } = await import("../service/order.service");
     const { content } = await orderService.create(payload);
 
     dispatch(createOrder(content));

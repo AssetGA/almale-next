@@ -47,30 +47,26 @@ export default async function VideoPage({ id, lang, pathname }) {
           )}
 
           {/* Кнопки навигации поверх видео */}
-          <div className="absolute inset-0 flex justify-between items-center px-6 pointer-events-none">
+          <div className="absolute inset-0 z-20 flex items-center justify-between px-6 pointer-events-none">
             <a
-              className={`pointer-events-auto px-4 py-3 bg-black/50 rounded hover:bg-black/70 transition-colors ${
-                currentIndex <= 0 ? "pointer-events-none opacity-50" : ""
-              }`}
+              className="pointer-events-auto rounded bg-black/50 px-4 py-3 transition-colors hover:bg-black/70"
               href={
                 currentIndex > 0
-                  ? `/gallery/${videos[currentIndex - 1]._id}`
-                  : "#"
+                  ? `/${lang}/gallery/${videos[currentIndex - 1]._id}`
+                  : `/${lang}/gallery`
               }
+              aria-label="Предыдущее видео"
             >
               ←
             </a>
             <a
-              className={`pointer-events-auto px-4 py-3 bg-black/50 rounded hover:bg-black/70 transition-colors ${
-                currentIndex >= videos.length - 1
-                  ? "pointer-events-none opacity-50"
-                  : ""
-              }`}
+              className="pointer-events-auto rounded bg-black/50 px-4 py-3 transition-colors hover:bg-black/70"
               href={
                 currentIndex < videos.length - 1
-                  ? `/gallery/${videos[currentIndex + 1]._id}`
-                  : "#"
+                  ? `/${lang}/gallery/${videos[currentIndex + 1]._id}`
+                  : `/${lang}/gallery`
               }
+              aria-label="Следующее видео"
             >
               →
             </a>

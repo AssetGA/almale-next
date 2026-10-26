@@ -1,95 +1,75 @@
 "use client";
 
-import { useRef, useEffect } from "react";
-import { gsap } from "gsap";
+import { useEffect, useRef, useState } from "react";
 
 const images = [
-  "/img/set/0.png",
-  "/img/set/1.png",
-  "/img/set/2.png",
-  "/img/set/3.png",
-  "/img/set/4.png",
-  "/img/fryingpan/01.png",
-  "/img/fryingpan/1.png",
-  "/img/fryingpan/2.png",
-  "/img/fryingpan/3.png",
-  "/img/fryingpan/4.png",
-  "/img/pan6/0.png",
-  "/img/pan6/1.png",
-  "/img/pan6/2.png",
-  "/img/pan6/3.png",
-  "/img/pan6/4.png",
-  "/img/sousepan/01.png",
-  "/img/sousepan/1.png",
-  "/img/sousepan/2.png",
-  "/img/sousepan/3.png",
-  "/img/sousepan/4.png",
+  "/img/carousel/set-0.webp",
+  "/img/carousel/set-1.webp",
+  "/img/carousel/set-2.webp",
+  "/img/carousel/set-3.webp",
+  "/img/carousel/set-4.webp",
+  "/img/carousel/fryingpan-01.webp",
+  "/img/carousel/fryingpan-1.webp",
+  "/img/carousel/fryingpan-2.webp",
+  "/img/carousel/fryingpan-3.webp",
+  "/img/carousel/fryingpan-4.webp",
+  "/img/carousel/pan6-0.webp",
+  "/img/carousel/pan6-1.webp",
+  "/img/carousel/pan6-2.webp",
+  "/img/carousel/pan6-3.webp",
+  "/img/carousel/pan6-4.webp",
+  "/img/carousel/sousepan-01.webp",
+  "/img/carousel/sousepan-1.webp",
+  "/img/carousel/sousepan-2.webp",
+  "/img/carousel/sousepan-3.webp",
+  "/img/carousel/sousepan-4.webp",
 ];
-
-function horizontalLoop(elements, options = {}) {
-  const config = {
-    repeat: -1,
-    speed: 1,
-    padding: 0,
-    ...options,
-  };
-
-  const tl = gsap.timeline({ repeat: config.repeat });
-  const totalWidth = elements.reduce(
-    (acc, el) => acc + el.offsetWidth + config.padding,
-    0
-  );
-
-  elements.forEach((el) => {
-    tl.to(
-      el,
-      {
-        x: `-=${totalWidth}`,
-        duration: totalWidth / config.speed,
-        ease: "none",
-        modifiers: {
-          x: gsap.utils.unitize((x) => parseFloat(x) % -totalWidth),
-        },
-      },
-      0
-    );
-  });
-
-  return tl;
-}
 
 export default function Carousel() {
   const containerRef = useRef(null);
+  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    if (!containerRef.current) return;
+    const node = containerRef.current;
+    if (!node) return;
 
-    const imageElements = Array.from(
-      containerRef.current.querySelectorAll(".carousel-item")
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "400px" }
     );
 
-    horizontalLoop(imageElements, { speed: 100 });
+    observer.observe(node);
+    return () => observer.disconnect();
   }, []);
 
+  const strip = visible ? [...images, ...images] : [];
+
   return (
-    <div className="overflow-hidden w-full relative my-32">
-      <div ref={containerRef} className="flex whitespace-nowrap">
-        {images.map((src, idx) => (
-          <div
-            key={idx}
-            className="carousel-item flex-shrink-0 mx-4"
-            style={{
-              width: "300px",
-              height: "200px",
-              backgroundImage: `url(${src})`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-              borderRadius: "12px",
-              boxShadow: "0 4px 10px rgba(0, 0, 0, 0.3)",
-            }}
-          />
-        ))}
-      </div>
+    <div
+      ref={containerRef}
+      className="relative my-32 h-[200px] w-full overflow-hidden"
+    >
+      {visible && (
+        <div className="carousel-track flex w-max">
+          {strip.map((src, index) => (
+            <img
+              key={`${src}-${index}`}
+              src={src}
+              alt=""
+              width={300}
+              height={200}
+              loading="lazy"
+              decoding="async"
+              className="mx-4 h-[200px] w-[300px] flex-shrink-0 rounded-xl object-cover shadow-lg"
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 }

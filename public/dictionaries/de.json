@@ -1,0 +1,157 @@
+{
+  "navbar": {
+    "navbarbrand": "Marke",
+    "navbarproduct": "Produkte",
+    "navbaradventages": "Vorteile",
+    "navbaropinions": "Bewertungen",
+    "navbarcontacts": "Kontakt"
+  },
+  "head": {
+    "headh1": "Alma`Le – Familienwärme und professionelles Kochgeschirr in Ihrer Küche",
+    "headp": "Hochwertiges Kochgeschirr für Profis und zu Hause",
+    "headbutton": "Kollektion ansehen"
+  },
+  "brand": {
+    "head": "Werte der Marke",
+    "one": "Alma`Le entstand aus warmen Familienmomenten in der Küche",
+    "two": "Unser Kochgeschirr enthält keine schädlichen Stoffe und hilft, gesund zu kochen",
+    "three": "Aus Kupfer, Aluminium und Edelstahl für Profis und Liebhaber"
+  },
+  "history": {
+    "head": "Alma`Le – eine Marke aus Familientradition.",
+    "one": "Alma`Le ist inspiriert von der Fürsorge unserer Mütter, die seit unserer Kindheit die besten Gerichte kochen…",
+    "two": "Familientraditionen und die Werte, die Familien verbinden, sind uns wichtig.",
+    "three": "Mit unserem Geschirr sorgen Sie für die Gesundheit Ihrer Liebsten."
+  },
+  "mission": {
+    "head": "Auftrag – professionelles Kochgeschirr in jedes Zuhause",
+    "one": "Wir geben hochwertiges Kochgeschirr an alle, die gerne kochen."
+  },
+  "product": {
+    "head": "Produkte",
+    "one": "Kupferkochgeschirr-Set",
+    "two": "Alma`Le 1.0",
+    "button": "mehr erfahren"
+  },
+  "advantages": {
+    "head": "Vorteile",
+    "one": "Die Griffe bleiben kühl, und die gleichmäßige Hitze verkürzt die Garzeit",
+    "two": "Unser Geschirr enthält keine schädlichen Stoffe wie Teflon",
+    "three": "Kupfer, Aluminium und Edelstahl sind starke Materialien zum Kochen"
+  },
+  "opinion": {
+    "head": "Was Profis sagen",
+    "one": "Die wichtigsten Vorteile"
+  },
+  "form": {
+    "head": "Nachricht",
+    "answer": "Danke! Wir melden uns in Kürze",
+    "name": "Name",
+    "phone": "Telefon",
+    "email": "E-Mail",
+    "message": "Nachricht",
+    "button": "Senden",
+    "contact": "Kontakt:",
+    "aemail": "E-Mail: almaleholding@gmail.com",
+    "aphone": "Mobil: +7 700 978 80 08",
+    "aaddress": "Kasachstan, Astana",
+    "instagram": "Instagram: @almale_com"
+  },
+  "footer": {
+    "head": "Hochwertiges Kochgeschirr für Profis und zu Hause",
+    "gift": "Geschenk",
+    "cooking": "Kochen",
+    "set": "Das Set"
+  },
+  "basket": {
+    "head": "Warenkorb",
+    "head2": "Code wurde per E-Mail gesendet",
+    "delivery": "Lieferung",
+    "deliveryLabel1": "Lieferung in Kasachstan",
+    "deliveryLabel2": "Internationale Lieferung",
+    "total": "SUMME",
+    "name": "Name des Empfängers",
+    "email": "E-Mail",
+    "phone": "Mobilnummer",
+    "address": "Lieferadresse",
+    "city": "Stadt",
+    "postIndex": "Postleitzahl",
+    "button": "Bestellen",
+    "buttonSend": "Senden",
+    "buttonClose": "Abbrechen",
+    "headVerif": "Prüfung fehlgeschlagen, bitte erneut versuchen",
+    "buttonVerifyClose": "Schließen",
+    "headKaspi": "Zahlung über KASPI",
+    "buttonKaspiBack": "zurück",
+    "buttonToKaspi": "Zur KASPI-App",
+    "errorName": "Vor- und Nachname erforderlich",
+    "errorEmail": "E-Mail erforderlich",
+    "errorMobile": "Nummer prüfen",
+    "errorMobileCount": "Nur Ziffern",
+    "logout": "Abmelden"
+  },
+  "utensil": {
+    "p": "Beschreibung",
+    "description": "Das Set verbindet starke Materialien, ein klares Design und Alltagstauglichkeit.",
+    "buttonBuy": "Kaufen",
+    "one": "Wird geladen...",
+    "two": "Produkte gefunden"
+  },
+  "productAbout": {
+    "p": "Beschreibung",
+    "size": "Größe",
+    "case": "Aufbau",
+    "caseType": [
+      { "id": "1", "material": "Edelstahl" },
+      { "id": "2", "material": "Aluminium" },
+      { "id": "3", "material": "Kupfer" }
+    ],
+    "innersurface": "Innenfläche",
+    "surface": "Spiegelglanz",
+    "buttonBack": "Zurück",
+    "buttonBuy": "Set kaufen"
+  },
+  "card": {
+    "buttonMore": "Mehr"
+  },
+  "metadata": {
+    "title": "Alma Le Kupferkochgeschirr — Töpfe, Stielkasserolle und Pfanne",
+    "description": "Kupferkochgeschirr von Alma Le: Töpfe, eine Stielkasserolle und eine Pfanne mit Deckeln. Außen Kupfer, Kern aus Aluminium, innen Edelstahl.",
+    "keywords": "Alma Le, Kupferkochgeschirr, Kupfertöpfe, Kupferpfanne, Stielkasserolle, Kupfer Set"
+  },
+  "metadataProduct": {
+    "title": "Alma Le Kupferkochgeschirr — Katalog",
+    "description": "Alma Le 1.0: Topf 6 l, Topf 3,5 l, Pfanne 3,6 l und Stielkasserolle 1,8 l. Der Preis des Sets steht auf dieser Seite.",
+    "keywords": "Kupferkochgeschirr, Kupfertöpfe, Kupferpfanne, Alma Le Set"
+  },
+  "signup": {
+    "head": "Registrierung",
+    "phone": "Telefonnummer",
+    "name": "Vollständiger Name",
+    "email": "E-Mail",
+    "password": "Passwort",
+    "p": "Schon ein Konto?",
+    "link": "Anmelden"
+  },
+  "signin": {
+    "head": "Anmeldung",
+    "name": "Nachname",
+    "email": "E-Mail",
+    "password": "Passwort",
+    "p": "Noch kein Konto?",
+    "link": "Registrieren"
+  },
+  "payment": {
+    "head": "Gesundheit für Ihre Familie"
+  },
+  "video": {
+    "title": "Alma'Le kennenlernen"
+  },
+  "chat": {
+    "button": "Frage",
+    "span": "Berater"
+  },
+  "gallery": {
+    "altInfo": "Geschenk für die Mutter"
+  }
+}

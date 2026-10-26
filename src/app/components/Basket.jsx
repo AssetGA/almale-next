@@ -17,6 +17,7 @@ import {
 import { deliveries } from "../utils/api";
 import { useRouter } from "next/navigation";
 import { logout } from "../actions/auth";
+import { currencySuffix } from "../lib/locales";
 
 const Basket = ({ lang, t }) => {
   const router = useRouter();
@@ -241,14 +242,14 @@ const Basket = ({ lang, t }) => {
                   />
                   <p className="ml-2 font-bold px-1">
                     {product?.price}
-                    <span className="pl-2">{lang !== "en" ? "тг" : "t"}</span>
+                    <span className="pl-2">{currencySuffix(lang)}</span>
                   </p>
                 </div>
                 <div className="flex flex-row justify-between my-5">
                   <p className="font-bold">{t.basket.delivery}</p>
                   <p>
                     {order.deliveryPrice}
-                    <span className="pl-2">{lang !== "en" ? "тг" : "t"}</span>
+                    <span className="pl-2">{currencySuffix(lang)}</span>
                   </p>
                 </div>
               </div>
@@ -258,7 +259,7 @@ const Basket = ({ lang, t }) => {
             <p className="font-bold text-lg">{t.basket.total}</p>
             <p className="font-bold">
               {order.quantity * product?.price + order.deliveryPrice}
-              <span className="pl-2"> {lang !== "en" ? "тг" : "t (KZ)"}</span>
+              <span className="pl-2"> {currencySuffix(lang)}</span>
             </p>
           </div>
         </div>

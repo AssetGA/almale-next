@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import productInfoService from "../service/productInfo.service";
 
 // Начальное состояние
 const initialState = {
@@ -43,6 +42,9 @@ const { productRequested, productReceived, productRequestFailed } = actions;
 export const loadProductInfoList = (payload) => async (dispatch) => {
   dispatch(productRequested());
   try {
+    const { default: productInfoService } = await import(
+      "../service/productInfo.service"
+    );
     const { content } = await productInfoService.get(payload);
     dispatch(productReceived(content));
   } catch (error) {

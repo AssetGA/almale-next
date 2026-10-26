@@ -1,12 +1,10 @@
 import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
 import { decrypt } from "./app/lib/session";
+import { defaultLocale, locales } from "./app/lib/locales";
 
 const protectedRoutes = ["/basket", "/payment"];
 const publicRoutes = ["/product", "/login", "/signup", "/"];
-
-const locales = ["kz", "en", "ru"];
-const defaultLocale = "kz";
 
 function getLocale() {
   return defaultLocale;
@@ -22,6 +20,7 @@ export default async function middleware(request) {
     pathname === "/image-sitemap.xml" ||
     pathname === "/sitemap-0.xml" ||
     pathname === "/robots.txt" ||
+    pathname === "/llms.txt" ||
     pathname === "/favicon.ico" ||
     pathname.startsWith("/video") ||
     pathname.startsWith("/videos") ||

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 
-const Footer = ({ t }) => {
+const Footer = ({ t, lang }) => {
   return (
     <div className="xl:container xl:mx-auto">
       <div className="w-full bg-green text-white text-sm">
@@ -19,9 +19,9 @@ const Footer = ({ t }) => {
             <p className="max-w-40 sm:w-72">{t.footer.head}</p>
           </div>
           <div className="w-full">
-            <div className="flex flex-col items-end pt-6">
+            <div className="flex flex-col items-end pt-6 rtl:items-start">
               <a
-                href="https://www.instagram.com/almale_com?igsh=MWU2b2h0dWoxdnhrcQ=="
+                href="https://www.instagram.com/almale_com/"
                 className="hover:bg-white hover:text-green-light py-2 sm:py-0"
               >
                 Instagram
@@ -33,7 +33,25 @@ const Footer = ({ t }) => {
                 Facebook
               </a>
               <a
-                href="https://youtube.com/@alma_le?si=3T04RCUBdC5RdP0P"
+                href={`/${lang}/gift`}
+                className="hover:bg-white hover:text-green-light py-2 sm:py-0"
+              >
+                {t.footer.gift}
+              </a>
+              <a
+                href={`/${lang}/recipes`}
+                className="hover:bg-white hover:text-green-light py-2 sm:py-0"
+              >
+                {t.footer.cooking}
+              </a>
+              <a
+                href={`/${lang}/set`}
+                className="hover:bg-white hover:text-green-light py-2 sm:py-0"
+              >
+                {t.footer.set}
+              </a>
+              <a
+                href="https://www.youtube.com/@alma_le"
                 className="hover:bg-white hover:text-green-light py-2 sm:py-0"
               >
                 Youtube

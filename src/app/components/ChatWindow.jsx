@@ -1,8 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { useAppSelector } from "../store/hooks";
-import { useRouter } from "next/navigation";
 
 const ChatWindow = ({ t, lang }) => {
   const [open, setOpen] = useState(false);
@@ -136,10 +134,10 @@ const ChatWindow = ({ t, lang }) => {
       {/* 💬 Кнопка открытия чата */}
       <button
         onClick={() => setOpen(!open)}
-        className={`fixed left-1/2 top-1/3 transform -translate-x-1/2 -translate-y-1/2 text-white text-2xl px-5 py-4 rounded-full transition-all z-50 flex items-center gap-2 ${
+        className={`chat-tab fixed top-1/2 z-50 -translate-y-1/2 px-3 py-4 text-sm text-white shadow-lg [writing-mode:vertical-rl] ltr:right-0 ltr:rounded-l-2xl rtl:left-0 rtl:rounded-r-2xl ${
           open
-            ? "bg-green-500 hover:bg-green-600 shadow-lg"
-            : "bg-green-400 hover:bg-green-500 animate-gem-glow"
+            ? "bg-green-light"
+            : "bg-green animate-gem-glow"
         }`}
       >
         {open ? "✖ close" : "💬 " + t.chat.button}
@@ -148,7 +146,7 @@ const ChatWindow = ({ t, lang }) => {
       {/* 🪟 Окно чата */}
       {open && (
         <div
-          className={`fixed bottom-16 right-6 w-80 h-[620px] bg-white border border-gray rounded-2xl shadow-lg flex flex-col overflow-hidden z-50 transition-all duration-500 transform ${
+          className={`fixed bottom-16 w-80 h-[620px] bg-white border border-gray rounded-2xl shadow-lg flex flex-col overflow-hidden z-50 transition-all duration-500 transform ltr:right-6 rtl:left-6 ${
             animate ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
           }`}
         >
@@ -208,8 +206,8 @@ const ChatWindow = ({ t, lang }) => {
                     key={index}
                     className={`max-w-[80%] p-2 rounded-md text-sm ${
                       msg.sender === "bot"
-                        ? "ml-auto bg-green text-white"
-                        : "mr-auto bg-gray-200 text-black"
+                        ? "ms-auto bg-green text-white"
+                        : "me-auto bg-gray-200 text-black"
                     }`}
                   >
                     {msg.text}
@@ -218,7 +216,7 @@ const ChatWindow = ({ t, lang }) => {
 
                 {/* 💭 Ожидание ответа */}
                 {loading && (
-                  <div className="ml-auto bg-green text-white px-3 py-2 rounded-md w-fit flex gap-1">
+                  <div className="ms-auto bg-green text-white px-3 py-2 rounded-md w-fit flex gap-1">
                     <span className="animate-bounce">●</span>
                     <span className="animate-bounce delay-150">●</span>
                     <span className="animate-bounce delay-300">●</span>

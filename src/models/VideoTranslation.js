@@ -5,7 +5,7 @@ mongoose.Promise = global.Promise;
 
 const schema = new Schema({
   videoId: { type: String },
-  language: { type: String, enum: ["kz", "ru", "en"], required: true },
+  language: { type: String, enum: ["kz", "ru", "en", "de", "ar"], required: true },
   title: { type: String },
   description: { type: String },
 });

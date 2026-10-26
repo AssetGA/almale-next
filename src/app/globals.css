@@ -2,8 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@import "leaflet/dist/leaflet.css";
-
 /* :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -20,6 +18,88 @@ body {
   /* color: var(--foreground);
   background: var(--background); */
   font-family: Montserrat-bold;
+}
+
+html[dir="rtl"] body * {
+  font-family: inherit !important;
+}
+
+.hero-mobile-photo {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  html[dir="rtl"] .hero-mobile-photo {
+    display: block;
+    height: 14rem;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  html[dir="rtl"] .hero-desktop-photo,
+  html[dir="rtl"] .hero-spacer,
+  html[dir="rtl"] .hero-shape {
+    display: none;
+  }
+
+  html[dir="rtl"] .hero-shift {
+    transform: none;
+  }
+
+  html[dir="rtl"] .hero-row {
+    flex-direction: column;
+  }
+
+  html[dir="rtl"] .hero-copy,
+  html[dir="rtl"] .hero-copy > div {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    margin-inline: 0;
+  }
+
+  html[dir="rtl"] .hero-copy {
+    background: #143a23;
+  }
+
+  html[dir="rtl"] .chat-tab {
+    top: auto;
+    bottom: 1.25rem;
+    transform: none;
+  }
+}
+
+.logo-flip {
+  transform-style: preserve-3d;
+}
+
+.logo-flip:hover {
+  animation: logo-flip 2s linear infinite;
+}
+
+@keyframes logo-flip {
+  to {
+    transform: rotateX(360deg);
+  }
+}
+
+.carousel-track {
+  animation: carousel-marquee 80s linear infinite;
+}
+
+@keyframes carousel-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .carousel-track {
+    animation: none;
+  }
 }
 
 box {

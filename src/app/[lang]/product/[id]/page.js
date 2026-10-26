@@ -1,6 +1,7 @@
 import { fetchProducts } from "../../../actions/products";
 import ProductAbout from "../../../components/ProductAbout";
 import { getDictionary } from "../../dictionaries";
+import { languageAlternates, locales } from "../../../lib/locales";
 
 // export async function getServerSideProps({ req }) {
 //   // Извлекаем язык из URL
@@ -41,12 +42,7 @@ export async function generateMetadata({ params }) {
     title: `${product.title}`,
     description: product.descriptionMeta,
     alternates: {
-      languages: {
-        "x-default": `${baseUrl}/ru/product/${id}`,
-        en: `${baseUrl}/en/product/${id}`,
-        ru: `${baseUrl}/ru/product/${id}`,
-        kk: `${baseUrl}/kz/product/${id}`,
-      },
+      languages: languageAlternates(baseUrl, `/product/${id}`),
     },
     keywords: product.keywords,
     openGraph: {
@@ -60,7 +56,7 @@ export async function generateMetadata({ params }) {
 
 export async function generateStaticParams() {
   // Укажите возможные значения для [lang] и [id]
-  const langs = ["kz", "en", "ru"]; // Например, поддерживаемые языки
+  const langs = locales;
   const params = [];
 
   for (const lang of langs) {

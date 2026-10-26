@@ -54,10 +54,14 @@
     "contact": "Contact:",
     "aemail": "email: almaleholding@gmail.com",
     "aphone": "mobile: +7 700 978 80 08",
-    "aaddress": "Kazakstan, Astana"
+    "aaddress": "Kazakstan, Astana",
+    "instagram": "Instagram: @almale_com"
   },
   "footer": {
-    "head": "High-quality cookware designed for professionals and home cooks"
+    "head": "High-quality cookware designed for professionals and home cooks",
+    "gift": "Gift",
+    "cooking": "Cooking",
+    "set": "The set"
   },
   "basket": {
     "head": "Basket",
@@ -111,14 +115,14 @@
     "buttonMore": "More"
   },
   "metadata": {
-    "title": "Premium Copper Cookware Set",
-    "description": "Copper cookware -  saucepan, pot, pan, frying pan",
-    "keywords": "Alma`Le, almale, copper ware, pots, pans, stainless steel, copper, aluminum, kitchen, pot, pan, frying, cookware"
+    "title": "Alma Le copper cookware — pots, saucepan and frying pan",
+    "description": "Alma Le copper cookware set: pots, a saucepan and a frying pan with lids. Copper outside, aluminum core, stainless steel inside.",
+    "keywords": "Alma Le, copper cookware, copper pots, copper frying pan, saucepan, copper cookware set"
   },
   "metadataProduct": {
-    "title": "Copper cookware",
-    "description": "Set of copper utensil cookware",
-    "keywords": "Copper Pot & Pans, Professional Copper Cookware, Durable Copper Cook set, Copper Pan, Pan, High Quality Copper Cookware, Copper Kitchen Tools, Copper Pan Benefits, Copper Cookware Thermal Conductivity, Elegant Kitchen Utensils Design, multilayer copper base, pan copper, fair, "
+    "title": "Alma Le copper cookware catalog",
+    "description": "Alma Le 1.0 copper cookware: 6 L pot, 3.5 L pot, 3.6 L frying pan and 1.8 L saucepan. The set price is on this page.",
+    "keywords": "copper cookware, copper pots, copper frying pan, Alma Le cookware set"
   },
   "signup": {
     "head": "Signup",

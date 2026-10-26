@@ -1,4 +1,6 @@
-const SUPPORTED_LANGS = ["kz", "en", "ru"];
+import { locales } from "../../lib/locales";
+
+const SUPPORTED_LANGS = locales;
 
 // Генерация статических параметров
 export async function generateStaticParams() {

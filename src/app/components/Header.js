@@ -1,18 +1,31 @@
-"use client";
-
 import AnimatedLetters from "./common/AnimatedLetters";
 
 const Header = ({ t }) => {
   return (
     <div className="relative w-full z-0 overflow-hidden">
-      <div className="w-full bg-[url('/img/main.webp')] sm:bg-[url('/img/front.webp')] bg-cover sm:bg-contain bg-no-repeat sm:bg-right flex flex-col sm:flex-row ">
-        <div className="bg-[url('/img/Layer6.svg')] bg-contain bg-no-repeat px-12 py-12 sm:hidden -translate-y-16">
+      <div className="hero-row relative w-full flex flex-col sm:flex-row">
+        <picture className="hero-desktop-photo pointer-events-none absolute inset-0 -z-10 sm:rtl:-scale-x-100">
+          <source media="(min-width: 640px)" srcSet="/img/front.webp" />
+          <img
+            src="/img/main.webp"
+            alt=""
+            fetchPriority="high"
+            decoding="async"
+            className="h-full w-full object-cover sm:object-contain sm:object-right"
+          />
+        </picture>
+        <img src="/img/main.webp" alt="" className="hero-mobile-photo" />
+        <div className="hero-spacer bg-[url('/img/Layer6.svg')] bg-contain bg-no-repeat px-12 py-12 sm:hidden -translate-y-16">
           .
         </div>
         <div className="w-full">
-          <div className="w-full h-full bg-no-repeat left-0 sm:top-0 bg-[url('/img/Layer5.svg')] sm:bg-[url('/img/Layer14.svg')] bg-cover sm:bg-contain translate-y-56 sm:translate-y-0">
-            <div className="sm:w-[400px] md:w-1/2">
-              <div className="flex flex-col text-white px-10 py-[44px] sm:py-[44px] lg:pl-[70px] md:py-[85px] lg:py-[130px] xl:pl-[180px] xl:py-[130px]">
+          <div className="hero-shift relative w-full h-full translate-y-56 sm:translate-y-0">
+            <div
+              aria-hidden
+              className="hero-shape pointer-events-none absolute inset-0 bg-no-repeat bg-[url('/img/Layer5.svg')] bg-cover sm:bg-[url('/img/Layer14.svg')] sm:bg-contain sm:rtl:-scale-x-100"
+            />
+            <div className="hero-copy relative me-auto w-full min-w-0 sm:w-[400px] md:w-1/2 sm:bg-transparent">
+              <div className="flex w-full min-w-0 flex-col text-white px-10 py-[44px] sm:py-[44px] md:py-[85px] lg:py-[130px] lg:ps-[70px] xl:ps-[180px] xl:py-[130px]">
                 <AnimatedLetters
                   text={t.head.headh1}
                   elemClass={"font-bold text-xl"}
@@ -32,14 +45,13 @@ const Header = ({ t }) => {
           </div>
         </div>
         <div className="w-0 lg:w-[250px] h-full flex flex-row pt-0 md:pt-20 xl:pt-32">
-          <div className="w-full h-full right-0 bottom-0 bg-lazy bg-no-repeat bg-[url('/img/Layer15.svg')] bg-contain">
+          <div className="w-full h-full bg-no-repeat bg-[url('/img/Layer15.svg')] bg-contain rtl:-scale-x-100">
             <div className="py-[100px] md:py-[150px] lg:py-[210px] xl:py-[220px]">
               .
             </div>
           </div>
         </div>
       </div>
-      {/* <TimerTab /> */}
     </div>
   );
 };

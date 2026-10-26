@@ -1,8 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import botService from "../service/bot-service";
-import { FaWhatsapp } from "react-icons/fa"; // ✅ иконка WhatsApp
+import WhatsAppButton from "./WhatsAppButton";
 
 const ConnectionForm = ({ t }) => {
   const [formData, setFormData] = useState({
@@ -24,8 +23,9 @@ const ConnectionForm = ({ t }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const answer = await botService.get({ ...formData });
-      if (answer) {
+      const params = new URLSearchParams(formData);
+      const response = await fetch(`/lib/api/contact?${params.toString()}`);
+      if (response.ok) {
         setSubmitted(true); // Показать сообщение об успешной отправке
         setFormData({
           name: "",
@@ -39,16 +39,10 @@ const ConnectionForm = ({ t }) => {
     }
   };
 
-  // ✅ Номер WhatsApp компании (можно заменить на свой)
-  const whatsappNumber = "+77471204110";
-
-  const handleWhatsAppClick = () => {
-    const url = `https://wa.me/${whatsappNumber.replace(/\D/g, "")}`;
-    window.open(url, "_blank");
-  };
+  const whatsappNumber = "77471204110";
 
   return (
-    <div id="contact" className="w-full">
+    <div id="contact" className="w-full scroll-mt-24">
       <div className="lg:px-40 md:px-20 px-5 sm:py-40 py-5 bg-green sm:bg-white shadow-2xl">
         <h2
           className="text-2xl font-bold mb-6 text-white sm:text-black text-center"
@@ -142,13 +136,20 @@ const ConnectionForm = ({ t }) => {
               <p className="pt-5">{t.form.aemail}</p>
               <p className="pt-5">{t.form.aphone}</p>
               <p className="pt-5">{t.form.aaddress}</p>
-              <button
-                onClick={handleWhatsAppClick}
-                className="mt-8 flex items-center justify-center gap-2 px-5 py-3 bg-[#25D366] hover:bg-[#1ebe5b] text-white rounded-full font-semibold transition-all duration-200 shadow-lg w-full"
+              <a
+                href="https://www.instagram.com/almale_com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-5 inline-block font-bold underline"
               >
-                <FaWhatsapp className="text-2xl" />
+                {t.form.instagram}
+              </a>
+              <WhatsAppButton
+                href={`https://wa.me/${whatsappNumber}`}
+                className="mt-8"
+              >
                 {t.form.whatsapp || "Написать в WhatsApp"}
-              </button>
+              </WhatsAppButton>
             </div>
           </div>
         </div>

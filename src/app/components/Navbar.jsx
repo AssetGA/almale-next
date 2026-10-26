@@ -4,58 +4,43 @@ import React, { useEffect, useRef, useState } from "react";
 import LanguageSwitcher from "./LanguageSwitcher";
 import Link from "next/link";
 import Image from "next/image";
-import gsap from "gsap";
+import { usePathname } from "next/navigation";
 
 const Navbar = ({ lang, t }) => {
   const [isOpen, setIsOpen] = useState(false);
-  // gsap
-  const logoRef = useRef(null);
-  const animationRef = useRef(null);
-
-  const startRotation = () => {
-    animationRef.current = gsap.to(logoRef.current, {
-      rotationX: "+=360",
-      duration: 2,
-      ease: "linear",
-      repeat: -1,
-      transformOrigin: "center center",
-    });
-  };
-
-  const stopRotation = () => {
-    if (animationRef.current) {
-      animationRef.current.kill(); // остановка анимации
-      gsap.set(logoRef.current, { rotationX: 0 }); // сброс поворота (по желанию)
-    }
-  };
-  // остальное
+  const pathname = usePathname();
+  const onHome = pathname === `/${lang}` || pathname === `/${lang}/`;
+  const sectionHref = (id) => (onHome ? `#${id}` : `/${lang}/#${id}`);
 
   const toggleMenu = () => {
-    setIsOpen(!isOpen);
+    setIsOpen((open) => !open);
   };
 
   const [show, setShow] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
-
-  const controlNavbar = () => {
-    if (typeof window !== "undefined") {
-      if (window.scrollY > lastScrollY) {
-        // прокрутка вниз
-        setShow(false);
-      } else {
-        // прокрутка вверх
-        setShow(true);
-      }
-      setLastScrollY(window.scrollY);
-    }
-  };
+  const lastScrollY = useRef(0);
+  const showRef = useRef(true);
 
   useEffect(() => {
-    window.addEventListener("scroll", controlNavbar);
-    return () => {
-      window.removeEventListener("scroll", controlNavbar);
+    let ticking = false;
+
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        const y = window.scrollY;
+        const next = y < lastScrollY.current || y < 8;
+        if (next !== showRef.current) {
+          showRef.current = next;
+          setShow(next);
+        }
+        lastScrollY.current = y;
+        ticking = false;
+      });
     };
-  }, [lastScrollY]);
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
     <div className="w-full">
@@ -90,29 +75,27 @@ const Navbar = ({ lang, t }) => {
                 </button>
               </div>
               {/* Логотип */}
-              <button className="flex-shrink-0 w-50 h-4 box">
-                <a href={`/${lang}`}>
-                  <Image
-                    ref={logoRef}
-                    src={"/img/logo1.png"}
-                    onMouseEnter={startRotation}
-                    onMouseLeave={stopRotation}
-                    width={150}
-                    height={60}
-                    alt="Logo Almale"
-                    className="px-5 sm:px-0  h-[16px] xl:h-[20px] w-full"
-                  />
-                </a>
-              </button>
+              <Link
+                href={`/${lang}`}
+                className="box flex-shrink-0 h-4 w-50 [perspective:600px]"
+              >
+                <Image
+                  src={"/img/logo1.png"}
+                  width={150}
+                  height={60}
+                  alt="Logo Almale"
+                  className="logo-flip px-5 sm:px-0 h-[16px] xl:h-[20px] w-full"
+                />
+              </Link>
               {/* Меню по центру */}
               <div className="hidden md:block">
-                <div className="ml-10 flex items-baseline space-x-2 lg:space-x-6">
-                  <Link
-                    href={`/${lang}/#brand`}
+                <div className="ms-10 flex items-baseline space-x-2 lg:space-x-6 rtl:space-x-reverse">
+                  <a
+                    href={sectionHref("brand")}
                     className="rounded-md text-sm font-medium hover:underline"
                   >
                     {t.navbar.navbarbrand}
-                  </Link>
+                  </a>
                   <Link
                     href={`/${lang}/product`}
                     className="rounded-md text-sm font-medium hover:underline"
@@ -131,17 +114,25 @@ const Navbar = ({ lang, t }) => {
                 >
                   {t.navbar.navbaropinions}
                 </a> */}
-                  <Link
-                    href={`/${lang}/#contact`}
+                  <a
+                    href={sectionHref("contact")}
                     className="rounded-md text-sm font-medium hover:underline"
                   >
                     {t.navbar.navbarcontacts}
-                  </Link>
+                  </a>
+                  <a
+                    href="https://www.instagram.com/almale_com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="rounded-md text-sm font-medium hover:underline"
+                  >
+                    {lang === "ar" ? "إنستغرام" : "Instagram"}
+                  </a>
                 </div>
               </div>
               {/* Переключение языка */}
-              <div className="flex items-center space-x-2 text-green">
-                <div className="flex-shrink-0 sm:mr-3 hover:bg-gray-light">
+              <div className="flex items-center space-x-2 text-green rtl:space-x-reverse">
+                <div className="flex-shrink-0 sm:me-3 hover:bg-gray-light">
                   <Link href={`/${lang}/basket`}>
                     <Image
                       src={"/img/basket.png"}
@@ -149,7 +140,6 @@ const Navbar = ({ lang, t }) => {
                       height={8}
                       alt="basket"
                       className="w-4 h-4 sm:w-6 sm:h-6"
-                      priority
                     />
                   </Link>
                 </div>
@@ -162,13 +152,13 @@ const Navbar = ({ lang, t }) => {
             <div className="absolute pb-60 md:hidden bg-white z-50">
               <div className="flex flex-row">
                 <div className="px-8 py-12 space-y-1 sm:px-3 font-bold text-2xl leading-loose">
-                  <Link
-                    href={`/${lang}/#brand`}
+                  <a
+                    href={sectionHref("brand")}
                     className="block px-3 py-2 font-medium focus:underline"
                     onClick={() => setIsOpen(false)}
                   >
                     {t.navbar.navbarbrand}
-                  </Link>
+                  </a>
                   <Link
                     href={`/${lang}/product`}
                     className="block px-3 py-2 font-medium focus:underline"
@@ -190,13 +180,22 @@ const Navbar = ({ lang, t }) => {
                 >
                   {t.navbar.navbaropinions}
                 </a> */}
-                  <Link
-                    href={`/${lang}/#contact`}
+                  <a
+                    href={sectionHref("contact")}
                     className="block px-3 py-2 font-medium focus:underline"
                     onClick={() => setIsOpen(false)}
                   >
                     {t.navbar.navbarcontacts}
-                  </Link>
+                  </a>
+                  <a
+                    href="https://www.instagram.com/almale_com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block px-3 py-2 font-medium focus:underline"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {lang === "ar" ? "إنستغرام" : "Instagram"}
+                  </a>
                 </div>
                 <div className="mt-8 px-8 m-4 py-10">
                   <button

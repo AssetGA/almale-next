@@ -2,6 +2,7 @@ import React from "react";
 import VideoPage from "../../../components/VideoPage";
 import { getDictionary } from "../../dictionaries";
 import { fetchVideoById, fetchVideo } from "../../../actions/video";
+import { locales } from "../../../lib/locales";
 
 // app/video/[id]/page.tsx (или любую страницу, где используешь видео)
 
@@ -53,7 +54,7 @@ export async function generateMetadata({ params }) {
 
 export async function generateStaticParams() {
   // Укажите возможные значения для [lang] и [id]
-  const langs = ["kz", "en", "ru"]; // Например, поддерживаемые языки
+  const langs = locales;
   const params = [];
 
   for (const lang of langs) {

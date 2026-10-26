@@ -1,16 +1,25 @@
 import "../globals.css";
-import "leaflet/dist/leaflet.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import localFont from "next/font/local";
 import StoreProvider from "../StoreProvider";
 import { getDictionary } from "./dictionaries";
-import ChatWindow from "../components/ChatWindow";
+import { htmlLang, localeParams } from "../lib/locales";
+import dynamic from "next/dynamic";
+import { Noto_Sans_Arabic } from "next/font/google";
+
+const ChatWindow = dynamic(() => import("../components/ChatWindow"));
 
 const montserrat = localFont({
   src: "../../../public/fonts/Montserat/Montserrat-Medium.ttf",
   variable: "--font-geist-sans",
   weight: "100 900",
+});
+
+const arabic = Noto_Sans_Arabic({
+  subsets: ["arabic"],
+  weight: ["400", "600"],
+  display: "swap",
 });
 
 // export async function getServerSideProps({ req }) {
@@ -31,7 +40,6 @@ const montserrat = localFont({
 
 export async function generateMetadata({ params }) {
   const { lang } = await params;
-  console.log("lang", lang);
   const t = await getDictionary(lang);
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL;
 
@@ -53,7 +61,7 @@ export async function generateMetadata({ params }) {
 }
 
 export function generateStaticParams() {
-  return [{ lang: "en" }, { lang: "kz" }, { lang: "ru" }];
+  return localeParams;
 }
 
 export default async function LocaleLayout({ children, params }) {
@@ -61,8 +69,8 @@ export default async function LocaleLayout({ children, params }) {
   const t = await getDictionary(lang);
 
   return (
-    <html lang={lang}>
-      <body className={`${montserrat.className}`}>
+    <html lang={htmlLang(lang)} dir={lang === "ar" ? "rtl" : "ltr"}>
+      <body className={lang === "ar" ? arabic.className : montserrat.className}>
         <StoreProvider lang={lang}>
           <Navbar lang={lang} t={t} />
           <ChatWindow t={t} lang={lang} />

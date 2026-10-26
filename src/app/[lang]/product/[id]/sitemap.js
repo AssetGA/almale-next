@@ -1,6 +1,7 @@
 import { fetchProducts } from "../../../actions/products";
+import { locales } from "../../../lib/locales";
 
-const SUPPORTED_LANGS = ["kz", "en", "ru"];
+const SUPPORTED_LANGS = locales;
 
 export async function generateSitemaps() {
   const params = [];

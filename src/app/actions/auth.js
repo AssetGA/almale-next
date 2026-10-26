@@ -3,6 +3,7 @@
 import { SigninFormSchema, SignupFormSchema } from "../../app/lib/definitions";
 import Users from "../../models/User"; // Your Mongoose User model
 import { createSession, deleteSession } from "../../app/lib/session"; // Assuming you have session logic
+import { locales } from "../lib/locales";
 import bcrypt from "bcryptjs";
 import { connectToDatabase } from "../lib/mongodb";
 import { redirect } from "next/navigation";
@@ -38,7 +39,7 @@ export async function SignUp(state, formData) {
         },
       };
     }
-    const arr = ["ru", "kz", "en"];
+    const arr = locales;
     const langFind = arr.find((elem) => {
       return elem === state;
     });
@@ -130,7 +131,7 @@ export async function SignIn(state, formData) {
         },
       };
     }
-    const arr = ["ru", "kz", "en"];
+    const arr = locales;
     const langFind = arr.find((elem) => {
       return elem === state;
     });

@@ -5,7 +5,7 @@ mongoose.Promise = global.Promise;
 
 const schema = new Schema({
   product: { type: Schema.Types.ObjectId, ref: "Product", required: true },
-  language: { type: String, enum: ["kz", "ru", "en"], required: true },
+  language: { type: String, enum: ["kz", "ru", "en", "de", "ar"], required: true },
   name: { type: String, required: true },
   title: { type: String },
   description: { type: String, required: true },

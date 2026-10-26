@@ -1,3 +1,5 @@
+import { cache } from "react";
+
 const dictionaries = {
   kz: () =>
     import("../../../public/dictionaries/kz.json").then(
@@ -11,8 +13,16 @@ const dictionaries = {
     import("../../../public/dictionaries/ru.json").then(
       (module) => module.default
     ),
+  de: () =>
+    import("../../../public/dictionaries/de.json").then(
+      (module) => module.default
+    ),
+  ar: () =>
+    import("../../../public/dictionaries/ar.json").then(
+      (module) => module.default
+    ),
 };
 
-export const getDictionary = async (locale) => {
+export const getDictionary = cache(async (locale) => {
   return dictionaries[locale]();
-};
+});

@@ -1,22 +1,17 @@
-"use client";
-
-import Image from "next/image";
-
-const LazyYouTube = ({ video }) => {
+export default function LazyYouTube({ video }) {
   return (
-    <div className="relative w-full h-56 cursor-pointer">
-      <a href={`${video.url}`} target="_blank" rel="noopener noreferrer">
-        <Image
+    <div className="relative h-56 w-full">
+      <a href={video.url} target="_blank" rel="noopener noreferrer">
+        <img
           src={video.img}
-          alt="Alma`le set"
+          alt={video.title}
           width={800}
           height={600}
-          className="w-full h-full"
           loading="lazy"
+          decoding="async"
+          className="h-full w-full object-cover"
         />
       </a>
     </div>
   );
-};
-
-export default LazyYouTube;
+}

@@ -6,24 +6,19 @@ import ProductCard from "./ProductCard";
 import { useAppSelector } from "../store/hooks";
 import { useState } from "react";
 import GlowingButton from "./common/GlowingButton";
+import { currencySuffix } from "../lib/locales";
 
-const UtensilsSet = ({ lang, t }) => {
-  const products = useAppSelector((state) => state.product.entity);
-  const productsInfo = useAppSelector((state) => state.productInfo.entity);
-  const isLoading = useAppSelector((state) => state.product.dataLoaded);
-  const isLoadingProductInfo = useAppSelector(
-    (state) => state.productInfo.dataLoaded
-  );
+const UtensilsSet = ({ lang, t, initialProducts = [], initialInfo = [] }) => {
+  const reduxProducts = useAppSelector((state) => state.product.entity);
+  const reduxInfo = useAppSelector((state) => state.productInfo.entity);
+  const productsLoaded = useAppSelector((state) => state.product.dataLoaded);
+  const infoLoaded = useAppSelector((state) => state.productInfo.dataLoaded);
   const [selectImage, setSelectImage] = useState({ src: "" });
   const [listSrc] = useState(["0", "1", "2", "3"]);
-  // Проверяем, если продукты загружены
-  if (!isLoading) {
-    return <p>{t.utensil.one}</p>;
-  }
 
-  if (!isLoadingProductInfo) {
-    return <p>{t.utensil.one}</p>;
-  }
+  const products =
+    productsLoaded && reduxProducts?.length ? reduxProducts : initialProducts;
+  const productsInfo = infoLoaded && reduxInfo?.length ? reduxInfo : initialInfo;
 
   if (!products || products.length === 0) {
     return <p>{t.utensil.two}</p>;
@@ -51,7 +46,6 @@ const UtensilsSet = ({ lang, t }) => {
 
   return (
     <>
-      {isLoading && (
         <div className="flex flex-col px-5">
           <div className="flex flex-col md:flex-row bg-white rounded-lg p-4 max-w-4xl mx-auto my-10 sm:my-20">
             {/* Левая часть: основное изображение и миниатюры */}
@@ -96,16 +90,20 @@ const UtensilsSet = ({ lang, t }) => {
                       <button
                         className="w-full h-full"
                         onMouseEnter={() =>
-                          handleSelect({ src: productInfo?.src[index] })
+                          handleSelect({
+                            src: productInfo?.src?.[index] || "",
+                          })
                         }
                       >
                         <Image
                           className={`object-contain rounded-lg cursor-pointer border hover:shadow-lg hover:`}
-                          src={productInfo?.src[index]}
+                          src={
+                            productInfo?.src?.[index] ||
+                            utensilProduct.imageUrl
+                          }
                           width={300}
                           height={300}
                           alt={productInfo?.meta[index]}
-                          priority
                         />
                       </button>
                     </div>
@@ -133,7 +131,7 @@ const UtensilsSet = ({ lang, t }) => {
                   <p className="text-xl font-semibold text-gray-600 mb-4">
                     {utensilProduct?.price}
                     <span className="px-2">
-                      {lang !== "en" ? "тг" : "tg (KZ)"}
+                      {currencySuffix(lang)}
                     </span>
                   </p>
                   <Link href={`/${lang}/basket`} className="right-0">
@@ -173,7 +171,6 @@ const UtensilsSet = ({ lang, t }) => {
             </div>
           </div>
         </div>
-      )}
     </>
   );
 };

@@ -1,8 +1,10 @@
-"use server";
-
-import { fetchProducts } from "../../actions/products";
 import UtensilsSet from "../../components/UtensilsSet";
 import { getDictionary } from "../dictionaries";
+import {
+  getLocalizedProductInfo,
+  getLocalizedProducts,
+} from "../../lib/catalog";
+import { languageAlternates, localeParams } from "../../lib/locales";
 
 // export async function getServerSideProps({ req }) {
 //   // Извлекаем язык из URL
@@ -21,23 +23,13 @@ import { getDictionary } from "../dictionaries";
 export async function generateMetadata({ params }) {
   const { lang } = await params;
   const t = await getDictionary(lang);
-  const products = await fetchProducts(lang);
-  const productSet = products.find((elem) => {
-    return elem.price === 395000;
-  });
 
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL;
-  if (productSet) {
-    return {
+  return {
       title: `${t.metadataProduct.title} - Alma Le`,
       description: t.metadataProduct.description,
       alternates: {
-        languages: {
-          "x-default": `${baseUrl}/ru/product`,
-          en: `${baseUrl}/en/product`,
-          ru: `${baseUrl}/ru/product`,
-          kk: `${baseUrl}/kz/product`,
-        },
+        languages: languageAlternates(baseUrl, "/product"),
       },
       keywords: t.metadataProduct.keywords,
       openGraph: {
@@ -51,28 +43,38 @@ export async function generateMetadata({ params }) {
         ], // ✅ Supports array
         url: `${process.env.NEXT_PUBLIC_SITE_URL}/${lang}/product`,
       },
-    };
-  }
+  };
 }
 
 export async function generateStaticParams() {
-  // Укажите возможные значения для [lang] и [id]
-  const langs = ["kz", "en", "ru"]; // Например, поддерживаемые языки
-  const params = [];
-
-  for (const lang of langs) {
-    params.push({ lang });
-  }
-
-  return params; // Возвращаем параметры для генерации статичных страниц
+  return localeParams;
 }
 
 export default async function Page({ params }) {
   const { lang } = await params;
   const t = await getDictionary(lang);
+  const [products, info] = await Promise.all([
+    getLocalizedProducts(lang),
+    getLocalizedProductInfo(lang),
+  ]);
+
   return (
-    <div className="mt-32">
-      <UtensilsSet lang={lang} t={t} />
+    <div className="mt-32 px-5">
+      <h1
+        className="text-center text-2xl font-bold"
+        style={{ fontFamily: "Montserrat-Bold" }}
+      >
+        {t.metadataProduct.title}
+      </h1>
+      <p className="mx-auto max-w-3xl py-4 text-center text-sm">
+        {t.metadataProduct.description}
+      </p>
+      <UtensilsSet
+        lang={lang}
+        t={t}
+        initialProducts={products}
+        initialInfo={info}
+      />
     </div>
   );
 }

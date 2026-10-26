@@ -6,13 +6,7 @@ import configFile from "../../../config.json";
 // axios.defaults.headers.common["Content-Type"] = "application/json";
 
 // Используем функцию
-const apiUrl = process.env.NEXT_PUBLIC_SITE_URL;
-export function createHttpWithLang() {
-  return axios.create({
-    baseURL: `${apiUrl}`,
-  });
-}
-const http = createHttpWithLang();
+const http = axios.create();
 
 function transformData(data) {
   return data && !data._id

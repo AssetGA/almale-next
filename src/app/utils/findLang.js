@@ -5,7 +5,7 @@ class FindLang {
 
   getLangFromURL(pathname) {
     // Проверяем наличие языка в формате /{lang}/
-    const langMatch = pathname.match(/^\/(kz|en|ru)(\/|$)/);
+    const langMatch = pathname.match(/^\/(kz|en|ru|de|ar)(\/|$)/);
     const lang = langMatch ? langMatch[1] : "kz"; // Если язык найден, берем его, иначе — "kz" по умолчанию
 
     return lang;

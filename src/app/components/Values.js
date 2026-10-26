@@ -5,7 +5,7 @@ import SlowTextReveal from "./SlowTextReveal";
 const Values = async ({ lang }) => {
   const t = await getDictionary(lang);
   return (
-    <div className="w-full" id="brand">
+    <div className="w-full scroll-mt-24" id="brand">
       <div className="flex flex-col py-20">
         <p
           className="text-center font-bold text-2xl py-10"
