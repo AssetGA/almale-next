@@ -144,12 +144,15 @@ const ChatWindow = ({ t, lang }) => {
       </button>
 
       {/* 🪟 Окно чата */}
-      {open && (
-        <div
-          className={`fixed bottom-16 w-80 h-[620px] bg-white border border-gray rounded-2xl shadow-lg flex flex-col overflow-hidden z-50 transition-all duration-500 transform ltr:right-6 rtl:left-6 ${
-            animate ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
-          }`}
-        >
+      <div
+        aria-hidden={!open}
+        inert={!open ? true : undefined}
+        className={`fixed bottom-16 z-50 flex h-[620px] w-80 transform flex-col overflow-hidden rounded-2xl border border-gray bg-white shadow-lg transition-all duration-700 ease-out ltr:right-6 rtl:left-6 ${
+          open && animate
+            ? "translate-y-0 opacity-100"
+            : "pointer-events-none translate-y-8 opacity-0"
+        }`}
+      >
           {/* Заголовок */}
           <div className="bg-green text-white p-3 flex justify-between items-center">
             <h3 className="font-semibold">{t.chat.span}</h3>
@@ -251,8 +254,7 @@ const ChatWindow = ({ t, lang }) => {
               </div>
             </>
           )}
-        </div>
-      )}
+      </div>
     </div>
   );
 };

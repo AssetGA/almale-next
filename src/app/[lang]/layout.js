@@ -5,6 +5,7 @@ import localFont from "next/font/local";
 import StoreProvider from "../StoreProvider";
 import { getDictionary } from "./dictionaries";
 import { htmlLang, localeParams } from "../lib/locales";
+import SiteEnter from "../components/SiteEnter";
 import dynamic from "next/dynamic";
 import { Noto_Sans_Arabic } from "next/font/google";
 
@@ -74,8 +75,10 @@ export default async function LocaleLayout({ children, params }) {
         <StoreProvider lang={lang}>
           <Navbar lang={lang} t={t} />
           <ChatWindow t={t} lang={lang} />
-          <main className="xl:container xl:mx-auto mt-24">{children}</main>
-          <Footer lang={lang} t={t} />
+          <SiteEnter>
+            <main className="xl:container xl:mx-auto mt-24">{children}</main>
+            <Footer lang={lang} t={t} />
+          </SiteEnter>
         </StoreProvider>
       </body>
     </html>

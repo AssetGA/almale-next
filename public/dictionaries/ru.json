@@ -2,6 +2,7 @@
   "navbar": {
     "navbarbrand": "О бренде",
     "navbarproduct": "Продукция",
+    "navbarrecipes": "Рецепты",
     "navbaradventages": "Преимущества",
     "navbaropinions": "Отзывы",
     "navbarcontacts": "Контакты"
@@ -60,7 +61,7 @@
   "footer": {
     "head": "Безопасная, высококачественная посуда, созданная для профессионалов и домашних кулинаров",
     "gift": "Подарок",
-    "cooking": "Готовка",
+    "cooking": "Рецепты",
     "set": "Набор"
   },
   "basket": {

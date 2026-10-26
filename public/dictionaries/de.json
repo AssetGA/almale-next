@@ -2,6 +2,7 @@
   "navbar": {
     "navbarbrand": "Marke",
     "navbarproduct": "Produkte",
+    "navbarrecipes": "Rezepte",
     "navbaradventages": "Vorteile",
     "navbaropinions": "Bewertungen",
     "navbarcontacts": "Kontakt"
@@ -60,7 +61,7 @@
   "footer": {
     "head": "Hochwertiges Kochgeschirr für Profis und zu Hause",
     "gift": "Geschenk",
-    "cooking": "Kochen",
+    "cooking": "Rezepte",
     "set": "Das Set"
   },
   "basket": {

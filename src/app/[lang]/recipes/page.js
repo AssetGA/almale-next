@@ -1,20 +1,20 @@
-import AdLanding from "../../components/AdLanding";
-import { getLanding } from "../../components/adCopy";
+import { RecipeIndex } from "../../components/RecipePages";
+import { recipeUi } from "../../lib/recipes";
 import { languageAlternates } from "../../lib/locales";
 
 export async function generateMetadata({ params }) {
   const { lang } = await params;
-  const page = getLanding(lang, "recipes");
+  const page = recipeUi[lang] || recipeUi.ru;
   const base = process.env.NEXT_PUBLIC_SITE_URL || "https://www.alma-le.com";
   return {
     title: page.title,
-    description: page.description,
+    description: page.lead,
     alternates: {
       languages: languageAlternates(base, "/recipes"),
     },
     openGraph: {
       title: page.title,
-      description: page.description,
+      description: page.lead,
       url: `${base}/${lang}/recipes`,
       type: "website",
     },
@@ -23,5 +23,5 @@ export async function generateMetadata({ params }) {
 
 export default async function Page({ params }) {
   const { lang } = await params;
-  return <AdLanding lang={lang} page={getLanding(lang, "recipes")} />;
+  return <RecipeIndex lang={lang} />;
 }

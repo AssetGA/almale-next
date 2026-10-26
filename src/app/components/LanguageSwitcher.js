@@ -20,8 +20,11 @@ const LanguageSwitcher = ({ lang }) => {
         {lang}
       </button>
 
-      {isOpen && (
-        <div className="absolute end-0 z-10 mt-2 w-16 origin-top-right rounded-md border bg-white shadow-lg ring-1 ring-black ring-opacity-5">
+      <div
+        className={`slide-open absolute end-0 z-10 mt-2 w-16 origin-top rounded-md border bg-white shadow-lg ring-1 ring-black ring-opacity-5 ${
+          isOpen ? "is-open" : ""
+        }`}
+      >
           <div className="py-1">
             {locales.map((code) => (
               <Link
@@ -34,7 +37,6 @@ const LanguageSwitcher = ({ lang }) => {
             ))}
           </div>
         </div>
-      )}
     </div>
   );
 };

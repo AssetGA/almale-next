@@ -2,6 +2,7 @@
   "navbar": {
     "navbarbrand": "العلامة",
     "navbarproduct": "المنتجات",
+    "navbarrecipes": "وصفات",
     "navbaradventages": "المزايا",
     "navbaropinions": "الآراء",
     "navbarcontacts": "التواصل"
@@ -60,7 +61,7 @@
   "footer": {
     "head": "أوانٍ عالية الجودة للطهاة المحترفين والبيت",
     "gift": "هدية",
-    "cooking": "الطبخ",
+    "cooking": "وصفات",
     "set": "الطقم"
   },
   "basket": {

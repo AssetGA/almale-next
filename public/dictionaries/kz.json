@@ -2,6 +2,7 @@
   "navbar": {
     "navbarbrand": "Бренд",
     "navbarproduct": "Өнімдер",
+    "navbarrecipes": "Рецепттер",
     "navbaradventages": "Артықшылықтар",
     "navbaropinions": "Пікірлер",
     "navbarcontacts": "Байланыс"
@@ -60,7 +61,7 @@
   "footer": {
     "head": "Профессионалдар мен үй аспаздары үшін жасалған қауіпсіз, жоғары сапалы ыдыс",
     "gift": "Сыйлық",
-    "cooking": "Дайындау",
+    "cooking": "Рецепттер",
     "set": "Жиынтық"
   },
   "basket": {

@@ -2,6 +2,7 @@ import { fetchProducts } from "./actions/products";
 import { fetchVideo } from "./actions/video";
 import { images } from "./utils/api";
 import { languageAlternates, locales } from "./lib/locales";
+import { recipes } from "./lib/recipes";
 
 // app/sitemap.ts (если у тебя App Router)import { fetchProducts } from "./actions/products";
 
@@ -18,6 +19,10 @@ export default async function sitemap() {
       { path: "/recipes", priority: 0.8 },
       { path: "/set", priority: 0.8 },
       { path: "/instagram", priority: 0.5 },
+      ...recipes.map((recipe) => ({
+        path: `/recipes/${recipe.slug}`,
+        priority: 0.7,
+      })),
     ].map((page) => ({
       url: `${baseUrl}/${lang}${page.path}`,
       lastModified: new Date().toISOString(),

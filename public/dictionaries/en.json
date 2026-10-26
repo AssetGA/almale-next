@@ -2,6 +2,7 @@
   "navbar": {
     "navbarbrand": "Brand",
     "navbarproduct": "Products",
+    "navbarrecipes": "Recipes",
     "navbaradventages": "Advantages",
     "navbaropinions": "Reviews",
     "navbarcontacts": "Contacts"
@@ -60,7 +61,7 @@
   "footer": {
     "head": "High-quality cookware designed for professionals and home cooks",
     "gift": "Gift",
-    "cooking": "Cooking",
+    "cooking": "Recipes",
     "set": "The set"
   },
   "basket": {

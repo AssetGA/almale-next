@@ -96,9 +96,52 @@ html[dir="rtl"] body * {
   }
 }
 
+@keyframes site-descend {
+  from {
+    opacity: 0;
+    transform: translateY(-72px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.site-descend {
+  animation: site-descend 0.95s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.slide-open {
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(-0.75rem);
+  pointer-events: none;
+  transition:
+    opacity 0.45s ease,
+    transform 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+    visibility 0s linear 0.45s;
+}
+
+.slide-open.is-open {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+  transition:
+    opacity 0.45s ease,
+    transform 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+    visibility 0s linear 0s;
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .carousel-track {
+  .carousel-track,
+  .site-descend {
     animation: none;
+  }
+
+  .slide-open,
+  .slide-open.is-open {
+    transition: none;
   }
 }
 

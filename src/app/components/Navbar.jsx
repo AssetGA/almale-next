@@ -45,7 +45,7 @@ const Navbar = ({ lang, t }) => {
   return (
     <div className="w-full">
       <div
-        className={`fixed justify-center top-0 left-0 w-full z-50 bg-white transition-transform duration-300 ${
+        className={`fixed justify-center top-0 left-0 w-full z-50 bg-white transition-transform duration-500 ease-out ${
           show ? "translate-y-0" : "-translate-y-full"
         }`}
       >
@@ -103,6 +103,12 @@ const Navbar = ({ lang, t }) => {
                     {t.navbar.navbarproduct}
                   </Link>
                   <Link
+                    href={`/${lang}/recipes`}
+                    className="rounded-md bg-green px-3 py-1 text-sm font-medium text-white hover:bg-green-light"
+                  >
+                    {t.navbar.navbarrecipes}
+                  </Link>
+                  <Link
                     href={`/${lang}/gallery`}
                     className="rounded-md text-sm font-medium hover:underline"
                   >
@@ -148,8 +154,11 @@ const Navbar = ({ lang, t }) => {
               </div>
             </div>
           </div>
-          {isOpen && (
-            <div className="absolute pb-60 md:hidden bg-white z-50">
+          <div
+            className={`slide-open absolute z-50 bg-white pb-60 md:hidden ${
+              isOpen ? "is-open" : ""
+            }`}
+          >
               <div className="flex flex-row">
                 <div className="px-8 py-12 space-y-1 sm:px-3 font-bold text-2xl leading-loose">
                   <a
@@ -165,6 +174,13 @@ const Navbar = ({ lang, t }) => {
                     onClick={() => setIsOpen(false)}
                   >
                     {t.navbar.navbarproduct}
+                  </Link>
+                  <Link
+                    href={`/${lang}/recipes`}
+                    className="block px-3 py-2 font-medium text-green focus:underline"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {t.navbar.navbarrecipes}
                   </Link>
                   <Link
                     href={`/${lang}/gallery`}
@@ -205,7 +221,6 @@ const Navbar = ({ lang, t }) => {
                 </div>
               </div>
             </div>
-          )}
         </nav>
       </div>
     </div>
