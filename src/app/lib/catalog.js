@@ -4,6 +4,12 @@ import ProductInfo from "../../models/ProductInfo";
 import ProductInfoTranslation from "../../models/ProductInfoTranslation";
 import { connectToDatabase } from "./mongodb";
 
+export const COOKWARE_SET_PRICE = 395000;
+
+export function isCookwareSet(product) {
+  return Number(product?.price) === COOKWARE_SET_PRICE;
+}
+
 function plain(value) {
   return JSON.parse(JSON.stringify(value));
 }

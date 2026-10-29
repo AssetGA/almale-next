@@ -1,6 +1,8 @@
+import { notFound, redirect } from "next/navigation";
 import { fetchProducts } from "../../../actions/products";
 import ProductAbout from "../../../components/ProductAbout";
 import { getDictionary } from "../../dictionaries";
+import { isCookwareSet } from "../../../lib/catalog";
 import { canonicalUrl, locales, pageAlternates, siteOrigin } from "../../../lib/locales";
 
 // export async function getServerSideProps({ req }) {
@@ -21,19 +23,17 @@ export async function generateMetadata({ params }) {
   const { id, lang } = await params;
 
   const products = await fetchProducts(lang);
-
-  const productSet = products.filter((elem) => {
-    return elem.price !== 395000;
-  });
-
-  const product = productSet.find((elem) => {
-    return elem._id === id;
-  });
+  const product = products.find((elem) => String(elem._id) === String(id));
   if (!product) {
-    console.error(`❌ Ошибка: Товар с ID ${id} не найден`);
     return {
-      title: "Товар не найден | Alma Le",
-      description: "Извините, этот товар недоступен.",
+      title: "Alma Le",
+      robots: { index: false, follow: false },
+    };
+  }
+  if (isCookwareSet(product)) {
+    return {
+      robots: { index: false, follow: true },
+      alternates: pageAlternates(lang, "/product"),
     };
   }
   return {
@@ -64,7 +64,9 @@ export async function generateStaticParams() {
     }
 
     // Преобразуем список продуктов в массив id
-    const productIds = products.map((elem) => elem._id);
+    const productIds = products
+      .filter((elem) => !isCookwareSet(elem))
+      .map((elem) => elem._id);
 
     productIds.forEach((id) => {
       params.push({ lang, id });
@@ -75,7 +77,11 @@ export async function generateStaticParams() {
 }
 
 export default async function Page({ params }) {
-  const { lang } = await params;
+  const { lang, id } = await params;
+  const products = await fetchProducts(lang);
+  const product = products.find((elem) => String(elem._id) === String(id));
+  if (product && isCookwareSet(product)) redirect(`/${lang}/product`);
+  if (products.length && !product) notFound();
   const t = await getDictionary(lang);
   return <ProductAbout lang={lang} t={t} />;
 }

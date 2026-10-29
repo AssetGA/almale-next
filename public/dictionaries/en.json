@@ -55,7 +55,8 @@
     "contact": "Contact:",
     "aemail": "email: almaleholding@gmail.com",
     "aphone": "mobile: +7 700 978 80 08",
-    "aaddress": "Kazakstan, Astana",
+    "aaddress": "Kazakhstan, Astana",
+    "whatsapp": "Message on WhatsApp",
     "instagram": "Instagram: @almale_com"
   },
   "footer": {
@@ -150,7 +151,12 @@
   },
   "chat": {
     "button": "Questions",
-    "span": "Manager"
+    "span": "Manager",
+    "name": "Your name",
+    "phone": "Mobile phone",
+    "start": "Start chat",
+    "phoneError": "Enter a valid phone number",
+    "connectionError": "Connection error. Please try again."
   },
   "gallery": {
     "altInfo": "Gift to mom"

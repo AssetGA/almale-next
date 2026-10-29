@@ -21,7 +21,7 @@ const Advantages = async ({ lang }) => {
               className="w-[100px] h-[100px] lg:w-[175px] lg:h-[175px]"
               width={100}
               height={100}
-              alt="моменты жизни на кухне"
+              alt={t.advantages.one}
             />
             <div className="text-center pt-5">
               <SlowTextReveal text={t.advantages.one}></SlowTextReveal>
@@ -33,7 +33,7 @@ const Advantages = async ({ lang }) => {
               className="w-[100px] h-[100px] lg:w-[175px] lg:h-[175px]"
               width={100}
               height={100}
-              alt="моменты жизни на кухне"
+              alt={t.advantages.two}
             />
             <div className="text-center pt-5">
               <SlowTextReveal text={t.advantages.two}></SlowTextReveal>
@@ -46,7 +46,7 @@ const Advantages = async ({ lang }) => {
               className="w-[100px] h-[100px] lg:w-[175px] lg:h-[175px]"
               width={100}
               height={100}
-              alt="моменты жизни на кухне"
+              alt={t.advantages.three}
             />
             <div className="text-center pt-5">
               <SlowTextReveal text={t.advantages.three}></SlowTextReveal>

@@ -58,7 +58,7 @@ const ChatWindow = ({ t, lang }) => {
     if (name.trim() === "") return;
 
     if (!validatePhone(phone)) {
-      setPhoneError("Введите корректный номер телефона");
+      setPhoneError(t.chat.phoneError);
       return;
     }
 
@@ -122,7 +122,7 @@ const ChatWindow = ({ t, lang }) => {
       console.error("Ошибка при отправке сообщения:", error);
       setMessages((prev) => [
         ...prev,
-        { text: "⚠️ Ошибка соединения. Попробуйте снова.", sender: "bot" },
+        { text: t.chat.connectionError, sender: "bot" },
       ]);
     } finally {
       setLoading(false);
@@ -169,14 +169,14 @@ const ChatWindow = ({ t, lang }) => {
             <div className="flex flex-col justify-center flex-1 p-4 space-y-3">
               <input
                 type="text"
-                placeholder="Ваше имя"
+                placeholder={t.chat.name}
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 className="p-2 border border-gray rounded-md focus:ring-2 focus:ring-green focus:outline-none"
               />
               <input
                 type="tel"
-                placeholder="Мобильный телефон"
+                placeholder={t.chat.phone}
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
                 className={`p-2 border rounded-md focus:ring-2 focus:outline-none ${
@@ -197,7 +197,7 @@ const ChatWindow = ({ t, lang }) => {
                     : "bg-gray-400 cursor-not-allowed"
                 }`}
               >
-                Начать чат
+                {t.chat.start}
               </button>
             </div>
           ) : (

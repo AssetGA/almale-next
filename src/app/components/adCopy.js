@@ -1,30 +1,104 @@
 const videos = {
   ru: [
-    { id: "AAHCllXUXrI", title: "Распаковка набора Alma Le" },
-    { id: "nFNJUepGYHY", title: "Готовим на медной посуде Alma Le" },
-    { id: "5W05UwE_LQ0", title: "Готовка в медном сотейнике" },
+    {
+      id: "AAHCllXUXrI",
+      title: "Распаковка набора Alma Le",
+      description: "Распаковка набора медной посуды Alma Le: кастрюли, сотейник и сковорода.",
+    },
+    {
+      id: "nFNJUepGYHY",
+      title: "Готовим на медной посуде Alma Le",
+      description: "Готовка на медной посуде Alma Le.",
+    },
+    {
+      id: "5W05UwE_LQ0",
+      title: "Готовка в медном сотейнике",
+      description: "Готовка в медном сотейнике Alma Le.",
+    },
   ],
   en: [
-    { id: "AAHCllXUXrI", title: "Unboxing the Alma Le set" },
-    { id: "nFNJUepGYHY", title: "Cooking with Alma Le copper cookware" },
-    { id: "5W05UwE_LQ0", title: "Cooking in a copper saucepan" },
+    {
+      id: "AAHCllXUXrI",
+      title: "Unboxing the Alma Le set",
+      description: "Unboxing of the Alma Le copper cookware set: pots, saucepan and frying pan.",
+    },
+    {
+      id: "nFNJUepGYHY",
+      title: "Cooking with Alma Le copper cookware",
+      description: "Cooking with the Alma Le copper cookware set.",
+    },
+    {
+      id: "5W05UwE_LQ0",
+      title: "Cooking in a copper saucepan",
+      description: "Cooking in an Alma Le copper saucepan.",
+    },
   ],
   kz: [
-    { id: "AAHCllXUXrI", title: "Alma Le жиынтығын ашу" },
-    { id: "nFNJUepGYHY", title: "Мыс ыдыста дайындау" },
-    { id: "5W05UwE_LQ0", title: "Мыс сотейникте дайындау" },
+    {
+      id: "AAHCllXUXrI",
+      title: "Alma Le жиынтығын ашу",
+      description: "Alma Le мыс ыдыс жиынтығын ашу: кастрюль, сотейник және таба.",
+    },
+    {
+      id: "nFNJUepGYHY",
+      title: "Мыс ыдыста дайындау",
+      description: "Alma Le мыс ыдысында дайындау.",
+    },
+    {
+      id: "5W05UwE_LQ0",
+      title: "Мыс сотейникте дайындау",
+      description: "Alma Le мыс сотейнигінде дайындау.",
+    },
   ],
   de: [
-    { id: "AAHCllXUXrI", title: "Alma Le Set auspacken" },
-    { id: "nFNJUepGYHY", title: "Kochen mit Alma Le Kupfergeschirr" },
-    { id: "5W05UwE_LQ0", title: "Kochen in der Kupfer-Stielkasserolle" },
+    {
+      id: "AAHCllXUXrI",
+      title: "Alma Le Set auspacken",
+      description: "Auspacken des Alma Le Kupferkochgeschirr-Sets: Töpfe, Stielkasserolle und Pfanne.",
+    },
+    {
+      id: "nFNJUepGYHY",
+      title: "Kochen mit Alma Le Kupfergeschirr",
+      description: "Kochen mit dem Alma Le Kupferkochgeschirr.",
+    },
+    {
+      id: "5W05UwE_LQ0",
+      title: "Kochen in der Kupfer-Stielkasserolle",
+      description: "Kochen in der Alma Le Kupfer-Stielkasserolle.",
+    },
   ],
   ar: [
-    { id: "AAHCllXUXrI", title: "فتح طقم Alma Le" },
-    { id: "nFNJUepGYHY", title: "الطبخ بأواني Alma Le النحاسية" },
-    { id: "5W05UwE_LQ0", title: "الطبخ في وعاء الصلصة النحاسي" },
+    {
+      id: "AAHCllXUXrI",
+      title: "فتح طقم Alma Le",
+      description: "فتح طقم أواني Alma Le النحاسية: قدور ومقلاة ووعاء صلصة.",
+    },
+    {
+      id: "nFNJUepGYHY",
+      title: "الطبخ بأواني Alma Le النحاسية",
+      description: "الطبخ بطقم أواني Alma Le النحاسية.",
+    },
+    {
+      id: "5W05UwE_LQ0",
+      title: "الطبخ في وعاء الصلصة النحاسي",
+      description: "الطبخ في وعاء الصلصة النحاسي من Alma Le.",
+    },
   ],
 };
+
+const videoMeta = {
+  AAHCllXUXrI: { duration: "PT4M30S", uploadDate: "2026-04-26T00:00:00.000Z" },
+  nFNJUepGYHY: { duration: "PT1M20S", uploadDate: "2026-04-26T00:00:00.000Z" },
+  "5W05UwE_LQ0": { duration: "PT2M47S", uploadDate: "2026-04-26T00:00:00.000Z" },
+};
+
+export function getYoutubeVideos(lang) {
+  const locale = videos[lang] ? lang : "ru";
+  return videos[locale].map((video) => ({
+    ...video,
+    ...videoMeta[video.id],
+  }));
+}
 
 const copy = {
   ru: {

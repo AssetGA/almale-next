@@ -20,7 +20,7 @@ const Values = async ({ lang }) => {
               className="w-[100px] h-[100px] lg:w-[175px] lg:h-[175px]"
               width={100}
               height={100}
-              alt="моменты жизни на кухне"
+              alt={t.brand.one}
             />
             <div className="text-center pt-5">
               <SlowTextReveal text={t.brand.one}></SlowTextReveal>
@@ -32,7 +32,7 @@ const Values = async ({ lang }) => {
               className="w-[100px] h-[100px] lg:w-[175px] lg:h-[175px]"
               width={100}
               height={100}
-              alt="моменты жизни на кухне"
+              alt={t.brand.two}
             />
             <div className="text-center pt-5">
               <SlowTextReveal text={t.brand.two}></SlowTextReveal>
@@ -45,7 +45,7 @@ const Values = async ({ lang }) => {
               className="w-[100px] h-[100px] lg:w-[175px] lg:h-[175px]"
               width={100}
               height={100}
-              alt="моменты жизни на кухне"
+              alt={t.brand.three}
             />
             <div className="text-center pt-5">
               <SlowTextReveal text={t.brand.three}></SlowTextReveal>

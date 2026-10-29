@@ -57,8 +57,9 @@ export default async function middleware(request) {
   const locale = getLocale();
 
   if (!pathnameHasLocale) {
+    const suffix = pathname === "/" ? "" : pathname;
     return NextResponse.redirect(
-      new URL(`/${locale}${pathname}`, request.nextUrl)
+      new URL(`/${locale}${suffix}`, request.nextUrl)
     );
   }
 

@@ -148,7 +148,7 @@ const ConnectionForm = ({ t }) => {
                 href={`https://wa.me/${whatsappNumber}`}
                 className="mt-8"
               >
-                {t.form.whatsapp || "Написать в WhatsApp"}
+                {t.form.whatsapp}
               </WhatsAppButton>
             </div>
           </div>

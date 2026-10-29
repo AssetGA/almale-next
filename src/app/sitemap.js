@@ -1,6 +1,7 @@
 import { fetchProducts } from "./actions/products";
 import { fetchVideo } from "./actions/video";
 import { images } from "./utils/api";
+import { isCookwareSet } from "./lib/catalog";
 import { languageAlternates, locales, siteOrigin } from "./lib/locales";
 import { recipes } from "./lib/recipes";
 
@@ -36,7 +37,7 @@ export default async function sitemap() {
 
   const products = await fetchProducts("ru");
 
-  const productPages = products.flatMap((product) => {
+  const productPages = products.filter((product) => !isCookwareSet(product)).flatMap((product) => {
     return langs.map((lang) => ({
       url: `${baseUrl}/${lang}/product/${product._id}`,
       lastModified: new Date().toISOString(),

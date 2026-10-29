@@ -41,7 +41,7 @@ export function languageAlternates(baseUrl, path = "") {
     de: `${origin}/de${suffix}`,
     ar: `${origin}/ar${suffix}`,
     kk: `${origin}/kz${suffix}`,
-    "x-default": `${origin}/ru${suffix}`,
+    "x-default": `${origin}/${defaultLocale}${suffix}`,
   };
 }
 

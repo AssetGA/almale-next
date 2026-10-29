@@ -1,4 +1,5 @@
 import Main from "../components/Main";
+import { getYoutubeVideos } from "../components/adCopy";
 import { getDictionary } from "./dictionaries";
 import { canonicalUrl, pageAlternates, siteOrigin } from "../lib/locales";
 
@@ -47,7 +48,7 @@ export default async function Home({ params }) {
       {
         "@type": "Organization",
         name: "Alma Le",
-        url: `${site}/ru`,
+        url: `${site}/${lang}`,
         logo: `${site}/img/logo.png`,
         sameAs: ["https://www.instagram.com/almale_com/"],
       },
@@ -104,17 +105,15 @@ export default async function Home({ params }) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify([
-            {
+          __html: JSON.stringify(
+            getYoutubeVideos(lang).map((video) => ({
               "@context": "https://schema.org",
               "@type": "VideoObject",
-              name: "Alma Le copper cookware set",
-              description:
-                "Unboxing of the Alma Le premium copper cookware set: pots, saucepan and frying pan.",
-              thumbnailUrl:
-                "https://img.youtube.com/vi/AAHCllXUXrI/maxresdefault.jpg",
-              uploadDate: "2026-04-26T00:00:00.000Z",
-              duration: "PT4M30S",
+              name: video.title,
+              description: video.description,
+              thumbnailUrl: `https://img.youtube.com/vi/${video.id}/maxresdefault.jpg`,
+              uploadDate: video.uploadDate,
+              duration: video.duration,
               publisher: {
                 "@type": "Organization",
                 name: "Alma Le",
@@ -123,50 +122,10 @@ export default async function Home({ params }) {
                   url: `${site}/img/logo.png`,
                 },
               },
-              embedUrl: "https://www.youtube.com/embed/AAHCllXUXrI",
-              contentUrl: "https://www.youtube.com/watch?v=AAHCllXUXrI",
-            },
-            {
-              "@context": "https://schema.org",
-              "@type": "VideoObject",
-              name: "Готовим на медной посуде Alma Le",
-              description: "Готовка на медной посуде Alma Le с поваром из Казахстана.",
-              thumbnailUrl:
-                "https://img.youtube.com/vi/nFNJUepGYHY/maxresdefault.jpg",
-              uploadDate: "2026-04-26T00:00:00.000Z",
-              duration: "PT1M20S",
-              publisher: {
-                "@type": "Organization",
-                name: "Alma Le",
-                logo: {
-                  "@type": "ImageObject",
-                  url: `${site}/img/logo.png`,
-                },
-              },
-              embedUrl: "https://www.youtube.com/embed/nFNJUepGYHY",
-              contentUrl: "https://www.youtube.com/watch?v=nFNJUepGYHY",
-            },
-            {
-              "@context": "https://schema.org",
-              "@type": "VideoObject",
-              name: "Alma Le copper saucepan",
-              description: "Cooking in an Alma Le copper saucepan.",
-              thumbnailUrl:
-                "https://img.youtube.com/vi/5W05UwE_LQ0/maxresdefault.jpg",
-              uploadDate: "2026-04-26T00:00:00.000Z",
-              duration: "PT2M47S",
-              publisher: {
-                "@type": "Organization",
-                name: "Alma Le",
-                logo: {
-                  "@type": "ImageObject",
-                  url: `${site}/img/logo.png`,
-                },
-              },
-              embedUrl: "https://www.youtube.com/embed/5W05UwE_LQ0",
-              contentUrl: "https://www.youtube.com/watch?v=5W05UwE_LQ0",
-            },
-          ]),
+              embedUrl: `https://www.youtube.com/embed/${video.id}`,
+              contentUrl: `https://www.youtube.com/watch?v=${video.id}`,
+            }))
+          ),
         }}
       />
       <Main lang={lang} />
