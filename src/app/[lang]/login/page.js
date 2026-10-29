@@ -2,6 +2,12 @@
 import Link from "next/link";
 import { getDictionary } from "../dictionaries";
 import LoginForm from "../../components/LoginForm";
+import { noIndexMetadata } from "../../lib/locales";
+
+export async function generateMetadata({ params }) {
+  const { lang } = await params;
+  return noIndexMetadata(lang, "/login");
+}
 
 export default async function Login({ params }) {
   const { lang } = await params;

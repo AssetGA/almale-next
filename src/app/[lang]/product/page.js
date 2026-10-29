@@ -4,7 +4,7 @@ import {
   getLocalizedProductInfo,
   getLocalizedProducts,
 } from "../../lib/catalog";
-import { languageAlternates, localeParams } from "../../lib/locales";
+import { canonicalUrl, localeParams, pageAlternates, siteOrigin } from "../../lib/locales";
 
 // export async function getServerSideProps({ req }) {
 //   // Извлекаем язык из URL
@@ -24,24 +24,22 @@ export async function generateMetadata({ params }) {
   const { lang } = await params;
   const t = await getDictionary(lang);
 
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL;
+  const baseUrl = siteOrigin();
   return {
       title: `${t.metadataProduct.title} - Alma Le`,
       description: t.metadataProduct.description,
-      alternates: {
-        languages: languageAlternates(baseUrl, "/product"),
-      },
+      alternates: pageAlternates(lang, "/product"),
       keywords: t.metadataProduct.keywords,
       openGraph: {
         title: `${t.metadata.title}`,
         description: `${t.metadata.description}`,
         images: [
-          "https://alma-le.com/img/set/1.png",
-          "https://alma-le.com/img/set/0.png",
-          "https://alma-le.com/img/set/2.png",
-          "https://alma-le.com/img/set/3.png",
-        ], // ✅ Supports array
-        url: `${process.env.NEXT_PUBLIC_SITE_URL}/${lang}/product`,
+          `${baseUrl}/img/set/1.png`,
+          `${baseUrl}/img/set/0.png`,
+          `${baseUrl}/img/set/2.png`,
+          `${baseUrl}/img/set/3.png`,
+        ],
+        url: canonicalUrl(lang, "/product"),
       },
   };
 }

@@ -1,7 +1,7 @@
 import { fetchProducts } from "../../../actions/products";
 import ProductAbout from "../../../components/ProductAbout";
 import { getDictionary } from "../../dictionaries";
-import { languageAlternates, locales } from "../../../lib/locales";
+import { canonicalUrl, locales, pageAlternates, siteOrigin } from "../../../lib/locales";
 
 // export async function getServerSideProps({ req }) {
 //   // Извлекаем язык из URL
@@ -36,20 +36,16 @@ export async function generateMetadata({ params }) {
       description: "Извините, этот товар недоступен.",
     };
   }
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL;
-
   return {
     title: `${product.title}`,
     description: product.descriptionMeta,
-    alternates: {
-      languages: languageAlternates(baseUrl, `/product/${id}`),
-    },
+    alternates: pageAlternates(lang, `/product/${id}`),
     keywords: product.keywords,
     openGraph: {
       title: `${product.title}`,
       description: `${product.descriptionMeta}`,
-      images: [`${process.env.NEXT_PUBLIC_SITE_URL}${product.imageUrl}`], // ✅ Supports array
-      url: `${process.env.NEXT_PUBLIC_SITE_URL}/${lang}/product/${id}`,
+      images: [`${siteOrigin()}${product.imageUrl}`],
+      url: canonicalUrl(lang, `/product/${id}`),
     },
   };
 }

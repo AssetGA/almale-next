@@ -1,17 +1,16 @@
 import Main from "../components/Main";
 import { getDictionary } from "./dictionaries";
-import { languageAlternates } from "../lib/locales";
+import { canonicalUrl, pageAlternates, siteOrigin } from "../lib/locales";
 
 export async function generateMetadata({ params }) {
   const { lang } = await params;
   const t = await getDictionary(lang);
 
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL;
+  const baseUrl = siteOrigin();
 
   return {
     title: `${t.metadata.title}`,
     description: t.metadata.description,
-    metadataBase: new URL(baseUrl),
     twitter: {
       card: "summary_large_image",
       title: `${t.metadata.title}`,
@@ -23,9 +22,7 @@ export async function generateMetadata({ params }) {
         "https://www.instagram.com/almale_com?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==", // ✅ Instagram App Link
       "al:android:url": "https://www.instagram.com/almale_com/", // ✅ Instagram Web Link
     },
-    alternates: {
-      languages: languageAlternates(baseUrl, ""),
-    },
+    alternates: pageAlternates(lang, ""),
     keywords: `${t.metadata.keywords}`,
 
     openGraph: {
@@ -33,7 +30,7 @@ export async function generateMetadata({ params }) {
       description: `${t.metadata.description}`,
       images: [`${baseUrl}/img/main.webp`, `${baseUrl}/img/front.webp`], // ✅ Supports array
       type: "website",
-      url: `${process.env.NEXT_PUBLIC_SITE_URL}/${lang}`,
+      url: canonicalUrl(lang, ""),
     },
   };
 }

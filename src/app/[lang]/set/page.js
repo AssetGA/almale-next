@@ -1,21 +1,18 @@
 import AdLanding from "../../components/AdLanding";
 import { getLanding } from "../../components/adCopy";
-import { languageAlternates } from "../../lib/locales";
+import { canonicalUrl, pageAlternates } from "../../lib/locales";
 
 export async function generateMetadata({ params }) {
   const { lang } = await params;
   const page = getLanding(lang, "set");
-  const base = process.env.NEXT_PUBLIC_SITE_URL || "https://www.alma-le.com";
   return {
     title: page.title,
     description: page.description,
-    alternates: {
-      languages: languageAlternates(base, "/set"),
-    },
+    alternates: pageAlternates(lang, "/set"),
     openGraph: {
       title: page.title,
       description: page.description,
-      url: `${base}/${lang}/set`,
+      url: canonicalUrl(lang, "/set"),
       type: "website",
     },
   };

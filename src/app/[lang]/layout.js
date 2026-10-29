@@ -4,7 +4,7 @@ import Footer from "../components/Footer";
 import localFont from "next/font/local";
 import StoreProvider from "../StoreProvider";
 import { getDictionary } from "./dictionaries";
-import { htmlLang, localeParams } from "../lib/locales";
+import { htmlLang, localeParams, siteOrigin } from "../lib/locales";
 import SiteEnter from "../components/SiteEnter";
 import dynamic from "next/dynamic";
 import { Noto_Sans_Arabic } from "next/font/google";
@@ -39,24 +39,17 @@ const arabic = Noto_Sans_Arabic({
 //   };
 // }
 
-export async function generateMetadata({ params }) {
-  const { lang } = await params;
-  const t = await getDictionary(lang);
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL;
+export async function generateMetadata() {
+  const baseUrl = siteOrigin();
 
   return {
+    metadataBase: new URL(baseUrl),
     verification: {
       google: "rn1ZlN9g8g7fHia45p5G5UtdckF8ogxRywzzlJrHY-k",
     },
 
     icons: {
-      icon: "/img/icon.png", // /public path
-      ...(lang === "en" && {
-        other: {
-          hrefLang: `${lang}`,
-          url: `${baseUrl}/${lang}`,
-        },
-      }),
+      icon: "/img/icon.png",
     },
   };
 }

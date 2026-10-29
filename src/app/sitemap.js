@@ -1,13 +1,13 @@
 import { fetchProducts } from "./actions/products";
 import { fetchVideo } from "./actions/video";
 import { images } from "./utils/api";
-import { languageAlternates, locales } from "./lib/locales";
+import { languageAlternates, locales, siteOrigin } from "./lib/locales";
 import { recipes } from "./lib/recipes";
 
 // app/sitemap.ts (если у тебя App Router)import { fetchProducts } from "./actions/products";
 
 export default async function sitemap() {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.alma-le.com";
+  const baseUrl = siteOrigin();
   const langs = locales;
 
   const staticPages = langs.flatMap((lang) =>

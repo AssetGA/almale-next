@@ -1,5 +1,11 @@
 import React from "react";
 import { getDictionary } from "../dictionaries";
+import { noIndexMetadata } from "../../lib/locales";
+
+export async function generateMetadata({ params }) {
+  const { lang } = await params;
+  return noIndexMetadata(lang, "/payment");
+}
 
 export function generateStaticParams() {
   return [{ lang: "en" }, { lang: "kz" }, { lang: "ru" }, { lang: "de" }, { lang: "ar" }];

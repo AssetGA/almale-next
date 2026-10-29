@@ -2,6 +2,12 @@ import Basket from "../../components/Basket";
 import { getDictionary } from "../dictionaries";
 import { verifySession } from "../../lib/dai";
 import { redirect } from "next/navigation";
+import { noIndexMetadata } from "../../lib/locales";
+
+export async function generateMetadata({ params }) {
+  const { lang } = await params;
+  return noIndexMetadata(lang, "/basket");
+}
 
 const Page = async ({ params }) => {
   const { lang } = await params;

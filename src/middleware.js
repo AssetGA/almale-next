@@ -12,6 +12,20 @@ function getLocale() {
 
 export default async function middleware(request) {
   const { pathname } = request.nextUrl;
+  const host = request.headers.get("host")?.split(":")[0];
+
+  if (host === "alma-le.com") {
+    const url = request.nextUrl.clone();
+    url.protocol = "https:";
+    url.host = "www.alma-le.com";
+    return NextResponse.redirect(url, 308);
+  }
+
+  if (pathname.length > 1 && pathname.endsWith("/")) {
+    const url = request.nextUrl.clone();
+    url.pathname = pathname.replace(/\/+$/, "");
+    return NextResponse.redirect(url, 308);
+  }
 
   // --- Исключения (не трогаем статику и sitemap) ---
   if (

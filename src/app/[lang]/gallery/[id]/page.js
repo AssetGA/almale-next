@@ -2,21 +2,21 @@ import React from "react";
 import VideoPage from "../../../components/VideoPage";
 import { getDictionary } from "../../dictionaries";
 import { fetchVideoById, fetchVideo } from "../../../actions/video";
-import { locales } from "../../../lib/locales";
+import { canonicalUrl, locales, pageAlternates } from "../../../lib/locales";
 
 // app/video/[id]/page.tsx (или любую страницу, где используешь видео)
 
 export async function generateMetadata({ params }) {
   const { id, lang } = await params;
-  const video = await fetchVideoById(lang, id); // или из JSON напрямую
-  if (!video) return {};
+  const video = await fetchVideoById(lang, id);
   if (!video) {
-    console.error(`❌ Ошибка: Товар с ID ${id} не найден`);
     return {
-      title: "Товар не найден | Alma Le",
-      description: "Извините, этот товар недоступен.",
+      title: "Alma Le",
+      robots: { index: false, follow: false },
     };
   }
+
+  const url = canonicalUrl(lang, `/gallery/${id}`);
 
   return {
     title: video.title,
@@ -26,17 +26,14 @@ export async function generateMetadata({ params }) {
       follow: true,
       maxVideoPreview: -1,
     },
+    alternates: pageAlternates(lang, `/gallery/${id}`),
     openGraph: {
       title: video.title,
       description: video.description,
       type: "video.other",
-      url: `${process.env.NEXT_PUBLIC_SITE_URL + "/" + lang}/gallery/${
-        video.id
-      }`,
+      url,
       video: {
-        url: `${process.env.NEXT_PUBLIC_SITE_URL + "/" + lang}/gallery/${
-          video.id
-        }`,
+        url,
         width: 1280,
         height: 720,
       },
@@ -45,9 +42,7 @@ export async function generateMetadata({ params }) {
       card: "player",
       title: video.title,
       description: video.description,
-      player: `${process.env.NEXT_PUBLIC_SITE_URL + "/" + lang}/gallery/${
-        video.id
-      }`,
+      player: url,
     },
   };
 }

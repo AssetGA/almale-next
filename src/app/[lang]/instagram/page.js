@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { languageAlternates } from "../../lib/locales";
+import { canonicalUrl, pageAlternates } from "../../lib/locales";
 
 const INSTAGRAM = "https://www.instagram.com/almale_com/";
 
@@ -144,15 +144,14 @@ const copy = {
 export async function generateMetadata({ params }) {
   const { lang } = await params;
   const page = copy[lang] || copy.ru;
-  const base = process.env.NEXT_PUBLIC_SITE_URL || "https://www.alma-le.com";
   return {
     title: page.title,
     description: page.description,
-    alternates: { languages: languageAlternates(base, "/instagram") },
+    alternates: pageAlternates(lang, "/instagram"),
     openGraph: {
       title: page.title,
       description: page.description,
-      url: `${base}/${lang}/instagram`,
+      url: canonicalUrl(lang, "/instagram"),
       type: "website",
     },
   };
