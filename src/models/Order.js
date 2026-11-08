@@ -19,6 +19,13 @@ const schema = new Schema(
     total: { type: Number, maxLength: 20 },
     userId: { type: String, maxLength: 40 },
     numberCheck: { type: String, maxLength: 6 },
+    codeHash: { type: String },
+    codeExpiresAt: { type: Date },
+    codeAttempts: { type: Number, default: 0 },
+    emailVerified: { type: Boolean, default: false },
+    paymentStatus: { type: String, default: "pending" },
+    paymentMethod: { type: String },
+    stripePaymentIntentId: { type: String },
   },
   {
     timestamps: true,

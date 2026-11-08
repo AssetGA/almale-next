@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import WhatsAppButton from "./WhatsAppButton";
+import { STORE } from "../lib/store";
 
 const ConnectionForm = ({ t }) => {
   const [formData, setFormData] = useState({
@@ -39,7 +40,7 @@ const ConnectionForm = ({ t }) => {
     }
   };
 
-  const whatsappNumber = "77471204110";
+  const whatsappNumber = STORE.whatsapp;
 
   return (
     <div id="contact" className="w-full scroll-mt-24">

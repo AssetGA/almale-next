@@ -14,10 +14,11 @@ import {
   RemoveVerifyUser,
   Verify,
 } from "../store/users";
-import { deliveries } from "../utils/api";
+import { DELIVERY_RATES } from "../lib/delivery-rates";
 import { useRouter } from "next/navigation";
 import { logout } from "../actions/auth";
 import { currencySuffix } from "../lib/locales";
+import ApplePayButton from "./ApplePayButton";
 
 const Basket = ({ lang, t }) => {
   const router = useRouter();
@@ -34,9 +35,7 @@ const Basket = ({ lang, t }) => {
 
   const dispatch = useAppDispatch();
   const { entity } = useAppSelector((state) => state.product);
-  const { error, isVerify, api, userId } = useAppSelector(
-    (state) => state.user
-  );
+  const { error, isVerify, api } = useAppSelector((state) => state.user);
 
   const { productOrder, errorOrder } = useAppSelector((state) => state.order);
   const product =
@@ -61,7 +60,6 @@ const Basket = ({ lang, t }) => {
     quantity: 1,
     deliveryPrice: 0,
     total: 0,
-    userId: "",
   });
   const [errors, setErrors] = useState({});
   const [selectedOption, setSelectedOption] = useState(
@@ -96,12 +94,13 @@ const Basket = ({ lang, t }) => {
   };
 
   const selectDeliveryPrice = () => {
-    selectedOption === "Доставка по Казахстану"
-      ? setOrder({ ...order, deliveryPrice: deliveries[0].price })
-      : setOrder({
-          ...order,
-          deliveryPrice: deliveries[1].price * order.quantity,
-        });
+    const international = selectedOption === "Доставка международная";
+    setOrder((prev) => ({
+      ...prev,
+      deliveryPrice: international
+        ? DELIVERY_RATES.international * Number(prev.quantity || 1)
+        : DELIVERY_RATES.domestic,
+    }));
   };
 
   useEffect(() => {
@@ -146,14 +145,20 @@ const Basket = ({ lang, t }) => {
     // Здесь можно добавить обработку отправки адреса
     const isValid = validate();
     if (!isValid) return;
-    const newTotal = order.quantity * product.price + order.deliveryPrice;
     dispatch(
       orderCreate({
-        ...order,
-        ...address,
-        total: newTotal,
+        name: address.name,
+        email: address.email,
+        mobile: address.mobile,
+        street: address.street,
+        city: address.city,
+        postalCode: address.postalCode,
+        quantity: Number(order.quantity),
         productId: product._id,
-        userId: userId,
+        delivery:
+          selectedOption === "Доставка международная"
+            ? "international"
+            : "domestic",
       })
     );
     setAddress({
@@ -169,7 +174,6 @@ const Basket = ({ lang, t }) => {
       quantity: 1,
       deliveryPrice: 0,
       total: 0,
-      userId: "",
     });
 
     openModal();
@@ -430,6 +434,14 @@ const Basket = ({ lang, t }) => {
                 <div className="flex w-20 h-20 bg-[url('/img/kaspi.png')] bg-contain bg-no-repeat mx-auto"></div>
               </div>
 
+              <ApplePayButton
+                orderId={productOrder?.orderId}
+                t={t}
+                onPaid={() => {
+                  dispatch(RemoveVerifyUser());
+                  router.push(`/${lang}/payment?paid=1`);
+                }}
+              />
               <div className="flex justify-center">
                 <button
                   className="border px-4 py-2 rounded-md mr-2 hover:bg-green-light hover:text-white"

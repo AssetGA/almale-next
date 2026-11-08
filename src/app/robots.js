@@ -19,6 +19,10 @@ const aiAgents = [
   "Meta-ExternalAgent",
   "FacebookBot",
   "cohere-ai",
+  "YandexBot",
+  "YandexAdditional",
+  "DuckDuckBot",
+  "Applebot",
 ];
 
 export default function robots() {

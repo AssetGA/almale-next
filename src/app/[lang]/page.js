@@ -2,6 +2,7 @@ import Main from "../components/Main";
 import { getYoutubeVideos } from "../components/adCopy";
 import { getDictionary } from "./dictionaries";
 import { canonicalUrl, pageAlternates, siteOrigin } from "../lib/locales";
+import { STORE } from "../lib/store";
 
 export async function generateMetadata({ params }) {
   const { lang } = await params;
@@ -23,7 +24,12 @@ export async function generateMetadata({ params }) {
         "https://www.instagram.com/almale_com?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==", // ✅ Instagram App Link
       "al:android:url": "https://www.instagram.com/almale_com/", // ✅ Instagram Web Link
     },
-    alternates: pageAlternates(lang, ""),
+    alternates: {
+      ...pageAlternates(lang, ""),
+      types: {
+        "text/plain": `${baseUrl}/llms.txt`,
+      },
+    },
     keywords: `${t.metadata.keywords}`,
 
     openGraph: {
@@ -47,10 +53,31 @@ export default async function Home({ params }) {
     "@graph": [
       {
         "@type": "Organization",
-        name: "Alma Le",
+        name: STORE.name,
         url: `${site}/${lang}`,
         logo: `${site}/img/logo.png`,
-        sameAs: ["https://www.instagram.com/almale_com/"],
+        telephone: STORE.phoneTel,
+        email: STORE.email,
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: STORE.locality,
+          addressCountry: STORE.country,
+        },
+        sameAs: [STORE.instagram, STORE.youtube],
+      },
+      {
+        "@type": "Store",
+        name: STORE.name,
+        url: siteOrigin(),
+        telephone: STORE.phoneTel,
+        email: STORE.email,
+        image: `${site}/img/logo.png`,
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: STORE.locality,
+          addressCountry: STORE.country,
+        },
+        sameAs: [STORE.instagram, STORE.youtube],
       },
       {
         "@type": "WebSite",

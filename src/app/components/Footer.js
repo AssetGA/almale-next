@@ -1,5 +1,7 @@
 import Image from "next/image";
 import React from "react";
+import { categoryNav } from "../lib/categories";
+import { STORE } from "../lib/store";
 
 const Footer = ({ t, lang }) => {
   return (
@@ -17,6 +19,11 @@ const Footer = ({ t, lang }) => {
               />
             </div>
             <p className="max-w-40 sm:w-72">{t.footer.head}</p>
+            <p className="mt-3 max-w-40 sm:w-72">{STORE.name}</p>
+            <p className="max-w-40 sm:w-72">{STORE.locality}</p>
+            <a className="max-w-40 sm:w-72" href={`tel:${STORE.phoneTel}`}>
+              {STORE.phoneDisplay}
+            </a>
           </div>
           <div className="w-full">
             <div className="flex flex-col items-end pt-6 rtl:items-start">
@@ -50,6 +57,15 @@ const Footer = ({ t, lang }) => {
               >
                 {t.footer.set}
               </a>
+              {categoryNav(lang).map((item) => (
+                <a
+                  key={item.slug}
+                  href={`/${lang}/cookware/${item.slug}`}
+                  className="hover:bg-white hover:text-green-light py-2 sm:py-0"
+                >
+                  {item.label}
+                </a>
+              ))}
               <a
                 href="https://www.youtube.com/@alma_le"
                 className="hover:bg-white hover:text-green-light py-2 sm:py-0"

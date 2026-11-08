@@ -8,8 +8,8 @@
     "navbarcontacts": "Kontakt"
   },
   "head": {
-    "headh1": "Alma`Le – Familienwärme und professionelles Kochgeschirr in Ihrer Küche",
-    "headp": "Hochwertiges Kochgeschirr für Profis und zu Hause",
+    "headh1": "Kupferkochgeschirr in Astana | Alma Le",
+    "headp": "Kupfertöpfe, Pfanne und Stielkasserolle. Lieferung in Astana und Kasachstan.",
     "headbutton": "Kollektion ansehen"
   },
   "brand": {
@@ -54,7 +54,7 @@
     "button": "Senden",
     "contact": "Kontakt:",
     "aemail": "E-Mail: almaleholding@gmail.com",
-    "aphone": "Mobil: +7 700 978 80 08",
+    "aphone": "Mobil: +7 747 120 41 10",
     "aaddress": "Kasachstan, Astana",
     "whatsapp": "Per WhatsApp schreiben",
     "instagram": "Instagram: @almale_com"
@@ -86,6 +86,9 @@
     "headKaspi": "Zahlung über KASPI",
     "buttonKaspiBack": "zurück",
     "buttonToKaspi": "Zur KASPI-App",
+    "applePayUnavailable": "Apple Pay ist in Safari auf iPhone, iPad und Mac verfügbar.",
+    "applePaySetup": "Apple Pay erscheint, sobald das Geschäft ein Zahlungskonto verbindet.",
+    "applePayError": "Die Zahlung ist fehlgeschlagen. Versuchen Sie es erneut.",
     "errorName": "Vor- und Nachname erforderlich",
     "errorEmail": "E-Mail erforderlich",
     "errorMobile": "Nummer prüfen",
@@ -117,9 +120,9 @@
     "buttonMore": "Mehr"
   },
   "metadata": {
-    "title": "Alma Le Kupferkochgeschirr — Töpfe, Stielkasserolle und Pfanne",
-    "description": "Kupferkochgeschirr von Alma Le: Töpfe, eine Stielkasserolle und eine Pfanne mit Deckeln. Außen Kupfer, Kern aus Aluminium, innen Edelstahl.",
-    "keywords": "Alma Le, Kupferkochgeschirr, Kupfertöpfe, Kupferpfanne, Stielkasserolle, Kupfer Set"
+    "title": "Kupferkochgeschirr in Astana | Alma Le",
+    "description": "Kupfertöpfe, Pfanne und Stielkasserolle. Set Alma Le, Lieferung in Astana und Kasachstan.",
+    "keywords": "Alma Le, Kupferkochgeschirr Astana, Kupfertöpfe, Kupferpfanne, Stielkasserolle, Lieferung Astana"
   },
   "metadataProduct": {
     "title": "Alma Le Kupferkochgeschirr — Katalog",
@@ -144,7 +147,8 @@
     "link": "Registrieren"
   },
   "payment": {
-    "head": "Gesundheit für Ihre Familie"
+    "head": "Gesundheit für Ihre Familie",
+    "paid": "Zahlung erhalten. Danke."
   },
   "video": {
     "title": "Alma'Le kennenlernen"

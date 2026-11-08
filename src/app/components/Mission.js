@@ -17,12 +17,12 @@ const Mission = async ({ lang }) => {
       </picture>
       <div className="relative xl:py-40 xl:px-40 lg:py-28 lg:ps-20 py-10 px-10 text-white text-sm lg:text-lg">
         <div className="sm:w-[400px] pb-40 sm:pb-0 sm:mb-12 ">
-          <h1
+          <h2
             className="text-xl font-bold hover:text-gray-header"
             style={{ fontFamily: "Montserrat-Bold" }}
           >
             {t.mission.head}
-          </h1>
+          </h2>
           <p className="py-5 text-sm">{t.mission.one}</p>
         </div>
       </div>

@@ -6,9 +6,20 @@ import { createSession, deleteSession } from "../../app/lib/session"; // Assumin
 import { locales } from "../lib/locales";
 import bcrypt from "bcryptjs";
 import { connectToDatabase } from "../lib/mongodb";
+import { clientIpFromHeaders, rateLimit } from "../lib/rate-limit";
+import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 
+async function tooMany(scope, limit, windowMs) {
+  const headerStore = await headers();
+  const ip = clientIpFromHeaders(headerStore);
+  return !rateLimit(`${scope}:${ip}`, { limit, windowMs }).ok;
+}
+
 export async function SignUp(state, formData) {
+  if (await tooMany("signup", 5, 60 * 60 * 1000)) {
+    return { error: { message: "Too many attempts", code: 429 } };
+  }
   await connectToDatabase();
   let success = false;
   try {
@@ -90,6 +101,9 @@ export async function SignUp(state, formData) {
 }
 
 export async function SignIn(state, formData) {
+  if (await tooMany("login", 8, 15 * 60 * 1000)) {
+    return { error: { message: "Too many attempts", code: 429 } };
+  }
   await connectToDatabase();
   let success = false;
   try {

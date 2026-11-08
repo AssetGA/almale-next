@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import mongoose from "mongoose";
 import Order from "../../../../../models/Order";
 import { getUser } from "../../../dai";
 
@@ -12,7 +13,7 @@ export async function DELETE(request, { params }) {
     );
   }
   try {
-    if (!orderId) {
+    if (!mongoose.isValidObjectId(orderId)) {
       return NextResponse.json(
         { message: "ID заказа не указан" },
         { status: 400 } // Bad Request
@@ -20,10 +21,16 @@ export async function DELETE(request, { params }) {
     }
 
     const findOrder = await Order.findById(orderId);
-    if (!findOrder) {
+    if (!findOrder || String(findOrder.userId) !== String(user._id)) {
       return NextResponse.json(
         { message: "Заказ не найден" },
-        { status: 404 } // Not Found
+        { status: 404 }
+      );
+    }
+    if (findOrder.paymentStatus === "paid") {
+      return NextResponse.json(
+        { message: "Заказ уже оплачен" },
+        { status: 400 }
       );
     }
 

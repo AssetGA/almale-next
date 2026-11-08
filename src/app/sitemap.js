@@ -2,6 +2,7 @@ import { fetchProducts } from "./actions/products";
 import { fetchVideo } from "./actions/video";
 import { images } from "./utils/api";
 import { isCookwareSet } from "./lib/catalog";
+import { categorySlugs } from "./lib/categories";
 import { languageAlternates, locales, siteOrigin } from "./lib/locales";
 import { recipes } from "./lib/recipes";
 
@@ -20,6 +21,10 @@ export default async function sitemap() {
       { path: "/recipes", priority: 0.8 },
       { path: "/set", priority: 0.8 },
       { path: "/instagram", priority: 0.5 },
+      ...categorySlugs.map((slug) => ({
+        path: `/cookware/${slug}`,
+        priority: 0.8,
+      })),
       ...recipes.map((recipe) => ({
         path: `/recipes/${recipe.slug}`,
         priority: 0.7,
@@ -59,6 +64,7 @@ export default async function sitemap() {
   const videoEntries = videoList.flatMap((items, index) =>
     items.map(({ lang, video }) => ({
       url: `${baseUrl}/${lang}/gallery/${video._id}`,
+      id: video._id,
       video: {
         title: video.title || "Product Video",
         description: video.description || "Video of the product",
@@ -81,6 +87,9 @@ export default async function sitemap() {
       lastModified: new Date().toISOString(),
       changeFrequency: "weekly",
       priority: 0.8,
+      alternates: {
+        languages: languageAlternates(baseUrl, `/gallery/${entry.id}`),
+      },
     };
   });
 

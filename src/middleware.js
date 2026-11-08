@@ -42,6 +42,7 @@ export default async function middleware(request) {
     pathname.startsWith("/fonts") ||
     pathname.startsWith("/dictionaries") ||
     pathname.startsWith("/lib/api") ||
+    pathname.startsWith("/.well-known") ||
     pathname.endsWith(".woff2") ||
     pathname.endsWith(".ttf") ||
     pathname.endsWith(".css")
@@ -96,12 +97,6 @@ export default async function middleware(request) {
   const response = NextResponse.next();
   response.headers.set("x-lang", currentLocale);
   response.headers.set("x-url", request.url);
-
-  // кука-токен (пример)
-  response.headers.set(
-    "Set-Cookie",
-    "user_token=xyz456; Secure; HttpOnly; SameSite=None; Path=/"
-  );
 
   return response;
 }

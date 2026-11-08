@@ -1,7 +1,13 @@
 import { NextResponse } from "next/server";
 import { sendMessage } from "../../../../utils/telegraf";
+import { siteCorsHeaders } from "../../../site-cors";
+import { clientIpFromHeaders, rateLimit } from "../../../rate-limit";
 
 export async function POST(request) {
+  const ip = clientIpFromHeaders(request.headers);
+  if (!rateLimit(`chat-user:${ip}`, { limit: 10, windowMs: 15 * 60 * 1000 }).ok) {
+    return NextResponse.json({ message: "too many requests" }, { status: 429 });
+  }
   try {
     const { name, phone } = await request.json();
     if (!name || name.trim() === "") {
@@ -38,11 +44,6 @@ export async function POST(request) {
 export function OPTIONS() {
   return NextResponse.json(null, {
     status: 200,
-    headers: {
-      "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Methods": "GET, POST, OPTIONS, PUT, PATCH, DELETE",
-      "Access-Control-Allow-Headers":
-        "Origin, X-Requested-With, Content-Type, Accept",
-    },
+    headers: siteCorsHeaders(),
   });
 }

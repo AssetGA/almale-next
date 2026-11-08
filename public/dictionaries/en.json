@@ -8,8 +8,8 @@
     "navbarcontacts": "Contacts"
   },
   "head": {
-    "headh1": "Alma`Le – Family love and Professional Cookware in Your Kitchen",
-    "headp": "High-quality cookware created for professionals and home cooks",
+    "headh1": "Copper cookware in Astana | Alma Le",
+    "headp": "Copper pots, a frying pan and a saucepan. Delivery in Astana and Kazakhstan.",
     "headbutton": "Explore the Collection"
   },
   "brand": {
@@ -54,7 +54,7 @@
     "button": "Send",
     "contact": "Contact:",
     "aemail": "email: almaleholding@gmail.com",
-    "aphone": "mobile: +7 700 978 80 08",
+    "aphone": "mobile: +7 747 120 41 10",
     "aaddress": "Kazakhstan, Astana",
     "whatsapp": "Message on WhatsApp",
     "instagram": "Instagram: @almale_com"
@@ -86,6 +86,9 @@
     "headKaspi": "KASPI payment",
     "buttonKaspiBack": "back",
     "buttonToKaspi": "Go to KASPI app",
+    "applePayUnavailable": "Apple Pay opens in Safari on iPhone, iPad and Mac.",
+    "applePaySetup": "Apple Pay appears after the store connects a payment account.",
+    "applePayError": "Payment did not go through. Try again.",
     "errorName": "First name Last name required",
     "errorEmail": "Mail is required",
     "errorMobile": "Check the number",
@@ -117,9 +120,9 @@
     "buttonMore": "More"
   },
   "metadata": {
-    "title": "Alma Le copper cookware — pots, saucepan and frying pan",
-    "description": "Alma Le copper cookware set: pots, a saucepan and a frying pan with lids. Copper outside, aluminum core, stainless steel inside.",
-    "keywords": "Alma Le, copper cookware, copper pots, copper frying pan, saucepan, copper cookware set"
+    "title": "Copper cookware in Astana | Alma Le",
+    "description": "Copper pots, a frying pan and a saucepan. Alma Le set with delivery in Astana and Kazakhstan.",
+    "keywords": "Alma Le, copper cookware Astana, copper pots, copper frying pan, saucepan, delivery Astana"
   },
   "metadataProduct": {
     "title": "Alma Le copper cookware catalog",
@@ -144,7 +147,8 @@
     "link": "Registration"
   },
   "payment": {
-    "head": "Good health to your family"
+    "head": "Good health to your family",
+    "paid": "Payment received. Thank you."
   },
   "video": {
     "title": "Introduction to Alma'Le"

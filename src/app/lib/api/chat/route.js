@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
 import { openai } from "../../../utils/bot/openai";
+import { siteCorsHeaders } from "../../site-cors";
+import { clientIpFromHeaders, rateLimit } from "../../rate-limit";
 
 // 🧠 Базовый контекст консультанта
 const SYSTEM_PROMPT = `
@@ -41,6 +43,10 @@ const LANGUAGE_LABELS = {
 };
 
 export async function POST(request) {
+  const ip = clientIpFromHeaders(request.headers);
+  if (!rateLimit(`chat:${ip}`, { limit: 20, windowMs: 10 * 60 * 1000 }).ok) {
+    return NextResponse.json({ message: "too many requests" }, { status: 429 });
+  }
   try {
     const { message, lang, name, phone } = await request.json();
     console.log("lang", lang);
@@ -94,11 +100,6 @@ export async function POST(request) {
 export function OPTIONS() {
   return NextResponse.json(null, {
     status: 200,
-    headers: {
-      "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Methods": "GET, POST, OPTIONS, PUT, PATCH, DELETE",
-      "Access-Control-Allow-Headers":
-        "Origin, X-Requested-With, Content-Type, Accept",
-    },
+    headers: siteCorsHeaders(),
   });
 }

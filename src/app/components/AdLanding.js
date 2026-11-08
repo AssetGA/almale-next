@@ -1,9 +1,11 @@
 import Link from "next/link";
 import WhatsAppButton from "./WhatsAppButton";
 
-const CHANNEL = "https://www.youtube.com/@alma_le";
-const INSTAGRAM = "https://www.instagram.com/almale_com/";
-const WHATSAPP = "77471204110";
+import { STORE } from "../lib/store";
+
+const CHANNEL = STORE.youtube;
+const INSTAGRAM = STORE.instagram;
+const WHATSAPP = STORE.whatsapp;
 
 function Poster({ id, title }) {
   return (

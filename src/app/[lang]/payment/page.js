@@ -11,12 +11,15 @@ export function generateStaticParams() {
   return [{ lang: "en" }, { lang: "kz" }, { lang: "ru" }, { lang: "de" }, { lang: "ar" }];
 }
 
-export default async function Payment({ params }) {
+export default async function Payment({ params, searchParams }) {
   const { lang } = await params;
+  const query = await searchParams;
   const t = await getDictionary(lang);
   return (
     <div className="flex justify-center justify-items-center h-96">
-      <h1 className="mx-auto my-auto">{t.payment.head}</h1>
+      <h1 className="mx-auto my-auto">
+        {query?.paid === "1" ? t.payment.paid : t.payment.head}
+      </h1>
     </div>
   );
 }

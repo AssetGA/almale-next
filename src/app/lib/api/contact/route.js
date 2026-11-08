@@ -2,16 +2,20 @@
 import { NextResponse } from "next/server";
 import { sendMessage } from "../../../utils/telegraf";
 import { connectToDatabase } from "../../mongodb";
+import { originAllowed, siteCorsHeaders } from "../../site-cors";
+import { clientIpFromHeaders, rateLimit } from "../../rate-limit";
 
 export async function GET(request) {
   await connectToDatabase();
   try {
-    const headers = {
-      "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Methods": "GET, POST, OPTIONS, PUT, PATCH, DELETE",
-      "Access-Control-Allow-Headers":
-        "Origin, X-Requested-With, Content-Type, Accept",
-    };
+    if (!originAllowed(request)) {
+      return new NextResponse("Access Denied", { status: 403 });
+    }
+    const ip = clientIpFromHeaders(request.headers);
+    if (!rateLimit(`contact:${ip}`, { limit: 8, windowMs: 15 * 60 * 1000 }).ok) {
+      return NextResponse.json({ message: "too many requests" }, { status: 429 });
+    }
+    const headers = siteCorsHeaders();
     // Обрабатываем запрос OPTIONS для CORS preflight
     if (request.method === "OPTIONS") {
       return NextResponse.json(null, { status: 200, headers });
@@ -59,19 +63,16 @@ export async function GET(request) {
 }
 
 export async function POST(request) {
-  const origin = request.headers.get("origin");
-
-  if (origin !== process.env.NEXT_PUBLIC_SITE_URL) {
+  if (!originAllowed(request)) {
     return new NextResponse("Access Denied", { status: 403 });
+  }
+  const ip = clientIpFromHeaders(request.headers);
+  if (!rateLimit(`contact:${ip}`, { limit: 8, windowMs: 15 * 60 * 1000 }).ok) {
+    return NextResponse.json({ message: "too many requests" }, { status: 429 });
   }
   const { name, contact, message, type } = await request.json();
   try {
-    const headers = {
-      "Access-Control-Allow-Origin": `${process.env.NEXT_PUBLIC_SITE_URL}`,
-      "Access-Control-Allow-Methods": "GET, POST, OPTIONS, PUT, PATCH, DELETE",
-      "Access-Control-Allow-Headers":
-        "Origin, X-Requested-With, Content-Type, Accept",
-    };
+    const headers = siteCorsHeaders();
     // Обрабатываем запрос OPTIONS для CORS preflight
     if (request.method === "OPTIONS") {
       return NextResponse.json(null, { status: 200, headers });

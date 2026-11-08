@@ -7,12 +7,12 @@ const Production = async ({ lang }) => {
   return (
     <div id="production" className="w-full scroll-mt-24 text-lg font-bold">
       <div className="flex flex-col items-center p-10 xl:mx-40 lg:mx-20 md:mx-10">
-        <h1
+        <h2
           className="text-center py-10 text-2xl"
           style={{ fontFamily: "Montserrat-Bold" }}
         >
           {t.product.head}
-        </h1>
+        </h2>
         <div className="relative w-full overflow-hidden rounded-lg">
           <picture className="pointer-events-none absolute inset-0">
             <source
